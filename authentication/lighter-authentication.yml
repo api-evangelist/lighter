@@ -1,0 +1,71 @@
+generated: '2026-07-19'
+method: searched
+source: openapi/lighter-zklighter-openapi-original.json
+docs: https://apidocs.lighter.xyz/docs/api-keys
+summary:
+  types: [apiKey]
+  api_key_in: [header]
+  oauth2_flows: []
+  model: signed-transaction + bearer-style auth token
+schemes:
+  - name: apiKey
+    type: apiKey
+    in: header
+    parameter_name: auth
+    sources: [openapi/lighter-zklighter-openapi-original.json]
+    description: >-
+      Auth-gated REST endpoints and WebSocket channels take an `auth` token generated from an
+      account's API private key.
+model:
+  registration:
+    description: >-
+      A Lighter account is registered by signing a message with an Ethereum wallet, which binds the
+      L1 address to a Lighter account index. Sub-accounts share the same L1 wallet and each carry
+      their own account index.
+    docs: https://docs.lighter.xyz/trading/api
+  api_keys:
+    max_per_account: 256
+    usable_index_range: '2-254'
+    reserved_indexes: '0-3 reserved for the Lighter web and mobile interfaces'
+    lookup_index: '255 returns metadata for all API keys via the apikeys operation'
+    permissions: read and write (query auth-gated endpoints, submit transactions, process withdrawals)
+    per_key_nonce: true
+    docs: https://apidocs.lighter.xyz/docs/api-keys
+  auth_tokens:
+    - kind: canonical
+      structure: '{expiry_unix}:{account_index}:{api_key_index}:{random_hex}'
+      max_expiry: 8 hours
+      generated_by: create_auth_token_with_expiry() in the Python SDK, or the Go SDK
+    - kind: read-only
+      structure: 'ro:{account_index}:{single|all}:{expiry_unix}:{random_hex}'
+      min_expiry: 1 day
+      max_expiry: 10 years
+      max_per_account: 10
+      capabilities: read auth-gated data only; cannot sign transactions or request withdrawals
+      created_by_operation: tokens_create
+      revoked_by_operation: tokens_revoke
+      self_service_url: https://app.lighter.xyz/read-only-tokens/
+  transaction_signing:
+    description: >-
+      State-changing calls are not plain authenticated requests. The client signs a transaction body
+      with the API private key and submits it via sendTx or sendTxBatch (or the WebSocket
+      jsonapi/sendtx message). Signing is implemented in the Go SDK and wrapped by the Python
+      SignerClient.
+    operations: [sendTx, sendTxBatch]
+    docs: https://apidocs.lighter.xyz/docs/trading
+  key_restrictions:
+    maker_only_keys:
+      description: >-
+        Premium accounts may mark up to 251 keys per account index as maker-only, restricting them
+        to post-only (ALO) orders, modifies on ALO orders, and cancels, in exchange for a lower
+        latency execution path. Indexes 0-3 cannot be maker-only; changes have a one-hour cooldown.
+      operations: [getMakerOnlyApiKeys, setMakerOnlyApiKeys]
+  l1_signature_required_for:
+    - Fast Withdrawals to a different L1 address
+    - Transfers to another L1 address
+    - Associating a newly generated API key with an account (ChangePubKey)
+  scopes:
+    supported: false
+    evidence: >-
+      Error 61004 "custom scopes for api tokens are not supported yet" - Lighter has no OAuth or
+      scope surface, so no scopes/ artifact is produced.
