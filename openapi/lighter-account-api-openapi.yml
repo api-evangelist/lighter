@@ -1,0 +1,3061 @@
+openapi: 3.0.0
+info:
+  title: Lighter account API
+  version: ''
+servers:
+- url: https://mainnet.zklighter.elliot.ai
+tags:
+- name: account
+paths:
+  /api/v1/account:
+    get:
+      summary: account
+      operationId: account
+      tags:
+      - account
+      description: Get account by an account's index, or L1 address
+      parameters:
+      - name: by
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - index
+          - l1_address
+      - name: value
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: active_only
+        in: query
+        required: false
+        description: Hide markets for which leverage and margin settings are present (meaning the account traded it at least once), but with no active position.
+        schema:
+          type: boolean
+          default: false
+      - name: cursor
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DetailedAccounts'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/accountLimits:
+    get:
+      summary: accountLimits
+      operationId: accountLimits
+      tags:
+      - account
+      description: 'Get account limits. For more details on account types, see this page: https://apidocs.lighter.xyz/docs/account-types'
+      parameters:
+      - name: account_index
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountLimits'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/accountMetadata:
+    get:
+      summary: accountMetadata
+      operationId: accountMetadata
+      tags:
+      - account
+      description: Get account metadatas
+      parameters:
+      - name: authorization
+        in: header
+        required: false
+        schema:
+          type: string
+      - name: by
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - index
+          - l1_address
+      - name: value
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: cursor
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountMetadatas'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/accountsByL1Address:
+    get:
+      summary: accountsByL1Address
+      operationId: accountsByL1Address
+      tags:
+      - account
+      description: Returns all accounts associated with the given L1 address
+      parameters:
+      - name: l1_address
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: cursor
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubAccounts'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/apikeys:
+    get:
+      summary: apikeys
+      operationId: apikeys
+      tags:
+      - account
+      description: Get account api key. Set `api_key_index` to 255 to retrieve all api keys associated with the account.
+      parameters:
+      - name: account_index
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: api_key_index
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: uint8
+          default: '255'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountApiKeys'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/changeAccountTier:
+    post:
+      summary: changeAccountTier
+      operationId: changeAccountTier
+      tags:
+      - account
+      description: Change account tier. You can only perform this action once every 24 hours, and with no orders or positions open.
+      parameters:
+      - name: authorization
+        in: header
+        required: false
+        description: ' make required after integ is done'
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ReqChangeAccountTier'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RespChangeAccountTier'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/l1Metadata:
+    get:
+      summary: l1Metadata
+      operationId: l1Metadata
+      tags:
+      - account
+      description: Get L1 metadata
+      parameters:
+      - name: authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: l1_address
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/L1Metadata'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/liquidations:
+    get:
+      summary: liquidations
+      operationId: liquidations
+      tags:
+      - account
+      description: Get liquidation infos
+      parameters:
+      - name: authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: account_index
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: market_id
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int16
+          default: '255'
+      - name: cursor
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: limit
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+          maximum: 100
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LiquidationInfos'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/pnl:
+    get:
+      summary: pnl
+      operationId: pnl
+      tags:
+      - account
+      description: Get account PnL chart
+      parameters:
+      - name: authorization
+        in: header
+        required: false
+        schema:
+          type: string
+      - name: by
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - index
+      - name: value
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: resolution
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - 1m
+          - 5m
+          - 15m
+          - 1h
+          - 4h
+          - 1d
+      - name: start_timestamp
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 0
+          maximum: 5000000000000
+      - name: end_timestamp
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 0
+          maximum: 5000000000000
+      - name: count_back
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: ignore_transfers
+        in: query
+        required: false
+        schema:
+          type: boolean
+          format: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountPnL'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/positionFunding:
+    get:
+      summary: positionFunding
+      operationId: positionFunding
+      tags:
+      - account
+      description: Get accounts position fundings
+      parameters:
+      - name: authorization
+        in: header
+        required: false
+        schema:
+          type: string
+      - name: account_index
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: market_id
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int16
+          default: '255'
+      - name: cursor
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: limit
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+          maximum: 100
+      - name: side
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - long
+          - short
+          - all
+          default: all
+      - name: start_timestamp
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+      - name: end_timestamp
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PositionFundings'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/publicPoolsMetadata:
+    get:
+      summary: publicPoolsMetadata
+      operationId: publicPoolsMetadata
+      tags:
+      - account
+      description: Get public pools metadata. `auth` is required in case you specify an account_index. You will see public pools with an index that starts an n-1 of the one you specify. To see staking pools, use `filter=stake`
+      parameters:
+      - name: authorization
+        in: header
+        required: false
+        schema:
+          type: string
+      - name: filter
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - all
+          - user
+          - protocol
+          - account_index
+          - stake
+      - name: index
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: limit
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+          maximum: 100
+      - name: account_index
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RespPublicPoolsMetadata'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/tokens:
+    get:
+      summary: tokens
+      operationId: tokens
+      tags:
+      - account
+      description: Get read only auth tokens for an account
+      parameters:
+      - name: authorization
+        in: header
+        required: false
+        description: ' make required after integ is done'
+        schema:
+          type: string
+      - name: account_index
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RespGetApiTokens'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/tokens/create:
+    post:
+      summary: tokens_create
+      operationId: tokens_create
+      tags:
+      - account
+      description: Create an API token for read-only access
+      parameters:
+      - name: authorization
+        in: header
+        required: false
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ReqPostApiToken'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RespPostApiToken'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/tokens/revoke:
+    post:
+      summary: tokens_revoke
+      operationId: tokens_revoke
+      tags:
+      - account
+      description: Revoke read only auth token for an account
+      parameters:
+      - name: authorization
+        in: header
+        required: false
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ReqRevokeApiToken'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RespRevokeApiToken'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/leaseOptions:
+    get:
+      summary: leaseOptions
+      operationId: leaseOptions
+      tags:
+      - account
+      description: Returns available lease duration/rate tiers, sorted by duration descending.
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RespGetLeaseOptions'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/leases:
+    get:
+      summary: leases
+      operationId: leases
+      tags:
+      - account
+      description: Returns paginated lease entries for an account, most recent first. Supports read-only auth via signature/account_index/timestamp query params.
+      parameters:
+      - name: authorization
+        in: header
+        required: false
+        schema:
+          type: string
+        description: API token authorization
+      - name: account_index
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+        description: Account index to fetch leases for
+      - name: cursor
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Pagination cursor from a previous response
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 20
+          format: uint64
+          minimum: 1
+          maximum: 100
+        description: Number of results to return (1–100, default 20)
+      - name: auth
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Read-only auth (alternative to header authorization)
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RespGetLeases'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/litLease:
+    post:
+      summary: litLease
+      operationId: litLease
+      tags:
+      - account
+      description: 'Submit a LIT lease transfer. The server calculates the required fee based on lease_amount and duration_days, then executes the transfer. Fee formula (integer arithmetic): fee = lease_amount × (annual_rate × 100) × duration_days / (360 × 10000).'
+      parameters:
+      - name: authorization
+        in: header
+        required: false
+        schema:
+          type: string
+        description: API token authorization
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ReqLITLease'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TxHash'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/referral/userReferrals:
+    get:
+      summary: userReferrals
+      operationId: referral_userReferrals
+      tags:
+      - account
+      description: Get user referrals
+      parameters:
+      - name: authorization
+        in: header
+        required: false
+        schema:
+          type: string
+      - name: l1_address
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: cursor
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: auth
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: stats_start_timestamp
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+      - name: stats_end_timestamp
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+          maximum: 300
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserReferrals'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/getMakerOnlyApiKeys:
+    get:
+      summary: getMakerOnlyApiKeys
+      operationId: getMakerOnlyApiKeys
+      tags:
+      - account
+      description: Get maker-only API key indexes
+      parameters:
+      - name: authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: account_index
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RespGetMakerOnlyApiKeys'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/setMakerOnlyApiKeys:
+    post:
+      summary: setMakerOnlyApiKeys
+      operationId: setMakerOnlyApiKeys
+      tags:
+      - account
+      description: Set maker-only API key indexes. This replaces the current list; pass all indexes you want marked as maker-only. Pass [] to clear all maker-only restrictions.
+      parameters:
+      - name: authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ReqSetMakerOnlyApiKeys'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ReqSetMakerOnlyApiKeys'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RespSetMakerOnlyApiKeys'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/partnerStats:
+    get:
+      summary: partnerStats
+      operationId: partnerStats
+      description: Get partner stats. If timestamps are not provided, all-time stats will be returned.
+      tags:
+      - account
+      parameters:
+      - name: account_index
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: start_timestamp
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+      - name: end_timestamp
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PartnerStats'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/rfq/respond:
+    post:
+      summary: rfq_respond
+      operationId: rfq_respond
+      tags:
+      - account
+      description: Respond to RFQ
+      parameters:
+      - name: authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ReqRespondToRFQ'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RespRespondToRFQ'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/rfq/list:
+    get:
+      summary: rfq_list
+      operationId: rfq_list
+      tags:
+      - account
+      description: List RFQs
+      parameters:
+      - name: authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: account_index
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+          default: '281474976710655'
+      - name: status
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - opened
+          - order_created
+          - closed
+      - name: cursor
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+          default: '20'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RespListRFQs'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/rfq/get:
+    get:
+      summary: rfq_get
+      operationId: rfq_get
+      tags:
+      - account
+      description: Get RFQ by ID
+      parameters:
+      - name: authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: rfq_id
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RespGetRFQ'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/rfq/create:
+    post:
+      summary: rfq_create
+      operationId: rfq_create
+      tags:
+      - account
+      description: Create RFQ
+      parameters:
+      - name: authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ReqCreateRFQ'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RespCreateRFQ'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/rfq/update:
+    post:
+      summary: rfq_update
+      operationId: rfq_update
+      tags:
+      - account
+      description: Update RFQ status
+      parameters:
+      - name: authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ReqUpdateRFQ'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RespUpdateRFQ'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+components:
+  schemas:
+    ReqCreateRFQ:
+      type: object
+      properties:
+        market_index:
+          type: integer
+          format: int16
+        base_amount:
+          type: string
+        quote_amount:
+          type: string
+        direction:
+          type: integer
+          format: int16
+          enum:
+          - '0'
+          - '1'
+        metadata:
+          type: string
+      title: ReqCreateRFQ
+      required:
+      - market_index
+      - direction
+    AccountLimits:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        max_llp_percentage:
+          type: integer
+          format: int32
+          example: '25'
+        user_tier:
+          type: string
+          example: std
+        can_create_public_pool:
+          type: boolean
+          format: boolean
+          example: 'true'
+        max_llp_amount:
+          type: string
+          example: '1000000'
+        current_maker_fee_tick:
+          type: integer
+          format: int32
+          example: '0'
+        current_taker_fee_tick:
+          type: integer
+          format: int32
+          example: '0'
+        effective_lit_stakes:
+          type: string
+          description: Effective staked LIT shares including active leases.
+        leased_lit:
+          type: string
+          description: Total actively leased LIT.
+        user_tier_name:
+          type: string
+          example: standard
+        user_tier_last_update:
+          type: integer
+          format: int64
+      title: AccountLimits
+      required:
+      - code
+      - max_llp_percentage
+      - user_tier
+      - can_create_public_pool
+      - max_llp_amount
+      - current_maker_fee_tick
+      - current_taker_fee_tick
+      - effective_lit_stakes
+      - leased_lit
+      - user_tier_name
+    AccountMetadata:
+      type: object
+      properties:
+        account_index:
+          type: integer
+          format: int64
+        name:
+          type: string
+        description:
+          type: string
+        can_invite:
+          type: boolean
+          format: boolean
+          description: ' Remove After FE uses L1 meta endpoint'
+        referral_points_percentage:
+          type: string
+          description: ' Remove After FE uses L1 meta endpoint'
+        created_at:
+          type: integer
+          format: int64
+        can_rfq:
+          type: boolean
+          format: boolean
+        can_rfq_market_ids:
+          type: array
+          items:
+            type: string
+      title: AccountMetadata
+      required:
+      - account_index
+      - name
+      - description
+      - can_invite
+      - referral_points_percentage
+      - can_rfq
+      - can_rfq_market_ids
+      - created_at
+    PublicPoolInfo:
+      type: object
+      properties:
+        status:
+          type: integer
+          format: uint8
+          example: '0'
+        operator_fee:
+          type: string
+          example: '100'
+        min_operator_share_rate:
+          type: string
+          example: '200'
+        total_shares:
+          type: integer
+          format: int64
+          example: '100000'
+        operator_shares:
+          type: integer
+          format: int64
+          example: '20000'
+        annual_percentage_yield:
+          type: number
+          format: double
+          example: '20.5000'
+        daily_returns:
+          type: array
+          items:
+            $ref: '#/components/schemas/DailyReturn'
+        share_prices:
+          type: array
+          items:
+            $ref: '#/components/schemas/SharePrice'
+        sharpe_ratio:
+          type: number
+          format: double
+        strategies:
+          type: array
+          items:
+            $ref: '#/components/schemas/Strategy'
+      title: PublicPoolInfo
+      required:
+      - status
+      - operator_fee
+      - min_operator_share_rate
+      - total_shares
+      - operator_shares
+      - annual_percentage_yield
+      - daily_returns
+      - share_prices
+      - sharpe_ratio
+      - strategies
+    RespListRFQs:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        rfqs:
+          type: array
+          items:
+            $ref: '#/components/schemas/RFQEntry'
+        next_cursor:
+          type: string
+      title: RespListRFQs
+      required:
+      - code
+      - rfqs
+    DailyReturn:
+      type: object
+      properties:
+        timestamp:
+          type: integer
+          format: int64
+          example: '1640995200'
+        daily_return:
+          type: number
+          format: double
+          example: '0.0001'
+      title: DailyReturn
+      required:
+      - timestamp
+      - daily_return
+    PartnerStats:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        total_fees_earned:
+          type: string
+        total_taker_fees_earned:
+          type: string
+        total_maker_fees_earned:
+          type: string
+        total_volume:
+          type: string
+        total_taker_volume:
+          type: string
+        total_maker_volume:
+          type: string
+        total_trades:
+          type: integer
+          format: int64
+        total_taker_trades:
+          type: integer
+          format: int64
+        total_maker_trades:
+          type: integer
+          format: int64
+        unique_clients:
+          type: integer
+          format: int64
+      title: PartnerStats
+      required:
+      - code
+      - total_fees_earned
+      - total_taker_fees_earned
+      - total_maker_fees_earned
+      - total_volume
+      - total_taker_volume
+      - total_maker_volume
+      - total_trades
+      - total_taker_trades
+      - total_maker_trades
+      - unique_clients
+    LiquidationInfo:
+      type: object
+      properties:
+        positions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountPosition'
+        risk_info_before:
+          $ref: '#/components/schemas/RiskInfo'
+        risk_info_after:
+          $ref: '#/components/schemas/RiskInfo'
+        mark_prices:
+          type: object
+          additionalProperties:
+            type: number
+            format: double
+        assets:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountAsset'
+        asset_index_prices:
+          type: object
+          additionalProperties:
+            type: string
+      title: LiquidationInfo
+      required:
+      - positions
+      - risk_info_before
+      - risk_info_after
+      - mark_prices
+      - assets
+      - asset_index_prices
+    TradeStats:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int64
+        volume:
+          type: string
+        web_count:
+          type: integer
+          format: int64
+        web_volume:
+          type: string
+        mobile_app_count:
+          type: integer
+          format: int64
+        mobile_app_volume:
+          type: string
+        mobile_browser_count:
+          type: integer
+          format: int64
+        mobile_browser_volume:
+          type: string
+      title: TradeStats
+      required:
+      - count
+      - volume
+      - web_count
+      - web_volume
+      - mobile_app_count
+      - mobile_app_volume
+      - mobile_browser_count
+      - mobile_browser_volume
+    RespRespondToRFQ:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        id:
+          type: integer
+          format: int64
+        account_index:
+          type: integer
+          format: int64
+        market_index:
+          type: integer
+          format: int16
+        direction:
+          type: integer
+          format: int16
+        base_amount:
+          type: string
+        quote_amount:
+          type: string
+        status:
+          type: string
+        metadata:
+          $ref: '#/components/schemas/RFQMetadata'
+        responses:
+          type: array
+          items:
+            $ref: '#/components/schemas/RFQResponseEntry'
+        created_at:
+          type: integer
+          format: int64
+        updated_at:
+          type: integer
+          format: int64
+      title: RespRespondToRFQ
+      required:
+      - code
+      - id
+      - account_index
+      - market_index
+      - direction
+      - base_amount
+      - quote_amount
+      - status
+      - metadata
+      - responses
+      - created_at
+      - updated_at
+    PublicPoolShare:
+      type: object
+      properties:
+        public_pool_index:
+          type: integer
+          format: int64
+          example: '1'
+        shares_amount:
+          type: integer
+          format: int64
+          example: '3000'
+        entry_usdc:
+          type: string
+          example: '3000'
+        entry_timestamp:
+          type: integer
+          format: int64
+        principal_amount:
+          type: string
+      title: PublicPoolShare
+      required:
+      - public_pool_index
+      - shares_amount
+      - entry_usdc
+      - entry_timestamp
+      - principal_amount
+    Referral:
+      type: object
+      properties:
+        l1_address:
+          type: string
+        referral_code:
+          type: string
+        used_at:
+          type: integer
+          format: int64
+        trade_stats:
+          $ref: '#/components/schemas/TradeStats'
+        tier:
+          type: string
+      required:
+      - trade_stats
+      - l1_address
+      - referral_code
+      - tier
+      - used_at
+    RiskInfo:
+      type: object
+      properties:
+        cross_risk_parameters:
+          $ref: '#/components/schemas/RiskParameters'
+        isolated_risk_parameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/RiskParameters'
+      title: RiskInfo
+      required:
+      - cross_risk_parameters
+      - isolated_risk_parameters
+    RespSetMakerOnlyApiKeys:
+      type: object
+      title: RespSetMakerOnlyApiKeys
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+      required:
+      - code
+    RespRevokeApiToken:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        token_id:
+          type: integer
+          format: int64
+        revoked:
+          type: boolean
+          format: boolean
+      title: RespRevokeApiToken
+      required:
+      - code
+      - token_id
+      - revoked
+    PendingUnlock:
+      type: object
+      properties:
+        unlock_timestamp:
+          type: integer
+          format: int64
+        asset_index:
+          type: integer
+          format: int16
+        amount:
+          type: string
+      required:
+      - unlock_timestamp
+      - asset_index
+      - amount
+    LeaseOptionEntry:
+      type: object
+      properties:
+        duration_days:
+          type: integer
+          description: Lease duration in days
+          format: int32
+        annual_rate:
+          type: number
+          format: double
+          description: Annual rate as a percentage (e.g. 25.0 means 25%)
+      required:
+      - duration_days
+      - annual_rate
+    SubAccounts:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        l1_address:
+          type: string
+          example: '0x70997970C51812dc3A010C7d01b50e0d17dc79C8'
+        sub_accounts:
+          type: array
+          example: '1'
+          items:
+            $ref: '#/components/schemas/Account'
+        next_cursor:
+          type: string
+      title: SubAccounts
+      required:
+      - code
+      - l1_address
+      - sub_accounts
+    RespGetLeaseOptions:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        options:
+          type: array
+          items:
+            $ref: '#/components/schemas/LeaseOptionEntry'
+        lit_incentives_account_index:
+          type: integer
+          format: int64
+          description: Account index that receives the leasing fee
+      required:
+      - code
+      - options
+      - lit_incentives_account_index
+    UserReferrals:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        cursor:
+          type: string
+        referrals:
+          type: array
+          items:
+            $ref: '#/components/schemas/Referral'
+        used_code:
+          type: string
+      required:
+      - code
+      - cursor
+      - referrals
+      - used_code
+    ApiKey:
+      type: object
+      properties:
+        account_index:
+          type: integer
+          format: int64
+          example: '3'
+        api_key_index:
+          type: integer
+          format: uint8
+          example: '0'
+        nonce:
+          type: integer
+          format: int64
+          example: '722'
+        public_key:
+          type: string
+        transaction_time:
+          type: integer
+          format: int64
+      title: ApiKey
+      required:
+      - account_index
+      - api_key_index
+      - nonce
+      - public_key
+      - transaction_time
+    RFQResponseEntry:
+      type: object
+      properties:
+        account_index:
+          type: integer
+          format: int64
+        status:
+          type: string
+          enum:
+          - acknowledged
+          - liquidity_provided
+          - not_interested
+        responded_at:
+          type: integer
+          format: int64
+        updated_at:
+          type: integer
+          format: int64
+      title: RFQResponseEntry
+      required:
+      - account_index
+      - status
+      - responded_at
+      - updated_at
+    ReqChangeAccountTier:
+      type: object
+      properties:
+        auth:
+          type: string
+          description: ' made optional to support header auth clients'
+        account_index:
+          type: integer
+          format: int64
+        new_tier:
+          type: string
+      title: ReqChangeAccountTier
+      required:
+      - account_index
+      - new_tier
+    SharePrice:
+      type: object
+      properties:
+        timestamp:
+          type: integer
+          format: int64
+          example: '1640995200'
+        share_price:
+          type: number
+          format: double
+          example: '0.0001'
+      title: SharePrice
+      required:
+      - timestamp
+      - share_price
+    AccountApiKeys:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        api_keys:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiKey'
+      title: AccountApiKeys
+      required:
+      - code
+      - api_keys
+    ReqSetMakerOnlyApiKeys:
+      type: object
+      title: ReqSetMakerOnlyApiKeys
+      description: Send as form data, not JSON. The value replaces the full maker-only API key list; use [] to clear all restrictions.
+      properties:
+        account_index:
+          type: integer
+          format: int64
+        api_key_indexes:
+          type: string
+          description: JSON array string of API key indexes, e.g. "[4,5]". Use [] to clear all maker-only restrictions.
+        auth:
+          type: string
+      required:
+      - account_index
+      - api_key_indexes
+    AccountPnL:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        resolution:
+          type: string
+          example: 15m
+        pnl:
+          type: array
+          items:
+            $ref: '#/components/schemas/PnLEntry'
+      title: AccountPnL
+      required:
+      - code
+      - resolution
+      - pnl
+    RiskParameters:
+      type: object
+      properties:
+        market_id:
+          type: integer
+          format: int16
+        collateral:
+          type: string
+        total_account_value:
+          type: string
+        initial_margin_req:
+          type: string
+        maintenance_margin_req:
+          type: string
+        close_out_margin_req:
+          type: string
+        total_account_liquidation_threshold:
+          type: string
+        usdc_collateral_with_funding:
+          type: string
+        usdc_portfolio_value:
+          type: string
+      title: RiskParameters
+      required:
+      - market_id
+      - total_account_value
+      - initial_margin_req
+      - maintenance_margin_req
+      - close_out_margin_req
+      - total_account_liquidation_threshold
+      - collateral
+      - usdc_collateral_with_funding
+      - usdc_portfolio_value
+    AccountPosition:
+      type: object
+      properties:
+        market_id:
+          type: integer
+          format: int16
+          example: '1'
+        symbol:
+          type: string
+          example: ETH
+        initial_margin_fraction:
+          type: string
+          example: '20.00'
+        open_order_count:
+          type: integer
+          format: int64
+          example: '3'
+        pending_order_count:
+          type: integer
+          format: int64
+          example: '3'
+        position_tied_order_count:
+          type: integer
+          format: int64
+          example: '3'
+        sign:
+          type: integer
+          format: int32
+          example: '1'
+        position:
+          type: string
+          example: '3.6956'
+        avg_entry_price:
+          type: string
+          example: '3024.66'
+        position_value:
+          type: string
+          example: '3019.92'
+        unrealized_pnl:
+          type: string
+          example: '17.521309'
+        realized_pnl:
+          type: string
+          example: '2.000000'
+        liquidation_price:
+          type: string
+          example: '3024.66'
+        total_funding_paid_out:
+          type: string
+          example: '34.2'
+        margin_mode:
+          type: integer
+          format: int32
+          example: '1'
+        allocated_margin:
+          type: string
+          example: '46342'
+        total_discount:
+          type: string
+      title: AccountPosition
+      required:
+      - market_id
+      - symbol
+      - initial_margin_fraction
+      - open_order_count
+      - pending_order_count
+      - position_tied_order_count
+      - sign
+      - position
+      - avg_entry_price
+      - position_value
+      - unrealized_pnl
+      - realized_pnl
+      - liquidation_price
+      - margin_mode
+      - allocated_margin
+      - total_discount
+    Strategy:
+      type: object
+      properties:
+        collateral:
+          type: string
+      required:
+      - collateral
+    ReqUpdateRFQ:
+      type: object
+      properties:
+        rfq_id:
+          type: integer
+          format: int64
+        status:
+          type: string
+          enum:
+          - order_created
+          - closed
+      title: ReqUpdateRFQ
+      required:
+      - rfq_id
+      - status
+    RespGetRFQ:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        id:
+          type: integer
+          format: int64
+        account_index:
+          type: integer
+          format: int64
+        market_index:
+          type: integer
+          format: int16
+        direction:
+          type: integer
+          format: int16
+        base_amount:
+          type: string
+        quote_amount:
+          type: string
+        status:
+          type: string
+        metadata:
+          $ref: '#/components/schemas/RFQMetadata'
+        responses:
+          type: array
+          items:
+            $ref: '#/components/schemas/RFQResponseEntry'
+        created_at:
+          type: integer
+          format: int64
+        updated_at:
+          type: integer
+          format: int64
+      title: RespGetRFQ
+      required:
+      - code
+      - id
+      - account_index
+      - market_index
+      - direction
+      - base_amount
+      - quote_amount
+      - status
+      - metadata
+      - responses
+      - created_at
+      - updated_at
+    RespPublicPoolsMetadata:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        public_pools:
+          type: array
+          items:
+            $ref: '#/components/schemas/PublicPoolMetadata'
+      title: RespPublicPoolsMetadata
+      required:
+      - code
+      - public_pools
+    DetailedAccount:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        account_type:
+          type: integer
+          format: uint8
+          example: '1'
+        account_trading_mode:
+          type: integer
+          format: uint8
+          example: '1'
+          description: Classic=0 and Unified=1
+        index:
+          type: integer
+          format: int64
+          example: '1'
+        l1_address:
+          type: string
+          example: '0x70997970C51812dc3A010C7d01b50e0d17dc79C8'
+        cancel_all_time:
+          type: integer
+          format: int64
+          example: '1640995200'
+        total_order_count:
+          type: integer
+          format: int64
+          example: '100'
+        total_isolated_order_count:
+          type: integer
+          format: int64
+          example: '100'
+        pending_order_count:
+          type: integer
+          format: int64
+          example: '100'
+        available_balance:
+          type: string
+          example: '19995'
+        status:
+          type: integer
+          format: uint8
+          example: '1'
+        collateral:
+          type: string
+          example: '46342'
+        account_index:
+          type: integer
+          format: int64
+        name:
+          type: string
+        description:
+          type: string
+        can_invite:
+          type: boolean
+          format: boolean
+          description: ' Remove After FE uses L1 meta endpoint'
+        referral_points_percentage:
+          type: string
+          description: ' Remove After FE uses L1 meta endpoint'
+        positions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountPosition'
+        assets:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountAsset'
+        total_asset_value:
+          type: string
+          example: '19995'
+        cross_asset_value:
+          type: string
+          example: '19995'
+        pool_info:
+          $ref: '#/components/schemas/PublicPoolInfo'
+        shares:
+          type: array
+          items:
+            $ref: '#/components/schemas/PublicPoolShare'
+        created_at:
+          type: integer
+          format: int64
+        transaction_time:
+          type: integer
+          format: int64
+        pending_unlocks:
+          type: array
+          items:
+            $ref: '#/components/schemas/PendingUnlock'
+        approved_integrators:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApprovedIntegrator'
+        can_rfq:
+          type: boolean
+          format: boolean
+        cross_initial_margin_requirement:
+          type: string
+          example: '5998.500000'
+        cross_maintenance_margin_requirement:
+          type: string
+          example: '2999.250000'
+        can_rfq_market_ids:
+          type: array
+          items:
+            type: string
+      title: DetailedAccount
+      required:
+      - code
+      - account_type
+      - index
+      - l1_address
+      - cancel_all_time
+      - total_order_count
+      - total_isolated_order_count
+      - pending_order_count
+      - available_balance
+      - status
+      - collateral
+      - transaction_time
+      - account_index
+      - name
+      - description
+      - can_invite
+      - referral_points_percentage
+      - can_rfq
+      - can_rfq_market_ids
+      - created_at
+      - positions
+      - assets
+      - total_asset_value
+      - cross_asset_value
+      - cross_initial_margin_requirement
+      - cross_maintenance_margin_requirement
+      - pool_info
+      - shares
+    RespGetApiTokens:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        api_tokens:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiToken'
+      title: RespGetApiTokens
+      required:
+      - code
+      - api_tokens
+    RespUpdateRFQ:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        id:
+          type: integer
+          format: int64
+        account_index:
+          type: integer
+          format: int64
+        market_index:
+          type: integer
+          format: int16
+        direction:
+          type: integer
+          format: int16
+        base_amount:
+          type: string
+        quote_amount:
+          type: string
+        status:
+          type: string
+        metadata:
+          $ref: '#/components/schemas/RFQMetadata'
+        responses:
+          type: array
+          items:
+            $ref: '#/components/schemas/RFQResponseEntry'
+        created_at:
+          type: integer
+          format: int64
+        updated_at:
+          type: integer
+          format: int64
+      title: RespUpdateRFQ
+      required:
+      - code
+      - id
+      - account_index
+      - market_index
+      - direction
+      - base_amount
+      - quote_amount
+      - status
+      - metadata
+      - responses
+      - created_at
+      - updated_at
+    AccountAsset:
+      type: object
+      properties:
+        symbol:
+          type: string
+          example: USDC
+        asset_id:
+          type: integer
+          format: int16
+          example: 1
+        balance:
+          type: string
+          example: '1000'
+        locked_balance:
+          type: string
+          example: '1000'
+        margin_balance:
+          type: string
+          example: '1000'
+        margin_mode:
+          type: string
+          example: enabled
+          enum:
+          - enabled
+          - disabled
+      title: AccountAsset
+      required:
+      - symbol
+      - asset_id
+      - balance
+      - locked_balance
+      - margin_balance
+      - margin_mode
+    RespGetLeases:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        leases:
+          type: array
+          items:
+            $ref: '#/components/schemas/LeaseEntry'
+        next_cursor:
+          type: string
+          description: Cursor to pass as the cursor param to fetch the next page. Absent if no more pages.
+      required:
+      - code
+      - leases
+    ResultCode:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+      title: ResultCode
+      required:
+      - code
+    RespGetMakerOnlyApiKeys:
+      type: object
+      title: RespGetMakerOnlyApiKeys
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        api_key_indexes:
+          type: array
+          items:
+            type: integer
+            format: int64
+      required:
+      - code
+      - api_key_indexes
+    ReqLITLease:
+      type: object
+      properties:
+        tx_info:
+          type: string
+          description: Signed transaction info (JSON with L2 signature, L1 signature, etc.)
+        lease_amount:
+          type: string
+          description: Amount of LIT to lease in raw units (1 LIT = 100000000)
+        duration_days:
+          type: integer
+          description: Lease duration in days. Must match one of the available lease options.
+          format: int32
+      required:
+      - tx_info
+      - lease_amount
+      - duration_days
+    ApprovedIntegrator:
+      type: object
+      properties:
+        account_index:
+          type: integer
+          format: int64
+          example: '54621'
+        name:
+          type: string
+          example: Integrator1
+        max_perps_taker_fee:
+          type: integer
+          format: int32
+          example: '10'
+        max_perps_maker_fee:
+          type: integer
+          format: int32
+          example: '1'
+        max_spot_taker_fee:
+          type: integer
+          format: int32
+          example: '10'
+        max_spot_maker_fee:
+          type: integer
+          format: int32
+          example: '1'
+        approval_expiry:
+          type: integer
+          format: int64
+          example: '1640995200'
+          description: ' Timestamp in milliseconds, after which the integrator is no longer approved'
+      title: ApprovedIntegrator
+      required:
+      - account_index
+      - name
+      - max_perps_taker_fee
+      - max_perps_maker_fee
+      - max_spot_taker_fee
+      - max_spot_maker_fee
+      - approval_expiry
+    ReqPostApiToken:
+      type: object
+      properties:
+        name:
+          type: string
+        account_index:
+          type: integer
+          format: int64
+        expiry:
+          type: integer
+          format: int64
+        sub_account_access:
+          type: boolean
+          format: boolean
+        scopes:
+          type: string
+          example: read.*
+          default: read.*
+      title: ReqPostApiToken
+      required:
+      - name
+      - account_index
+      - expiry
+      - sub_account_access
+    DetailedAccounts:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        total:
+          type: integer
+          format: int64
+          example: '1'
+        accounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/DetailedAccount'
+        next_cursor:
+          type: string
+      title: DetailedAccounts
+      required:
+      - code
+      - total
+      - accounts
+      - next_cursor
+    PositionFundings:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        position_fundings:
+          type: array
+          items:
+            $ref: '#/components/schemas/PositionFunding'
+        next_cursor:
+          type: string
+      title: PositionFundings
+      required:
+      - code
+      - position_fundings
+    PositionFunding:
+      type: object
+      properties:
+        timestamp:
+          type: integer
+          format: int64
+          example: '1640995200'
+        market_id:
+          type: integer
+          format: int16
+          example: '1'
+        funding_id:
+          type: integer
+          format: int64
+          example: '1'
+        change:
+          type: string
+          example: '1'
+        discount:
+          type: string
+          example: '1'
+        rate:
+          type: string
+          example: '1'
+        position_size:
+          type: string
+          example: '1'
+        position_side:
+          type: string
+          example: long
+          enum:
+          - long
+          - short
+      title: PositionFunding
+      required:
+      - timestamp
+      - market_id
+      - funding_id
+      - change
+      - rate
+      - position_size
+      - position_side
+      - discount
+    PublicPoolMetadata:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        account_index:
+          type: integer
+          format: int64
+          example: '3'
+        account_type:
+          type: integer
+          format: uint8
+          example: '1'
+        name:
+          type: string
+        l1_address:
+          type: string
+          example: '0x70997970C51812dc3A010C7d01b50e0d17dc79C8'
+        annual_percentage_yield:
+          type: number
+          format: double
+          example: '20.5000'
+        status:
+          type: integer
+          format: uint8
+          example: '0'
+        operator_fee:
+          type: string
+          example: '100'
+        total_asset_value:
+          type: string
+          example: '19995'
+        total_shares:
+          type: integer
+          format: int64
+          example: '100000'
+        account_share:
+          $ref: '#/components/schemas/PublicPoolShare'
+        assets:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountAsset'
+        created_at:
+          type: integer
+          format: int64
+        master_account_index:
+          type: integer
+          format: int64
+        sharpe_ratio:
+          type: number
+          format: double
+        total_perps_value:
+          type: string
+        total_spot_value:
+          type: string
+      title: PublicPoolMetadata
+      required:
+      - code
+      - account_index
+      - account_type
+      - name
+      - l1_address
+      - annual_percentage_yield
+      - status
+      - operator_fee
+      - total_asset_value
+      - total_shares
+      - assets
+      - created_at
+      - master_account_index
+      - sharpe_ratio
+      - total_perps_value
+      - total_spot_value
+    RFQEntry:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        account_index:
+          type: integer
+          format: int64
+        market_index:
+          type: integer
+          format: int16
+        direction:
+          type: integer
+          format: int16
+        base_amount:
+          type: string
+        quote_amount:
+          type: string
+        status:
+          type: string
+        metadata:
+          $ref: '#/components/schemas/RFQMetadata'
+        responses:
+          type: array
+          items:
+            $ref: '#/components/schemas/RFQResponseEntry'
+        created_at:
+          type: integer
+          format: int64
+        updated_at:
+          type: integer
+          format: int64
+      title: RFQEntry
+      required:
+      - id
+      - account_index
+      - market_index
+      - direction
+      - base_amount
+      - quote_amount
+      - status
+      - metadata
+      - responses
+      - created_at
+      - updated_at
+    ApiToken:
+      type: object
+      properties:
+        token_id:
+          type: integer
+          format: int64
+        api_token:
+          type: string
+        name:
+          type: string
+        account_index:
+          type: integer
+          format: int64
+        expiry:
+          type: integer
+          format: int64
+        sub_account_access:
+          type: boolean
+          format: boolean
+        revoked:
+          type: boolean
+          format: boolean
+        scopes:
+          type: string
+      title: ApiToken
+      required:
+      - token_id
+      - api_token
+      - name
+      - account_index
+      - expiry
+      - sub_account_access
+      - revoked
+      - scopes
+    RespCreateRFQ:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        id:
+          type: integer
+          format: int64
+        account_index:
+          type: integer
+          format: int64
+        market_index:
+          type: integer
+          format: int16
+        direction:
+          type: integer
+          format: int16
+        base_amount:
+          type: string
+        quote_amount:
+          type: string
+        status:
+          type: string
+        metadata:
+          $ref: '#/components/schemas/RFQMetadata'
+        responses:
+          type: array
+          items:
+            $ref: '#/components/schemas/RFQResponseEntry'
+        created_at:
+          type: integer
+          format: int64
+        updated_at:
+          type: integer
+          format: int64
+      title: RespCreateRFQ
+      required:
+      - code
+      - id
+      - account_index
+      - market_index
+      - direction
+      - base_amount
+      - quote_amount
+      - status
+      - metadata
+      - responses
+      - created_at
+      - updated_at
+    LiquidationInfos:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        liquidations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Liquidation'
+        next_cursor:
+          type: string
+      title: LiquidationInfos
+      required:
+      - code
+      - liquidations
+    RespPostApiToken:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        token_id:
+          type: integer
+          format: int64
+        api_token:
+          type: string
+        name:
+          type: string
+        account_index:
+          type: integer
+          format: int64
+        expiry:
+          type: integer
+          format: int64
+        sub_account_access:
+          type: boolean
+          format: boolean
+        revoked:
+          type: boolean
+          format: boolean
+        scopes:
+          type: string
+      title: RespPostApiToken
+      required:
+      - code
+      - token_id
+      - api_token
+      - name
+      - account_index
+      - expiry
+      - sub_account_access
+      - revoked
+      - scopes
+    L1Metadata:
+      type: object
+      properties:
+        l1_address:
+          type: string
+        can_invite:
+          type: boolean
+          format: boolean
+        referral_points_percentage:
+          type: string
+      title: L1Metadata
+      required:
+      - l1_address
+      - can_invite
+      - referral_points_percentage
+    ReqRevokeApiToken:
+      type: object
+      properties:
+        token_id:
+          type: integer
+          format: int64
+        account_index:
+          type: integer
+          format: int64
+      title: ReqRevokeApiToken
+      required:
+      - token_id
+      - account_index
+    TxHash:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        tx_hash:
+          type: string
+          example: '0x70997970C51812dc3A010C7d01b50e0d17dc79C8'
+      title: TxHash
+      required:
+      - code
+      - tx_hash
+    LeaseEntry:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: Lease ID
+        master_account_index:
+          type: integer
+          format: int64
+          description: Master account index
+        lease_amount:
+          type: integer
+          format: int64
+          description: Leased LIT amount in raw units (1 LIT = 1e8)
+        fee_amount:
+          type: integer
+          format: int64
+          description: Fee paid in raw units
+        start:
+          type: integer
+          format: int64
+          description: Lease start time (Unix milliseconds)
+        end:
+          type: integer
+          format: int64
+          description: Lease end time (Unix milliseconds)
+        status:
+          type: string
+          enum:
+          - waiting_fee
+          - leased
+          - expired
+          - canceled
+          description: Lease status
+        error:
+          type: string
+          description: Error message if lease was canceled
+      required:
+      - end
+      - error
+      - fee_amount
+      - id
+      - lease_amount
+      - master_account_index
+      - start
+      - status
+    RespChangeAccountTier:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+      title: RespChangeAccountTier
+      required:
+      - code
+    PnLEntry:
+      type: object
+      properties:
+        timestamp:
+          type: integer
+          format: int64
+          example: '1640995200'
+        trade_pnl:
+          type: number
+          format: double
+          example: '12.0'
+        inflow:
+          type: number
+          format: double
+          example: '12.0'
+        outflow:
+          type: number
+          format: double
+          example: '12.0'
+        pool_pnl:
+          type: number
+          format: double
+          example: '12.0'
+        pool_inflow:
+          type: number
+          format: double
+          example: '12.0'
+        pool_outflow:
+          type: number
+          format: double
+          example: '12.0'
+        pool_total_shares:
+          type: number
+          format: double
+          example: '12.0'
+        spot_inflow:
+          type: number
+          format: double
+          example: '12.0'
+        spot_outflow:
+          type: number
+          format: double
+          example: '12.0'
+        staked_lit:
+          type: number
+          format: double
+          example: '12.0'
+        staking_inflow:
+          type: number
+          format: double
+          example: '12.0'
+        staking_outflow:
+          type: number
+          format: double
+          example: '12.0'
+        staking_pnl:
+          type: number
+          format: double
+          example: '12.0'
+        trade_spot_pnl:
+          type: number
+          format: double
+          example: '12.0'
+        volume:
+          type: number
+          format: double
+          example: '12.0'
+      title: PnLEntry
+      required:
+      - timestamp
+      - trade_pnl
+      - inflow
+      - outflow
+      - pool_pnl
+      - pool_inflow
+      - pool_outflow
+      - pool_total_shares
+      - spot_inflow
+      - spot_outflow
+      - staked_lit
+      - staking_inflow
+      - staking_outflow
+      - staking_pnl
+      - trade_spot_pnl
+      - volume
+    RFQMetadata:
+      type: object
+      properties:
+        requested_est_price:
+          type: string
+        requested_max_slippage:
+          type: string
+        requested_slippage:
+          type: string
+        worst_price:
+          type: string
+      title: RFQMetadata
+      required:
+      - requested_est_price
+      - requested_max_slippage
+      - requested_slippage
+      - worst_price
+    AccountMetadatas:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        account_metadatas:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountMetadata'
+        next_cursor:
+          type: string
+      title: AccountMetadatas
+      required:
+      - code
+      - account_metadatas
+    Account:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        account_type:
+          type: integer
+          format: uint8
+          example: '1'
+        account_trading_mode:
+          type: integer
+          format: uint8
+          example: '1'
+          description: Classic=0 and Unified=1
+        index:
+          type: integer
+          format: int64
+          example: '1'
+        l1_address:
+          type: string
+          example: '0x70997970C51812dc3A010C7d01b50e0d17dc79C8'
+        cancel_all_time:
+          type: integer
+          format: int64
+          example: '1640995200'
+        total_order_count:
+          type: integer
+          format: int64
+          example: '100'
+        total_isolated_order_count:
+          type: integer
+          format: int64
+          example: '100'
+        pending_order_count:
+          type: integer
+          format: int64
+          example: '100'
+        available_balance:
+          type: string
+          example: '19995'
+        status:
+          type: integer
+          format: uint8
+          example: '1'
+        collateral:
+          type: string
+          example: '46342'
+        transaction_time:
+          type: integer
+          format: int64
+      title: Account
+      required:
+      - code
+      - account_type
+      - index
+      - l1_address
+      - cancel_all_time
+      - total_order_count
+      - total_isolated_order_count
+      - pending_order_count
+      - available_balance
+      - status
+      - collateral
+      - account_trading_mode
+      - transaction_time
+    Liquidation:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        market_id:
+          type: integer
+          format: int16
+        type:
+          type: string
+          enum:
+          - partial
+          - deleverage
+        trade:
+          $ref: '#/components/schemas/LiqTrade'
+        info:
+          $ref: '#/components/schemas/LiquidationInfo'
+        executed_at:
+          type: integer
+          format: int64
+      title: Liquidation
+      required:
+      - id
+      - market_id
+      - type
+      - trade
+      - info
+      - executed_at
+    ReqRespondToRFQ:
+      type: object
+      properties:
+        rfq_id:
+          type: integer
+          format: int64
+        status:
+          type: string
+          enum:
+          - acknowledged
+          - liquidity_provided
+          - not_interested
+      title: ReqRespondToRFQ
+      required:
+      - rfq_id
+      - status
+    LiqTrade:
+      type: object
+      properties:
+        price:
+          type: string
+        size:
+          type: string
+        taker_fee:
+          type: string
+        maker_fee:
+          type: string
+        transaction_time:
+          type: integer
+          format: int64
+      title: LiqTrade
+      required:
+      - price
+      - size
+      - taker_fee
+      - maker_fee
+      - transaction_time
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      description: Enter JWT Bearer token **_only_**
+      name: Authorization
+      in: header

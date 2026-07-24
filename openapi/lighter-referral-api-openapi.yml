@@ -1,0 +1,420 @@
+openapi: 3.0.0
+info:
+  title: Lighter account referral API
+  version: ''
+servers:
+- url: https://mainnet.zklighter.elliot.ai
+tags:
+- name: referral
+paths:
+  /api/v1/referral/points:
+    get:
+      summary: referral_points
+      operationId: referral_points
+      tags:
+      - referral
+      description: Get referral points
+      parameters:
+      - name: authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: account_index
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReferralPoints'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/referral/create:
+    post:
+      summary: referral_create
+      operationId: referral_create
+      tags:
+      - referral
+      description: Create referral code
+      parameters:
+      - name: authorization
+        in: header
+        required: false
+        description: ' make required after integ is done'
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ReqCreateReferralCode'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReferralCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/referral/get:
+    get:
+      summary: referral_get
+      operationId: referral_get
+      tags:
+      - referral
+      description: Get referral code
+      parameters:
+      - name: authorization
+        in: query
+        required: false
+        description: ' make required after integ is done'
+        schema:
+          type: string
+      - name: auth
+        in: query
+        required: false
+        description: ' made optional to support header auth clients'
+        schema:
+          type: string
+      - name: account_index
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReferralCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/referral/kickback/update:
+    post:
+      summary: referral_kickback_update
+      operationId: referral_kickback_update
+      tags:
+      - referral
+      description: Update kickback percentage for referral rewards (allowed once per day)
+      parameters:
+      - name: authorization
+        in: header
+        required: false
+        description: ' make required after integ is done'
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ReqUpdateKickback'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RespUpdateKickback'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/referral/update:
+    post:
+      summary: referral_update
+      operationId: referral_update
+      tags:
+      - referral
+      description: Update referral code (allowed once per account)
+      parameters:
+      - name: authorization
+        in: header
+        required: false
+        description: ' make required after integ is done'
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ReqUpdateReferralCode'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RespUpdateReferralCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/referral/use:
+    post:
+      summary: referral_use
+      operationId: referral_use
+      tags:
+      - referral
+      description: Use a referral code. You can change this at a later time.
+      parameters:
+      - name: authorization
+        in: header
+        required: false
+        description: ' make required after integ is done'
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ReqUseReferralCode'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+components:
+  schemas:
+    RespUpdateReferralCode:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        success:
+          type: boolean
+          format: boolean
+          example: 'true'
+      title: RespUpdateReferralCode
+      required:
+      - code
+      - success
+    ReqUseReferralCode:
+      type: object
+      properties:
+        auth:
+          type: string
+          description: ' made optional to support header auth clients'
+        l1_address:
+          type: string
+        referral_code:
+          type: string
+        discord:
+          type: string
+        telegram:
+          type: string
+        x:
+          type: string
+        signature:
+          type: string
+      title: ReqUseReferralCode
+      required:
+      - l1_address
+      - referral_code
+      - x
+    RespUpdateKickback:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        success:
+          type: boolean
+          format: boolean
+          example: 'true'
+      title: RespUpdateKickback
+      required:
+      - code
+      - success
+    ReqUpdateReferralCode:
+      type: object
+      properties:
+        auth:
+          type: string
+          description: ' made optional to support header auth clients'
+        account_index:
+          type: integer
+          format: int64
+        new_referral_code:
+          type: string
+      title: ReqUpdateReferralCode
+      required:
+      - account_index
+      - new_referral_code
+    ReqCreateReferralCode:
+      type: object
+      properties:
+        auth:
+          type: string
+          description: ' made optional to support header auth clients'
+        account_index:
+          type: integer
+          format: int64
+      title: ReqCreateReferralCode
+      required:
+      - account_index
+    ReferralCode:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        referral_code:
+          type: string
+          example: 5V24K3MJ
+        remaining_usage:
+          type: integer
+          format: int32
+          example: '3'
+      title: ReferralCode
+      required:
+      - code
+      - referral_code
+      - remaining_usage
+    ReferralPoints:
+      type: object
+      properties:
+        referrals:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReferralPointEntry'
+        user_total_points:
+          type: number
+          format: float
+          example: '1000'
+        user_last_week_points:
+          type: number
+          format: float
+          example: '1000'
+        user_total_referral_reward_points:
+          type: number
+          format: float
+          example: '1000'
+        user_last_week_referral_reward_points:
+          type: number
+          format: float
+          example: '1000'
+        reward_point_multiplier:
+          type: string
+          example: '0.1'
+      title: ReferralPoints
+      required:
+      - referrals
+      - user_total_points
+      - user_last_week_points
+      - user_total_referral_reward_points
+      - user_last_week_referral_reward_points
+      - reward_point_multiplier
+    ResultCode:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+      title: ResultCode
+      required:
+      - code
+    ReqUpdateKickback:
+      type: object
+      properties:
+        auth:
+          type: string
+          description: ' made optional to support header auth clients'
+        account_index:
+          type: integer
+          format: int64
+        kickback_percentage:
+          type: number
+          format: double
+          maximum: 100
+      title: ReqUpdateKickback
+      required:
+      - account_index
+      - kickback_percentage
+    ReferralPointEntry:
+      type: object
+      properties:
+        l1_address:
+          type: string
+        total_points:
+          type: number
+          format: float
+          example: '1000.01'
+        week_points:
+          type: number
+          format: float
+          example: '1000.01'
+        total_reward_points:
+          type: number
+          format: float
+          example: '200'
+        week_reward_points:
+          type: number
+          format: float
+          example: '200'
+        reward_point_multiplier:
+          type: string
+          example: '0.1'
+      title: ReferralPointEntry
+      required:
+      - l1_address
+      - total_points
+      - week_points
+      - total_reward_points
+      - week_reward_points
+      - reward_point_multiplier
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      description: Enter JWT Bearer token **_only_**
+      name: Authorization
+      in: header

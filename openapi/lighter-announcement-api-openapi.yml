@@ -1,0 +1,85 @@
+openapi: 3.0.0
+info:
+  title: Lighter account announcement API
+  version: ''
+servers:
+- url: https://mainnet.zklighter.elliot.ai
+tags:
+- name: announcement
+paths:
+  /api/v1/announcement:
+    get:
+      summary: announcement
+      operationId: announcement
+      tags:
+      - announcement
+      description: Get announcements
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Announcements'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+components:
+  schemas:
+    Announcements:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        announcements:
+          type: array
+          items:
+            $ref: '#/components/schemas/Announcement'
+      title: Announcements
+      required:
+      - code
+      - announcements
+    ResultCode:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+      title: ResultCode
+      required:
+      - code
+    Announcement:
+      type: object
+      properties:
+        title:
+          type: string
+        content:
+          type: string
+        created_at:
+          type: integer
+          format: int64
+        expired_at:
+          type: integer
+          format: int64
+      title: Announcement
+      required:
+      - title
+      - content
+      - created_at
+      - expired_at
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      description: Enter JWT Bearer token **_only_**
+      name: Authorization
+      in: header

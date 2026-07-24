@@ -1,0 +1,366 @@
+openapi: 3.0.0
+info:
+  title: Lighter account bridge API
+  version: ''
+servers:
+- url: https://mainnet.zklighter.elliot.ai
+tags:
+- name: bridge
+paths:
+  /api/v1/fastbridge/info:
+    get:
+      summary: fastbridge_info
+      operationId: fastbridge_info
+      tags:
+      - bridge
+      description: Get fast bridge info
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RespGetFastBridgeInfo'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/fastwithdraw:
+    post:
+      summary: fastwithdraw
+      operationId: fastwithdraw
+      tags:
+      - bridge
+      description: Fast withdraw
+      parameters:
+      - name: authorization
+        in: header
+        required: false
+        description: ' make required after integ is done'
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ReqFastwithdraw'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/fastwithdraw/info:
+    get:
+      summary: fastwithdraw_info
+      operationId: fastwithdraw_info
+      tags:
+      - bridge
+      description: Get fast withdraw info
+      parameters:
+      - name: authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: account_index
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RespGetFastwithdrawalInfo'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/createIntentAddress:
+    post:
+      summary: createIntentAddress
+      operationId: createIntentAddress
+      tags:
+      - bridge
+      description: Create a bridge intent address for CCTP bridge
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ReqCreateIntentAddress'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateIntentAddressResp'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/deposit/networks:
+    get:
+      summary: deposit_networks
+      operationId: deposit_networks
+      tags:
+      - bridge
+      description: Get networks that support deposits via intent address
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BridgeSupportedNetworks'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/deposit/latest:
+    get:
+      summary: deposit_latest
+      operationId: deposit_latest
+      tags:
+      - bridge
+      description: Get most recent deposit for given l1 address
+      parameters:
+      - name: l1_address
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Deposit'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+components:
+  schemas:
+    Deposit:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        source:
+          type: string
+          example: Arbitrum
+        source_chain_id:
+          type: string
+          example: '42161'
+        fast_bridge_tx_hash:
+          type: string
+          example: '0x70997970C51812dc3A010C7d01b50e0d17dc79C8'
+        batch_claim_tx_hash:
+          type: string
+          example: '0x70997970C51812dc3A010C7d01b50e0d17dc79C8'
+        cctp_burn_tx_hash:
+          type: string
+          example: '0x70997970C51812dc3A010C7d01b50e0d17dc79C8'
+        amount:
+          type: string
+        intent_address:
+          type: string
+        status:
+          type: string
+        step:
+          type: string
+        description:
+          type: string
+        created_at:
+          type: integer
+          format: int64
+        updated_at:
+          type: integer
+          format: int64
+        is_external_deposit:
+          type: boolean
+          format: boolean
+        is_next_bridge_fast:
+          type: boolean
+          format: boolean
+      title: Deposit
+      required:
+      - code
+      - source
+      - source_chain_id
+      - fast_bridge_tx_hash
+      - batch_claim_tx_hash
+      - cctp_burn_tx_hash
+      - amount
+      - intent_address
+      - status
+      - step
+      - description
+      - created_at
+      - updated_at
+      - is_external_deposit
+      - is_next_bridge_fast
+    BridgeSupportedNetworks:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        networks:
+          type: array
+          items:
+            $ref: '#/components/schemas/BridgeSupportedNetwork'
+      title: BridgeSupportedNetworks
+      required:
+      - code
+      - networks
+    CreateIntentAddressResp:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        intent_address:
+          type: string
+      title: CreateIntentAddressResp
+      required:
+      - code
+      - intent_address
+    RespGetFastwithdrawalInfo:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        to_account_index:
+          type: integer
+          format: int64
+        withdraw_limit:
+          type: string
+        max_withdrawal_amount:
+          type: string
+      title: RespGetFastwithdrawalInfo
+      required:
+      - code
+      - to_account_index
+      - withdraw_limit
+      - max_withdrawal_amount
+    ReqFastwithdraw:
+      type: object
+      properties:
+        tx_info:
+          type: string
+        to_address:
+          type: string
+        auth:
+          type: string
+          description: ' made optional to support header auth clients'
+      title: ReqFastwithdraw
+      required:
+      - tx_info
+      - to_address
+    ResultCode:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+      title: ResultCode
+      required:
+      - code
+    BridgeSupportedNetwork:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Arbitrum
+        chain_id:
+          type: string
+          example: '4164'
+        explorer:
+          type: string
+          example: https://arbiscan.io/
+      title: BridgeSupportedNetwork
+      required:
+      - name
+      - chain_id
+      - explorer
+    ReqCreateIntentAddress:
+      type: object
+      properties:
+        chain_id:
+          type: string
+        from_addr:
+          type: string
+        amount:
+          type: string
+        is_external_deposit:
+          type: boolean
+          format: boolean
+      title: ReqCreateIntentAddress
+      required:
+      - chain_id
+      - from_addr
+      - amount
+    RespGetFastBridgeInfo:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        fast_bridge_limit:
+          type: string
+      title: RespGetFastBridgeInfo
+      required:
+      - code
+      - fast_bridge_limit
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      description: Enter JWT Bearer token **_only_**
+      name: Authorization
+      in: header
