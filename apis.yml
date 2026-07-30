@@ -1,8 +1,31 @@
 aid: lighter
 name: Lighter
-description: Lighter is a company surfaced as a portfolio company of a16z, founders-fund, ribbit-capital
-  and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the
-  enrichment pipeline.
+description: >-
+  Lighter is a decentralized perpetual futures exchange built on zkLighter, a zero-knowledge rollup
+  that produces verifiable proofs of order matching and liquidations while targeting the latency of
+  a centralized venue. Traders register a Lighter account by signing with an Ethereum wallet, then
+  operate it through up to 256 API keys across master and sub-accounts. The public zkLighter REST
+  API exposes 78 operations covering order books, trades, candles, funding rates, accounts,
+  positions, public pools, referrals, deposits, transfers and withdrawals, alongside a WebSocket
+  stream carrying order book, trade, candle, position and account-transaction channels. Writes are
+  signed transactions rather than plain authenticated calls: clients sign an order, cancel, modify
+  or transfer body with an API private key and submit it via sendTx or sendTxBatch. Lighter ships
+  first-party Python and Go SDKs, runs a full testnet deployment, publishes a 239-entry numeric
+  error registry, weighted per-tier rate limits, and a vulnerability disclosure policy.
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://files.readme.io/2bd11e7-lighter_logo.svg
 url: https://raw.githubusercontent.com/api-evangelist/lighter/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -10,14 +33,229 @@ x-backed-by:
 - a16z
 - founders-fund
 - ribbit-capital
-x-tier: stub
-x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
-apis: []
+- Trading
+- Cryptocurrency
+- Decentralized Finance
+- Perpetual Futures
+- Exchange
+- Blockchain
+- Zero Knowledge
+- Market Data
+- WebSockets
+apis:
+- aid: lighter:lighter-account-api
+  name: Lighter account API
+  description: The account API from Lighter — 26 operation(s) for account.
+  humanURL: https://apidocs.lighter.xyz/
+  baseURL: https://mainnet.zklighter.elliot.ai
+  tags:
+  - account
+  properties:
+  - type: OpenAPI
+    url: openapi/lighter-account-api-openapi.yml
+  - type: AsyncAPI
+    url: asyncapi/lighter-zklighter-asyncapi.yml
+  - type: Documentation
+    url: https://apidocs.lighter.xyz/docs/get-started
+  - type: APIReference
+    url: https://apidocs.lighter.xyz/reference/systemconfig
+- aid: lighter:lighter-announcement-api
+  name: Lighter announcement API
+  description: The announcement API from Lighter — 1 operation(s) for announcement.
+  humanURL: https://apidocs.lighter.xyz/
+  baseURL: https://mainnet.zklighter.elliot.ai
+  tags:
+  - announcement
+  properties:
+  - type: OpenAPI
+    url: openapi/lighter-announcement-api-openapi.yml
+  - type: AsyncAPI
+    url: asyncapi/lighter-zklighter-asyncapi.yml
+  - type: Documentation
+    url: https://apidocs.lighter.xyz/docs/get-started
+  - type: APIReference
+    url: https://apidocs.lighter.xyz/reference/systemconfig
+- aid: lighter:lighter-block-api
+  name: Lighter block API
+  description: The block API from Lighter — 3 operation(s) for block.
+  humanURL: https://apidocs.lighter.xyz/
+  baseURL: https://mainnet.zklighter.elliot.ai
+  tags:
+  - block
+  properties:
+  - type: OpenAPI
+    url: openapi/lighter-block-api-openapi.yml
+  - type: AsyncAPI
+    url: asyncapi/lighter-zklighter-asyncapi.yml
+  - type: Documentation
+    url: https://apidocs.lighter.xyz/docs/get-started
+  - type: APIReference
+    url: https://apidocs.lighter.xyz/reference/systemconfig
+- aid: lighter:lighter-bridge-api
+  name: Lighter bridge API
+  description: The bridge API from Lighter — 6 operation(s) for bridge.
+  humanURL: https://apidocs.lighter.xyz/
+  baseURL: https://mainnet.zklighter.elliot.ai
+  tags:
+  - bridge
+  properties:
+  - type: OpenAPI
+    url: openapi/lighter-bridge-api-openapi.yml
+  - type: AsyncAPI
+    url: asyncapi/lighter-zklighter-asyncapi.yml
+  - type: Documentation
+    url: https://apidocs.lighter.xyz/docs/get-started
+  - type: APIReference
+    url: https://apidocs.lighter.xyz/reference/systemconfig
+- aid: lighter:lighter-candlestick-api
+  name: Lighter candlestick API
+  description: The candlestick API from Lighter — 2 operation(s) for candlestick.
+  humanURL: https://apidocs.lighter.xyz/
+  baseURL: https://mainnet.zklighter.elliot.ai
+  tags:
+  - candlestick
+  properties:
+  - type: OpenAPI
+    url: openapi/lighter-candlestick-api-openapi.yml
+  - type: AsyncAPI
+    url: asyncapi/lighter-zklighter-asyncapi.yml
+  - type: Documentation
+    url: https://apidocs.lighter.xyz/docs/get-started
+  - type: APIReference
+    url: https://apidocs.lighter.xyz/reference/systemconfig
+- aid: lighter:lighter-funding-api
+  name: Lighter funding API
+  description: The funding API from Lighter — 1 operation(s) for funding.
+  humanURL: https://apidocs.lighter.xyz/
+  baseURL: https://mainnet.zklighter.elliot.ai
+  tags:
+  - funding
+  properties:
+  - type: OpenAPI
+    url: openapi/lighter-funding-api-openapi.yml
+  - type: AsyncAPI
+    url: asyncapi/lighter-zklighter-asyncapi.yml
+  - type: Documentation
+    url: https://apidocs.lighter.xyz/docs/get-started
+  - type: APIReference
+    url: https://apidocs.lighter.xyz/reference/systemconfig
+- aid: lighter:lighter-info-api
+  name: Lighter info API
+  description: The info API from Lighter — 5 operation(s) for info.
+  humanURL: https://apidocs.lighter.xyz/
+  baseURL: https://mainnet.zklighter.elliot.ai
+  tags:
+  - info
+  properties:
+  - type: OpenAPI
+    url: openapi/lighter-info-api-openapi.yml
+  - type: AsyncAPI
+    url: asyncapi/lighter-zklighter-asyncapi.yml
+  - type: Documentation
+    url: https://apidocs.lighter.xyz/docs/get-started
+  - type: APIReference
+    url: https://apidocs.lighter.xyz/reference/systemconfig
+- aid: lighter:lighter-notification-api
+  name: Lighter notification API
+  description: The notification API from Lighter — 1 operation(s) for notification.
+  humanURL: https://apidocs.lighter.xyz/
+  baseURL: https://mainnet.zklighter.elliot.ai
+  tags:
+  - notification
+  properties:
+  - type: OpenAPI
+    url: openapi/lighter-notification-api-openapi.yml
+  - type: AsyncAPI
+    url: asyncapi/lighter-zklighter-asyncapi.yml
+  - type: Documentation
+    url: https://apidocs.lighter.xyz/docs/get-started
+  - type: APIReference
+    url: https://apidocs.lighter.xyz/reference/systemconfig
+- aid: lighter:lighter-order-api
+  name: Lighter order API
+  description: The order API from Lighter — 12 operation(s) for order.
+  humanURL: https://apidocs.lighter.xyz/
+  baseURL: https://mainnet.zklighter.elliot.ai
+  tags:
+  - order
+  properties:
+  - type: OpenAPI
+    url: openapi/lighter-order-api-openapi.yml
+  - type: AsyncAPI
+    url: asyncapi/lighter-zklighter-asyncapi.yml
+  - type: Documentation
+    url: https://apidocs.lighter.xyz/docs/get-started
+  - type: APIReference
+    url: https://apidocs.lighter.xyz/reference/systemconfig
+- aid: lighter:lighter-referral-api
+  name: Lighter referral API
+  description: The referral API from Lighter — 6 operation(s) for referral.
+  humanURL: https://apidocs.lighter.xyz/
+  baseURL: https://mainnet.zklighter.elliot.ai
+  tags:
+  - referral
+  properties:
+  - type: OpenAPI
+    url: openapi/lighter-referral-api-openapi.yml
+  - type: AsyncAPI
+    url: asyncapi/lighter-zklighter-asyncapi.yml
+  - type: Documentation
+    url: https://apidocs.lighter.xyz/docs/get-started
+  - type: APIReference
+    url: https://apidocs.lighter.xyz/reference/systemconfig
+- aid: lighter:lighter-root-api
+  name: Lighter root API
+  description: The root API from Lighter — 2 operation(s) for root.
+  humanURL: https://apidocs.lighter.xyz/
+  baseURL: https://mainnet.zklighter.elliot.ai
+  tags:
+  - root
+  properties:
+  - type: OpenAPI
+    url: openapi/lighter-root-api-openapi.yml
+  - type: AsyncAPI
+    url: asyncapi/lighter-zklighter-asyncapi.yml
+  - type: Documentation
+    url: https://apidocs.lighter.xyz/docs/get-started
+  - type: APIReference
+    url: https://apidocs.lighter.xyz/reference/systemconfig
+- aid: lighter:lighter-tokenlist-api
+  name: Lighter tokenlist API
+  description: The tokenlist API from Lighter — 1 operation(s) for tokenlist.
+  humanURL: https://apidocs.lighter.xyz/
+  baseURL: https://mainnet.zklighter.elliot.ai
+  tags:
+  - tokenlist
+  properties:
+  - type: OpenAPI
+    url: openapi/lighter-tokenlist-api-openapi.yml
+  - type: AsyncAPI
+    url: asyncapi/lighter-zklighter-asyncapi.yml
+  - type: Documentation
+    url: https://apidocs.lighter.xyz/docs/get-started
+  - type: APIReference
+    url: https://apidocs.lighter.xyz/reference/systemconfig
+- aid: lighter:lighter-transaction-api
+  name: Lighter transaction API
+  description: The transaction API from Lighter — 12 operation(s) for transaction.
+  humanURL: https://apidocs.lighter.xyz/
+  baseURL: https://mainnet.zklighter.elliot.ai
+  tags:
+  - transaction
+  properties:
+  - type: OpenAPI
+    url: openapi/lighter-transaction-api-openapi.yml
+  - type: AsyncAPI
+    url: asyncapi/lighter-zklighter-asyncapi.yml
+  - type: Documentation
+    url: https://apidocs.lighter.xyz/docs/get-started
+  - type: APIReference
+    url: https://apidocs.lighter.xyz/reference/systemconfig
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -26,3 +264,68 @@ maintainers:
 common:
 - type: Website
   url: https://lighter.xyz
+- type: DeveloperPortal
+  url: https://apidocs.lighter.xyz/
+- type: Documentation
+  url: https://docs.lighter.xyz/
+- type: APIReference
+  url: https://apidocs.lighter.xyz/reference/systemconfig
+- type: GettingStarted
+  url: https://apidocs.lighter.xyz/docs/get-started
+- type: SignUp
+  url: https://app.lighter.xyz/
+- type: Pricing
+  url: https://docs.lighter.xyz/trading/trading-fees
+- type: TermsOfService
+  url: https://lighter.xyz/terms
+- type: Support
+  url: https://discord.gg/lighterxyz
+- type: GitHubOrganization
+  url: https://github.com/elliottech
+- type: StatusPage
+  url: https://status.lighter.xyz/
+- type: Security
+  url: https://docs.lighter.xyz/security/security-vulnerability-disclosure-policy
+- type: VulnerabilityDisclosure
+  url: security/lighter-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/lighter-domain-security.yml
+- type: Authentication
+  url: authentication/lighter-authentication.yml
+- type: Conventions
+  url: conventions/lighter-conventions.yml
+- type: Idempotency
+  url: conventions/lighter-conventions.yml
+- type: Lifecycle
+  url: lifecycle/lighter-lifecycle.yml
+- type: Conformance
+  url: conformance/lighter-conformance.yml
+- type: ErrorCatalog
+  url: errors/lighter-error-codes.yml
+- type: ErrorCodes
+  url: errors/lighter-problem-types.yml
+- type: Packages
+  url: packages/lighter-packages.yml
+- type: SDKs
+  url: packages/lighter-packages.yml
+- type: MCPServer
+  url: mcp/lighter-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/lighter-llms.txt
+- type: WellKnown
+  url: well-known/lighter-well-known.yml
+- type: DataModel
+  url: data-model/lighter-data-model.yml
+- type: Sandbox
+  url: sandbox/lighter-sandbox.yml
+- type: RateLimits
+  url: rate-limits/lighter-rate-limits.yml
+- type: Plans
+  url: plans/lighter-plans.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
