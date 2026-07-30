@@ -1,0 +1,14 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/lighter-zklighter-openapi-original.json
+format: custom
+envelope:
+  description: >-
+    Lighter returns a JSON body carrying a numeric business error code and message rather than
+    RFC 9457 application/problem+json. The numeric registry is captured in lighter-error-codes.yml.
+  fields: [code, message]
+problems:
+  - status: 400
+    title: "Bad request"
+    operation_count: 78
+    source_operations: ["account", "accountActiveOrders", "accountInactiveOrders", "accountLimits", "accountMetadata", "accountTxs", "accountsByL1Address", "announcement"]

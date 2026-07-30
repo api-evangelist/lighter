@@ -1,0 +1,44 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Lighter (zkLighter API)
+  version: 1.0.0
+extends: openapi/lighter-zklighter-openapi-original.json
+actions:
+  - target: $.info
+    update:
+      title: Lighter zkLighter API
+      description: >-
+        Lighter is a zk-proven decentralized perpetuals exchange. The zkLighter REST API exposes
+        market data, order books, accounts, transactions and signed order submission. The upstream
+        specification published in the lighter-python SDK ships an empty info block; this overlay
+        supplies title, description, contact and licence metadata without mutating the original.
+      contact:
+        name: Lighter API Support
+        url: https://discord.gg/lighterxyz
+      x-apievangelist-slug: lighter
+      x-apievangelist-docs: https://apidocs.lighter.xyz/
+  - target: $.servers
+    update:
+      - url: https://mainnet.zklighter.elliot.ai
+        description: Mainnet
+      - url: https://testnet.zklighter.elliot.ai
+        description: Testnet (sandbox)
+  - target: $
+    update:
+      tags:
+        - name: account
+          description: Accounts, sub-accounts, API keys, limits, PnL and public pools.
+        - name: order
+          description: Order books, orders, trades, assets and exchange statistics.
+        - name: transaction
+          description: Signed transaction submission, nonces, transfers, deposits and withdrawals.
+        - name: block
+          description: zkLighter L2 blocks and chain height.
+        - name: bridge
+          description: Deposits, fast withdrawals and cross-chain intent addresses.
+        - name: candlestick
+          description: Candles and funding series.
+        - name: referral
+          description: Referral codes, kickbacks and referral points.
+        - name: info
+          description: System configuration, L1 metadata and fee information.

@@ -1,0 +1,58 @@
+generated: '2026-07-19'
+method: searched
+source: https://apidocs.lighter.xyz/docs/account-types
+docs: https://apidocs.lighter.xyz/docs/account-types
+pricing_docs: https://docs.lighter.xyz/trading/trading-fees
+model: >-
+  Lighter charges no subscription for API access. Account "tiers" are trading-execution tiers that
+  set maker/taker fees, latency and rate limits. Tier is tied to the L1 address and switched with
+  the changeAccountTier operation (requires no open orders or positions, and at most one change per
+  24 hours).
+plans:
+  - name: Standard
+    default: true
+    maker_fee: '0%'
+    taker_fee: '0%'
+    taker_latency: 300 ms
+    maker_cancel_latency: 200 ms
+    rate_limit: 60 requests per rolling minute
+    audience: retail and latency-insensitive traders
+  - name: Plus
+    opt_in: true
+    visible_in_ui: false
+    maker_taker_fee: 0.5 bps
+    taker_latency: 300 ms
+    maker_cancel_latency: 200 ms
+    send_tx_per_minute: 8000
+    read_only_weighted_requests_per_minute: 120000
+    audience: latency-insensitive users who need higher rate limits
+    note: not exposed in the front end; opt in via the changeAccountTier endpoint and raise a Discord support ticket to register IPs
+  - name: Premium
+    opt_in: true
+    maker_cancel_latency: 0 ms
+    audience: high-frequency trading
+    part_of: volume quota program
+    tiers_by_staked_lit:
+      - {staked_lit: 0, send_tx_per_minute: 4000, fee_discount: null, maker_fee: '0.0040%', taker_fee: '0.0280%', taker_latency_ms: 200, sub_accounts: 8}
+      - {staked_lit: 1000, send_tx_per_minute: 5000, fee_discount: '2.5%', maker_fee: '0.0039%', taker_fee: '0.0273%', taker_latency_ms: 195, sub_accounts: 8}
+      - {staked_lit: 3000, send_tx_per_minute: 6000, fee_discount: '5%', maker_fee: '0.0038%', taker_fee: '0.0266%', taker_latency_ms: 190, sub_accounts: 8}
+      - {staked_lit: 10000, send_tx_per_minute: 7000, fee_discount: '10%', maker_fee: '0.0036%', taker_fee: '0.0252%', taker_latency_ms: 180, sub_accounts: 8}
+      - {staked_lit: 30000, send_tx_per_minute: 8000, fee_discount: '15%', maker_fee: '0.0034%', taker_fee: '0.0238%', taker_latency_ms: 170, sub_accounts: 8}
+      - {staked_lit: 100000, send_tx_per_minute: 12000, fee_discount: '20%', maker_fee: '0.0032%', taker_fee: '0.0224%', taker_latency_ms: 160, sub_accounts: 8}
+      - {staked_lit: 300000, send_tx_per_minute: 24000, fee_discount: '25%', maker_fee: '0.0030%', taker_fee: '0.0210%', taker_latency_ms: 150, sub_accounts: 8}
+      - {staked_lit: 500000, send_tx_per_minute: 40000, fee_discount: '30%', maker_fee: '0.0028%', taker_fee: '0.0196%', taker_latency_ms: 140, sub_accounts: 64}
+  - name: Builder
+    opt_in: true
+    application: free, via the Discord support channel, subject to review of intended use
+    read_only_weighted_requests_per_minute: 240000
+    note: >-
+      Higher limits apply to read-only REST endpoints only; sendTx and sendTxBatch follow standard
+      account limits. Builders should authenticate every request.
+plan_count: 4
+switching:
+  operation: changeAccountTier
+  constraints:
+    - no open positions
+    - no open orders
+    - at least 24 hours since the last change
+  errors: [62001, 62002, 62003, 62004, 62005, 62006]

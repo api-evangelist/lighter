@@ -1,0 +1,52 @@
+generated: '2026-07-19'
+method: searched
+note: >-
+  Probed the /.well-known/ discovery surface on every Lighter host. Nothing is published.
+  lighter.xyz is a Framer site that returns its 200 HTML shell for any path, so
+  /.well-known/security.txt answers 200 with content-type text/html and is NOT a valid
+  RFC 9116 document — it is recorded here as html-shell rather than saved as security.txt.
+  The API host (mainnet.zklighter.elliot.ai) sits behind an edge that returns 403 to
+  non-browser clients for every path probed. Lighter does publish a PGP key and a
+  vulnerability disclosure policy, just not via /.well-known/ — see
+  security/lighter-vulnerability-disclosure.yml.
+hosts:
+  - host: https://lighter.xyz
+    documents:
+      - {path: /.well-known/security.txt, status: 200, result: html-shell, valid: false}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
+      - {path: /.well-known/ai-plugin.json, status: 404}
+  - host: https://app.lighter.xyz
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
+      - {path: /.well-known/ai-plugin.json, status: 404}
+  - host: https://docs.lighter.xyz
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
+      - {path: /.well-known/ai-plugin.json, status: 404}
+  - host: https://apidocs.lighter.xyz
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
+      - {path: /.well-known/ai-plugin.json, status: 404}
+  - host: https://mainnet.zklighter.elliot.ai
+    note: edge returns 403 to non-browser clients on all paths; inconclusive
+    documents:
+      - {path: /.well-known/security.txt, status: 403}
+      - {path: /.well-known/openid-configuration, status: 403}
+      - {path: /.well-known/oauth-authorization-server, status: 403}
+      - {path: /.well-known/api-catalog, status: 403}
+      - {path: /.well-known/ai-plugin.json, status: 403}
+adjacent_discovery:
+  - {name: llms.txt, url: 'https://docs.lighter.xyz/llms.txt', status: 200, file: ../llms/lighter-llms.txt}
+  - {name: llms.txt (API docs), url: 'https://apidocs.lighter.xyz/llms.txt', status: 200}
+  - {name: PGP public key, url: 'https://lighter.xyz/pgp-key.asc', status: 200}

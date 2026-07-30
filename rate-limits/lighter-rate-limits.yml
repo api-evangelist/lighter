@@ -1,0 +1,82 @@
+generated: '2026-07-19'
+method: searched
+source: https://apidocs.lighter.xyz/docs/rate-limits
+docs: https://apidocs.lighter.xyz/docs/rate-limits
+model:
+  window: rolling minute
+  enforced_per: [ip-address, l1-address]
+  weighted: true
+  bypass_ip_limits: >-
+    Authenticate every request so that only L1-address-based limits apply.
+  scope_note: >-
+    Weighted limits apply to https://mainnet.zklighter.elliot.ai/api/v1/ excluding sendTx and
+    sendTxBatch, which have their own bucket. https://explorer.elliot.ai/api/ has separate limits.
+  standard_cap_rule: >-
+    Where premium_weighted_requests / endpoint_weight is less than the standard request cap, the
+    lower limit applies to both tiers.
+rate_limits:
+  - tier: builder
+    limit_count: 240000
+    unit: weighted requests
+    window: rolling minute
+    applies_to: read-only REST endpoints (excludes sendTx and sendTxBatch)
+    note: free, application-reviewed via the Discord support channel; builders should authenticate every request
+  - tier: plus
+    limit_count: 120000
+    unit: weighted requests
+    window: rolling minute
+  - tier: premium
+    limit_count: 24000
+    unit: weighted requests
+    window: rolling minute
+  - tier: standard
+    limit_count: 60
+    unit: requests
+    window: rolling minute
+    weighted: false
+endpoint_weights:
+  - {endpoints: [sendTx, sendTxBatch, nextNonce], weight: 6}
+  - {endpoints: [publicPools, txFromL1TxHash], weight: 50}
+  - {endpoints: [accountInactiveOrders, 'deposit/latest'], weight: 100}
+  - {endpoints: [apikeys], weight: 150}
+  - {endpoints: [transferFeeInfo], weight: 500}
+  - {endpoints: [trades, recentTrades], weight: 600}
+  - {endpoints: [changeAccountTier, tokens, 'tokens/revoke', setAccountMetadata, 'notification/ack', createIntentAddress, fastwithdraw, 'referral/*'], weight: 3000}
+  - {endpoints: ['tokens/create'], weight: 23000}
+  - {endpoints: [other], weight: 300}
+transaction_limits:
+  note: >-
+    sendTx and sendTxBatch are limited at the L1-address level only (no IP limit), whether sent over
+    REST or WebSocket. Standard accounts remain bound to 60 requests per minute. Fee credits count
+    as staked LIT for these thresholds.
+  premium_by_staked_lit:
+    - {staked_lit: 0, per_minute: 4000}
+    - {staked_lit: 1000, per_minute: 5000}
+    - {staked_lit: 3000, per_minute: 6000}
+    - {staked_lit: 10000, per_minute: 7000}
+    - {staked_lit: 30000, per_minute: 8000}
+    - {staked_lit: 100000, per_minute: 12000}
+    - {staked_lit: 300000, per_minute: 24000}
+    - {staked_lit: 500000, per_minute: 40000}
+  plus:
+    per_minute: 8000
+websocket_limits:
+  enforced_per: ip-address
+  connections: 255
+  subscriptions_per_connection: 500
+  unique_accounts_per_connection: 500
+  max_connections_per_minute: 255
+  max_client_messages_per_minute: 200
+  max_inflight_messages: 50
+  note: sendTx and sendTxBatch are excluded from the message and inflight counts and follow the REST transaction limits
+error_codes:
+  - {code: 23000, message: 'Too Many Requests!'}
+  - {code: 23001, message: 'Too Many Subscriptions!'}
+  - {code: 23002, message: 'Too Many Different Accounts!'}
+  - {code: 23003, message: 'Too Many Connections!'}
+  - {code: 23004, message: 'Too Many L2 Withdrawal Requests!'}
+  - {code: 30009, message: 'Too Many Websocket Messages!'}
+  - {code: 30010, message: 'Too Many Inflight Messages!'}
+headers:
+  documented: false
+  note: No rate-limit response headers are documented; limits surface as the numeric error codes above.

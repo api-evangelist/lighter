@@ -1,0 +1,51 @@
+generated: '2026-07-19'
+method: searched
+source: https://apidocs.lighter.xyz/docs/websocket-reference
+environments:
+  - name: testnet
+    rest_base_url: https://testnet.zklighter.elliot.ai
+    websocket_url: wss://testnet.zklighter.elliot.ai/stream
+    verified: '2026-07-19'
+    verified_by: GET https://testnet.zklighter.elliot.ai/info returned 200
+    description: >-
+      Lighter runs a full zkLighter testnet deployment mirroring the mainnet REST and WebSocket
+      surface. Point the SDK's BASE_URL at the testnet host to exercise account creation, API key
+      registration, signing and order flow without mainnet funds.
+  - name: mainnet
+    rest_base_url: https://mainnet.zklighter.elliot.ai
+    websocket_url: wss://mainnet.zklighter.elliot.ai/stream
+separation:
+  model: separate hosts
+  note: >-
+    Lighter does not use test/live key prefixes. Test and live are separated by host: an account,
+    its account_index and its API keys exist independently on testnet and mainnet.
+read_only_access:
+  description: >-
+    Read-only market data can be streamed without an account, including from restricted regions,
+    by appending the readonly flag to the WebSocket URL.
+  example: "wscat -c 'wss://mainnet.zklighter.elliot.ai/stream?readonly=true'"
+  source: https://apidocs.lighter.xyz/docs/websocket-reference
+read_only_tokens:
+  description: >-
+    Long-lived read-only auth tokens can be minted for data access that cannot trade or withdraw -
+    a safe credential for backtesting, dashboards and agents.
+  operations: [tokens_create, tokens_revoke]
+  ui: https://app.lighter.xyz/read-only-tokens/
+  max_expiry: 10 years
+  min_expiry: 1 day
+  max_per_account: 10
+setup_tooling:
+  - name: system_setup.py
+    url: https://github.com/elliottech/lighter-python/blob/main/examples/system_setup.py
+    description: Generates API keys and registers them against an account index.
+  - name: send_batch_tx_http.py
+    url: https://github.com/elliottech/lighter-python/blob/main/examples/send_batch_tx_http.py
+    description: Signs and submits a batch of transactions over HTTP.
+  - name: ws_send_tx.py
+    url: https://github.com/elliottech/lighter-python/blob/main/examples/ws_send_tx.py
+    description: Signs and submits a transaction over the WebSocket connection.
+test_values: []
+note: >-
+  Lighter publishes no magic test card numbers, test IBANs, test clocks or fixture-trigger tooling -
+  it is a perpetuals exchange, not a card acquirer. The sandbox is the testnet deployment plus the
+  SDK example scripts above. No test values were invented for this artifact.

@@ -1,0 +1,971 @@
+generated: '2026-07-19'
+method: searched
+source: https://apidocs.lighter.xyz/docs/data-structures-constants-and-errors
+docs: https://apidocs.lighter.xyz/docs/data-structures-constants-and-errors
+format: numeric-business-error
+envelope:
+  description: >-
+    Lighter returns a numeric business error code and human message. Codes are grouped by
+    numeric range: 211xx account, 212xx public/staking pool, 213xx collateral, 214xx block,
+    215xx transaction, 216xx order book, 217xx order, 218xx asset, 219xx deleverage,
+    224xx candlestick, 230xx rate limit, 294xx/295xx general, 300xx websocket,
+    410xx referral, 610xx read-only API token, 620xx tier change.
+  fields: [code, message]
+error_count: 239
+errors:
+  - code: 21100
+    name: AppErrAccountNotFound
+    message: "account not found"
+    group: "Account"
+  - code: 21101
+    name: AppErrAccountNonceNotFound
+    message: "account nonce not found"
+    group: "Account"
+  - code: 21102
+    name: AppErrInvalidAccountIndex
+    message: "invalid account index"
+    group: "Account"
+  - code: 21103
+    name: AppErrInvalidAccountL1Address
+    message: "invalid account l1 address"
+    group: "Account"
+  - code: 21104
+    name: AppErrInvalidNonce
+    message: "invalid nonce"
+    group: "Account"
+  - code: 21105
+    name: AppErrNonIncreasingNonce
+    message: "batch transaction nonce is not increasing"
+    group: "Account"
+  - code: 21106
+    name: AppErrAccountInvalidToAccount
+    message: "invalid ToAccount"
+    group: "Account"
+  - code: 21107
+    name: AppErrInvalidAccount
+    message: "invalid account"
+    group: "Account"
+  - code: 21108
+    name: AppErrInvalidPublicKey
+    message: "invalid PublicKey,please run changePubKey"
+    group: "Account"
+  - code: 21109
+    name: AppErrApiKeyNotFound
+    message: "api key not found"
+    group: "Account"
+  - code: 21110
+    name: AppErrInvalidApiKeyIndex
+    message: "invalid api key index"
+    group: "Account"
+  - code: 21111
+    name: AppErrPreLiquidation
+    message: "account is in pre-liquidation and the transaction doesn't increase the account health"
+    group: "Account"
+  - code: 21112
+    name: AppErrAccountIsInLiquidation
+    message: "account is in liquidation"
+    group: "Account"
+  - code: 21113
+    name: AppErrInvalidInitialMarginFraction
+    message: "invalid initial margin fraction"
+    group: "Account"
+  - code: 21114
+    name: AppErrFaultyLiquidation
+    message: "account value is over maintenance margin, can't activate liquidation"
+    group: "Account"
+  - code: 21116
+    name: AppErrWithdrawalAmountTooLow
+    message: "withdrawal amount is too small"
+    group: "Account"
+  - code: 21117
+    name: AppErrWithdrawalAmountTooHigh
+    message: "withdrawal amount is too high"
+    group: "Account"
+  - code: 21118
+    name: AppErrTransferAmountTooLow
+    message: "transfer amount is too small"
+    group: "Account"
+  - code: 21119
+    name: AppErrTransferAmountTooHigh
+    message: "transfer amount is too high"
+    group: "Account"
+  - code: 21120
+    name: AppErrInvalidSignature
+    message: "invalid signature"
+    group: "Account"
+  - code: 21121
+    name: AppErrBatchTxMultipleOwner
+    message: "all transactions in the batch must have use same account and apikey"
+    group: "Account"
+  - code: 21122
+    name: AppErrDeadMansSwitchShouldBeTriggered
+    message: "dead man's switch should be triggered"
+    group: "Account"
+  - code: 21123
+    name: AppErrInvalidAccountType
+    message: "invalid account type"
+    group: "Account"
+  - code: 21124
+    name: AppErrInvalidRouteType
+    message: "invalid route type"
+    group: "Account"
+  - code: 21125
+    name: AppErrWitnessNotFound
+    message: "witness not found"
+    group: "Account"
+  - code: 21126
+    name: AppErrAccountHasZeroCollateral
+    message: "Account with zero collateral can't change PublicKey"
+    group: "Account"
+  - code: 21127
+    name: AppErrWithdrawalFromPublicPool
+    message: "withdrawal from public pool is not allowed"
+    group: "Account"
+  - code: 21128
+    name: AppErrInvalidMasterAccountIndex
+    message: "invalid master account index"
+    group: "Account"
+  - code: 21129
+    name: AppErrTooManySubAccounts
+    message: "too many sub accounts"
+    group: "Account"
+  - code: 21130
+    name: AppErrTooManyPublicPools
+    message: "too many public pools"
+    group: "Account"
+  - code: 21131
+    name: AppErrInvalidL1Address
+    message: "invalid l1 address"
+    group: "Account"
+  - code: 21132
+    name: AppErrMarginModeChangeOnActivePosition
+    message: "margin mode change on a market with position or open order is not allowed"
+    group: "Account"
+  - code: 21133
+    name: AppErrInvalidRiskChange
+    message: "invalid risk change"
+    group: "Account"
+  - code: 21134
+    name: AppErrInvalidFee
+    message: "invalid fee"
+    group: "Account"
+  - code: 21135
+    name: AppErrAssetAlreadyExist
+    message: "asset already exist for given index"
+    group: "Account"
+  - code: 21136
+    name: AppErrPublicKeyUpdateSdk
+    message: "invalid PublicKey, update the sdk to the latest version"
+    group: "Account"
+  - code: 21137
+    name: AppErrRestrictedWithdrawal
+    message: "Withdrawals are restricted for this asset"
+    group: "Account"
+  - code: 21138
+    name: AppErrMaxPendingUnlocksExceeded
+    message: "maximum pending unlocks per account exceeded"
+    group: "Account"
+  - code: 21139
+    name: AppErrNoPendingUnlocks
+    message: "no pending unlocks for the account"
+    group: "Account"
+  - code: 21140
+    name: AppErrPendingUnlockStillWaiting
+    message: "pending unlock is still in waiting period"
+    group: "Account"
+  - code: 21141
+    name: AppErrPendingUnlockInvalidAsset
+    message: "only LIT asset can be used for pending unlock"
+    group: "Account"
+  - code: 21200
+    name: AppErrInvalidPublicPoolIndex
+    message: "invalid public pool index"
+    group: "Public Pool"
+  - code: 21201
+    name: AppErrInvalidOperatorFee
+    message: "invalid operator fee"
+    group: "Public Pool"
+  - code: 21202
+    name: AppErrInvalidPublicPoolStatus
+    message: "invalid public pool status"
+    group: "Public Pool"
+  - code: 21203
+    name: AppErrPublicPoolIsFrozen
+    message: "public pool is frozen, only burning is allowed"
+    group: "Public Pool"
+  - code: 21204
+    name: AppErrPoolInitialTotalSharesInvalid
+    message: "invalid pool initial usdc amount"
+    group: "Public Pool"
+  - code: 21205
+    name: AppErrInvalidMinOperatorShareRate
+    message: "invalid min operator share rate"
+    group: "Public Pool"
+  - code: 21206
+    name: AppErrTooManyInvestedPublicPools
+    message: "too many invested public pools"
+    group: "Public Pool"
+  - code: 21207
+    name: AppErrInsufficientAvailableShares
+    message: "insufficient available shares"
+    group: "Public Pool"
+  - code: 21208
+    name: AppErrOwnerDropsBelowMinimumOwnership
+    message: "owner drops below minimum ownership"
+    group: "Public Pool"
+  - code: 21209
+    name: AppErrInvalidMintShareAmount
+    message: "invalid mint share amount"
+    group: "Public Pool"
+  - code: 21210
+    name: AppErrInvalidBurnShareAmount
+    message: "invalid burn share amount"
+    group: "Public Pool"
+  - code: 21211
+    name: AppErrShareUSDCAmountTooHigh
+    message: "burnt share usdc amount is too high"
+    group: "Public Pool"
+  - code: 21212
+    name: AppErrEntryUSDCAmountTooHigh
+    message: "entry usdc amount is too high"
+    group: "Public Pool"
+  - code: 21213
+    name: AppErrInvalidUpdatePublicPoolStatus
+    message: "invalid update public pool status"
+    group: "Public Pool"
+  - code: 21214
+    name: AppErrInvalidPoolPositionToTransfer
+    message: "invalid pool position to transfer"
+    group: "Public Pool"
+  - code: 21215
+    name: AppErrInvalidMasterAccount
+    message: "only master account can update public pool"
+    group: "Public Pool"
+  - code: 21216
+    name: AppErrPoolInLiquidation
+    message: "public pool is in liquidation"
+    group: "Public Pool"
+  - code: 21217
+    name: AppErrPoolReachedMaximumInvestedPools
+    message: "public pool reached maximum invested pools"
+    group: "Public Pool"
+  - code: 21218
+    name: AppErrPoolCreationDisabled
+    message: "pool creation is disabled"
+    group: "Public Pool"
+  - code: 21219
+    name: AppErrMaxLLPPercentageExceeded
+    message: "max llp percentage exceeded"
+    group: "Public Pool"
+  - code: 21220
+    name: AppErrPublicPoolHasOpenPositions
+    message: "public pool has open positions"
+    group: "Public Pool"
+  - code: 21221
+    name: AppErrPublicPoolHasActiveOrders
+    message: "public pool has active orders"
+    group: "Public Pool"
+  - code: 21222
+    name: AppErrPoolHasNoShares
+    message: "public pool has no shares"
+    group: "Public Pool"
+  - code: 21223
+    name: AppErrMaxLLPAmountExceeded
+    message: "max llp amount exceeded"
+    group: "Public Pool"
+  - code: 21224
+    name: AppErrStakingPoolIsFrozen
+    message: "staking pool is frozen, only burning is allowed"
+    group: "Public Pool"
+  - code: 21225
+    name: AppErrInvalidStakingPoolIndex
+    message: "invalid staking pool index"
+    group: "Public Pool"
+  - code: 21226
+    name: AppErrEntryStakedAmountTooHigh
+    message: "entry staked amount is too high"
+    group: "Public Pool"
+  - code: 21227
+    name: AppErrShareLITAmountTooHigh
+    message: "burnt share lit amount is too high"
+    group: "Public Pool"
+  - code: 21228
+    name: AppErrInsufficientAvailableStakingShares
+    message: "insufficient available staking shares"
+    group: "Public Pool"
+  - code: 21229
+    name: AppErrInvalidUnstakeAmount
+    message: "invalid unstake amount"
+    group: "Public Pool"
+  - code: 21230
+    name: AppErrStakingPoolAlreadyInitialized
+    message: "staking pool is already initialized"
+    group: "Public Pool"
+  - code: 21231
+    name: AppErrMintShareAmountExceedsStakedLIT
+    message: "mint share amount exceeds staked LIT value"
+    group: "Public Pool"
+  - code: 21232
+    name: AppErrInvalidStakeAssetAmount
+    message: "invalid stake asset amount"
+    group: "Public Pool"
+  - code: 21233
+    name: AppErrInvalidUnstakeAssetAmount
+    message: "invalid unstake asset amount"
+    group: "Public Pool"
+  - code: 21234
+    name: AppErrLiquidityPoolCooldownPeriodNotPassed
+    message: "liquidity pool cooldown period has not passed yet"
+    group: "Public Pool"
+  - code: 21235
+    name: AppErrOperatorSharesCantBeForced
+    message: "operator shares can't be force burned"
+    group: "Public Pool"
+  - code: 21236
+    name: AppErrStakingPoolDoesNotExist
+    message: "staking pool does not exist"
+    group: "Public Pool"
+  - code: 21237
+    name: AppErrForceBurnSharesExceedsStakedLIT
+    message: "force burn shares amount exceeds staked LIT value"
+    group: "Public Pool"
+  - code: 21300
+    name: AppErrInvalidAssetAmount
+    message: "invalid asset amount"
+    group: "Collateral"
+  - code: 21301
+    name: AppErrNotEnoughCollateral
+    message: "not enough collateral"
+    group: "Collateral"
+  - code: 21302
+    name: AppErrInvalidReceiverAssetAmount
+    message: "invalid receiver asset amount"
+    group: "Collateral"
+  - code: 21303
+    name: AppErrInvalidFeeAccountAssetAmount
+    message: "invalid fee account asset amount"
+    group: "Collateral"
+  - code: 21304
+    name: AppErrNotEnoughAssetBalance
+    message: "not enough asset balance"
+    group: "Collateral"
+  - code: 21305
+    name: AppErrNotEnoughAssetBalanceForFee
+    message: "not enough asset balance for fee"
+    group: "Collateral"
+  - code: 21400
+    name: AppErrBlockNotFound
+    message: "block not found"
+    group: "Block"
+  - code: 21401
+    name: AppErrInvalidBlockHeight
+    message: "invalid block height"
+    group: "Block"
+  - code: 21500
+    name: AppErrTxNotFound
+    message: "transaction not found"
+    group: "Tx"
+  - code: 21501
+    name: AppErrInvalidTxInfo
+    message: "invalid tx info"
+    group: "Tx"
+  - code: 21502
+    name: AppErrMarshalTxFailed
+    message: "marshal tx failed"
+    group: "Tx"
+  - code: 21503
+    name: AppErrMarshalEventsFailed
+    message: "marshal event failed"
+    group: "Tx"
+  - code: 21504
+    name: AppErrFailToL1Signature
+    message: "fail to l1 signature"
+    group: "Tx"
+  - code: 21505
+    name: AppErrUnsupportedTxType
+    message: "unsupported tx type"
+    group: "Tx"
+  - code: 21506
+    name: AppErrTooManyTxs
+    message: "too many pending txs. Please try again later"
+    group: "Tx"
+  - code: 21507
+    name: AppErrAccountBelowMaintenanceMargin
+    message: "account is below maintenance margin, can't execute transaction"
+    group: "Tx"
+  - code: 21508
+    name: AppErrAccountBelowInitialMargin
+    message: "account is below initial margin, can't execute transaction"
+    group: "Tx"
+  - code: 21511
+    name: AppErrInvalidTxTypeForAccount
+    message: "invalid tx type for account"
+    group: "Tx"
+  - code: 21512
+    name: AppErrInvalidL1RequestId
+    message: "invalid l1 request id"
+    group: "Tx"
+  - code: 21513
+    name: AppErrTxInfoTxTypeLengthMismatch
+    message: "TxInfos and TxTypes should have the same length"
+    group: "Tx"
+  - code: 21514
+    name: AppErrMaxBatchTx
+    message: "maximum 50 transactions allowed per batch"
+    group: "Tx"
+  - code: 21515
+    name: AppErrCannotCreateTxOnAsset
+    message: "transaction is not allowed"
+    group: "Tx"
+  - code: 21516
+    name: AppErrTreasuryOutgoingTransferNotAllowed
+    message: "outgoing transfers from treasury account are not allowed"
+    group: "Tx"
+  - code: 21600
+    name: AppErrInactiveCancel
+    message: "given order is not an active limit order"
+    group: "OrderBook"
+  - code: 21601
+    name: AppErrOrderBookFull
+    message: "order book is full"
+    group: "OrderBook"
+  - code: 21602
+    name: AppErrInvalidMarketIndex
+    message: "invalid market index"
+    group: "OrderBook"
+  - code: 21603
+    name: AppErrInvalidMinAmountsForMarket
+    message: "invalid min amounts for market"
+    group: "OrderBook"
+  - code: 21605
+    name: AppErrInvalidMarketStatus
+    message: "invalid market status"
+    group: "OrderBook"
+  - code: 21606
+    name: AppErrMarketAlreadyExist
+    message: "market already exist for given index"
+    group: "OrderBook"
+  - code: 21607
+    name: AppErrInvalidMarketFees
+    message: "invalid market fees"
+    group: "OrderBook"
+  - code: 21608
+    name: AppErrInvalidQuoteMultiplier
+    message: "invalid quote multiplier"
+    group: "OrderBook"
+  - code: 21611
+    name: AppErrInvalidInterestRate
+    message: "invalid interest rate"
+    group: "OrderBook"
+  - code: 21612
+    name: AppErrInvalidOpenInterest
+    message: "invalid open interest"
+    group: "OrderBook"
+  - code: 21613
+    name: AppErrInvalidMarginMode
+    message: "invalid margin mode"
+    group: "OrderBook"
+  - code: 21614
+    name: AppErrNoPositionFound
+    message: "no position found"
+    group: "OrderBook"
+  - code: 21615
+    name: AppErrInvalidUpdateMarginDirection
+    message: "invalid update margin direction"
+    group: "OrderBook"
+  - code: 21616
+    name: AppErrAssetNotExist
+    message: "asset does not exists for given index"
+    group: "OrderBook"
+  - code: 21617
+    name: AppErrInvalidCreateMarketParameters
+    message: "invalid create market parameters"
+    group: "OrderBook"
+  - code: 21618
+    name: AppErrInvalidOrderTypeForMarket
+    message: "invalid order type for market"
+    group: "OrderBook"
+  - code: 21619
+    name: AppErrInvalidMarketType
+    message: "invalid market type"
+    group: "OrderBook"
+  - code: 21620
+    name: AppErrInvalidFundingClamp
+    message: "invalid funding clamp"
+    group: "OrderBook"
+  - code: 21621
+    name: AppErrInvalidPerpsMarketIndex
+    message: "invalid perps market index"
+    group: "OrderBook"
+  - code: 21622
+    name: AppErrInvalidOrderQuoteLimit
+    message: "invalid order quote limit"
+    group: "OrderBook"
+  - code: 21623
+    name: AppErrInvalidOpenInterestLimit
+    message: "invalid open interest limit"
+    group: "OrderBook"
+  - code: 21624
+    name: AppErrInvalidMinBaseAmount
+    message: "invalid min base amount"
+    group: "OrderBook"
+  - code: 21625
+    name: AppErrInvalidMinQuoteAmount
+    message: "invalid min quote amount"
+    group: "OrderBook"
+  - code: 21626
+    name: AppErrInvalidMarginFraction
+    message: "invalid margin fraction"
+    group: "OrderBook"
+  - code: 21700
+    name: AppErrInvalidOrderIndex
+    message: "invalid order index"
+    group: "Order"
+  - code: 21701
+    name: AppErrInvalidBaseAmount
+    message: "invalid base amount"
+    group: "Order"
+  - code: 21702
+    name: AppErrInvalidPrice
+    message: "invalid price"
+    group: "Order"
+  - code: 21703
+    name: AppErrInvalidIsAsk
+    message: "invalid isAsk"
+    group: "Order"
+  - code: 21704
+    name: AppErrInvalidOrderType
+    message: "invalid OrderType"
+    group: "Order"
+  - code: 21705
+    name: AppErrInvalidOrderTimeInForce
+    message: "invalid OrderTimeInForce"
+    group: "Order"
+  - code: 21706
+    name: AppErrInvalidOrderAmount
+    message: "invalid order base or quote amount"
+    group: "Order"
+  - code: 21707
+    name: AppErrInvalidOrderOwner
+    message: "account is not owner of the order"
+    group: "Order"
+  - code: 21708
+    name: AppErrEmptyOrder
+    message: "order is empty"
+    group: "Order"
+  - code: 21709
+    name: AppErrInactiveOrder
+    message: "order is inactive"
+    group: "Order"
+  - code: 21710
+    name: AppErrUnsupportedOrderType
+    message: "unsupported order type"
+    group: "Order"
+  - code: 21711
+    name: AppErrInvalidOrderExpiry
+    message: "invalid expiry"
+    group: "Order"
+  - code: 21712
+    name: AppErrAccountHasAQueuedCancelAllOrdersRequest
+    message: "account has a queued cancel all orders request"
+    group: "Order"
+  - code: 21713
+    name: AppErrInvalidCancelAllTimeInForce
+    message: "invalid cancel all time in force"
+    group: "Order"
+  - code: 21714
+    name: AppErrInvalidCancelAllTime
+    message: "invalid cancel all time"
+    group: "Order"
+  - code: 21715
+    name: AppErrInctiveOrder
+    message: "given order is not an active order"
+    group: "Order"
+  - code: 21716
+    name: AppErrOrderNotExpired
+    message: "order is not expired"
+    group: "Order"
+  - code: 21717
+    name: AppErrMaxOrdersPerAccount
+    message: "maximum active limit order count reached"
+    group: "Order"
+  - code: 21718
+    name: AppErrMaxOrdersPerAccountPerMarket
+    message: "maximum active limit order count per market reached"
+    group: "Order"
+  - code: 21719
+    name: AppErrMaxPendingOrdersPerAccount
+    message: "maximum pending order count reached"
+    group: "Order"
+  - code: 21720
+    name: AppErrMaxPendingOrdersPerAccountPerMarket
+    message: "maximum pending order count per market reached"
+    group: "Order"
+  - code: 21721
+    name: AppErrMaxTWAPOrdersInExchange
+    message: "maximum twap order count reached"
+    group: "Order"
+  - code: 21722
+    name: AppErrMaxConditionalOrdersInExchange
+    message: "maximum conditional order count reached"
+    group: "Order"
+  - code: 21723
+    name: AppErrInvalidAccountHealth
+    message: "invalid account health"
+    group: "Order"
+  - code: 21724
+    name: AppErrInvalidLiquidationSize
+    message: "invalid liquidation size"
+    group: "Order"
+  - code: 21725
+    name: AppErrInvalidLiquidationPrice
+    message: "invalid liquidation price"
+    group: "Order"
+  - code: 21726
+    name: AppErrInsuranceFundCannotBePartiallyLiquidated
+    message: "insurance fund cannot be partially liquidated"
+    group: "Order"
+  - code: 21727
+    name: AppErrInvalidClientOrderIndex
+    message: "invalid client order index"
+    group: "Order"
+  - code: 21728
+    name: AppErrClientOrderIndexExists
+    message: "client order index already exists"
+    group: "Order"
+  - code: 21729
+    name: AppErrInvalidOrderTriggerPrice
+    message: "invalid order trigger price"
+    group: "Order"
+  - code: 21730
+    name: AppOrderStatusIsNotPending
+    message: "order status is not pending"
+    group: "Order"
+  - code: 21731
+    name: AppPendingOrderCanNotBeTriggered
+    message: "order can not be triggered"
+    group: "Order"
+  - code: 21732
+    name: AppReduceOnlyIncreasesPosition
+    message: "reduce only increases position"
+    group: "Order"
+  - code: 21733
+    name: AppErrFatFingerPrice
+    message: "order price flagged as an accidental price"
+    group: "Order"
+  - code: 21734
+    name: AppErrPriceTooFarFromMarkPrice
+    message: "limit order price is too far from the mark price"
+    group: "Order"
+  - code: 21735
+    name: AppErrPriceTooFarFromTrigger
+    message: "SL/TP order price is too far from the trigger price"
+    group: "Order"
+  - code: 21736
+    name: AppErrInvalidOrderTriggerStatus
+    message: "invalid order trigger status"
+    group: "Order"
+  - code: 21737
+    name: AppErrInvalidOrderStatus
+    message: "invalid order status"
+    group: "Order"
+  - code: 21738
+    name: AppErrInvalidReduceOnlyDirection
+    message: "invalid reduce only direction"
+    group: "Order"
+  - code: 21739
+    name: AppErrNotEnoughOrderMargin
+    message: "not enough margin to create the order"
+    group: "Order"
+  - code: 21740
+    name: AppErrInvalidReduceOnlyMode
+    message: "invalid reduce only mode"
+    group: "Order"
+  - code: 21741
+    name: AppErrInvalidGroupingType
+    message: "invalid grouping type"
+    group: "Order"
+  - code: 21742
+    name: AppErrInvalidOrderGroupSize
+    message: "invalid order group size"
+    group: "Order"
+  - code: 21743
+    name: AppErrInvalidOrderInfo
+    message: "invalid order info"
+    group: "Order"
+  - code: 21744
+    name: AppErrInvalidAccountTypeForSpotMarket
+    message: "pools are not allowed to trade in spot markets"
+    group: "Order"
+  - code: 21745
+    name: AppErrInvalidMarketTypeForL1Order
+    message: "only perps markets are allowed for L1 orders"
+    group: "Order"
+  - code: 21801
+    name: AppErrInvalidAssetIndex
+    message: "invalid asset index"
+    group: "Asset"
+  - code: 21802
+    name: AppErrInvalidAssetMarginMode
+    message: "invalid asset margin mode"
+    group: "Asset"
+  - code: 21803
+    name: AppErrAssetAlreadyExists
+    message: "asset already exists for given index"
+    group: "Asset"
+  - code: 21804
+    name: AppErrAssetDoesNotExists
+    message: "asset does not exist for given index"
+    group: "Asset"
+  - code: 21805
+    name: AppErrOnlyUSDCTransferSupported
+    message: "only usdc transfer supported"
+    group: "Asset"
+  - code: 21806
+    name: AppErrInvalidExtensionMultiplier
+    message: "invalid extension multiplier"
+    group: "Asset"
+  - code: 21807
+    name: AppErrInvalidMinTransferAmount
+    message: "invalid min transfer amount"
+    group: "Asset"
+  - code: 21808
+    name: AppErrInvalidMinWithdrawalAmount
+    message: "invalid min withdrawal amount"
+    group: "Asset"
+  - code: 21809
+    name: AppErrAssetNotFound
+    message: "asset not found"
+    group: "Asset"
+  - code: 21901
+    name: AppErrDeleverageAgainstItself
+    message: "deleverage against itself"
+    group: "Deleverage"
+  - code: 21902
+    name: AppErrDeleverageDoesNotMatchLiquidationStatus
+    message: "deleverage does not match liquidation status"
+    group: "Deleverage"
+  - code: 21903
+    name: AppErrDeleverageWithOpenOrders
+    message: "deleverage with open orders"
+    group: "Deleverage"
+  - code: 21904
+    name: AppErrInvalidDeleverageSize
+    message: "invalid deleverage size"
+    group: "Deleverage"
+  - code: 21905
+    name: AppErrInvalidDeleveragePrice
+    message: "invalid deleverage price"
+    group: "Deleverage"
+  - code: 21906
+    name: AppErrInvalidDeleverageSide
+    message: "invalid deleverage side"
+    group: "Deleverage"
+  - code: 22400
+    name: AppErrInvalidTimestamps
+    message: "invalid timestamps: end_timestamp must be greater than start_timestamp"
+    group: "Candlestick"
+  - code: 22401
+    name: AppErrInvalidTimestamp
+    message: "invalid timestamp: timestamp must be greater than 0 and less than year 2286"
+    group: "Candlestick"
+  - code: 22402
+    name: AppErrInvalidResolution
+    message: "invalid resolution: resolution unsupported"
+    group: "Candlestick"
+  - code: 22403
+    name: AppErrTimeRangeExceedsLimit
+    message: "time range exceeds maximum allowed range for the specified resolution"
+    group: "Candlestick"
+  - code: 23000
+    name: AppErrTooManyRequest
+    message: "Too Many Requests!"
+    group: "RateLimit"
+  - code: 23001
+    name: AppErrTooManySubscriptions
+    message: "Too Many Subscriptions!"
+    group: "RateLimit"
+  - code: 23002
+    name: AppErrTooManyDifferentAccounts
+    message: "Too Many Different Accounts!"
+    group: "RateLimit"
+  - code: 23003
+    name: AppErrTooManyConnections
+    message: "Too Many Connections!"
+    group: "RateLimit"
+  - code: 23004
+    name: AppErrTooManyL2Withdrawals
+    message: "Too Many L2 Withdrawal Requests!"
+    group: "RateLimit"
+  - code: 29404
+    name: AppErrNotFound
+    message: "not found"
+    group: "General Errors"
+  - code: 29500
+    name: AppErrInternal
+    message: "internal server error"
+    group: "General Errors"
+  - code: 29501
+    name: AppTimeout
+    message: "process timeout"
+    group: "General Errors"
+  - code: 30000
+    name: AppErrWebsocketInvalidJson
+    message: "Invalid Json"
+    group: "Websocket"
+  - code: 30001
+    name: AppErrWebsocketInvalidType
+    message: "Invalid Type"
+    group: "Websocket"
+  - code: 30002
+    name: AppErrWebsocketNotSubscribed
+    message: "Not Subscribed to "
+    group: "Websocket"
+  - code: 30003
+    name: AppErrWebsocketAlreadySubscribed
+    message: "Already Subscribed to "
+    group: "Websocket"
+  - code: 30004
+    name: AppErrWebsocketFetchFailed
+    message: "Failed to fetch "
+    group: "Websocket"
+  - code: 30005
+    name: AppErrWebsocketInvalidChannel
+    message: "Invalid Channel"
+    group: "Websocket"
+  - code: 30006
+    name: AppErrWebsocketNotSupported
+    message: "Operation isn't supported "
+    group: "Websocket"
+  - code: 30007
+    name: AppErrWebsocketInvalidData
+    message: "Invalid Data"
+    group: "Websocket"
+  - code: 30008
+    name: AppErrWebsocketInvalidAccountType
+    message: "Invalid account type"
+    group: "Websocket"
+  - code: 30009
+    name: AppErrWebsocketRateLimit
+    message: "Too Many Websocket Messages!"
+    group: "Websocket"
+  - code: 30010
+    name: AppErrWebsocketTooManyInflight
+    message: "Too Many Inflight Messages!"
+    group: "Websocket"
+  - code: 30011
+    name: AppErrWebsocketFailedToConnect
+    message: "Failed to connect"
+    group: "Websocket"
+  - code: 30012
+    name: AppErrWebsocketFailedToSubscribe
+    message: "Failed to subscribe"
+    group: "Websocket"
+  - code: 41001
+    name: AppErrReferralAlreadyExists
+    message: "Referral code already exists"
+    group: "Referral"
+  - code: 41002
+    name: AppErrReferralExpired
+    message: "Referral code is expired"
+    group: "Referral"
+  - code: 41003
+    name: AppErrReferralAlreadyUsed
+    message: "Referral code already used"
+    group: "Referral"
+  - code: 41004
+    name: AppErrReferralUserHasAccess
+    message: "User can already access"
+    group: "Referral"
+  - code: 41005
+    name: AppErrReferralUserCantInvite
+    message: "User can't invite"
+    group: "Referral"
+  - code: 41006
+    name: AppErrReferralInvalid
+    message: "Invalid referral code"
+    group: "Referral"
+  - code: 41007
+    name: AppErrReferralRequired
+    message: "Referral code is required"
+    group: "Referral"
+  - code: 41008
+    name: AppErrReferralKickbackUpdate
+    message: "Kickback can only be updated once per week"
+    group: "Referral"
+  - code: 41009
+    name: AppErrReferralCodeAlreadyUpdated
+    message: "Referral code has already been updated once, cannot update again"
+    group: "Referral"
+  - code: 41010
+    name: AppErrReferralCodeInvalid
+    message: "Referral code must be 4-14 characters and contain only uppercase letters (A-Z) and numbers (0-9)"
+    group: "Referral"
+  - code: 41011
+    name: AppErrReferralOnlyMainAccount
+    message: "only main account index is valid, please use the main account"
+    group: "Referral"
+  - code: 41012
+    name: AppErrReferralCannotUseOwnCode
+    message: "cannot use your own referral code"
+    group: "Referral"
+  - code: 61001
+    name: AppErrAPITokenExpiryBeforeMinAllowed
+    message: "api token expiry is before minimum allowed expiry of 1 day"
+    group: "Read Only API Token"
+  - code: 61002
+    name: AppErrAPITokenExpiryAfterMaxAllowed
+    message: "api token expiry is after maximum allowed expiry of 10 years"
+    group: "Read Only API Token"
+  - code: 61003
+    name: AppErrAPITokenMaxTokensExceeded
+    message: "maximum number of 10 api tokens for the account exceeded"
+    group: "Read Only API Token"
+  - code: 61004
+    name: AppErrAPITokenCustomScopesNotSupported
+    message: "custom scopes for api tokens are not supported yet"
+    group: "Read Only API Token"
+  - code: 61005
+    name: AppErrAPITokenNotFound
+    message: "api token not found or does not belong to this account"
+    group: "Read Only API Token"
+  - code: 61006
+    name: AppErrAPITokenAlreadyRevoked
+    message: "api token has already been revoked"
+    group: "Read Only API Token"
+  - code: 61007
+    name: AppErrAPITokenNameEmpty
+    message: "api token name cannot be empty"
+    group: "Read Only API Token"
+  - code: 61008
+    name: AppErrAPITokenNameTooLong
+    message: "api token name cannot exceed 50 characters"
+    group: "Read Only API Token"
+  - code: 61009
+    name: AppErrAPITokenNameInvalidChars
+    message: "api token name can only contain letters, numbers, spaces, hyphens, underscores, and periods"
+    group: "Read Only API Token"
+  - code: 62001
+    name: AppErrTierChangeInProgress
+    message: "tier change already in progress"
+    group: "Tier Change"
+  - code: 62002
+    name: AppErrTierChangeInvalidTier
+    message: "invalid tier"
+    group: "Tier Change"
+  - code: 62003
+    name: AppErrTierChangeSameTier
+    message: "account already part of requested tier"
+    group: "Tier Change"
+  - code: 62004
+    name: AppErrTierChangeHasOpenPositions
+    message: "account has open positions"
+    group: "Tier Change"
+  - code: 62005
+    name: AppErrTierChangeHasOpenOrders
+    message: "account has open orders"
+    group: "Tier Change"
+  - code: 62006
+    name: AppErrTierChangeTooManyRequest
+    message: "too frequent tier change request"
+    group: "Tier Change"

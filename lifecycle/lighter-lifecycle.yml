@@ -1,0 +1,45 @@
+generated: '2026-07-19'
+method: searched
+source: https://apidocs.lighter.xyz/
+versioning:
+  scheme: uri-path
+  current: v1
+  base_path: /api/v1/
+  docs: https://apidocs.lighter.xyz/reference/systemconfig
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: >-
+    No published deprecation or sunset policy and no RFC 8594 Sunset/Deprecation header support was
+    found. Deprecation is signalled informally: retired numeric error codes are marked
+    "deprecated" inline in the error reference (for example 21124 and 21604), and SDK-breaking
+    key changes surface as error 21136 "invalid PublicKey, update the sdk to the latest version".
+    API changes are announced through the Telegram API channel and the Discord #api-updates channel.
+  announcement_channels:
+    - https://t.me/lighter_api_updates
+    - https://discord.gg/lighterxyz
+status_page: https://status.lighter.xyz/
+sla:
+  url: null
+  uptime_target: null
+  note: >-
+    No published SLA. The WebSocket documentation warns that zero-downtime deployments may still
+    drop connections and that clients must implement reconnection and ping/pong logic.
+environments:
+  - name: mainnet
+    api: https://mainnet.zklighter.elliot.ai
+    websocket: wss://mainnet.zklighter.elliot.ai/stream
+    app: https://app.lighter.xyz/
+    genesis: '2025-01-17T00:00:00Z'
+  - name: testnet
+    api: https://testnet.zklighter.elliot.ai
+    websocket: wss://testnet.zklighter.elliot.ai/stream
+    detail: sandbox/lighter-sandbox.yml
+deprecated_operations: []
+note: >-
+  No operation in the published OpenAPI carries `deprecated: true`.
+changelog:
+  dated_changelog: false
+  note: >-
+    Lighter publishes no dated changelog page; API changes are broadcast to the Telegram and
+    Discord channels above, so no changelog/ artifact is produced.

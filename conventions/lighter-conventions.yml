@@ -1,0 +1,88 @@
+generated: '2026-07-19'
+method: searched
+source: https://apidocs.lighter.xyz/docs/get-started
+docs: https://apidocs.lighter.xyz/
+authentication:
+  style: api-key auth token in the `auth` header, plus signed transaction bodies for writes
+  detail: authentication/lighter-authentication.yml
+idempotency:
+  supported: true
+  mechanisms:
+    - name: client_order_index
+      kind: client-supplied unique identifier
+      scope: unique across all markets for the account
+      applies_to: [sendTx, sendTxBatch]
+      duplicate_behaviour: >-
+        Rejected with business error 21728 "client order index already exists", so re-submitting a
+        create-order transaction with the same client_order_index cannot double-place the order.
+      also_used_for: referencing the order later for cancel or modify
+      docs: https://apidocs.lighter.xyz/docs/get-started
+    - name: nonce
+      kind: per-API-key monotonic sequence
+      rule: 'new_nonce = old_nonce + 1 unless SkipNonce is set'
+      skip_nonce: >-
+        Setting SkipNonce (skip_nonce, 4th attribute in L2TxAttributes) to 1 relaxes the rule to
+        2^47-1 > new_nonce > old_nonce; nonces are capped at 2^48-1.
+      duplicate_behaviour: >-
+        Replayed or out-of-order nonces are rejected with 21104 "invalid nonce" or 21105
+        "batch transaction nonce is not increasing", giving each signed transaction exactly-once
+        semantics for a given API key.
+      managed_by: the Python SDK manages nonces automatically; TransactionApi.next_nonce exposes it
+      docs: https://apidocs.lighter.xyz/docs/api-keys
+  note: >-
+    Lighter has no `Idempotency-Key` header. Exactly-once submission is instead a property of the
+    signed-transaction model: the per-API-key nonce prevents replay and the client_order_index
+    prevents duplicate orders. Both are documented, enforced server-side, and observable through
+    dedicated error codes.
+pagination:
+  style: cursor / index based, per endpoint
+  common_params: [index, limit, cursor, sort_by, sort_dir, filter]
+  notes: >-
+    Pagination parameters vary by operation rather than following one global envelope; see the
+    per-operation parameters in openapi/lighter-zklighter-openapi-original.json.
+  caps:
+    accountOrders: last 10K active orders, or last 1K inactive orders in the last 24 hours
+    export: 12 months or 1M trades per export; timestamps must be at or after 2025-01-17T00:00:00Z
+versioning:
+  scheme: uri-path
+  current: v1
+  base_path: /api/v1/
+  detail: lifecycle/lighter-lifecycle.yml
+error_envelope:
+  format: numeric business error code plus message
+  fields: [code, message]
+  catalog: errors/lighter-error-codes.yml
+  problem_types: errors/lighter-problem-types.yml
+  note: >-
+    Not RFC 9457. Transaction-level failures also surface an `ae` (AppError) string on the
+    OrderExecution, CancelOrder and ModifyOrder event structures delivered over WebSocket.
+rate_limiting:
+  model: weighted requests per rolling minute, enforced per IP address and per L1 address
+  bypass_ip_limits: authenticate every request so only L1-based limits apply
+  detail: rate-limits/lighter-rate-limits.yml
+  errors: [23000, 23001, 23002, 23003, 23004, 30009, 30010]
+events:
+  transport: websocket
+  url: wss://mainnet.zklighter.elliot.ai/stream
+  spec: asyncapi/lighter-zklighter-asyncapi.yml
+  keepalive: client must send a frame at least every 2 minutes or the server closes the connection
+  compression: permessage-deflate supported
+precision:
+  description: >-
+    base_amount and price are passed as integers, scaled by the per-market decimal settings.
+    orderBooks exposes supported_size_decimals, supported_price_decimals and supported_quote_decimals
+    (quote decimals = size decimals + quote decimals) along with min base and min quote amounts.
+  source_operation: orderBooks
+tracing:
+  request_id_header: null
+  note: >-
+    No request-id/correlation header is documented. Transactions are traceable by their returned
+    tx hash via the tx and txFromL1TxHash operations, and by sequence_index / transaction_index.
+batching:
+  operation: sendTxBatch
+  max_per_rest_batch: 50 transactions (error 21514)
+  max_per_websocket_message: 15 transactions
+  constraint: all transactions in a batch must use the same account and API key (error 21121)
+colocation:
+  recommended_region: AWS Tokyo ap-northeast-1a (apne1-az4)
+  source: https://apidocs.lighter.xyz/docs/get-started

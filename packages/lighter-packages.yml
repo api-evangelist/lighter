@@ -1,0 +1,35 @@
+generated: '2026-07-19'
+method: searched
+source: https://apidocs.lighter.xyz/docs/repos
+docs: https://apidocs.lighter.xyz/docs/get-started
+packages:
+  - language: python
+    registry: pypi
+    name: lighter-sdk
+    url: https://pypi.org/project/lighter-sdk/
+    install: pip install lighter-sdk
+    source: https://github.com/elliottech/lighter-python
+    official: true
+    notes: >-
+      Async Python SDK generated from Lighter's OpenAPI, plus a SignerClient that wraps the
+      Go signing binary. Handles nonce management and exposes AccountApi, OrderApi,
+      TransactionApi and CandlestickApi.
+  - language: go
+    registry: go-modules
+    name: github.com/elliottech/lighter-go
+    url: https://github.com/elliottech/lighter-go
+    install: go get github.com/elliottech/lighter-go
+    source: https://github.com/elliottech/lighter-go
+    official: true
+    notes: >-
+      First-party Go SDK and the reference transaction signer. Carries the canonical transaction
+      type constants (types/txtypes/constants.go) and builds the signer binary used by the Python SDK.
+registries_probed:
+  - {registry: pypi, found: true}
+  - {registry: go-modules, found: true}
+  - {registry: npm, found: false}
+  - {registry: maven-central, found: false}
+  - {registry: nuget, found: false}
+  - {registry: rubygems, found: false}
+  - {registry: packagist, found: false}
+  - {registry: crates-io, found: false}

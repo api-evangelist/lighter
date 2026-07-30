@@ -1,0 +1,52 @@
+{
+  "provider": "lighter",
+  "sources": [
+    "lighter-account-api-openapi.yml",
+    "lighter-announcement-api-openapi.yml",
+    "lighter-block-api-openapi.yml",
+    "lighter-bridge-api-openapi.yml",
+    "lighter-candlestick-api-openapi.yml",
+    "lighter-funding-api-openapi.yml",
+    "lighter-info-api-openapi.yml",
+    "lighter-notification-api-openapi.yml",
+    "lighter-order-api-openapi.yml",
+    "lighter-referral-api-openapi.yml",
+    "lighter-root-api-openapi.yml",
+    "lighter-tokenlist-api-openapi.yml",
+    "lighter-transaction-api-openapi.yml"
+  ],
+  "outputs": [
+    "lighter-account-api-openapi.yml",
+    "lighter-announcement-api-openapi.yml",
+    "lighter-block-api-openapi.yml",
+    "lighter-bridge-api-openapi.yml",
+    "lighter-candlestick-api-openapi.yml",
+    "lighter-funding-api-openapi.yml",
+    "lighter-info-api-openapi.yml",
+    "lighter-notification-api-openapi.yml",
+    "lighter-order-api-openapi.yml",
+    "lighter-referral-api-openapi.yml",
+    "lighter-root-api-openapi.yml",
+    "lighter-tokenlist-api-openapi.yml",
+    "lighter-transaction-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [
+    "lighter-account-api-openapi.yml: info.version missing",
+    "lighter-announcement-api-openapi.yml: info.version missing",
+    "lighter-block-api-openapi.yml: info.version missing",
+    "lighter-bridge-api-openapi.yml: info.version missing",
+    "lighter-candlestick-api-openapi.yml: info.version missing",
+    "lighter-funding-api-openapi.yml: info.version missing",
+    "lighter-info-api-openapi.yml: info.version missing",
+    "lighter-notification-api-openapi.yml: info.version missing",
+    "lighter-order-api-openapi.yml: info.version missing",
+    "lighter-referral-api-openapi.yml: info.version missing",
+    "lighter-root-api-openapi.yml: info.version missing",
+    "lighter-tokenlist-api-openapi.yml: info.version missing",
+    "lighter-transaction-api-openapi.yml: info.version missing"
+  ],
+  "notes": [],
+  "skipped": []
+}

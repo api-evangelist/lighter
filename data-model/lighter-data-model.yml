@@ -1,0 +1,863 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/lighter-zklighter-openapi-original.json
+entity_count: 142
+relationship_count: 72
+entities:
+  - name: Account
+    type: object
+    field_count: 14
+    fields: ["account_trading_mode", "account_type", "available_balance", "cancel_all_time", "code", "collateral", "index", "l1_address", "message", "pending_order_count", "status", "total_isolated_order_count", "total_order_count", "transaction_time"]
+  - name: AccountApiKeys
+    type: object
+    field_count: 3
+    fields: ["api_keys", "code", "message"]
+  - name: AccountAsset
+    type: object
+    field_count: 6
+    fields: ["asset_id", "balance", "locked_balance", "margin_balance", "margin_mode", "symbol"]
+  - name: AccountLimits
+    type: object
+    field_count: 12
+    fields: ["can_create_public_pool", "code", "current_maker_fee_tick", "current_taker_fee_tick", "effective_lit_stakes", "leased_lit", "max_llp_amount", "max_llp_percentage", "message", "user_tier", "user_tier_last_update", "user_tier_name"]
+  - name: AccountMetadata
+    type: object
+    field_count: 8
+    fields: ["account_index", "can_invite", "can_rfq", "can_rfq_market_ids", "created_at", "description", "name", "referral_points_percentage"]
+  - name: AccountMetadatas
+    type: object
+    field_count: 4
+    fields: ["account_metadatas", "code", "message", "next_cursor"]
+  - name: AccountPnL
+    type: object
+    field_count: 4
+    fields: ["code", "message", "pnl", "resolution"]
+  - name: AccountPosition
+    type: object
+    field_count: 17
+    fields: ["allocated_margin", "avg_entry_price", "initial_margin_fraction", "liquidation_price", "margin_mode", "market_id", "open_order_count", "pending_order_count", "position", "position_tied_order_count", "position_value", "realized_pnl", "sign", "symbol", "total_discount", "total_funding_paid_out", "unrealized_pnl"]
+  - name: Announcement
+    type: object
+    field_count: 4
+    fields: ["content", "created_at", "expired_at", "title"]
+  - name: Announcements
+    type: object
+    field_count: 3
+    fields: ["announcements", "code", "message"]
+  - name: ApiKey
+    type: object
+    field_count: 5
+    fields: ["account_index", "api_key_index", "nonce", "public_key", "transaction_time"]
+  - name: ApiToken
+    type: object
+    field_count: 8
+    fields: ["account_index", "api_token", "expiry", "name", "revoked", "scopes", "sub_account_access", "token_id"]
+  - name: ApprovedIntegrator
+    type: object
+    field_count: 7
+    fields: ["account_index", "approval_expiry", "max_perps_maker_fee", "max_perps_taker_fee", "max_spot_maker_fee", "max_spot_taker_fee", "name"]
+  - name: Asset
+    type: object
+    field_count: 17
+    fields: ["asset_id", "decimals", "global_supply_cap", "index_price", "l1_address", "l1_decimals", "liquidation_factor", "liquidation_fee", "liquidation_threshold", "loan_to_value", "margin_mode", "min_transfer_amount", "min_withdrawal_amount", "price_decimals", "symbol", "total_supplied", "user_supply_cap"]
+  - name: AssetDetails
+    type: object
+    field_count: 3
+    fields: ["asset_details", "code", "message"]
+  - name: Block
+    type: object
+    field_count: 13
+    fields: ["commitment", "committed_at", "committed_tx_hash", "height", "on_chain_l2_operations", "pending_on_chain_operations_pub_data", "priority_operations", "size", "state_root", "status", "txs", "verified_at", "verified_tx_hash"]
+  - name: Blocks
+    type: object
+    field_count: 4
+    fields: ["blocks", "code", "message", "total"]
+  - name: BridgeSupportedNetwork
+    type: object
+    field_count: 3
+    fields: ["chain_id", "explorer", "name"]
+  - name: BridgeSupportedNetworks
+    type: object
+    field_count: 3
+    fields: ["code", "message", "networks"]
+  - name: Candle
+    type: object
+    field_count: 12
+    fields: ["C", "H", "L", "O", "V", "c", "h", "i", "l", "o", "t", "v"]
+  - name: Candles
+    type: object
+    field_count: 4
+    fields: ["c", "code", "message", "r"]
+  - name: ContractAddress
+    type: object
+    field_count: 2
+    fields: ["address", "name"]
+  - name: CreateIntentAddressResp
+    type: object
+    field_count: 3
+    fields: ["code", "intent_address", "message"]
+  - name: CurrentHeight
+    type: object
+    field_count: 3
+    fields: ["code", "height", "message"]
+  - name: DailyReturn
+    type: object
+    field_count: 2
+    fields: ["daily_return", "timestamp"]
+  - name: Deposit
+    type: object
+    field_count: 16
+    fields: ["amount", "batch_claim_tx_hash", "cctp_burn_tx_hash", "code", "created_at", "description", "fast_bridge_tx_hash", "intent_address", "is_external_deposit", "is_next_bridge_fast", "message", "source", "source_chain_id", "status", "step", "updated_at"]
+  - name: DepositHistory
+    type: object
+    field_count: 4
+    fields: ["code", "cursor", "deposits", "message"]
+  - name: DepositHistoryItem
+    type: object
+    field_count: 6
+    fields: ["amount", "asset_id", "id", "l1_tx_hash", "status", "timestamp"]
+  - name: DetailedAccount
+    type: object
+    field_count: 32
+    fields: ["account_index", "account_trading_mode", "account_type", "approved_integrators", "assets", "available_balance", "can_invite", "can_rfq", "can_rfq_market_ids", "cancel_all_time", "code", "collateral", "created_at", "cross_asset_value", "cross_initial_margin_requirement", "cross_maintenance_margin_requirement", "description", "index", "l1_address", "message", "name", "pending_order_count", "pending_unlocks", "pool_info", "positions"]
+  - name: DetailedAccounts
+    type: object
+    field_count: 5
+    fields: ["accounts", "code", "message", "next_cursor", "total"]
+  - name: EnrichedTx
+    type: object
+    field_count: 21
+    fields: ["account_index", "api_key_index", "block_height", "code", "committed_at", "event_info", "executed_at", "expire_at", "hash", "info", "l1_address", "message", "nonce", "parent_hash", "queued_at", "sequence_index", "status", "transaction_index", "transaction_time", "type", "verified_at"]
+  - name: ExchangeMetric
+    type: object
+    field_count: 2
+    fields: ["data", "timestamp"]
+  - name: ExchangeStats
+    type: object
+    field_count: 6
+    fields: ["code", "daily_trades_count", "daily_usd_volume", "message", "order_book_stats", "total"]
+  - name: ExecuteStat
+    type: object
+    field_count: 2
+    fields: ["slippage", "timestamp"]
+  - name: ExportData
+    type: object
+    field_count: 3
+    fields: ["code", "data_url", "message"]
+  - name: Funding
+    type: object
+    field_count: 4
+    fields: ["direction", "rate", "timestamp", "value"]
+  - name: FundingRate
+    type: object
+    field_count: 4
+    fields: ["exchange", "market_id", "rate", "symbol"]
+  - name: FundingRates
+    type: object
+    field_count: 3
+    fields: ["code", "funding_rates", "message"]
+  - name: Fundings
+    type: object
+    field_count: 4
+    fields: ["code", "fundings", "message", "resolution"]
+  - name: L1Metadata
+    type: object
+    field_count: 3
+    fields: ["can_invite", "l1_address", "referral_points_percentage"]
+  - name: L1ProviderInfo
+    type: object
+    field_count: 3
+    fields: ["chainId", "latestBlockNumber", "networkId"]
+  - name: Layer1BasicInfo
+    type: object
+    field_count: 9
+    fields: ["code", "contract_addresses", "l1_providers", "l1_providers_health", "latest_l1_desert_block", "latest_l1_generic_block", "latest_l1_governance_block", "message", "validator_info"]
+  - name: LeaseEntry
+    type: object
+    field_count: 8
+    fields: ["end", "error", "fee_amount", "id", "lease_amount", "master_account_index", "start", "status"]
+  - name: LeaseOptionEntry
+    type: object
+    field_count: 2
+    fields: ["annual_rate", "duration_days"]
+  - name: LiqTrade
+    type: object
+    field_count: 5
+    fields: ["maker_fee", "price", "size", "taker_fee", "transaction_time"]
+  - name: Liquidation
+    type: object
+    field_count: 6
+    fields: ["executed_at", "id", "info", "market_id", "trade", "type"]
+  - name: LiquidationInfo
+    type: object
+    field_count: 6
+    fields: ["asset_index_prices", "assets", "mark_prices", "positions", "risk_info_after", "risk_info_before"]
+  - name: LiquidationInfos
+    type: object
+    field_count: 4
+    fields: ["code", "liquidations", "message", "next_cursor"]
+  - name: MarketConfig
+    type: object
+    field_count: 8
+    fields: ["force_reduce_only", "funding_fee_discounts_enabled", "hidden", "insurance_fund_account_index", "liquidation_mode", "market_margin_mode", "rfq_enabled", "trading_hours"]
+  - name: NextNonce
+    type: object
+    field_count: 3
+    fields: ["code", "message", "nonce"]
+  - name: Order
+    type: object
+    field_count: 37
+    fields: ["base_price", "base_size", "block_height", "client_order_id", "client_order_index", "created_at", "filled_base_amount", "filled_quote_amount", "initial_base_amount", "integrator_fee_collector_index", "integrator_maker_fee", "integrator_taker_fee", "is_ask", "market_index", "nonce", "order_expiry", "order_id", "order_index", "owner_account_index", "parent_order_id", "parent_order_index", "price", "reduce_only", "remaining_base_amount", "side"]
+  - name: OrderBook
+    type: object
+    field_count: 17
+    fields: ["base_asset_id", "is_maker_fee_enabled", "is_taker_fee_enabled", "liquidation_fee", "maker_fee", "market_id", "market_type", "min_base_amount", "min_quote_amount", "order_quote_limit", "quote_asset_id", "status", "supported_price_decimals", "supported_quote_decimals", "supported_size_decimals", "symbol", "taker_fee"]
+  - name: OrderBookDetails
+    type: object
+    field_count: 4
+    fields: ["code", "message", "order_book_details", "spot_order_book_details"]
+  - name: OrderBookOrders
+    type: object
+    field_count: 6
+    fields: ["asks", "bids", "code", "message", "total_asks", "total_bids"]
+  - name: OrderBookStats
+    type: object
+    field_count: 6
+    fields: ["daily_base_token_volume", "daily_price_change", "daily_quote_token_volume", "daily_trades_count", "last_trade_price", "symbol"]
+  - name: OrderBooks
+    type: object
+    field_count: 3
+    fields: ["code", "message", "order_books"]
+  - name: Orders
+    type: object
+    field_count: 4
+    fields: ["code", "message", "next_cursor", "orders"]
+  - name: PartnerStats
+    type: object
+    field_count: 12
+    fields: ["code", "message", "total_fees_earned", "total_maker_fees_earned", "total_maker_trades", "total_maker_volume", "total_taker_fees_earned", "total_taker_trades", "total_taker_volume", "total_trades", "total_volume", "unique_clients"]
+  - name: PendingUnlock
+    type: object
+    field_count: 3
+    fields: ["amount", "asset_index", "unlock_timestamp"]
+  - name: PerpsOrderBookDetail
+    type: object
+    field_count: 38
+    fields: ["base_asset_id", "base_interest_rate", "closeout_margin_fraction", "daily_base_token_volume", "daily_chart", "daily_price_change", "daily_price_high", "daily_price_low", "daily_quote_token_volume", "daily_trades_count", "default_initial_margin_fraction", "funding_clamp_big", "funding_clamp_small", "is_maker_fee_enabled", "is_taker_fee_enabled", "last_trade_price", "liquidation_fee", "maintenance_margin_fraction", "maker_fee", "market_config", "market_id", "market_type", "min_base_amount", "min_initial_margin_fraction", "min_quote_amount"]
+  - name: PnLEntry
+    type: object
+    field_count: 16
+    fields: ["inflow", "outflow", "pool_inflow", "pool_outflow", "pool_pnl", "pool_total_shares", "spot_inflow", "spot_outflow", "staked_lit", "staking_inflow", "staking_outflow", "staking_pnl", "timestamp", "trade_pnl", "trade_spot_pnl", "volume"]
+  - name: PositionFunding
+    type: object
+    field_count: 8
+    fields: ["change", "discount", "funding_id", "market_id", "position_side", "position_size", "rate", "timestamp"]
+  - name: PositionFundings
+    type: object
+    field_count: 4
+    fields: ["code", "message", "next_cursor", "position_fundings"]
+  - name: PublicPoolInfo
+    type: object
+    field_count: 10
+    fields: ["annual_percentage_yield", "daily_returns", "min_operator_share_rate", "operator_fee", "operator_shares", "share_prices", "sharpe_ratio", "status", "strategies", "total_shares"]
+  - name: PublicPoolMetadata
+    type: object
+    field_count: 18
+    fields: ["account_index", "account_share", "account_type", "annual_percentage_yield", "assets", "code", "created_at", "l1_address", "master_account_index", "message", "name", "operator_fee", "sharpe_ratio", "status", "total_asset_value", "total_perps_value", "total_shares", "total_spot_value"]
+  - name: PublicPoolShare
+    type: object
+    field_count: 5
+    fields: ["entry_timestamp", "entry_usdc", "principal_amount", "public_pool_index", "shares_amount"]
+  - name: RFQEntry
+    type: object
+    field_count: 11
+    fields: ["account_index", "base_amount", "created_at", "direction", "id", "market_index", "metadata", "quote_amount", "responses", "status", "updated_at"]
+  - name: RFQMetadata
+    type: object
+    field_count: 4
+    fields: ["requested_est_price", "requested_max_slippage", "requested_slippage", "worst_price"]
+  - name: RFQResponseEntry
+    type: object
+    field_count: 4
+    fields: ["account_index", "responded_at", "status", "updated_at"]
+  - name: Referral
+    type: object
+    field_count: 5
+    fields: ["l1_address", "referral_code", "tier", "trade_stats", "used_at"]
+  - name: ReferralCode
+    type: object
+    field_count: 4
+    fields: ["code", "message", "referral_code", "remaining_usage"]
+  - name: ReferralPointEntry
+    type: object
+    field_count: 6
+    fields: ["l1_address", "reward_point_multiplier", "total_points", "total_reward_points", "week_points", "week_reward_points"]
+  - name: ReferralPoints
+    type: object
+    field_count: 6
+    fields: ["referrals", "reward_point_multiplier", "user_last_week_points", "user_last_week_referral_reward_points", "user_total_points", "user_total_referral_reward_points"]
+  - name: ReqAckNotif
+    type: object
+    field_count: 3
+    fields: ["account_index", "auth", "notif_id"]
+  - name: ReqChangeAccountTier
+    type: object
+    field_count: 3
+    fields: ["account_index", "auth", "new_tier"]
+  - name: ReqCreateIntentAddress
+    type: object
+    field_count: 4
+    fields: ["amount", "chain_id", "from_addr", "is_external_deposit"]
+  - name: ReqCreateRFQ
+    type: object
+    field_count: 5
+    fields: ["base_amount", "direction", "market_index", "metadata", "quote_amount"]
+  - name: ReqCreateReferralCode
+    type: object
+    field_count: 2
+    fields: ["account_index", "auth"]
+  - name: ReqFastwithdraw
+    type: object
+    field_count: 3
+    fields: ["auth", "to_address", "tx_info"]
+  - name: ReqLITLease
+    type: object
+    field_count: 3
+    fields: ["duration_days", "lease_amount", "tx_info"]
+  - name: ReqPostApiToken
+    type: object
+    field_count: 5
+    fields: ["account_index", "expiry", "name", "scopes", "sub_account_access"]
+  - name: ReqRespondToRFQ
+    type: object
+    field_count: 2
+    fields: ["rfq_id", "status"]
+  - name: ReqRevokeApiToken
+    type: object
+    field_count: 2
+    fields: ["account_index", "token_id"]
+  - name: ReqSendTx
+    type: object
+    field_count: 3
+    fields: ["price_protection", "tx_info", "tx_type"]
+  - name: ReqSendTxBatch
+    type: object
+    field_count: 2
+    fields: ["tx_infos", "tx_types"]
+  - name: ReqSetAccountMetadata
+    type: object
+    field_count: 5
+    fields: ["api_key_index", "auth", "master_account_index", "metadata", "target_account_index"]
+  - name: ReqSetMakerOnlyApiKeys
+    type: object
+    field_count: 3
+    fields: ["account_index", "api_key_indexes", "auth"]
+  - name: ReqUpdateKickback
+    type: object
+    field_count: 3
+    fields: ["account_index", "auth", "kickback_percentage"]
+  - name: ReqUpdateRFQ
+    type: object
+    field_count: 2
+    fields: ["rfq_id", "status"]
+  - name: ReqUpdateReferralCode
+    type: object
+    field_count: 3
+    fields: ["account_index", "auth", "new_referral_code"]
+  - name: ReqUseReferralCode
+    type: object
+    field_count: 7
+    fields: ["auth", "discord", "l1_address", "referral_code", "signature", "telegram", "x"]
+  - name: RespChangeAccountTier
+    type: object
+    field_count: 2
+    fields: ["code", "message"]
+  - name: RespCreateRFQ
+    type: object
+    field_count: 13
+    fields: ["account_index", "base_amount", "code", "created_at", "direction", "id", "market_index", "message", "metadata", "quote_amount", "responses", "status", "updated_at"]
+  - name: RespGetApiTokens
+    type: object
+    field_count: 3
+    fields: ["api_tokens", "code", "message"]
+  - name: RespGetExchangeMetrics
+    type: object
+    field_count: 3
+    fields: ["code", "message", "metrics"]
+  - name: RespGetExecuteStats
+    type: object
+    field_count: 2
+    fields: ["period", "result"]
+  - name: RespGetFastBridgeInfo
+    type: object
+    field_count: 3
+    fields: ["code", "fast_bridge_limit", "message"]
+  - name: RespGetFastwithdrawalInfo
+    type: object
+    field_count: 5
+    fields: ["code", "max_withdrawal_amount", "message", "to_account_index", "withdraw_limit"]
+  - name: RespGetLeaseOptions
+    type: object
+    field_count: 4
+    fields: ["code", "lit_incentives_account_index", "message", "options"]
+  - name: RespGetLeases
+    type: object
+    field_count: 4
+    fields: ["code", "leases", "message", "next_cursor"]
+  - name: RespGetMakerOnlyApiKeys
+    type: object
+    field_count: 3
+    fields: ["api_key_indexes", "code", "message"]
+  - name: RespGetRFQ
+    type: object
+    field_count: 13
+    fields: ["account_index", "base_amount", "code", "created_at", "direction", "id", "market_index", "message", "metadata", "quote_amount", "responses", "status", "updated_at"]
+  - name: RespListRFQs
+    type: object
+    field_count: 4
+    fields: ["code", "message", "next_cursor", "rfqs"]
+  - name: RespPostApiToken
+    type: object
+    field_count: 10
+    fields: ["account_index", "api_token", "code", "expiry", "message", "name", "revoked", "scopes", "sub_account_access", "token_id"]
+  - name: RespPublicPoolsMetadata
+    type: object
+    field_count: 3
+    fields: ["code", "message", "public_pools"]
+  - name: RespRespondToRFQ
+    type: object
+    field_count: 13
+    fields: ["account_index", "base_amount", "code", "created_at", "direction", "id", "market_index", "message", "metadata", "quote_amount", "responses", "status", "updated_at"]
+  - name: RespRevokeApiToken
+    type: object
+    field_count: 4
+    fields: ["code", "message", "revoked", "token_id"]
+  - name: RespSendTx
+    type: object
+    field_count: 5
+    fields: ["code", "message", "predicted_execution_time_ms", "tx_hash", "volume_quota_remaining"]
+  - name: RespSendTxBatch
+    type: object
+    field_count: 5
+    fields: ["code", "message", "predicted_execution_time_ms", "tx_hash", "volume_quota_remaining"]
+  - name: RespSetMakerOnlyApiKeys
+    type: object
+    field_count: 2
+    fields: ["code", "message"]
+  - name: RespSyntheticSpotInfo
+    type: object
+    field_count: 7
+    fields: ["bps_per_day", "code", "expiry_time_ms", "message", "source", "spot_close_ms", "symbol"]
+  - name: RespUpdateKickback
+    type: object
+    field_count: 3
+    fields: ["code", "message", "success"]
+  - name: RespUpdateRFQ
+    type: object
+    field_count: 13
+    fields: ["account_index", "base_amount", "code", "created_at", "direction", "id", "market_index", "message", "metadata", "quote_amount", "responses", "status", "updated_at"]
+  - name: RespUpdateReferralCode
+    type: object
+    field_count: 3
+    fields: ["code", "message", "success"]
+  - name: RespWithdrawalDelay
+    type: object
+    field_count: 1
+    fields: ["seconds"]
+  - name: ResultCode
+    type: object
+    field_count: 2
+    fields: ["code", "message"]
+  - name: RiskInfo
+    type: object
+    field_count: 2
+    fields: ["cross_risk_parameters", "isolated_risk_parameters"]
+  - name: RiskParameters
+    type: object
+    field_count: 9
+    fields: ["close_out_margin_req", "collateral", "initial_margin_req", "maintenance_margin_req", "market_id", "total_account_liquidation_threshold", "total_account_value", "usdc_collateral_with_funding", "usdc_portfolio_value"]
+  - name: SharePrice
+    type: object
+    field_count: 2
+    fields: ["share_price", "timestamp"]
+  - name: SimpleOrder
+    type: object
+    field_count: 8
+    fields: ["initial_base_amount", "order_expiry", "order_id", "order_index", "owner_account_index", "price", "remaining_base_amount", "transaction_time"]
+  - name: SlippageResult
+    type: object
+    field_count: 5
+    fields: ["avg_slippage", "data_count", "exchange", "market", "size_usd"]
+  - name: SpotOrderBookDetail
+    type: object
+    field_count: 27
+    fields: ["base_asset_id", "daily_base_token_volume", "daily_chart", "daily_price_change", "daily_price_high", "daily_price_low", "daily_quote_token_volume", "daily_trades_count", "is_maker_fee_enabled", "is_taker_fee_enabled", "last_trade_price", "liquidation_fee", "maker_fee", "market_id", "market_type", "min_base_amount", "min_quote_amount", "order_quote_limit", "price_decimals", "quote_asset_id", "size_decimals", "status", "supported_price_decimals", "supported_quote_decimals", "supported_size_decimals"]
+  - name: Status
+    type: object
+    field_count: 3
+    fields: ["network_id", "status", "timestamp"]
+  - name: Strategy
+    type: object
+    field_count: 1
+    fields: ["collateral"]
+  - name: SubAccounts
+    type: object
+    field_count: 5
+    fields: ["code", "l1_address", "message", "next_cursor", "sub_accounts"]
+  - name: SystemConfig
+    type: object
+    field_count: 12
+    fields: ["code", "funding_fee_rebate_account_index", "liquidity_pool_cooldown_period", "liquidity_pool_index", "market_maker_incentive_account_index", "max_integrator_perps_maker_fee", "max_integrator_perps_taker_fee", "max_integrator_spot_maker_fee", "max_integrator_spot_taker_fee", "message", "staking_pool_index", "staking_pool_lockup_period"]
+  - name: Token
+    type: object
+    field_count: 12
+    fields: ["asset_type", "categories", "description_key", "gecko_id", "is_allowed_mainnet", "is_asset_allowed_mainnet", "logo", "logo_extension", "market", "name", "paprika_id", "symbol"]
+  - name: TokenList
+    type: object
+    field_count: 3
+    fields: ["code", "message", "tokens"]
+  - name: Trade
+    type: object
+    field_count: 42
+    fields: ["ask_account_id", "ask_account_pnl", "ask_client_id", "ask_client_id_str", "ask_id", "ask_id_str", "bid_account_id", "bid_account_pnl", "bid_client_id", "bid_client_id_str", "bid_id", "bid_id_str", "block_height", "integrator_maker_fee", "integrator_maker_fee_collector_index", "integrator_taker_fee", "integrator_taker_fee_collector_index", "is_maker_ask", "maker_allocated_margin_usdc_after", "maker_allocated_margin_usdc_before", "maker_entry_quote_before", "maker_fee", "maker_initial_margin_fraction_before", "maker_position_sign_changed", "maker_position_size_before"]
+  - name: TradeStats
+    type: object
+    field_count: 8
+    fields: ["count", "mobile_app_count", "mobile_app_volume", "mobile_browser_count", "mobile_browser_volume", "volume", "web_count", "web_volume"]
+  - name: Trades
+    type: object
+    field_count: 4
+    fields: ["code", "message", "next_cursor", "trades"]
+  - name: TransferFeeInfo
+    type: object
+    field_count: 3
+    fields: ["code", "message", "transfer_fee_usdc"]
+  - name: TransferHistory
+    type: object
+    field_count: 4
+    fields: ["code", "cursor", "message", "transfers"]
+  - name: TransferHistoryItem
+    type: object
+    field_count: 13
+    fields: ["amount", "asset_id", "fee", "from_account_index", "from_l1_address", "from_route", "id", "timestamp", "to_account_index", "to_l1_address", "to_route", "tx_hash", "type"]
+  - name: Tx
+    type: object
+    field_count: 17
+    fields: ["account_index", "api_key_index", "block_height", "event_info", "executed_at", "expire_at", "hash", "info", "l1_address", "nonce", "parent_hash", "queued_at", "sequence_index", "status", "transaction_index", "transaction_time", "type"]
+  - name: TxHash
+    type: object
+    field_count: 3
+    fields: ["code", "message", "tx_hash"]
+  - name: Txs
+    type: object
+    field_count: 3
+    fields: ["code", "message", "txs"]
+  - name: UserReferrals
+    type: object
+    field_count: 5
+    fields: ["code", "cursor", "message", "referrals", "used_code"]
+  - name: ValidatorInfo
+    type: object
+    field_count: 2
+    fields: ["address", "is_active"]
+  - name: WithdrawHistory
+    type: object
+    field_count: 4
+    fields: ["code", "cursor", "message", "withdraws"]
+  - name: WithdrawHistoryItem
+    type: object
+    field_count: 7
+    fields: ["amount", "asset_id", "id", "l1_tx_hash", "status", "timestamp", "type"]
+  - name: ZkLighterInfo
+    type: object
+    field_count: 1
+    fields: ["contract_address"]
+relationships:
+  - from: AccountApiKeys
+    kind: has_many
+    to: ApiKey
+    via: api_keys
+  - from: AccountMetadatas
+    kind: has_many
+    to: AccountMetadata
+    via: account_metadatas
+  - from: AccountPnL
+    kind: has_many
+    to: PnLEntry
+    via: pnl
+  - from: Announcements
+    kind: has_many
+    to: Announcement
+    via: announcements
+  - from: AssetDetails
+    kind: has_many
+    to: Asset
+    via: asset_details
+  - from: Block
+    kind: has_many
+    to: Tx
+    via: txs
+  - from: Blocks
+    kind: has_many
+    to: Block
+    via: blocks
+  - from: Candles
+    kind: has_many
+    to: Candle
+    via: c
+  - from: DepositHistory
+    kind: has_many
+    to: DepositHistoryItem
+    via: deposits
+  - from: DetailedAccount
+    kind: has_many
+    to: AccountPosition
+    via: positions
+  - from: DetailedAccount
+    kind: has_many
+    to: AccountAsset
+    via: assets
+  - from: DetailedAccount
+    kind: has_one
+    to: PublicPoolInfo
+    via: pool_info
+  - from: DetailedAccount
+    kind: has_many
+    to: PublicPoolShare
+    via: shares
+  - from: DetailedAccount
+    kind: has_many
+    to: PendingUnlock
+    via: pending_unlocks
+  - from: DetailedAccount
+    kind: has_many
+    to: ApprovedIntegrator
+    via: approved_integrators
+  - from: DetailedAccounts
+    kind: has_many
+    to: DetailedAccount
+    via: accounts
+  - from: ExchangeStats
+    kind: has_many
+    to: OrderBookStats
+    via: order_book_stats
+  - from: FundingRates
+    kind: has_many
+    to: FundingRate
+    via: funding_rates
+  - from: Fundings
+    kind: has_many
+    to: Funding
+    via: fundings
+  - from: Liquidation
+    kind: has_one
+    to: LiqTrade
+    via: trade
+  - from: Liquidation
+    kind: has_one
+    to: LiquidationInfo
+    via: info
+  - from: LiquidationInfo
+    kind: has_many
+    to: AccountPosition
+    via: positions
+  - from: LiquidationInfo
+    kind: has_one
+    to: RiskInfo
+    via: risk_info_before
+  - from: LiquidationInfo
+    kind: has_one
+    to: RiskInfo
+    via: risk_info_after
+  - from: LiquidationInfo
+    kind: has_many
+    to: AccountAsset
+    via: assets
+  - from: LiquidationInfos
+    kind: has_many
+    to: Liquidation
+    via: liquidations
+  - from: PerpsOrderBookDetail
+    kind: has_one
+    to: MarketConfig
+    via: market_config
+  - from: OrderBookDetails
+    kind: has_many
+    to: PerpsOrderBookDetail
+    via: order_book_details
+  - from: OrderBookDetails
+    kind: has_many
+    to: SpotOrderBookDetail
+    via: spot_order_book_details
+  - from: OrderBookOrders
+    kind: has_many
+    to: SimpleOrder
+    via: asks
+  - from: OrderBookOrders
+    kind: has_many
+    to: SimpleOrder
+    via: bids
+  - from: OrderBooks
+    kind: has_many
+    to: OrderBook
+    via: order_books
+  - from: Orders
+    kind: has_many
+    to: Order
+    via: orders
+  - from: PositionFundings
+    kind: has_many
+    to: PositionFunding
+    via: position_fundings
+  - from: PublicPoolInfo
+    kind: has_many
+    to: DailyReturn
+    via: daily_returns
+  - from: PublicPoolInfo
+    kind: has_many
+    to: SharePrice
+    via: share_prices
+  - from: PublicPoolInfo
+    kind: has_many
+    to: Strategy
+    via: strategies
+  - from: PublicPoolMetadata
+    kind: has_one
+    to: PublicPoolShare
+    via: account_share
+  - from: PublicPoolMetadata
+    kind: has_many
+    to: AccountAsset
+    via: assets
+  - from: ReferralPoints
+    kind: has_many
+    to: ReferralPointEntry
+    via: referrals
+  - from: RespPublicPoolsMetadata
+    kind: has_many
+    to: PublicPoolMetadata
+    via: public_pools
+  - from: RiskInfo
+    kind: has_one
+    to: RiskParameters
+    via: cross_risk_parameters
+  - from: RiskInfo
+    kind: has_many
+    to: RiskParameters
+    via: isolated_risk_parameters
+  - from: SubAccounts
+    kind: has_many
+    to: Account
+    via: sub_accounts
+  - from: Trades
+    kind: has_many
+    to: Trade
+    via: trades
+  - from: TransferHistory
+    kind: has_many
+    to: TransferHistoryItem
+    via: transfers
+  - from: Txs
+    kind: has_many
+    to: Tx
+    via: txs
+  - from: WithdrawHistory
+    kind: has_many
+    to: WithdrawHistoryItem
+    via: withdraws
+  - from: RespGetApiTokens
+    kind: has_many
+    to: ApiToken
+    via: api_tokens
+  - from: BridgeSupportedNetworks
+    kind: has_many
+    to: BridgeSupportedNetwork
+    via: networks
+  - from: Layer1BasicInfo
+    kind: has_many
+    to: L1ProviderInfo
+    via: l1_providers
+  - from: Layer1BasicInfo
+    kind: has_many
+    to: ValidatorInfo
+    via: validator_info
+  - from: Layer1BasicInfo
+    kind: has_many
+    to: ContractAddress
+    via: contract_addresses
+  - from: RespGetExchangeMetrics
+    kind: has_many
+    to: ExchangeMetric
+    via: metrics
+  - from: ExecuteStat
+    kind: has_many
+    to: SlippageResult
+    via: slippage
+  - from: RespGetExecuteStats
+    kind: has_many
+    to: ExecuteStat
+    via: result
+  - from: RespGetLeaseOptions
+    kind: has_many
+    to: LeaseOptionEntry
+    via: options
+  - from: RespGetLeases
+    kind: has_many
+    to: LeaseEntry
+    via: leases
+  - from: Referral
+    kind: has_one
+    to: TradeStats
+    via: trade_stats
+  - from: UserReferrals
+    kind: has_many
+    to: Referral
+    via: referrals
+  - from: TokenList
+    kind: has_many
+    to: Token
+    via: tokens
+  - from: RespRespondToRFQ
+    kind: has_one
+    to: RFQMetadata
+    via: metadata
+  - from: RespRespondToRFQ
+    kind: has_many
+    to: RFQResponseEntry
+    via: responses
+  - from: RespListRFQs
+    kind: has_many
+    to: RFQEntry
+    via: rfqs
+  - from: RFQEntry
+    kind: has_one
+    to: RFQMetadata
+    via: metadata
+  - from: RFQEntry
+    kind: has_many
+    to: RFQResponseEntry
+    via: responses
+  - from: RespGetRFQ
+    kind: has_one
+    to: RFQMetadata
+    via: metadata
+  - from: RespGetRFQ
+    kind: has_many
+    to: RFQResponseEntry
+    via: responses
+  - from: RespCreateRFQ
+    kind: has_one
+    to: RFQMetadata
+    via: metadata
+  - from: RespCreateRFQ
+    kind: has_many
+    to: RFQResponseEntry
+    via: responses
+  - from: RespUpdateRFQ
+    kind: has_one
+    to: RFQMetadata
+    via: metadata
+  - from: RespUpdateRFQ
+    kind: has_many
+    to: RFQResponseEntry
+    via: responses

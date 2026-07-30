@@ -1,0 +1,38 @@
+# Lighter Docs
+
+## Lighter Docs
+
+- [Introduction](https://docs.lighter.xyz/about-lighter/introduction.md)
+- [Technical Architecture: Lighter Core](https://docs.lighter.xyz/about-lighter/technical-architecture-lighter-core.md)
+- [LIT Utility](https://docs.lighter.xyz/about-lighter/lit-utility.md): Lighter Infrastructure Token (LIT) is the native infrastructure token supporting access, incentives, and alignment across the Lighter ecosystem.
+- [Trading Fees](https://docs.lighter.xyz/trading/trading-fees.md)
+- [LIT Fee Credits](https://docs.lighter.xyz/trading/trading-fees/lit-fee-credits.md)
+- [Unified Trading Accounts](https://docs.lighter.xyz/trading/unified-trading-accounts.md): Available to be enabled only on web for now.
+- [Order Types & Matching](https://docs.lighter.xyz/trading/order-types-and-matching.md)
+- [Real World Assets (RWAs)](https://docs.lighter.xyz/trading/real-world-assets-rwas.md)
+- [RWA Pricing Mechanism](https://docs.lighter.xyz/trading/real-world-assets-rwas/rwa-pricing-mechanism.md)
+- [Futures Contract Price Rolling Mechanism](https://docs.lighter.xyz/trading/real-world-assets-rwas/futures-contract-price-rolling-mechanism.md)
+- [Market Specifications](https://docs.lighter.xyz/trading/real-world-assets-rwas/market-specifications.md)
+- [Pre-IPO Markets](https://docs.lighter.xyz/trading/real-world-assets-rwas/pre-ipo-markets.md)
+- [US Equity Indices](https://docs.lighter.xyz/trading/real-world-assets-rwas/us-equity-indices.md)
+- [perpRFQ](https://docs.lighter.xyz/trading/perprfq.md)
+- [Public Pools](https://docs.lighter.xyz/trading/public-pools.md)
+- [Contract Specifications](https://docs.lighter.xyz/trading/contract-specifications.md)
+- [Prelaunch Markets](https://docs.lighter.xyz/trading/prelaunch-markets.md)
+- [Liquidations & LLP (Insurance Fund)](https://docs.lighter.xyz/trading/liquidations-and-llp-insurance-fund.md)
+- [LLP Strategies](https://docs.lighter.xyz/trading/liquidations-and-llp-insurance-fund/llp-strategies.md)
+- [Multi-Asset Margin](https://docs.lighter.xyz/trading/multi-asset-margin.md)
+- [Collateral Supply Limits](https://docs.lighter.xyz/trading/multi-asset-margin/collateral-supply-limits.md)
+- [Funding](https://docs.lighter.xyz/trading/funding.md)
+- [Funding Rate Rebates](https://docs.lighter.xyz/trading/funding/funding-rate-rebates.md)
+- [PnL And Total Account Value](https://docs.lighter.xyz/trading/pnl-and-total-account-value.md)
+- [Fair Price Marking](https://docs.lighter.xyz/trading/fair-price-marking.md)
+- [Self-Trade Prevention](https://docs.lighter.xyz/trading/self-trade-prevention.md)
+- [API](https://docs.lighter.xyz/trading/api.md)
+- [Liquidity Partner Program](https://docs.lighter.xyz/liquidity-partner-program.md)
+- [Points Program](https://docs.lighter.xyz/points-program.md)
+- [Market Makers](https://docs.lighter.xyz/points-program/market-makers.md): Points Season 2 ended on December 26th 2025.
+- [Retail](https://docs.lighter.xyz/points-program/retail.md)
+- [Partner Attribution](https://docs.lighter.xyz/integrations/partner-attribution.md)
+- [Security / Vulnerability Disclosure Policy](https://docs.lighter.xyz/security/security-vulnerability-disclosure-policy.md)
+- [Security Audits](https://docs.lighter.xyz/security/security-audits.md)
