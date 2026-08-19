@@ -1,0 +1,439 @@
+{
+  "item": [
+    {
+      "id": "3a66e36c-f7e9-4010-8b15-da6f5d2f40c8",
+      "name": "block",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "11ba1771-47ba-47ce-bbc1-6bddefb595bf",
+          "name": "block",
+          "request": {
+            "name": "block",
+            "description": {
+              "content": "Get block by its height or commitment",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "block"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "by",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "value",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "56264834-c242-4d1f-acf1-8aebd18f84eb",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "block"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "value",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7265,\n  \"total\": 659,\n  \"blocks\": [\n    {\n      \"commitment\": \"string\",\n      \"height\": 1039,\n      \"state_root\": \"string\",\n      \"priority_operations\": 7772,\n      \"on_chain_l2_operations\": 2882,\n      \"pending_on_chain_operations_pub_data\": \"string\",\n      \"committed_tx_hash\": \"string\",\n      \"committed_at\": 3747,\n      \"verified_tx_hash\": \"string\",\n      \"verified_at\": 9054,\n      \"txs\": [\n        {\n          \"hash\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n          \"type\": 41,\n          \"info\": \"{}\",\n          \"event_info\": \"{}\",\n          \"status\": 6753,\n          \"transaction_index\": 1178,\n          \"l1_address\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n          \"account_index\": 2629,\n          \"nonce\": 3406,\n          \"expire_at\": 2597,\n          \"block_height\": 1253,\n          \"queued_at\": 9571,\n          \"executed_at\": 9518,\n          \"sequence_index\": 6159,\n          \"parent_hash\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n          \"api_key_index\": 875,\n          \"transaction_time\": 8880\n        },\n        {\n          \"hash\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n          \"type\": 62,\n          \"info\": \"{}\",\n          \"event_info\": \"{}\",\n          \"status\": 3728,\n          \"transaction_index\": 2977,\n          \"l1_address\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n          \"account_index\": 8967,\n          \"nonce\": 3315,\n          \"expire_at\": 8575,\n          \"block_height\": 8698,\n          \"queued_at\": 5567,\n          \"executed_at\": 8652,\n          \"sequence_index\": 4519,\n          \"parent_hash\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n          \"api_key_index\": 1488,\n          \"transaction_time\": 9832\n        }\n      ],\n      \"status\": 8516,\n      \"size\": 3913\n    },\n    {\n      \"commitment\": \"string\",\n      \"height\": 9005,\n      \"state_root\": \"string\",\n      \"priority_operations\": 2464,\n      \"on_chain_l2_operations\": 4795,\n      \"pending_on_chain_operations_pub_data\": \"string\",\n      \"committed_tx_hash\": \"string\",\n      \"committed_at\": 983,\n      \"verified_tx_hash\": \"string\",\n      \"verified_at\": 9816,\n      \"txs\": [\n        {\n          \"hash\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n          \"type\": 24,\n          \"info\": \"{}\",\n          \"event_info\": \"{}\",\n          \"status\": 1173,\n          \"transaction_index\": 4044,\n          \"l1_address\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n          \"account_index\": 1074,\n          \"nonce\": 5310,\n          \"expire_at\": 592,\n          \"block_height\": 1878,\n          \"queued_at\": 5430,\n          \"executed_at\": 2942,\n          \"sequence_index\": 9812,\n          \"parent_hash\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n          \"api_key_index\": 4479,\n          \"transaction_time\": 1329\n        },\n        {\n          \"hash\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n          \"type\": 34,\n          \"info\": \"{}\",\n          \"event_info\": \"{}\",\n          \"status\": 4499,\n          \"transaction_index\": 1026,\n          \"l1_address\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n          \"account_index\": 4707,\n          \"nonce\": 6870,\n          \"expire_at\": 1780,\n          \"block_height\": 9105,\n          \"queued_at\": 6393,\n          \"executed_at\": 916,\n          \"sequence_index\": 8862,\n          \"parent_hash\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n          \"api_key_index\": 9704,\n          \"transaction_time\": 7268\n        }\n      ],\n      \"status\": 3208,\n      \"size\": 6520\n    }\n  ],\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "68aa4c42-7a4c-4d19-b102-b83715739138",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "block"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "value",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 984,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cf46ea07-bdbb-43f1-83ce-4dc17b39f4ef",
+          "name": "blocks",
+          "request": {
+            "name": "blocks",
+            "description": {
+              "content": "Get blocks",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "blocks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "index",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "asc"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "68789235-df73-42f5-b384-1e8dce807293",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "blocks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "index",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "asc"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 463,\n  \"total\": 959,\n  \"blocks\": [\n    {\n      \"commitment\": \"string\",\n      \"height\": 4052,\n      \"state_root\": \"string\",\n      \"priority_operations\": 9278,\n      \"on_chain_l2_operations\": 3172,\n      \"pending_on_chain_operations_pub_data\": \"string\",\n      \"committed_tx_hash\": \"string\",\n      \"committed_at\": 612,\n      \"verified_tx_hash\": \"string\",\n      \"verified_at\": 2063,\n      \"txs\": [\n        {\n          \"hash\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n          \"type\": 14,\n          \"info\": \"{}\",\n          \"event_info\": \"{}\",\n          \"status\": 4600,\n          \"transaction_index\": 9861,\n          \"l1_address\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n          \"account_index\": 5622,\n          \"nonce\": 933,\n          \"expire_at\": 8768,\n          \"block_height\": 7513,\n          \"queued_at\": 7114,\n          \"executed_at\": 3684,\n          \"sequence_index\": 5489,\n          \"parent_hash\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n          \"api_key_index\": 5782,\n          \"transaction_time\": 2161\n        },\n        {\n          \"hash\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n          \"type\": 26,\n          \"info\": \"{}\",\n          \"event_info\": \"{}\",\n          \"status\": 779,\n          \"transaction_index\": 9747,\n          \"l1_address\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n          \"account_index\": 4525,\n          \"nonce\": 1191,\n          \"expire_at\": 9936,\n          \"block_height\": 5549,\n          \"queued_at\": 8719,\n          \"executed_at\": 6340,\n          \"sequence_index\": 3108,\n          \"parent_hash\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n          \"api_key_index\": 9052,\n          \"transaction_time\": 6099\n        }\n      ],\n      \"status\": 7839,\n      \"size\": 1450\n    },\n    {\n      \"commitment\": \"string\",\n      \"height\": 9591,\n      \"state_root\": \"string\",\n      \"priority_operations\": 4408,\n      \"on_chain_l2_operations\": 4871,\n      \"pending_on_chain_operations_pub_data\": \"string\",\n      \"committed_tx_hash\": \"string\",\n      \"committed_at\": 6236,\n      \"verified_tx_hash\": \"string\",\n      \"verified_at\": 6956,\n      \"txs\": [\n        {\n          \"hash\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n          \"type\": 15,\n          \"info\": \"{}\",\n          \"event_info\": \"{}\",\n          \"status\": 8797,\n          \"transaction_index\": 6471,\n          \"l1_address\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n          \"account_index\": 3697,\n          \"nonce\": 2397,\n          \"expire_at\": 7680,\n          \"block_height\": 7166,\n          \"queued_at\": 2307,\n          \"executed_at\": 9381,\n          \"sequence_index\": 2950,\n          \"parent_hash\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n          \"api_key_index\": 5085,\n          \"transaction_time\": 4832\n        },\n        {\n          \"hash\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n          \"type\": 14,\n          \"info\": \"{}\",\n          \"event_info\": \"{}\",\n          \"status\": 8387,\n          \"transaction_index\": 2107,\n          \"l1_address\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n          \"account_index\": 3402,\n          \"nonce\": 7899,\n          \"expire_at\": 7421,\n          \"block_height\": 5266,\n          \"queued_at\": 6107,\n          \"executed_at\": 8596,\n          \"sequence_index\": 1766,\n          \"parent_hash\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n          \"api_key_index\": 5863,\n          \"transaction_time\": 1759\n        }\n      ],\n      \"status\": 950,\n      \"size\": 2138\n    }\n  ],\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5e6294a1-bc17-4f9e-9174-a0e1026ae195",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "blocks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "index",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "asc"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 984,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5cba2d9a-94bc-4871-907c-6067bbb40036",
+          "name": "currentHeight",
+          "request": {
+            "name": "currentHeight",
+            "description": {
+              "content": "Get current height",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "currentHeight"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b80aca0c-aef2-4876-8a7d-3577d5556d4a",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "currentHeight"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3363,\n  \"height\": 1823,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ffbf9e8e-ee48-4f12-807c-f56fa135740f",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "currentHeight"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 984,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://mainnet.zklighter.elliot.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7c345926-e3a1-4dec-aee0-b8fb5f7b7d5c",
+    "name": "Lighter account block API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

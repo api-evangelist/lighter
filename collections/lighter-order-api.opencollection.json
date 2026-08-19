@@ -1,0 +1,433 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lighter account order API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "order",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "accountActiveOrders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/accountActiveOrders",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "account_index",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "market_id",
+                "value": "",
+                "type": "query",
+                "description": "If not specified, returns active orders for all markets."
+              },
+              {
+                "name": "market_type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get account active orders. `auth` can be generated using the SDK."
+        },
+        {
+          "info": {
+            "name": "accountInactiveOrders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/accountInactiveOrders",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "account_index",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "market_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ask_filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "between_timestamps",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "market_type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get account inactive orders. `auth` can be generated using the SDK."
+        },
+        {
+          "info": {
+            "name": "assetDetails",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/assetDetails",
+            "params": [
+              {
+                "name": "asset_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get asset details for a specific asset or all assets"
+        },
+        {
+          "info": {
+            "name": "exchangeStats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/exchangeStats"
+          },
+          "docs": "Get exchange stats"
+        },
+        {
+          "info": {
+            "name": "export",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/export",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "account_index",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "market_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_timestamp",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_timestamp",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "side",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "role",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "trade_type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Export trades and funding payments, limited to 12 months or 1M trades. END_TS_IN_MS - START_TS_IN_MS should not be larger than 12 months in milliseconds, both timestamps should be greater than or equal to 17 January 2025 00:00:00 UTC (lighter's mainnet genesis)"
+        },
+        {
+          "info": {
+            "name": "orderBookDetails",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/orderBookDetails",
+            "params": [
+              {
+                "name": "market_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "Filter order books by type"
+              }
+            ]
+          },
+          "docs": "Get order books metadata"
+        },
+        {
+          "info": {
+            "name": "orderBookOrders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/orderBookOrders",
+            "params": [
+              {
+                "name": "market_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get order book orders"
+        },
+        {
+          "info": {
+            "name": "orderBooks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/orderBooks",
+            "params": [
+              {
+                "name": "market_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get order books metadata.<hr>**Response Description:**<br><br>1) **Taker and maker fees** are in percentage.<br>2) **Min base amount:** The amount of base token that can be traded in a single order.<br>3) **Min quote amount:** The amount of quote token that can be traded in a single order.<br>4) **Supported size decimals:** The number of decimal places that can be used for the size of the order.<br>5) **Supported price decimals:** The number of decimal places that can be used for the price of th"
+        },
+        {
+          "info": {
+            "name": "recentTrades",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/recentTrades",
+            "params": [
+              {
+                "name": "market_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get recent trades"
+        },
+        {
+          "info": {
+            "name": "trades",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/trades",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "market_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "market_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "account_index",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order_index",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_dir",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ask_filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "role",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "aggregate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip_ask_order_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip_bid_order_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get trades for lighter accounts, including sub-accounts and public pools. `auth` is required for master accounts and sub accounts."
+        },
+        {
+          "info": {
+            "name": "exchangeMetrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/exchangeMetrics",
+            "params": [
+              {
+                "name": "period",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "kind",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "value",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get exchange metrics. When filtering by market, use the market symbol as a value."
+        },
+        {
+          "info": {
+            "name": "executeStats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/executeStats",
+            "params": [
+              {
+                "name": "period",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get execute stats"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

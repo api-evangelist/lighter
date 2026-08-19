@@ -1,0 +1,80 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lighter account block API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "block",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "block",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/block",
+            "params": [
+              {
+                "name": "by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "value",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get block by its height or commitment"
+        },
+        {
+          "info": {
+            "name": "blocks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/blocks",
+            "params": [
+              {
+                "name": "index",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get blocks"
+        },
+        {
+          "info": {
+            "name": "currentHeight",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/currentHeight"
+          },
+          "docs": "Get current height"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

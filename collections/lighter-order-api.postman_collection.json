@@ -1,0 +1,2071 @@
+{
+  "item": [
+    {
+      "id": "ecd466e9-09fb-4e90-a66e-ff5fc3885a22",
+      "name": "order",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2aec00e8-e6d3-48c1-9e9e-ff37e47777bb",
+          "name": "accountActiveOrders",
+          "request": {
+            "name": "accountActiveOrders",
+            "description": {
+              "content": "Get account active orders. `auth` can be generated using the SDK.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "accountActiveOrders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "account_index",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "market_id",
+                  "value": "255",
+                  "description": "If not specified, returns active orders for all markets."
+                },
+                {
+                  "disabled": false,
+                  "key": "market_type",
+                  "value": "all"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7df2a21c-6fe9-4366-b4db-a49c3d4d93dd",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "accountActiveOrders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_index",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "market_id",
+                      "value": "255"
+                    },
+                    {
+                      "key": "market_type",
+                      "value": "all"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5323,\n  \"orders\": [\n    {\n      \"order_index\": 9152,\n      \"client_order_index\": 778,\n      \"order_id\": \"1\",\n      \"client_order_id\": \"234\",\n      \"market_index\": 7150,\n      \"owner_account_index\": 6227,\n      \"initial_base_amount\": \"0.1\",\n      \"price\": \"3024.66\",\n      \"nonce\": 4287,\n      \"remaining_base_amount\": \"0.1\",\n      \"is_ask\": false,\n      \"base_size\": 8967,\n      \"base_price\": 4466,\n      \"filled_base_amount\": \"0.1\",\n      \"filled_quote_amount\": \"0.1\",\n      \"side\": \"buy\",\n      \"type\": \"limit\",\n      \"time_in_force\": \"good-till-time\",\n      \"reduce_only\": false,\n      \"trigger_price\": \"3024.66\",\n      \"order_expiry\": 6990,\n      \"status\": \"open\",\n      \"trigger_status\": \"twap\",\n      \"trigger_time\": 7567,\n      \"parent_order_index\": 3974,\n      \"parent_order_id\": \"1\",\n      \"to_trigger_order_id_0\": \"1\",\n      \"to_trigger_order_id_1\": \"1\",\n      \"to_cancel_order_id_0\": \"1\",\n      \"block_height\": 8918,\n      \"timestamp\": 6140,\n      \"created_at\": 2331,\n      \"updated_at\": 3621,\n      \"integrator_fee_collector_index\": \"string\",\n      \"integrator_maker_fee\": \"string\",\n      \"integrator_taker_fee\": \"string\",\n      \"transaction_time\": 2511\n    },\n    {\n      \"order_index\": 2232,\n      \"client_order_index\": 4686,\n      \"order_id\": \"1\",\n      \"client_order_id\": \"234\",\n      \"market_index\": 7295,\n      \"owner_account_index\": 7344,\n      \"initial_base_amount\": \"0.1\",\n      \"price\": \"3024.66\",\n      \"nonce\": 7628,\n      \"remaining_base_amount\": \"0.1\",\n      \"is_ask\": true,\n      \"base_size\": 6946,\n      \"base_price\": 867,\n      \"filled_base_amount\": \"0.1\",\n      \"filled_quote_amount\": \"0.1\",\n      \"side\": \"buy\",\n      \"type\": \"limit\",\n      \"time_in_force\": \"good-till-time\",\n      \"reduce_only\": false,\n      \"trigger_price\": \"3024.66\",\n      \"order_expiry\": 8053,\n      \"status\": \"open\",\n      \"trigger_status\": \"twap\",\n      \"trigger_time\": 1432,\n      \"parent_order_index\": 2579,\n      \"parent_order_id\": \"1\",\n      \"to_trigger_order_id_0\": \"1\",\n      \"to_trigger_order_id_1\": \"1\",\n      \"to_cancel_order_id_0\": \"1\",\n      \"block_height\": 9247,\n      \"timestamp\": 1193,\n      \"created_at\": 9521,\n      \"updated_at\": 3204,\n      \"integrator_fee_collector_index\": \"string\",\n      \"integrator_maker_fee\": \"string\",\n      \"integrator_taker_fee\": \"string\",\n      \"transaction_time\": 7012\n    }\n  ],\n  \"message\": \"string\",\n  \"next_cursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8c4bcfde-0d39-48e2-9929-832fa69c198e",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "accountActiveOrders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_index",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "market_id",
+                      "value": "255"
+                    },
+                    {
+                      "key": "market_type",
+                      "value": "all"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8792,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6a7f160c-0094-48cd-98ff-e5857040c380",
+          "name": "accountInactiveOrders",
+          "request": {
+            "name": "accountInactiveOrders",
+            "description": {
+              "content": "Get account inactive orders. `auth` can be generated using the SDK.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "accountInactiveOrders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "account_index",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "market_id",
+                  "value": "255"
+                },
+                {
+                  "disabled": false,
+                  "key": "ask_filter",
+                  "value": "-1"
+                },
+                {
+                  "disabled": false,
+                  "key": "between_timestamps",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "market_type",
+                  "value": "all"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c07c34a0-2cd4-4503-84f2-41fb50c69def",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "accountInactiveOrders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_index",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "market_id",
+                      "value": "255"
+                    },
+                    {
+                      "key": "ask_filter",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "between_timestamps",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "market_type",
+                      "value": "all"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4291,\n  \"orders\": [\n    {\n      \"order_index\": 7989,\n      \"client_order_index\": 9821,\n      \"order_id\": \"1\",\n      \"client_order_id\": \"234\",\n      \"market_index\": 1466,\n      \"owner_account_index\": 5754,\n      \"initial_base_amount\": \"0.1\",\n      \"price\": \"3024.66\",\n      \"nonce\": 7305,\n      \"remaining_base_amount\": \"0.1\",\n      \"is_ask\": false,\n      \"base_size\": 6430,\n      \"base_price\": 9469,\n      \"filled_base_amount\": \"0.1\",\n      \"filled_quote_amount\": \"0.1\",\n      \"side\": \"buy\",\n      \"type\": \"limit\",\n      \"time_in_force\": \"good-till-time\",\n      \"reduce_only\": true,\n      \"trigger_price\": \"3024.66\",\n      \"order_expiry\": 2284,\n      \"status\": \"open\",\n      \"trigger_status\": \"twap\",\n      \"trigger_time\": 6906,\n      \"parent_order_index\": 375,\n      \"parent_order_id\": \"1\",\n      \"to_trigger_order_id_0\": \"1\",\n      \"to_trigger_order_id_1\": \"1\",\n      \"to_cancel_order_id_0\": \"1\",\n      \"block_height\": 3397,\n      \"timestamp\": 2032,\n      \"created_at\": 2129,\n      \"updated_at\": 2456,\n      \"integrator_fee_collector_index\": \"string\",\n      \"integrator_maker_fee\": \"string\",\n      \"integrator_taker_fee\": \"string\",\n      \"transaction_time\": 4309\n    },\n    {\n      \"order_index\": 7278,\n      \"client_order_index\": 8380,\n      \"order_id\": \"1\",\n      \"client_order_id\": \"234\",\n      \"market_index\": 2540,\n      \"owner_account_index\": 6626,\n      \"initial_base_amount\": \"0.1\",\n      \"price\": \"3024.66\",\n      \"nonce\": 8638,\n      \"remaining_base_amount\": \"0.1\",\n      \"is_ask\": true,\n      \"base_size\": 7004,\n      \"base_price\": 3284,\n      \"filled_base_amount\": \"0.1\",\n      \"filled_quote_amount\": \"0.1\",\n      \"side\": \"buy\",\n      \"type\": \"limit\",\n      \"time_in_force\": \"good-till-time\",\n      \"reduce_only\": false,\n      \"trigger_price\": \"3024.66\",\n      \"order_expiry\": 9206,\n      \"status\": \"open\",\n      \"trigger_status\": \"twap\",\n      \"trigger_time\": 9743,\n      \"parent_order_index\": 1716,\n      \"parent_order_id\": \"1\",\n      \"to_trigger_order_id_0\": \"1\",\n      \"to_trigger_order_id_1\": \"1\",\n      \"to_cancel_order_id_0\": \"1\",\n      \"block_height\": 3864,\n      \"timestamp\": 5796,\n      \"created_at\": 2853,\n      \"updated_at\": 7298,\n      \"integrator_fee_collector_index\": \"string\",\n      \"integrator_maker_fee\": \"string\",\n      \"integrator_taker_fee\": \"string\",\n      \"transaction_time\": 498\n    }\n  ],\n  \"message\": \"string\",\n  \"next_cursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5c23a794-4dd6-442c-9896-143c402c08a6",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "accountInactiveOrders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_index",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "market_id",
+                      "value": "255"
+                    },
+                    {
+                      "key": "ask_filter",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "between_timestamps",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "market_type",
+                      "value": "all"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8792,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "37ba86ac-6b55-4d34-ab48-2de83e7c811e",
+          "name": "assetDetails",
+          "request": {
+            "name": "assetDetails",
+            "description": {
+              "content": "Get asset details for a specific asset or all assets",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "assetDetails"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "asset_id",
+                  "value": "<int16>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "21bce4e9-80db-423d-8a4b-d9625fab17d2",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "assetDetails"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "asset_id",
+                      "value": "<int16>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 200,\n  \"asset_details\": [\n    {\n      \"asset_id\": 1,\n      \"symbol\": \"ETH\",\n      \"l1_decimals\": 18,\n      \"decimals\": 18,\n      \"min_transfer_amount\": \"0.01\",\n      \"min_withdrawal_amount\": \"0.01\",\n      \"margin_mode\": \"enabled\",\n      \"index_price\": \"3024.66\",\n      \"price_decimals\": 7932,\n      \"l1_address\": \"0x0000000000000000000000000000000000000000\",\n      \"loan_to_value\": \"0.5\",\n      \"liquidation_threshold\": \"0.8\",\n      \"liquidation_factor\": \"0.9\",\n      \"liquidation_fee\": \"0.01\",\n      \"global_supply_cap\": \"1000000\",\n      \"user_supply_cap\": \"1000\",\n      \"total_supplied\": \"100\"\n    },\n    {\n      \"asset_id\": 1,\n      \"symbol\": \"ETH\",\n      \"l1_decimals\": 18,\n      \"decimals\": 18,\n      \"min_transfer_amount\": \"0.01\",\n      \"min_withdrawal_amount\": \"0.01\",\n      \"margin_mode\": \"enabled\",\n      \"index_price\": \"3024.66\",\n      \"price_decimals\": 6930,\n      \"l1_address\": \"0x0000000000000000000000000000000000000000\",\n      \"loan_to_value\": \"0.5\",\n      \"liquidation_threshold\": \"0.8\",\n      \"liquidation_factor\": \"0.9\",\n      \"liquidation_fee\": \"0.01\",\n      \"global_supply_cap\": \"1000000\",\n      \"user_supply_cap\": \"1000\",\n      \"total_supplied\": \"100\"\n    }\n  ],\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9371c9ff-407d-4e8a-a799-d43d597fa37f",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "assetDetails"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "asset_id",
+                      "value": "<int16>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8792,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7be6e3b0-430b-461a-9be0-c3c5dffcbe7f",
+          "name": "exchangeStats",
+          "request": {
+            "name": "exchangeStats",
+            "description": {
+              "content": "Get exchange stats",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "exchangeStats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3419b018-5fbe-42a1-9e22-7f3bc99ce8d3",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "exchangeStats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5127,\n  \"total\": 4397,\n  \"order_book_stats\": [\n    {\n      \"symbol\": \"ETH\",\n      \"last_trade_price\": 8046.826864438991,\n      \"daily_trades_count\": 4263,\n      \"daily_base_token_volume\": 9392.475260130866,\n      \"daily_quote_token_volume\": 4357.770734904685,\n      \"daily_price_change\": 7206.514051779326\n    },\n    {\n      \"symbol\": \"ETH\",\n      \"last_trade_price\": 5290.929533810469,\n      \"daily_trades_count\": 5859,\n      \"daily_base_token_volume\": 2792.8406822816364,\n      \"daily_quote_token_volume\": 5943.768228130848,\n      \"daily_price_change\": 7771.289347606293\n    }\n  ],\n  \"daily_usd_volume\": 9708.920657444556,\n  \"daily_trades_count\": 6773,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "590b06de-747e-4c10-9c3e-24180d27d958",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "exchangeStats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8792,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f6d164e4-d578-4bf4-96e1-d43234677c11",
+          "name": "export",
+          "request": {
+            "name": "export",
+            "description": {
+              "content": "Export trades and funding payments, limited to 12 months or 1M trades. END_TS_IN_MS - START_TS_IN_MS should not be larger than 12 months in milliseconds, both timestamps should be greater than or equal to 17 January 2025 00:00:00 UTC (lighter's mainnet genesis)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "export"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "account_index",
+                  "value": "-1"
+                },
+                {
+                  "disabled": false,
+                  "key": "market_id",
+                  "value": "255"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "start_timestamp",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_timestamp",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "side",
+                  "value": "all"
+                },
+                {
+                  "disabled": false,
+                  "key": "role",
+                  "value": "all"
+                },
+                {
+                  "disabled": false,
+                  "key": "trade_type",
+                  "value": "all"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "396f4cfb-f39c-4e6a-be91-bd7cca47e36e",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_index",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "market_id",
+                      "value": "255"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_timestamp",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "end_timestamp",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "side",
+                      "value": "all"
+                    },
+                    {
+                      "key": "role",
+                      "value": "all"
+                    },
+                    {
+                      "key": "trade_type",
+                      "value": "all"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5727,\n  \"data_url\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bcc22809-95dd-4d08-a8db-50e11db12c65",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_index",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "market_id",
+                      "value": "255"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_timestamp",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "end_timestamp",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "side",
+                      "value": "all"
+                    },
+                    {
+                      "key": "role",
+                      "value": "all"
+                    },
+                    {
+                      "key": "trade_type",
+                      "value": "all"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8792,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "09396554-299f-4744-8788-7710ae9e7d80",
+          "name": "orderBookDetails",
+          "request": {
+            "name": "orderBookDetails",
+            "description": {
+              "content": "Get order books metadata",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "orderBookDetails"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "market_id",
+                  "value": "255"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "all",
+                  "description": "Filter order books by type"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2e00636e-f342-4b4b-b374-7fb15e585347",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "orderBookDetails"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "market_id",
+                      "value": "255"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "all"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8713,\n  \"order_book_details\": [\n    {\n      \"symbol\": \"ETH\",\n      \"market_id\": 0,\n      \"market_type\": \"perp\",\n      \"base_asset_id\": 0,\n      \"quote_asset_id\": 0,\n      \"status\": \"active\",\n      \"taker_fee\": \"0.0001\",\n      \"is_taker_fee_enabled\": true,\n      \"maker_fee\": \"0.0000\",\n      \"is_maker_fee_enabled\": true,\n      \"liquidation_fee\": \"0.01\",\n      \"min_base_amount\": \"0.01\",\n      \"min_quote_amount\": \"0.1\",\n      \"order_quote_limit\": \"281474976.710655\",\n      \"supported_size_decimals\": 3693,\n      \"supported_price_decimals\": 1451,\n      \"supported_quote_decimals\": 2,\n      \"size_decimals\": 10,\n      \"price_decimals\": 2216,\n      \"quote_multiplier\": 6388,\n      \"default_initial_margin_fraction\": 9310,\n      \"min_initial_margin_fraction\": 4092,\n      \"maintenance_margin_fraction\": 3899,\n      \"closeout_margin_fraction\": 8553,\n      \"last_trade_price\": 8026.18546060799,\n      \"daily_trades_count\": 7003,\n      \"daily_base_token_volume\": 8092.867429211425,\n      \"daily_quote_token_volume\": 123.2543309302736,\n      \"daily_price_low\": 64.12283863526436,\n      \"daily_price_high\": 616.4131507527659,\n      \"daily_price_change\": 126.14361696108745,\n      \"open_interest\": 5256.831963671575,\n      \"daily_chart\": {\n        \"key_0\": 9242.955235325628,\n        \"key_1\": 6798.163452359911,\n        \"key_2\": 8843.512088725045,\n        \"key_3\": 7216.866102827795\n      },\n      \"market_config\": {\n        \"market_margin_mode\": 0,\n        \"insurance_fund_account_index\": 281474976710655,\n        \"liquidation_mode\": 0,\n        \"force_reduce_only\": false,\n        \"trading_hours\": \"\",\n        \"hidden\": false,\n        \"rfq_enabled\": false,\n        \"funding_fee_discounts_enabled\": false\n      },\n      \"strategy_index\": 8342,\n      \"funding_clamp_small\": \"0.005\",\n      \"funding_clamp_big\": \"0.4\",\n      \"base_interest_rate\": \"0.0001\"\n    },\n    {\n      \"symbol\": \"ETH\",\n      \"market_id\": 0,\n      \"market_type\": \"perp\",\n      \"base_asset_id\": 0,\n      \"quote_asset_id\": 0,\n      \"status\": \"active\",\n      \"taker_fee\": \"0.0001\",\n      \"is_taker_fee_enabled\": true,\n      \"maker_fee\": \"0.0000\",\n      \"is_maker_fee_enabled\": true,\n      \"liquidation_fee\": \"0.01\",\n      \"min_base_amount\": \"0.01\",\n      \"min_quote_amount\": \"0.1\",\n      \"order_quote_limit\": \"281474976.710655\",\n      \"supported_size_decimals\": 1871,\n      \"supported_price_decimals\": 9591,\n      \"supported_quote_decimals\": 5259,\n      \"size_decimals\": 9147,\n      \"price_decimals\": 3900,\n      \"quote_multiplier\": 9620,\n      \"default_initial_margin_fraction\": 9136,\n      \"min_initial_margin_fraction\": 9184,\n      \"maintenance_margin_fraction\": 9757,\n      \"closeout_margin_fraction\": 7488,\n      \"last_trade_price\": 9018.119385617912,\n      \"daily_trades_count\": 3664,\n      \"daily_base_token_volume\": 1743.5829452216667,\n      \"daily_quote_token_volume\": 620.9377751287792,\n      \"daily_price_low\": 3708.7972931705835,\n      \"daily_price_high\": 3509.565734465927,\n      \"daily_price_change\": 4258.073654319602,\n      \"open_interest\": 4974.618436089063,\n      \"daily_chart\": {\n        \"key_0\": 6993.744454255409\n      },\n      \"market_config\": {\n        \"market_margin_mode\": 0,\n        \"insurance_fund_account_index\": 281474976710655,\n        \"liquidation_mode\": 0,\n        \"force_reduce_only\": false,\n        \"trading_hours\": \"\",\n        \"hidden\": false,\n        \"rfq_enabled\": false,\n        \"funding_fee_discounts_enabled\": false\n      },\n      \"strategy_index\": 7684,\n      \"funding_clamp_small\": \"0.005\",\n      \"funding_clamp_big\": \"0.4\",\n      \"base_interest_rate\": \"0.0001\"\n    }\n  ],\n  \"spot_order_book_details\": [\n    {\n      \"symbol\": \"ETH/USDC\",\n      \"market_id\": 2048,\n      \"market_type\": \"spot\",\n      \"base_asset_id\": 1,\n      \"quote_asset_id\": 3,\n      \"status\": \"active\",\n      \"taker_fee\": \"0.0000\",\n      \"is_taker_fee_enabled\": true,\n      \"maker_fee\": \"0.0000\",\n      \"is_maker_fee_enabled\": true,\n      \"liquidation_fee\": \"0.0000\",\n      \"min_base_amount\": \"0.0001\",\n      \"min_quote_amount\": \"0.000001\",\n      \"order_quote_limit\": \"2500000.000000\",\n      \"supported_size_decimals\": 4,\n      \"supported_price_decimals\": 2,\n      \"supported_quote_decimals\": 6,\n      \"size_decimals\": 4,\n      \"price_decimals\": 2,\n      \"last_trade_price\": 2731.79,\n      \"daily_trades_count\": 126993,\n      \"daily_base_token_volume\": 1203.0962,\n      \"daily_quote_token_volume\": 3516374.947553,\n      \"daily_price_low\": 2717.47,\n      \"daily_price_high\": 3044.21,\n      \"daily_price_change\": -10.2389493724579,\n      \"daily_chart\": {\n        \"key_0\": 7213.016191634612,\n        \"key_1\": 6062.976782627868,\n        \"key_2\": 5753.840626991729,\n        \"key_3\": 1576.299054674195\n      }\n    },\n    {\n      \"symbol\": \"ETH/USDC\",\n      \"market_id\": 2048,\n      \"market_type\": \"spot\",\n      \"base_asset_id\": 1,\n      \"quote_asset_id\": 3,\n      \"status\": \"active\",\n      \"taker_fee\": \"0.0000\",\n      \"is_taker_fee_enabled\": true,\n      \"maker_fee\": \"0.0000\",\n      \"is_maker_fee_enabled\": true,\n      \"liquidation_fee\": \"0.0000\",\n      \"min_base_amount\": \"0.0001\",\n      \"min_quote_amount\": \"0.000001\",\n      \"order_quote_limit\": \"2500000.000000\",\n      \"supported_size_decimals\": 4,\n      \"supported_price_decimals\": 2,\n      \"supported_quote_decimals\": 6,\n      \"size_decimals\": 4,\n      \"price_decimals\": 2,\n      \"last_trade_price\": 2731.79,\n      \"daily_trades_count\": 126993,\n      \"daily_base_token_volume\": 1203.0962,\n      \"daily_quote_token_volume\": 3516374.947553,\n      \"daily_price_low\": 2717.47,\n      \"daily_price_high\": 3044.21,\n      \"daily_price_change\": -10.2389493724579,\n      \"daily_chart\": {\n        \"key_0\": 3336.505255918278,\n        \"key_1\": 842.7911411909183\n      }\n    }\n  ],\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d967ff81-1ed1-463f-9156-cb15a1d45231",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "orderBookDetails"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "market_id",
+                      "value": "255"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "all"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8792,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0524a2fa-c8c7-4e35-90d0-ee3a7130c021",
+          "name": "orderBookOrders",
+          "request": {
+            "name": "orderBookOrders",
+            "description": {
+              "content": "Get order book orders",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "orderBookOrders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "market_id",
+                  "value": "<int16>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b7cabfd5-becc-4078-9504-04719abe25cd",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "orderBookOrders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "market_id",
+                      "value": "<int16>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7169,\n  \"total_asks\": 895,\n  \"asks\": [\n    {\n      \"order_index\": 6066,\n      \"order_id\": \"1\",\n      \"owner_account_index\": 3903,\n      \"initial_base_amount\": \"0.1\",\n      \"remaining_base_amount\": \"0.1\",\n      \"price\": \"3024.66\",\n      \"order_expiry\": 8189,\n      \"transaction_time\": 2473\n    },\n    {\n      \"order_index\": 1171,\n      \"order_id\": \"1\",\n      \"owner_account_index\": 1572,\n      \"initial_base_amount\": \"0.1\",\n      \"remaining_base_amount\": \"0.1\",\n      \"price\": \"3024.66\",\n      \"order_expiry\": 9258,\n      \"transaction_time\": 8700\n    }\n  ],\n  \"total_bids\": 5162,\n  \"bids\": [\n    {\n      \"order_index\": 6900,\n      \"order_id\": \"1\",\n      \"owner_account_index\": 1683,\n      \"initial_base_amount\": \"0.1\",\n      \"remaining_base_amount\": \"0.1\",\n      \"price\": \"3024.66\",\n      \"order_expiry\": 793,\n      \"transaction_time\": 9716\n    },\n    {\n      \"order_index\": 7590,\n      \"order_id\": \"1\",\n      \"owner_account_index\": 2255,\n      \"initial_base_amount\": \"0.1\",\n      \"remaining_base_amount\": \"0.1\",\n      \"price\": \"3024.66\",\n      \"order_expiry\": 3733,\n      \"transaction_time\": 2927\n    }\n  ],\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5696cac6-210a-4f90-82c9-33000840738c",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "orderBookOrders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "market_id",
+                      "value": "<int16>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8792,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3a82923f-bd7d-4f77-b741-6566d657ef8e",
+          "name": "orderBooks",
+          "request": {
+            "name": "orderBooks",
+            "description": {
+              "content": "Get order books metadata.<hr>**Response Description:**<br><br>1) **Taker and maker fees** are in percentage.<br>2) **Min base amount:** The amount of base token that can be traded in a single order.<br>3) **Min quote amount:** The amount of quote token that can be traded in a single order.<br>4) **Supported size decimals:** The number of decimal places that can be used for the size of the order.<br>5) **Supported price decimals:** The number of decimal places that can be used for the price of the order.<br>6) **Supported quote decimals:** Size Decimals + Quote Decimals.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "orderBooks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "market_id",
+                  "value": "255"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "all"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "110dad25-4634-4e9a-9482-a4b4cf0bca23",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "orderBooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "market_id",
+                      "value": "255"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "all"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3934,\n  \"order_books\": [\n    {\n      \"symbol\": \"ETH\",\n      \"market_id\": 0,\n      \"market_type\": \"perp\",\n      \"base_asset_id\": 0,\n      \"quote_asset_id\": 0,\n      \"status\": \"active\",\n      \"taker_fee\": \"0.0001\",\n      \"is_taker_fee_enabled\": true,\n      \"maker_fee\": \"0.0000\",\n      \"is_maker_fee_enabled\": true,\n      \"liquidation_fee\": \"0.01\",\n      \"min_base_amount\": \"0.01\",\n      \"min_quote_amount\": \"0.1\",\n      \"order_quote_limit\": \"281474976.710655\",\n      \"supported_size_decimals\": 7098,\n      \"supported_price_decimals\": 6551,\n      \"supported_quote_decimals\": 1027\n    },\n    {\n      \"symbol\": \"ETH\",\n      \"market_id\": 0,\n      \"market_type\": \"perp\",\n      \"base_asset_id\": 0,\n      \"quote_asset_id\": 0,\n      \"status\": \"active\",\n      \"taker_fee\": \"0.0001\",\n      \"is_taker_fee_enabled\": true,\n      \"maker_fee\": \"0.0000\",\n      \"is_maker_fee_enabled\": true,\n      \"liquidation_fee\": \"0.01\",\n      \"min_base_amount\": \"0.01\",\n      \"min_quote_amount\": \"0.1\",\n      \"order_quote_limit\": \"281474976.710655\",\n      \"supported_size_decimals\": 4332,\n      \"supported_price_decimals\": 9691,\n      \"supported_quote_decimals\": 4712\n    }\n  ],\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b4e65e8b-4061-4168-9feb-d235abb19608",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "orderBooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "market_id",
+                      "value": "255"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "all"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8792,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1489dacd-e860-4184-96c8-1d983f64a04d",
+          "name": "recentTrades",
+          "request": {
+            "name": "recentTrades",
+            "description": {
+              "content": "Get recent trades",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "recentTrades"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "market_id",
+                  "value": "<int16>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bcdb084b-3fa9-480e-81c2-dedba0d65e41",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "recentTrades"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "market_id",
+                      "value": "<int16>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3360,\n  \"trades\": [\n    {\n      \"trade_id\": 8518,\n      \"trade_id_str\": \"145\",\n      \"tx_hash\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n      \"type\": \"trade\",\n      \"market_id\": 3787,\n      \"size\": \"0.1\",\n      \"price\": \"3024.66\",\n      \"usd_amount\": \"3024.66\",\n      \"ask_id\": 7944,\n      \"bid_id\": 7034,\n      \"ask_client_id\": 4366,\n      \"ask_client_id_str\": \"145\",\n      \"bid_client_id\": 5920,\n      \"bid_client_id_str\": \"245\",\n      \"ask_account_id\": 7990,\n      \"bid_account_id\": 8755,\n      \"is_maker_ask\": false,\n      \"block_height\": 6060,\n      \"timestamp\": 322,\n      \"taker_position_size_before\": \"0\",\n      \"taker_entry_quote_before\": \"0\",\n      \"taker_initial_margin_fraction_before\": 9654,\n      \"taker_position_sign_changed\": true,\n      \"maker_position_size_before\": \"0\",\n      \"maker_entry_quote_before\": \"0\",\n      \"maker_initial_margin_fraction_before\": 5508,\n      \"maker_position_sign_changed\": false,\n      \"transaction_time\": 2315,\n      \"ask_account_pnl\": \"1.989696\",\n      \"bid_account_pnl\": \"-0.022890\",\n      \"integrator_taker_fee\": 9410,\n      \"integrator_taker_fee_collector_index\": 4246,\n      \"integrator_maker_fee\": 5443,\n      \"integrator_maker_fee_collector_index\": 8308,\n      \"taker_allocated_margin_usdc_before\": 886,\n      \"taker_allocated_margin_usdc_after\": 466,\n      \"maker_allocated_margin_usdc_before\": 6417,\n      \"maker_allocated_margin_usdc_after\": 1868,\n      \"taker_fee\": 7968,\n      \"maker_fee\": 9585,\n      \"ask_id_str\": \"145\",\n      \"bid_id_str\": \"245\"\n    },\n    {\n      \"trade_id\": 1245,\n      \"trade_id_str\": \"145\",\n      \"tx_hash\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n      \"type\": \"trade\",\n      \"market_id\": 6860,\n      \"size\": \"0.1\",\n      \"price\": \"3024.66\",\n      \"usd_amount\": \"3024.66\",\n      \"ask_id\": 6904,\n      \"bid_id\": 418,\n      \"ask_client_id\": 3527,\n      \"ask_client_id_str\": \"145\",\n      \"bid_client_id\": 5910,\n      \"bid_client_id_str\": \"245\",\n      \"ask_account_id\": 407,\n      \"bid_account_id\": 1563,\n      \"is_maker_ask\": true,\n      \"block_height\": 7576,\n      \"timestamp\": 9948,\n      \"taker_position_size_before\": \"0\",\n      \"taker_entry_quote_before\": \"0\",\n      \"taker_initial_margin_fraction_before\": 742,\n      \"taker_position_sign_changed\": true,\n      \"maker_position_size_before\": \"0\",\n      \"maker_entry_quote_before\": \"0\",\n      \"maker_initial_margin_fraction_before\": 1875,\n      \"maker_position_sign_changed\": true,\n      \"transaction_time\": 9851,\n      \"ask_account_pnl\": \"1.989696\",\n      \"bid_account_pnl\": \"-0.022890\",\n      \"integrator_taker_fee\": 9517,\n      \"integrator_taker_fee_collector_index\": 8065,\n      \"integrator_maker_fee\": 3335,\n      \"integrator_maker_fee_collector_index\": 7070,\n      \"taker_allocated_margin_usdc_before\": 8043,\n      \"taker_allocated_margin_usdc_after\": 4457,\n      \"maker_allocated_margin_usdc_before\": 3557,\n      \"maker_allocated_margin_usdc_after\": 6698,\n      \"taker_fee\": 949,\n      \"maker_fee\": 3942,\n      \"ask_id_str\": \"145\",\n      \"bid_id_str\": \"245\"\n    }\n  ],\n  \"message\": \"string\",\n  \"next_cursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "870a74a6-76a8-4f84-b9e1-06f983c6ed07",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "recentTrades"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "market_id",
+                      "value": "<int16>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8792,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0c7b94d5-b35c-45f7-ae48-7582ff4ef80f",
+          "name": "trades",
+          "request": {
+            "name": "trades",
+            "description": {
+              "content": "Get trades for lighter accounts, including sub-accounts and public pools. `auth` is required for master accounts and sub accounts.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "trades"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "market_id",
+                  "value": "255"
+                },
+                {
+                  "disabled": false,
+                  "key": "market_type",
+                  "value": "all"
+                },
+                {
+                  "disabled": false,
+                  "key": "account_index",
+                  "value": "-1"
+                },
+                {
+                  "disabled": false,
+                  "key": "order_index",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_by",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_dir",
+                  "value": "desc"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "-1"
+                },
+                {
+                  "disabled": false,
+                  "key": "ask_filter",
+                  "value": "-1"
+                },
+                {
+                  "disabled": false,
+                  "key": "role",
+                  "value": "all"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "all"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "aggregate",
+                  "value": "false"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip_ask_order_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip_bid_order_id",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "91f55451-dde1-4582-ab10-2c0126320d36",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "trades"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "market_id",
+                      "value": "255"
+                    },
+                    {
+                      "key": "market_type",
+                      "value": "all"
+                    },
+                    {
+                      "key": "account_index",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "order_index",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_dir",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "ask_filter",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "role",
+                      "value": "all"
+                    },
+                    {
+                      "key": "type",
+                      "value": "all"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "aggregate",
+                      "value": "false"
+                    },
+                    {
+                      "key": "skip_ask_order_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "skip_bid_order_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 988,\n  \"trades\": [\n    {\n      \"trade_id\": 1980,\n      \"trade_id_str\": \"145\",\n      \"tx_hash\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n      \"type\": \"trade\",\n      \"market_id\": 9120,\n      \"size\": \"0.1\",\n      \"price\": \"3024.66\",\n      \"usd_amount\": \"3024.66\",\n      \"ask_id\": 8467,\n      \"bid_id\": 5640,\n      \"ask_client_id\": 5989,\n      \"ask_client_id_str\": \"145\",\n      \"bid_client_id\": 9984,\n      \"bid_client_id_str\": \"245\",\n      \"ask_account_id\": 5653,\n      \"bid_account_id\": 6667,\n      \"is_maker_ask\": true,\n      \"block_height\": 5131,\n      \"timestamp\": 5248,\n      \"taker_position_size_before\": \"0\",\n      \"taker_entry_quote_before\": \"0\",\n      \"taker_initial_margin_fraction_before\": 2050,\n      \"taker_position_sign_changed\": true,\n      \"maker_position_size_before\": \"0\",\n      \"maker_entry_quote_before\": \"0\",\n      \"maker_initial_margin_fraction_before\": 602,\n      \"maker_position_sign_changed\": false,\n      \"transaction_time\": 4792,\n      \"ask_account_pnl\": \"1.989696\",\n      \"bid_account_pnl\": \"-0.022890\",\n      \"integrator_taker_fee\": 1834,\n      \"integrator_taker_fee_collector_index\": 1409,\n      \"integrator_maker_fee\": 5026,\n      \"integrator_maker_fee_collector_index\": 663,\n      \"taker_allocated_margin_usdc_before\": 5006,\n      \"taker_allocated_margin_usdc_after\": 8742,\n      \"maker_allocated_margin_usdc_before\": 681,\n      \"maker_allocated_margin_usdc_after\": 4604,\n      \"taker_fee\": 1021,\n      \"maker_fee\": 5009,\n      \"ask_id_str\": \"145\",\n      \"bid_id_str\": \"245\"\n    },\n    {\n      \"trade_id\": 2161,\n      \"trade_id_str\": \"145\",\n      \"tx_hash\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n      \"type\": \"trade\",\n      \"market_id\": 2468,\n      \"size\": \"0.1\",\n      \"price\": \"3024.66\",\n      \"usd_amount\": \"3024.66\",\n      \"ask_id\": 3474,\n      \"bid_id\": 1092,\n      \"ask_client_id\": 6646,\n      \"ask_client_id_str\": \"145\",\n      \"bid_client_id\": 1448,\n      \"bid_client_id_str\": \"245\",\n      \"ask_account_id\": 1278,\n      \"bid_account_id\": 6763,\n      \"is_maker_ask\": false,\n      \"block_height\": 5084,\n      \"timestamp\": 4487,\n      \"taker_position_size_before\": \"0\",\n      \"taker_entry_quote_before\": \"0\",\n      \"taker_initial_margin_fraction_before\": 3556,\n      \"taker_position_sign_changed\": false,\n      \"maker_position_size_before\": \"0\",\n      \"maker_entry_quote_before\": \"0\",\n      \"maker_initial_margin_fraction_before\": 467,\n      \"maker_position_sign_changed\": true,\n      \"transaction_time\": 3812,\n      \"ask_account_pnl\": \"1.989696\",\n      \"bid_account_pnl\": \"-0.022890\",\n      \"integrator_taker_fee\": 1800,\n      \"integrator_taker_fee_collector_index\": 7376,\n      \"integrator_maker_fee\": 7970,\n      \"integrator_maker_fee_collector_index\": 444,\n      \"taker_allocated_margin_usdc_before\": 5517,\n      \"taker_allocated_margin_usdc_after\": 3362,\n      \"maker_allocated_margin_usdc_before\": 648,\n      \"maker_allocated_margin_usdc_after\": 5130,\n      \"taker_fee\": 978,\n      \"maker_fee\": 678,\n      \"ask_id_str\": \"145\",\n      \"bid_id_str\": \"245\"\n    }\n  ],\n  \"message\": \"string\",\n  \"next_cursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dc0c95f3-9a5a-4e25-9604-a01055cf2cdc",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "trades"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "market_id",
+                      "value": "255"
+                    },
+                    {
+                      "key": "market_type",
+                      "value": "all"
+                    },
+                    {
+                      "key": "account_index",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "order_index",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_dir",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "ask_filter",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "role",
+                      "value": "all"
+                    },
+                    {
+                      "key": "type",
+                      "value": "all"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "aggregate",
+                      "value": "false"
+                    },
+                    {
+                      "key": "skip_ask_order_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "skip_bid_order_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8792,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "26672219-57bb-44dc-859a-68479fc3f7dd",
+          "name": "exchangeMetrics",
+          "request": {
+            "name": "exchangeMetrics",
+            "description": {
+              "content": "Get exchange metrics. When filtering by market, use the market symbol as a value.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "exchangeMetrics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "period",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "kind",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "value",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b666e5b2-4b2d-46e0-a942-6fe1681d1361",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "exchangeMetrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "kind",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "value",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8588,\n  \"metrics\": [\n    {\n      \"timestamp\": 6764,\n      \"data\": 9165.854731561785\n    },\n    {\n      \"timestamp\": 3353,\n      \"data\": 5176.953457252453\n    }\n  ],\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3ed03aa8-663e-4b4d-a228-f34b0f623842",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "exchangeMetrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "kind",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "value",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8792,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8b0ffd39-813d-4f94-8d6f-2342d5701643",
+          "name": "executeStats",
+          "request": {
+            "name": "executeStats",
+            "description": {
+              "content": "Get execute stats",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "executeStats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "period",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0bb4e1d7-d047-44b6-afdf-5547d7fb3309",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "executeStats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"period\": \"y\",\n  \"result\": [\n    {\n      \"timestamp\": 7719,\n      \"slippage\": [\n        {\n          \"exchange\": \"lighter\",\n          \"market\": \"ETH\",\n          \"size_usd\": 8142,\n          \"avg_slippage\": 3646.7951445671665,\n          \"data_count\": 9647\n        },\n        {\n          \"exchange\": \"lighter\",\n          \"market\": \"ETH\",\n          \"size_usd\": 9267,\n          \"avg_slippage\": 6607.373635965826,\n          \"data_count\": 6785\n        }\n      ]\n    },\n    {\n      \"timestamp\": 5242,\n      \"slippage\": [\n        {\n          \"exchange\": \"lighter\",\n          \"market\": \"ETH\",\n          \"size_usd\": 3355,\n          \"avg_slippage\": 5495.90675846835,\n          \"data_count\": 6117\n        },\n        {\n          \"exchange\": \"lighter\",\n          \"market\": \"ETH\",\n          \"size_usd\": 9696,\n          \"avg_slippage\": 9136.925412166045,\n          \"data_count\": 2139\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9d8d7f9d-e873-4981-9213-0f9a786e78f9",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "executeStats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8792,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://mainnet.zklighter.elliot.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d0a2cd73-7592-483b-84f3-b8295387c06a",
+    "name": "Lighter account order API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lighter account announcement API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "announcement",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "announcement",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/announcement"
+          },
+          "docs": "Get announcements"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

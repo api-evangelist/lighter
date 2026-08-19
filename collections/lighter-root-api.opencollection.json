@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lighter account root API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "root",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/"
+          },
+          "docs": "Get status of zklighter"
+        },
+        {
+          "info": {
+            "name": "info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/info"
+          },
+          "docs": "Get info of zklighter"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

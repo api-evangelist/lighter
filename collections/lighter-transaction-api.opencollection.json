@@ -1,0 +1,336 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lighter account transaction API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "transaction",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "accountTxs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/accountTxs",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "index",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "value",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "auth",
+                "value": "",
+                "type": "query",
+                "description": " made optional to support header auth clients"
+              },
+              {
+                "name": "types",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get transactions of a specific account"
+        },
+        {
+          "info": {
+            "name": "blockTxs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/blockTxs",
+            "params": [
+              {
+                "name": "by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "value",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get transactions in a block"
+        },
+        {
+          "info": {
+            "name": "deposit_history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/deposit/history",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "account_index",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "l1_address",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get deposit history"
+        },
+        {
+          "info": {
+            "name": "nextNonce",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/nextNonce",
+            "params": [
+              {
+                "name": "account_index",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "api_key_index",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get next nonce for a specific account and api key"
+        },
+        {
+          "info": {
+            "name": "sendTx",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/sendTx",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "You need to sign the transaction body before sending it to the server. More details can be found here: https://apidocs.lighter.xyz/docs/get-started"
+        },
+        {
+          "info": {
+            "name": "sendTxBatch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/sendTxBatch",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "You need to sign the transaction body before sending it to the server. More details can be found here: https://apidocs.lighter.xyz/docs/get-started"
+        },
+        {
+          "info": {
+            "name": "transfer_history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/transfer/history",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "account_index",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get transfer history. To fetch an account index, you will need to `auth` the request, unless it's a public pool."
+        },
+        {
+          "info": {
+            "name": "tx",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/tx",
+            "params": [
+              {
+                "name": "by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "value",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get transaction by hash or sequence index"
+        },
+        {
+          "info": {
+            "name": "txFromL1TxHash",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/txFromL1TxHash",
+            "params": [
+              {
+                "name": "hash",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get L1 transaction by L1 transaction hash"
+        },
+        {
+          "info": {
+            "name": "txs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/txs",
+            "params": [
+              {
+                "name": "index",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get transactions which are already packed into blocks"
+        },
+        {
+          "info": {
+            "name": "withdraw_history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/withdraw/history",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "account_index",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get withdraw history. Secure withdrawals are only set to `claimable` when ready. You should only expect the `completed` status on fast withdrawals via Arbitrum."
+        },
+        {
+          "info": {
+            "name": "setAccountMetadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/setAccountMetadata",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set account metadata"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

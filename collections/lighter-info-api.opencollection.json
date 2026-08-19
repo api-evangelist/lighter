@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lighter account info API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "info",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "transferFeeInfo",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/transferFeeInfo",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "account_index",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to_account_index",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Transfer fee info"
+        },
+        {
+          "info": {
+            "name": "withdrawalDelay",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/withdrawalDelay"
+          },
+          "docs": "Withdrawal delay in seconds"
+        },
+        {
+          "info": {
+            "name": "layer1BasicInfo",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/layer1BasicInfo"
+          },
+          "docs": "Get zklighter l1 general info, including contract address and rpc info"
+        },
+        {
+          "info": {
+            "name": "systemConfig",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/systemConfig"
+          },
+          "docs": "Get system config"
+        },
+        {
+          "info": {
+            "name": "syntheticSpotInfo",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/syntheticSpotInfo",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get synthetic spot info for a symbol. For complete details see: https://docs.lighter.xyz/trading/real-world-assets-rwas/us-equity-indices"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

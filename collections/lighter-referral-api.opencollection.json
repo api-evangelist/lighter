@@ -1,0 +1,156 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lighter account referral API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "referral",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "referral_points",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/referral/points",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "account_index",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get referral points"
+        },
+        {
+          "info": {
+            "name": "referral_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/referral/create",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Create referral code"
+        },
+        {
+          "info": {
+            "name": "referral_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/referral/get",
+            "params": [
+              {
+                "name": "authorization",
+                "value": "",
+                "type": "query",
+                "description": " make required after integ is done"
+              },
+              {
+                "name": "auth",
+                "value": "",
+                "type": "query",
+                "description": " made optional to support header auth clients"
+              },
+              {
+                "name": "account_index",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get referral code"
+        },
+        {
+          "info": {
+            "name": "referral_kickback_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/referral/kickback/update",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Update kickback percentage for referral rewards (allowed once per day)"
+        },
+        {
+          "info": {
+            "name": "referral_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/referral/update",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Update referral code (allowed once per account)"
+        },
+        {
+          "info": {
+            "name": "referral_use",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/referral/use",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Use a referral code. You can change this at a later time."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

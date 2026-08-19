@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lighter account tokenlist API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "tokenlist",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "tokenlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/tokenlist"
+          },
+          "docs": "Get token list and their metadata"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,99 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lighter account candlestick API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "candlestick",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "candles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/candles",
+            "params": [
+              {
+                "name": "market_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "resolution",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_timestamp",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_timestamp",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count_back",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "set_timestamp_to_end",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get candles data. Returns at most 500 candles per call. Zero values are omitted from the response."
+        },
+        {
+          "info": {
+            "name": "fundings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/fundings",
+            "params": [
+              {
+                "name": "market_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "resolution",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_timestamp",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_timestamp",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count_back",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get fundings"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

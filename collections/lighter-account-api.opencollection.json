@@ -1,0 +1,776 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lighter account API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/account",
+            "params": [
+              {
+                "name": "by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "value",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "active_only",
+                "value": "",
+                "type": "query",
+                "description": "Hide markets for which leverage and margin settings are present (meaning the account traded it at least once), but with no active position."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get account by an account's index, or L1 address"
+        },
+        {
+          "info": {
+            "name": "accountLimits",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/accountLimits",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "account_index",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get account limits. For more details on account types, see this page: https://apidocs.lighter.xyz/docs/account-types"
+        },
+        {
+          "info": {
+            "name": "accountMetadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/accountMetadata",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "value",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get account metadatas"
+        },
+        {
+          "info": {
+            "name": "accountsByL1Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/accountsByL1Address",
+            "params": [
+              {
+                "name": "l1_address",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns all accounts associated with the given L1 address"
+        },
+        {
+          "info": {
+            "name": "apikeys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/apikeys",
+            "params": [
+              {
+                "name": "account_index",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "api_key_index",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get account api key. Set `api_key_index` to 255 to retrieve all api keys associated with the account."
+        },
+        {
+          "info": {
+            "name": "changeAccountTier",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/changeAccountTier",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Change account tier. You can only perform this action once every 24 hours, and with no orders or positions open."
+        },
+        {
+          "info": {
+            "name": "l1Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/l1Metadata",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "l1_address",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get L1 metadata"
+        },
+        {
+          "info": {
+            "name": "liquidations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/liquidations",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "account_index",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "market_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get liquidation infos"
+        },
+        {
+          "info": {
+            "name": "pnl",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/pnl",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "value",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "resolution",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_timestamp",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_timestamp",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count_back",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ignore_transfers",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get account PnL chart"
+        },
+        {
+          "info": {
+            "name": "positionFunding",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/positionFunding",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "account_index",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "market_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "side",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_timestamp",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_timestamp",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get accounts position fundings"
+        },
+        {
+          "info": {
+            "name": "publicPoolsMetadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/publicPoolsMetadata",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "index",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "account_index",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get public pools metadata. `auth` is required in case you specify an account_index. You will see public pools with an index that starts an n-1 of the one you specify. To see staking pools, use `filter=stake`"
+        },
+        {
+          "info": {
+            "name": "tokens",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/tokens",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "account_index",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get read only auth tokens for an account"
+        },
+        {
+          "info": {
+            "name": "tokens_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/tokens/create",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Create an API token for read-only access"
+        },
+        {
+          "info": {
+            "name": "tokens_revoke",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/tokens/revoke",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Revoke read only auth token for an account"
+        },
+        {
+          "info": {
+            "name": "leaseOptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/leaseOptions"
+          },
+          "docs": "Returns available lease duration/rate tiers, sorted by duration descending."
+        },
+        {
+          "info": {
+            "name": "leases",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/leases",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "account_index",
+                "value": "",
+                "type": "query",
+                "description": "Account index to fetch leases for"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Pagination cursor from a previous response"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return (1–100, default 20)"
+              },
+              {
+                "name": "auth",
+                "value": "",
+                "type": "query",
+                "description": "Read-only auth (alternative to header authorization)"
+              }
+            ]
+          },
+          "docs": "Returns paginated lease entries for an account, most recent first. Supports read-only auth via signature/account_index/timestamp query params."
+        },
+        {
+          "info": {
+            "name": "litLease",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/litLease",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Submit a LIT lease transfer. The server calculates the required fee based on lease_amount and duration_days, then executes the transfer. Fee formula (integer arithmetic): fee = lease_amount × (annual_rate × 100) × duration_days / (360 × 10000)."
+        },
+        {
+          "info": {
+            "name": "userReferrals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/referral/userReferrals",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "l1_address",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "auth",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "stats_start_timestamp",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "stats_end_timestamp",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get user referrals"
+        },
+        {
+          "info": {
+            "name": "getMakerOnlyApiKeys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/getMakerOnlyApiKeys",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "account_index",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get maker-only API key indexes"
+        },
+        {
+          "info": {
+            "name": "setMakerOnlyApiKeys",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/setMakerOnlyApiKeys",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Set maker-only API key indexes. This replaces the current list; pass all indexes you want marked as maker-only. Pass [] to clear all maker-only restrictions."
+        },
+        {
+          "info": {
+            "name": "partnerStats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/partnerStats",
+            "params": [
+              {
+                "name": "account_index",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_timestamp",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_timestamp",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get partner stats. If timestamps are not provided, all-time stats will be returned."
+        },
+        {
+          "info": {
+            "name": "rfq_respond",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/rfq/respond",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Respond to RFQ"
+        },
+        {
+          "info": {
+            "name": "rfq_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/rfq/list",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "account_index",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List RFQs"
+        },
+        {
+          "info": {
+            "name": "rfq_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/rfq/get",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "rfq_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get RFQ by ID"
+        },
+        {
+          "info": {
+            "name": "rfq_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/rfq/create",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Create RFQ"
+        },
+        {
+          "info": {
+            "name": "rfq_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/rfq/update",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Update RFQ status"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

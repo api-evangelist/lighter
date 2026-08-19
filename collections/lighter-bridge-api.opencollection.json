@@ -1,0 +1,118 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lighter account bridge API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "bridge",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "fastbridge_info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/fastbridge/info"
+          },
+          "docs": "Get fast bridge info"
+        },
+        {
+          "info": {
+            "name": "fastwithdraw",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/fastwithdraw",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Fast withdraw"
+        },
+        {
+          "info": {
+            "name": "fastwithdraw_info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/fastwithdraw/info",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "account_index",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get fast withdraw info"
+        },
+        {
+          "info": {
+            "name": "createIntentAddress",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/createIntentAddress",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Create a bridge intent address for CCTP bridge"
+        },
+        {
+          "info": {
+            "name": "deposit_networks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/deposit/networks"
+          },
+          "docs": "Get networks that support deposits via intent address"
+        },
+        {
+          "info": {
+            "name": "deposit_latest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/deposit/latest",
+            "params": [
+              {
+                "name": "l1_address",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get most recent deposit for given l1 address"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

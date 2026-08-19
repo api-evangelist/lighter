@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lighter account funding API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "funding",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "funding-rates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/funding-rates"
+          },
+          "docs": "Get funding rates"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

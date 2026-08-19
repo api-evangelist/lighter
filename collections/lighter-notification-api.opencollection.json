@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lighter account notification API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "notification",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "notification_ack",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://mainnet.zklighter.elliot.ai/api/v1/notification/ack",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Ack notification"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

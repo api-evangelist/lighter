@@ -1,0 +1,413 @@
+{
+  "item": [
+    {
+      "id": "ab6cef31-0a26-4d70-bd3e-ebc744788ae3",
+      "name": "candlestick",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "528e8137-b6dd-42bc-8c45-f15ea9ce30b8",
+          "name": "candles",
+          "request": {
+            "name": "candles",
+            "description": {
+              "content": "Get candles data. Returns at most 500 candles per call. Zero values are omitted from the response.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "candles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "market_id",
+                  "value": "<int16>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "resolution",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "start_timestamp",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "end_timestamp",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "count_back",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "set_timestamp_to_end",
+                  "value": "false"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "95cd23e5-1f3a-4b25-b042-28f0ac56c903",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "candles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "market_id",
+                      "value": "<int16>"
+                    },
+                    {
+                      "key": "resolution",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_timestamp",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "end_timestamp",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "count_back",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "set_timestamp_to_end",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 200,\n  \"r\": \"1m\",\n  \"c\": [\n    {\n      \"t\": 1767700500000,\n      \"o\": 3236.86,\n      \"h\": 3237.78,\n      \"l\": 3235.36,\n      \"c\": 3235.39,\n      \"v\": 55.1632,\n      \"V\": 178530.793575,\n      \"i\": 779870452,\n      \"C\": 3516.932350095894,\n      \"H\": 2817.4059094065897,\n      \"L\": 2087.168223444228,\n      \"O\": 8435.71209843596\n    },\n    {\n      \"t\": 1767700500000,\n      \"o\": 3236.86,\n      \"h\": 3237.78,\n      \"l\": 3235.36,\n      \"c\": 3235.39,\n      \"v\": 55.1632,\n      \"V\": 178530.793575,\n      \"i\": 779870452,\n      \"C\": 4627.113023026098,\n      \"H\": 8654.301946214273,\n      \"L\": 4278.8977495351455,\n      \"O\": 2152.5738610273993\n    }\n  ],\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cd62c2d9-4a9f-4a46-b84e-ba94b59d1958",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "candles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "market_id",
+                      "value": "<int16>"
+                    },
+                    {
+                      "key": "resolution",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_timestamp",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "end_timestamp",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "count_back",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "set_timestamp_to_end",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7556,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "73c3a60c-a45e-4bb8-bca2-e62db9e9b33b",
+          "name": "fundings",
+          "request": {
+            "name": "fundings",
+            "description": {
+              "content": "Get fundings",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "fundings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "market_id",
+                  "value": "<int16>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "resolution",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "start_timestamp",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "end_timestamp",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "count_back",
+                  "value": "<long>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "69f18dd1-135b-440f-8c3d-eec13de534de",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "fundings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "market_id",
+                      "value": "<int16>"
+                    },
+                    {
+                      "key": "resolution",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_timestamp",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "end_timestamp",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "count_back",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1387,\n  \"resolution\": \"1h\",\n  \"fundings\": [\n    {\n      \"timestamp\": 7966,\n      \"value\": \"0.0001\",\n      \"rate\": \"0.0001\",\n      \"direction\": \"long\"\n    },\n    {\n      \"timestamp\": 5175,\n      \"value\": \"0.0001\",\n      \"rate\": \"0.0001\",\n      \"direction\": \"long\"\n    }\n  ],\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a893fcaf-b2b6-426b-8d04-6a8f4c30113c",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "fundings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "market_id",
+                      "value": "<int16>"
+                    },
+                    {
+                      "key": "resolution",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_timestamp",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "end_timestamp",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "count_back",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7556,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://mainnet.zklighter.elliot.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e78c59fb-bb51-46ff-8ab7-53c8f5aaea54",
+    "name": "Lighter account candlestick API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

@@ -2,246 +2,251 @@ generated: '2026-07-19'
 method: derived
 source: openapi/lighter-zklighter-openapi-original.json
 status: candidate
-note: >-
-  No official Lighter MCP server was found on the docs, the elliottech GitHub org, or the
-  public MCP registries as of this pass. The tools below are a candidate surface derived
-  one-per-operation from Lighter's published OpenAPI; they are a proposal, not a Lighter product.
+note: No official Lighter MCP server was found on the docs, the elliottech GitHub org, or the public MCP
+  registries as of this pass. The tools below are a candidate surface derived one-per-operation from Lighter's
+  published OpenAPI; they are a proposal, not a Lighter product.
 server:
   name: lighter
   transport: http
   url: null
 tools:
-  - name: status
-    description: "status"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#status
-  - name: account
-    description: "account"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#account
-  - name: accountActiveOrders
-    description: "accountActiveOrders"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#accountActiveOrders
-  - name: accountInactiveOrders
-    description: "accountInactiveOrders"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#accountInactiveOrders
-  - name: accountLimits
-    description: "accountLimits"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#accountLimits
-  - name: accountMetadata
-    description: "accountMetadata"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#accountMetadata
-  - name: accountTxs
-    description: "accountTxs"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#accountTxs
-  - name: assetDetails
-    description: "assetDetails"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#assetDetails
-  - name: accountsByL1Address
-    description: "accountsByL1Address"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#accountsByL1Address
-  - name: announcement
-    description: "announcement"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#announcement
-  - name: apikeys
-    description: "apikeys"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#apikeys
-  - name: block
-    description: "block"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#block
-  - name: blockTxs
-    description: "blockTxs"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#blockTxs
-  - name: blocks
-    description: "blocks"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#blocks
-  - name: candles
-    description: "candles"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#candles
-  - name: changeAccountTier
-    description: "changeAccountTier"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#changeAccountTier
-  - name: currentHeight
-    description: "currentHeight"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#currentHeight
-  - name: deposit_history
-    description: "deposit_history"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#deposit_history
-  - name: exchangeStats
-    description: "exchangeStats"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#exchangeStats
-  - name: export
-    description: "export"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#export
-  - name: fastbridge_info
-    description: "fastbridge_info"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#fastbridge_info
-  - name: funding-rates
-    description: "funding-rates"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#funding-rates
-  - name: fundings
-    description: "fundings"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#fundings
-  - name: l1Metadata
-    description: "l1Metadata"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#l1Metadata
-  - name: liquidations
-    description: "liquidations"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#liquidations
-  - name: nextNonce
-    description: "nextNonce"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#nextNonce
-  - name: notification_ack
-    description: "notification_ack"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#notification_ack
-  - name: orderBookDetails
-    description: "orderBookDetails"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#orderBookDetails
-  - name: orderBookOrders
-    description: "orderBookOrders"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#orderBookOrders
-  - name: orderBooks
-    description: "orderBooks"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#orderBooks
-  - name: pnl
-    description: "pnl"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#pnl
-  - name: positionFunding
-    description: "positionFunding"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#positionFunding
-  - name: publicPoolsMetadata
-    description: "publicPoolsMetadata"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#publicPoolsMetadata
-  - name: recentTrades
-    description: "recentTrades"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#recentTrades
-  - name: referral_points
-    description: "referral_points"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#referral_points
-  - name: sendTx
-    description: "sendTx"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#sendTx
-  - name: sendTxBatch
-    description: "sendTxBatch"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#sendTxBatch
-  - name: trades
-    description: "trades"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#trades
-  - name: transfer_history
-    description: "transfer_history"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#transfer_history
-  - name: transferFeeInfo
-    description: "transferFeeInfo"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#transferFeeInfo
-  - name: tx
-    description: "tx"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#tx
-  - name: txFromL1TxHash
-    description: "txFromL1TxHash"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#txFromL1TxHash
-  - name: txs
-    description: "txs"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#txs
-  - name: withdraw_history
-    description: "withdraw_history"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#withdraw_history
-  - name: withdrawalDelay
-    description: "withdrawalDelay"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#withdrawalDelay
-  - name: info
-    description: "info"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#info
-  - name: fastwithdraw
-    description: "fastwithdraw"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#fastwithdraw
-  - name: fastwithdraw_info
-    description: "fastwithdraw_info"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#fastwithdraw_info
-  - name: tokens
-    description: "tokens"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#tokens
-  - name: tokens_create
-    description: "tokens_create"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#tokens_create
-  - name: tokens_revoke
-    description: "tokens_revoke"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#tokens_revoke
-  - name: createIntentAddress
-    description: "createIntentAddress"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#createIntentAddress
-  - name: deposit_networks
-    description: "deposit_networks"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#deposit_networks
-  - name: exchangeMetrics
-    description: "exchangeMetrics"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#exchangeMetrics
-  - name: layer1BasicInfo
-    description: "layer1BasicInfo"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#layer1BasicInfo
-  - name: referral_create
-    description: "referral_create"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#referral_create
-  - name: referral_get
-    description: "referral_get"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#referral_get
-  - name: referral_kickback_update
-    description: "referral_kickback_update"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#referral_kickback_update
-  - name: referral_update
-    description: "referral_update"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#referral_update
-  - name: referral_use
-    description: "referral_use"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#referral_use
-  - name: executeStats
-    description: "executeStats"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#executeStats
-  - name: leaseOptions
-    description: "leaseOptions"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#leaseOptions
-  - name: leases
-    description: "leases"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#leases
-  - name: litLease
-    description: "litLease"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#litLease
-  - name: referral_userReferrals
-    description: "userReferrals"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#referral_userReferrals
-  - name: setAccountMetadata
-    description: "setAccountMetadata"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#setAccountMetadata
-  - name: systemConfig
-    description: "systemConfig"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#systemConfig
-  - name: tokenlist
-    description: "tokenlist"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#tokenlist
-  - name: getMakerOnlyApiKeys
-    description: "getMakerOnlyApiKeys"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#getMakerOnlyApiKeys
-  - name: setMakerOnlyApiKeys
-    description: "setMakerOnlyApiKeys"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#setMakerOnlyApiKeys
-  - name: partnerStats
-    description: "partnerStats"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#partnerStats
-  - name: deposit_latest
-    description: "deposit_latest"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#deposit_latest
-  - name: syntheticSpotInfo
-    description: "syntheticSpotInfo"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#syntheticSpotInfo
-  - name: rfq_respond
-    description: "rfq_respond"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#rfq_respond
-  - name: rfq_list
-    description: "rfq_list"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#rfq_list
-  - name: rfq_get
-    description: "rfq_get"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#rfq_get
-  - name: rfq_create
-    description: "rfq_create"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#rfq_create
-  - name: rfq_update
-    description: "rfq_update"
-    source_operation: openapi/lighter-zklighter-openapi-original.json#rfq_update
+- name: status
+  description: status
+  source_operation: openapi/lighter-zklighter-openapi-original.json#status
+- name: account
+  description: account
+  source_operation: openapi/lighter-zklighter-openapi-original.json#account
+- name: accountActiveOrders
+  description: accountActiveOrders
+  source_operation: openapi/lighter-zklighter-openapi-original.json#accountActiveOrders
+- name: accountInactiveOrders
+  description: accountInactiveOrders
+  source_operation: openapi/lighter-zklighter-openapi-original.json#accountInactiveOrders
+- name: accountLimits
+  description: accountLimits
+  source_operation: openapi/lighter-zklighter-openapi-original.json#accountLimits
+- name: accountMetadata
+  description: accountMetadata
+  source_operation: openapi/lighter-zklighter-openapi-original.json#accountMetadata
+- name: accountTxs
+  description: accountTxs
+  source_operation: openapi/lighter-zklighter-openapi-original.json#accountTxs
+- name: assetDetails
+  description: assetDetails
+  source_operation: openapi/lighter-zklighter-openapi-original.json#assetDetails
+- name: accountsByL1Address
+  description: accountsByL1Address
+  source_operation: openapi/lighter-zklighter-openapi-original.json#accountsByL1Address
+- name: announcement
+  description: announcement
+  source_operation: openapi/lighter-zklighter-openapi-original.json#announcement
+- name: apikeys
+  description: apikeys
+  source_operation: openapi/lighter-zklighter-openapi-original.json#apikeys
+- name: block
+  description: block
+  source_operation: openapi/lighter-zklighter-openapi-original.json#block
+- name: blockTxs
+  description: blockTxs
+  source_operation: openapi/lighter-zklighter-openapi-original.json#blockTxs
+- name: blocks
+  description: blocks
+  source_operation: openapi/lighter-zklighter-openapi-original.json#blocks
+- name: candles
+  description: candles
+  source_operation: openapi/lighter-zklighter-openapi-original.json#candles
+- name: changeAccountTier
+  description: changeAccountTier
+  source_operation: openapi/lighter-zklighter-openapi-original.json#changeAccountTier
+- name: currentHeight
+  description: currentHeight
+  source_operation: openapi/lighter-zklighter-openapi-original.json#currentHeight
+- name: deposit_history
+  description: deposit_history
+  source_operation: openapi/lighter-zklighter-openapi-original.json#deposit_history
+- name: exchangeStats
+  description: exchangeStats
+  source_operation: openapi/lighter-zklighter-openapi-original.json#exchangeStats
+- name: export
+  description: export
+  source_operation: openapi/lighter-zklighter-openapi-original.json#export
+- name: fastbridge_info
+  description: fastbridge_info
+  source_operation: openapi/lighter-zklighter-openapi-original.json#fastbridge_info
+- name: funding-rates
+  description: funding-rates
+  source_operation: openapi/lighter-zklighter-openapi-original.json#funding-rates
+- name: fundings
+  description: fundings
+  source_operation: openapi/lighter-zklighter-openapi-original.json#fundings
+- name: l1Metadata
+  description: l1Metadata
+  source_operation: openapi/lighter-zklighter-openapi-original.json#l1Metadata
+- name: liquidations
+  description: liquidations
+  source_operation: openapi/lighter-zklighter-openapi-original.json#liquidations
+- name: nextNonce
+  description: nextNonce
+  source_operation: openapi/lighter-zklighter-openapi-original.json#nextNonce
+- name: notification_ack
+  description: notification_ack
+  source_operation: openapi/lighter-zklighter-openapi-original.json#notification_ack
+- name: orderBookDetails
+  description: orderBookDetails
+  source_operation: openapi/lighter-zklighter-openapi-original.json#orderBookDetails
+- name: orderBookOrders
+  description: orderBookOrders
+  source_operation: openapi/lighter-zklighter-openapi-original.json#orderBookOrders
+- name: orderBooks
+  description: orderBooks
+  source_operation: openapi/lighter-zklighter-openapi-original.json#orderBooks
+- name: pnl
+  description: pnl
+  source_operation: openapi/lighter-zklighter-openapi-original.json#pnl
+- name: positionFunding
+  description: positionFunding
+  source_operation: openapi/lighter-zklighter-openapi-original.json#positionFunding
+- name: publicPoolsMetadata
+  description: publicPoolsMetadata
+  source_operation: openapi/lighter-zklighter-openapi-original.json#publicPoolsMetadata
+- name: recentTrades
+  description: recentTrades
+  source_operation: openapi/lighter-zklighter-openapi-original.json#recentTrades
+- name: referral_points
+  description: referral_points
+  source_operation: openapi/lighter-zklighter-openapi-original.json#referral_points
+- name: sendTx
+  description: sendTx
+  source_operation: openapi/lighter-zklighter-openapi-original.json#sendTx
+- name: sendTxBatch
+  description: sendTxBatch
+  source_operation: openapi/lighter-zklighter-openapi-original.json#sendTxBatch
+- name: trades
+  description: trades
+  source_operation: openapi/lighter-zklighter-openapi-original.json#trades
+- name: transfer_history
+  description: transfer_history
+  source_operation: openapi/lighter-zklighter-openapi-original.json#transfer_history
+- name: transferFeeInfo
+  description: transferFeeInfo
+  source_operation: openapi/lighter-zklighter-openapi-original.json#transferFeeInfo
+- name: tx
+  description: tx
+  source_operation: openapi/lighter-zklighter-openapi-original.json#tx
+- name: txFromL1TxHash
+  description: txFromL1TxHash
+  source_operation: openapi/lighter-zklighter-openapi-original.json#txFromL1TxHash
+- name: txs
+  description: txs
+  source_operation: openapi/lighter-zklighter-openapi-original.json#txs
+- name: withdraw_history
+  description: withdraw_history
+  source_operation: openapi/lighter-zklighter-openapi-original.json#withdraw_history
+- name: withdrawalDelay
+  description: withdrawalDelay
+  source_operation: openapi/lighter-zklighter-openapi-original.json#withdrawalDelay
+- name: info
+  description: info
+  source_operation: openapi/lighter-zklighter-openapi-original.json#info
+- name: fastwithdraw
+  description: fastwithdraw
+  source_operation: openapi/lighter-zklighter-openapi-original.json#fastwithdraw
+- name: fastwithdraw_info
+  description: fastwithdraw_info
+  source_operation: openapi/lighter-zklighter-openapi-original.json#fastwithdraw_info
+- name: tokens
+  description: tokens
+  source_operation: openapi/lighter-zklighter-openapi-original.json#tokens
+- name: tokens_create
+  description: tokens_create
+  source_operation: openapi/lighter-zklighter-openapi-original.json#tokens_create
+- name: tokens_revoke
+  description: tokens_revoke
+  source_operation: openapi/lighter-zklighter-openapi-original.json#tokens_revoke
+- name: createIntentAddress
+  description: createIntentAddress
+  source_operation: openapi/lighter-zklighter-openapi-original.json#createIntentAddress
+- name: deposit_networks
+  description: deposit_networks
+  source_operation: openapi/lighter-zklighter-openapi-original.json#deposit_networks
+- name: exchangeMetrics
+  description: exchangeMetrics
+  source_operation: openapi/lighter-zklighter-openapi-original.json#exchangeMetrics
+- name: layer1BasicInfo
+  description: layer1BasicInfo
+  source_operation: openapi/lighter-zklighter-openapi-original.json#layer1BasicInfo
+- name: referral_create
+  description: referral_create
+  source_operation: openapi/lighter-zklighter-openapi-original.json#referral_create
+- name: referral_get
+  description: referral_get
+  source_operation: openapi/lighter-zklighter-openapi-original.json#referral_get
+- name: referral_kickback_update
+  description: referral_kickback_update
+  source_operation: openapi/lighter-zklighter-openapi-original.json#referral_kickback_update
+- name: referral_update
+  description: referral_update
+  source_operation: openapi/lighter-zklighter-openapi-original.json#referral_update
+- name: referral_use
+  description: referral_use
+  source_operation: openapi/lighter-zklighter-openapi-original.json#referral_use
+- name: executeStats
+  description: executeStats
+  source_operation: openapi/lighter-zklighter-openapi-original.json#executeStats
+- name: leaseOptions
+  description: leaseOptions
+  source_operation: openapi/lighter-zklighter-openapi-original.json#leaseOptions
+- name: leases
+  description: leases
+  source_operation: openapi/lighter-zklighter-openapi-original.json#leases
+- name: litLease
+  description: litLease
+  source_operation: openapi/lighter-zklighter-openapi-original.json#litLease
+- name: referral_userReferrals
+  description: userReferrals
+  source_operation: openapi/lighter-zklighter-openapi-original.json#referral_userReferrals
+- name: setAccountMetadata
+  description: setAccountMetadata
+  source_operation: openapi/lighter-zklighter-openapi-original.json#setAccountMetadata
+- name: systemConfig
+  description: systemConfig
+  source_operation: openapi/lighter-zklighter-openapi-original.json#systemConfig
+- name: tokenlist
+  description: tokenlist
+  source_operation: openapi/lighter-zklighter-openapi-original.json#tokenlist
+- name: getMakerOnlyApiKeys
+  description: getMakerOnlyApiKeys
+  source_operation: openapi/lighter-zklighter-openapi-original.json#getMakerOnlyApiKeys
+- name: setMakerOnlyApiKeys
+  description: setMakerOnlyApiKeys
+  source_operation: openapi/lighter-zklighter-openapi-original.json#setMakerOnlyApiKeys
+- name: partnerStats
+  description: partnerStats
+  source_operation: openapi/lighter-zklighter-openapi-original.json#partnerStats
+- name: deposit_latest
+  description: deposit_latest
+  source_operation: openapi/lighter-zklighter-openapi-original.json#deposit_latest
+- name: syntheticSpotInfo
+  description: syntheticSpotInfo
+  source_operation: openapi/lighter-zklighter-openapi-original.json#syntheticSpotInfo
+- name: rfq_respond
+  description: rfq_respond
+  source_operation: openapi/lighter-zklighter-openapi-original.json#rfq_respond
+- name: rfq_list
+  description: rfq_list
+  source_operation: openapi/lighter-zklighter-openapi-original.json#rfq_list
+- name: rfq_get
+  description: rfq_get
+  source_operation: openapi/lighter-zklighter-openapi-original.json#rfq_get
+- name: rfq_create
+  description: rfq_create
+  source_operation: openapi/lighter-zklighter-openapi-original.json#rfq_create
+- name: rfq_update
+  description: rfq_update
+  source_operation: openapi/lighter-zklighter-openapi-original.json#rfq_update
+deployment:
+  mode: none
+  verified: derived
+  tools: 78
+  checked: '2026-08-12'
+  source: catalog MCP census

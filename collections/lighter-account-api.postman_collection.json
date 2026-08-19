@@ -1,0 +1,4681 @@
+{
+  "item": [
+    {
+      "id": "907f63e1-0520-4dba-bbd1-5c5700cc03f4",
+      "name": "account",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "81dea7ac-11d2-41fc-993d-b6016859101b",
+          "name": "account",
+          "request": {
+            "name": "account",
+            "description": {
+              "content": "Get account by an account's index, or L1 address",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "account"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "by",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "value",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "active_only",
+                  "value": "false",
+                  "description": "Hide markets for which leverage and margin settings are present (meaning the account traded it at least once), but with no active position."
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a287fc45-5788-426c-9a1f-5bb5cc176c3d",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "value",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "active_only",
+                      "value": "false"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8689,\n  \"total\": 3985,\n  \"accounts\": [\n    {\n      \"code\": 7807,\n      \"account_type\": 7222,\n      \"index\": 1850,\n      \"l1_address\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n      \"cancel_all_time\": 1211,\n      \"total_order_count\": 9364,\n      \"total_isolated_order_count\": 3147,\n      \"pending_order_count\": 1300,\n      \"available_balance\": \"19995\",\n      \"status\": 2344,\n      \"collateral\": \"46342\",\n      \"transaction_time\": 9558,\n      \"account_index\": 986,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"can_invite\": false,\n      \"referral_points_percentage\": \"string\",\n      \"can_rfq\": false,\n      \"can_rfq_market_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"created_at\": 632,\n      \"positions\": [\n        {\n          \"market_id\": 3299,\n          \"symbol\": \"ETH\",\n          \"initial_margin_fraction\": \"20.00\",\n          \"open_order_count\": 5705,\n          \"pending_order_count\": 8502,\n          \"position_tied_order_count\": 2253,\n          \"sign\": 1853,\n          \"position\": \"3.6956\",\n          \"avg_entry_price\": \"3024.66\",\n          \"position_value\": \"3019.92\",\n          \"unrealized_pnl\": \"17.521309\",\n          \"realized_pnl\": \"2.000000\",\n          \"liquidation_price\": \"3024.66\",\n          \"margin_mode\": 6502,\n          \"allocated_margin\": \"46342\",\n          \"total_discount\": \"string\",\n          \"total_funding_paid_out\": \"34.2\"\n        },\n        {\n          \"market_id\": 6002,\n          \"symbol\": \"ETH\",\n          \"initial_margin_fraction\": \"20.00\",\n          \"open_order_count\": 9038,\n          \"pending_order_count\": 1098,\n          \"position_tied_order_count\": 4704,\n          \"sign\": 3903,\n          \"position\": \"3.6956\",\n          \"avg_entry_price\": \"3024.66\",\n          \"position_value\": \"3019.92\",\n          \"unrealized_pnl\": \"17.521309\",\n          \"realized_pnl\": \"2.000000\",\n          \"liquidation_price\": \"3024.66\",\n          \"margin_mode\": 5599,\n          \"allocated_margin\": \"46342\",\n          \"total_discount\": \"string\",\n          \"total_funding_paid_out\": \"34.2\"\n        }\n      ],\n      \"assets\": [\n        {\n          \"symbol\": \"USDC\",\n          \"asset_id\": 1,\n          \"balance\": \"1000\",\n          \"locked_balance\": \"1000\",\n          \"margin_balance\": \"1000\",\n          \"margin_mode\": \"enabled\"\n        },\n        {\n          \"symbol\": \"USDC\",\n          \"asset_id\": 1,\n          \"balance\": \"1000\",\n          \"locked_balance\": \"1000\",\n          \"margin_balance\": \"1000\",\n          \"margin_mode\": \"enabled\"\n        }\n      ],\n      \"total_asset_value\": \"19995\",\n      \"cross_asset_value\": \"19995\",\n      \"cross_initial_margin_requirement\": \"5998.500000\",\n      \"cross_maintenance_margin_requirement\": \"2999.250000\",\n      \"pool_info\": {\n        \"status\": 7330,\n        \"operator_fee\": \"100\",\n        \"min_operator_share_rate\": \"200\",\n        \"total_shares\": 8926,\n        \"operator_shares\": 9124,\n        \"annual_percentage_yield\": 9364.472219767174,\n        \"daily_returns\": [\n          {\n            \"timestamp\": 5834,\n            \"daily_return\": 4077.0837102839196\n          },\n          {\n            \"timestamp\": 4198,\n            \"daily_return\": 6252.784080343872\n          }\n        ],\n        \"share_prices\": [\n          {\n            \"timestamp\": 4414,\n            \"share_price\": 7027.837827884181\n          },\n          {\n            \"timestamp\": 2662,\n            \"share_price\": 1598.081442331818\n          }\n        ],\n        \"sharpe_ratio\": 8867.862065543368,\n        \"strategies\": [\n          {\n            \"collateral\": \"string\"\n          },\n          {\n            \"collateral\": \"string\"\n          }\n        ]\n      },\n      \"shares\": [\n        {\n          \"public_pool_index\": 6590,\n          \"shares_amount\": 4223,\n          \"entry_usdc\": \"3000\",\n          \"entry_timestamp\": 2446,\n          \"principal_amount\": \"string\"\n        },\n        {\n          \"public_pool_index\": 6053,\n          \"shares_amount\": 5124,\n          \"entry_usdc\": \"3000\",\n          \"entry_timestamp\": 4306,\n          \"principal_amount\": \"string\"\n        }\n      ],\n      \"message\": \"string\",\n      \"account_trading_mode\": 3613,\n      \"pending_unlocks\": [\n        {\n          \"unlock_timestamp\": 3855,\n          \"asset_index\": 2171,\n          \"amount\": \"string\"\n        },\n        {\n          \"unlock_timestamp\": 6853,\n          \"asset_index\": 9066,\n          \"amount\": \"string\"\n        }\n      ],\n      \"approved_integrators\": [\n        {\n          \"account_index\": 3982,\n          \"name\": \"Integrator1\",\n          \"max_perps_taker_fee\": 116,\n          \"max_perps_maker_fee\": 4603,\n          \"max_spot_taker_fee\": 6064,\n          \"max_spot_maker_fee\": 3978,\n          \"approval_expiry\": 3657\n        },\n        {\n          \"account_index\": 8763,\n          \"name\": \"Integrator1\",\n          \"max_perps_taker_fee\": 2761,\n          \"max_perps_maker_fee\": 3127,\n          \"max_spot_taker_fee\": 693,\n          \"max_spot_maker_fee\": 6593,\n          \"approval_expiry\": 2040\n        }\n      ]\n    },\n    {\n      \"code\": 8452,\n      \"account_type\": 9214,\n      \"index\": 8639,\n      \"l1_address\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n      \"cancel_all_time\": 6904,\n      \"total_order_count\": 7121,\n      \"total_isolated_order_count\": 8643,\n      \"pending_order_count\": 7286,\n      \"available_balance\": \"19995\",\n      \"status\": 9680,\n      \"collateral\": \"46342\",\n      \"transaction_time\": 2080,\n      \"account_index\": 324,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"can_invite\": false,\n      \"referral_points_percentage\": \"string\",\n      \"can_rfq\": true,\n      \"can_rfq_market_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"created_at\": 9633,\n      \"positions\": [\n        {\n          \"market_id\": 4738,\n          \"symbol\": \"ETH\",\n          \"initial_margin_fraction\": \"20.00\",\n          \"open_order_count\": 4114,\n          \"pending_order_count\": 5894,\n          \"position_tied_order_count\": 6753,\n          \"sign\": 7887,\n          \"position\": \"3.6956\",\n          \"avg_entry_price\": \"3024.66\",\n          \"position_value\": \"3019.92\",\n          \"unrealized_pnl\": \"17.521309\",\n          \"realized_pnl\": \"2.000000\",\n          \"liquidation_price\": \"3024.66\",\n          \"margin_mode\": 2984,\n          \"allocated_margin\": \"46342\",\n          \"total_discount\": \"string\",\n          \"total_funding_paid_out\": \"34.2\"\n        },\n        {\n          \"market_id\": 4832,\n          \"symbol\": \"ETH\",\n          \"initial_margin_fraction\": \"20.00\",\n          \"open_order_count\": 6321,\n          \"pending_order_count\": 2643,\n          \"position_tied_order_count\": 5615,\n          \"sign\": 7206,\n          \"position\": \"3.6956\",\n          \"avg_entry_price\": \"3024.66\",\n          \"position_value\": \"3019.92\",\n          \"unrealized_pnl\": \"17.521309\",\n          \"realized_pnl\": \"2.000000\",\n          \"liquidation_price\": \"3024.66\",\n          \"margin_mode\": 4304,\n          \"allocated_margin\": \"46342\",\n          \"total_discount\": \"string\",\n          \"total_funding_paid_out\": \"34.2\"\n        }\n      ],\n      \"assets\": [\n        {\n          \"symbol\": \"USDC\",\n          \"asset_id\": 1,\n          \"balance\": \"1000\",\n          \"locked_balance\": \"1000\",\n          \"margin_balance\": \"1000\",\n          \"margin_mode\": \"enabled\"\n        },\n        {\n          \"symbol\": \"USDC\",\n          \"asset_id\": 1,\n          \"balance\": \"1000\",\n          \"locked_balance\": \"1000\",\n          \"margin_balance\": \"1000\",\n          \"margin_mode\": \"enabled\"\n        }\n      ],\n      \"total_asset_value\": \"19995\",\n      \"cross_asset_value\": \"19995\",\n      \"cross_initial_margin_requirement\": \"5998.500000\",\n      \"cross_maintenance_margin_requirement\": \"2999.250000\",\n      \"pool_info\": {\n        \"status\": 4158,\n        \"operator_fee\": \"100\",\n        \"min_operator_share_rate\": \"200\",\n        \"total_shares\": 6435,\n        \"operator_shares\": 7912,\n        \"annual_percentage_yield\": 2980.5263197473296,\n        \"daily_returns\": [\n          {\n            \"timestamp\": 785,\n            \"daily_return\": 1474.939900654476\n          },\n          {\n            \"timestamp\": 776,\n            \"daily_return\": 4430.909856116431\n          }\n        ],\n        \"share_prices\": [\n          {\n            \"timestamp\": 812,\n            \"share_price\": 1618.2021150090497\n          },\n          {\n            \"timestamp\": 3330,\n            \"share_price\": 5120.546600444521\n          }\n        ],\n        \"sharpe_ratio\": 4976.546799148977,\n        \"strategies\": [\n          {\n            \"collateral\": \"string\"\n          },\n          {\n            \"collateral\": \"string\"\n          }\n        ]\n      },\n      \"shares\": [\n        {\n          \"public_pool_index\": 7335,\n          \"shares_amount\": 5093,\n          \"entry_usdc\": \"3000\",\n          \"entry_timestamp\": 5731,\n          \"principal_amount\": \"string\"\n        },\n        {\n          \"public_pool_index\": 4791,\n          \"shares_amount\": 6146,\n          \"entry_usdc\": \"3000\",\n          \"entry_timestamp\": 2336,\n          \"principal_amount\": \"string\"\n        }\n      ],\n      \"message\": \"string\",\n      \"account_trading_mode\": 340,\n      \"pending_unlocks\": [\n        {\n          \"unlock_timestamp\": 5242,\n          \"asset_index\": 7340,\n          \"amount\": \"string\"\n        },\n        {\n          \"unlock_timestamp\": 6271,\n          \"asset_index\": 1527,\n          \"amount\": \"string\"\n        }\n      ],\n      \"approved_integrators\": [\n        {\n          \"account_index\": 3570,\n          \"name\": \"Integrator1\",\n          \"max_perps_taker_fee\": 5695,\n          \"max_perps_maker_fee\": 5240,\n          \"max_spot_taker_fee\": 3590,\n          \"max_spot_maker_fee\": 6770,\n          \"approval_expiry\": 4005\n        },\n        {\n          \"account_index\": 7368,\n          \"name\": \"Integrator1\",\n          \"max_perps_taker_fee\": 5714,\n          \"max_perps_maker_fee\": 2755,\n          \"max_spot_taker_fee\": 7011,\n          \"max_spot_maker_fee\": 85,\n          \"approval_expiry\": 6243\n        }\n      ]\n    }\n  ],\n  \"next_cursor\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "273d1016-492c-456e-9184-0769a0fb7b3a",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "value",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "active_only",
+                      "value": "false"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1825,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0ea9be93-ad69-40df-8355-9ea631f28ece",
+          "name": "accountLimits",
+          "request": {
+            "name": "accountLimits",
+            "description": {
+              "content": "Get account limits. For more details on account types, see this page: https://apidocs.lighter.xyz/docs/account-types",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "accountLimits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "account_index",
+                  "value": "<long>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "17f6cc66-1675-4377-afe8-59e98637deec",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "accountLimits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_index",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4617,\n  \"max_llp_percentage\": 6330,\n  \"user_tier\": \"std\",\n  \"can_create_public_pool\": false,\n  \"max_llp_amount\": \"1000000\",\n  \"current_maker_fee_tick\": 2171,\n  \"current_taker_fee_tick\": 5570,\n  \"effective_lit_stakes\": \"string\",\n  \"leased_lit\": \"string\",\n  \"user_tier_name\": \"standard\",\n  \"message\": \"string\",\n  \"user_tier_last_update\": 5490\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ecb191c9-375c-46e1-8da6-0987461e3be2",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "accountLimits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_index",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1825,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8566fec0-1198-4bfb-adcb-28befbbfba39",
+          "name": "accountMetadata",
+          "request": {
+            "name": "accountMetadata",
+            "description": {
+              "content": "Get account metadatas",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "accountMetadata"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "by",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "value",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a18688ec-cc7d-43c7-b851-14fd4a24a447",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "accountMetadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "value",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5231,\n  \"account_metadatas\": [\n    {\n      \"account_index\": 2866,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"can_invite\": true,\n      \"referral_points_percentage\": \"string\",\n      \"can_rfq\": true,\n      \"can_rfq_market_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"created_at\": 5683\n    },\n    {\n      \"account_index\": 7221,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"can_invite\": false,\n      \"referral_points_percentage\": \"string\",\n      \"can_rfq\": false,\n      \"can_rfq_market_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"created_at\": 786\n    }\n  ],\n  \"message\": \"string\",\n  \"next_cursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "081deeae-f54e-4e5e-9c9b-ed0c8e4a03c4",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "accountMetadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "value",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1825,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4cd6697f-6cd7-4edc-ac87-dec11d3c0407",
+          "name": "accountsByL1Address",
+          "request": {
+            "name": "accountsByL1Address",
+            "description": {
+              "content": "Returns all accounts associated with the given L1 address",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "accountsByL1Address"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "l1_address",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a8c53042-33eb-493a-9792-7f6a8c261c40",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "accountsByL1Address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "l1_address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5587,\n  \"l1_address\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n  \"sub_accounts\": [\n    {\n      \"code\": 6427,\n      \"account_type\": 7086,\n      \"index\": 1054,\n      \"l1_address\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n      \"cancel_all_time\": 9905,\n      \"total_order_count\": 5871,\n      \"total_isolated_order_count\": 6901,\n      \"pending_order_count\": 1551,\n      \"available_balance\": \"19995\",\n      \"status\": 8205,\n      \"collateral\": \"46342\",\n      \"account_trading_mode\": 7748,\n      \"transaction_time\": 3501,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 5883,\n      \"account_type\": 2719,\n      \"index\": 7596,\n      \"l1_address\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n      \"cancel_all_time\": 4187,\n      \"total_order_count\": 1739,\n      \"total_isolated_order_count\": 8774,\n      \"pending_order_count\": 9859,\n      \"available_balance\": \"19995\",\n      \"status\": 1966,\n      \"collateral\": \"46342\",\n      \"account_trading_mode\": 4575,\n      \"transaction_time\": 2433,\n      \"message\": \"string\"\n    }\n  ],\n  \"message\": \"string\",\n  \"next_cursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "958ee1d4-bccd-4ef0-8abe-1288e39a2bde",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "accountsByL1Address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "l1_address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1825,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "019529c2-4aac-4bdd-9705-a4c431a1b563",
+          "name": "apikeys",
+          "request": {
+            "name": "apikeys",
+            "description": {
+              "content": "Get account api key. Set `api_key_index` to 255 to retrieve all api keys associated with the account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "apikeys"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "account_index",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "api_key_index",
+                  "value": "255"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "92d76d73-d36c-4cb2-96ad-0426f8961185",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "apikeys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_index",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "api_key_index",
+                      "value": "255"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 875,\n  \"api_keys\": [\n    {\n      \"account_index\": 9126,\n      \"api_key_index\": 6267,\n      \"nonce\": 5028,\n      \"public_key\": \"string\",\n      \"transaction_time\": 7898\n    },\n    {\n      \"account_index\": 8350,\n      \"api_key_index\": 4164,\n      \"nonce\": 3104,\n      \"public_key\": \"string\",\n      \"transaction_time\": 4156\n    }\n  ],\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ba873f85-f186-4d39-be93-7d358c9bc7c1",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "apikeys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_index",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "api_key_index",
+                      "value": "255"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1825,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7c25560a-ff26-4c2f-9c1e-5e4bd94d8b01",
+          "name": "changeAccountTier",
+          "request": {
+            "name": "changeAccountTier",
+            "description": {
+              "content": "Change account tier. You can only perform this action once every 24 hours, and with no orders or positions open.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "changeAccountTier"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "account_index",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "new_tier",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "auth",
+                  "value": "<string>",
+                  "description": " made optional to support header auth clients"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a1070912-6e71-4830-bdf4-d482e7661d9f",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "changeAccountTier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": " make required after integ is done",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "account_index",
+                      "value": "<long>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "new_tier",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": " made optional to support header auth clients",
+                        "type": "text/plain"
+                      },
+                      "key": "auth",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5157,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ce0c1413-2ffa-4428-834a-35c663605baf",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "changeAccountTier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": " make required after integ is done",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "account_index",
+                      "value": "<long>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "new_tier",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": " made optional to support header auth clients",
+                        "type": "text/plain"
+                      },
+                      "key": "auth",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1825,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aeec4b01-330c-4db4-b2a1-a40711dd6b54",
+          "name": "l1Metadata",
+          "request": {
+            "name": "l1Metadata",
+            "description": {
+              "content": "Get L1 metadata",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "l1Metadata"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "l1_address",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4e2a61f4-e77b-40fd-9e8e-9a83386c19d8",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "l1Metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "l1_address",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"l1_address\": \"string\",\n  \"can_invite\": false,\n  \"referral_points_percentage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2000ffa2-3afa-43cf-9d07-e780aed5aefa",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "l1Metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "l1_address",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1825,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4dee585a-a2f4-4967-8f51-ec82a4ffb4ae",
+          "name": "liquidations",
+          "request": {
+            "name": "liquidations",
+            "description": {
+              "content": "Get liquidation infos",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "liquidations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "account_index",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "market_id",
+                  "value": "255"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "942eae9d-0bc5-4c7a-bd24-33b896eafff9",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "liquidations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_index",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "market_id",
+                      "value": "255"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3371,\n  \"liquidations\": [\n    {\n      \"id\": 8877,\n      \"market_id\": 9481,\n      \"type\": \"partial\",\n      \"trade\": {\n        \"price\": \"string\",\n        \"size\": \"string\",\n        \"taker_fee\": \"string\",\n        \"maker_fee\": \"string\",\n        \"transaction_time\": 8218\n      },\n      \"info\": {\n        \"positions\": [\n          {\n            \"market_id\": 7579,\n            \"symbol\": \"ETH\",\n            \"initial_margin_fraction\": \"20.00\",\n            \"open_order_count\": 5905,\n            \"pending_order_count\": 4721,\n            \"position_tied_order_count\": 596,\n            \"sign\": 743,\n            \"position\": \"3.6956\",\n            \"avg_entry_price\": \"3024.66\",\n            \"position_value\": \"3019.92\",\n            \"unrealized_pnl\": \"17.521309\",\n            \"realized_pnl\": \"2.000000\",\n            \"liquidation_price\": \"3024.66\",\n            \"margin_mode\": 9658,\n            \"allocated_margin\": \"46342\",\n            \"total_discount\": \"string\",\n            \"total_funding_paid_out\": \"34.2\"\n          },\n          {\n            \"market_id\": 5457,\n            \"symbol\": \"ETH\",\n            \"initial_margin_fraction\": \"20.00\",\n            \"open_order_count\": 6199,\n            \"pending_order_count\": 9552,\n            \"position_tied_order_count\": 1788,\n            \"sign\": 7440,\n            \"position\": \"3.6956\",\n            \"avg_entry_price\": \"3024.66\",\n            \"position_value\": \"3019.92\",\n            \"unrealized_pnl\": \"17.521309\",\n            \"realized_pnl\": \"2.000000\",\n            \"liquidation_price\": \"3024.66\",\n            \"margin_mode\": 7217,\n            \"allocated_margin\": \"46342\",\n            \"total_discount\": \"string\",\n            \"total_funding_paid_out\": \"34.2\"\n          }\n        ],\n        \"risk_info_before\": {\n          \"cross_risk_parameters\": {\n            \"market_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"total_account_value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"initial_margin_req\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"maintenance_margin_req\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"close_out_margin_req\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"total_account_liquidation_threshold\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"collateral\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"usdc_collateral_with_funding\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"usdc_portfolio_value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"isolated_risk_parameters\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"risk_info_after\": {\n          \"cross_risk_parameters\": {\n            \"market_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"total_account_value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"initial_margin_req\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"maintenance_margin_req\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"close_out_margin_req\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"total_account_liquidation_threshold\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"collateral\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"usdc_collateral_with_funding\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"usdc_portfolio_value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"isolated_risk_parameters\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"mark_prices\": {\n          \"key_0\": 4492.996080838495\n        },\n        \"assets\": [\n          {\n            \"symbol\": \"USDC\",\n            \"asset_id\": 1,\n            \"balance\": \"1000\",\n            \"locked_balance\": \"1000\",\n            \"margin_balance\": \"1000\",\n            \"margin_mode\": \"enabled\"\n          },\n          {\n            \"symbol\": \"USDC\",\n            \"asset_id\": 1,\n            \"balance\": \"1000\",\n            \"locked_balance\": \"1000\",\n            \"margin_balance\": \"1000\",\n            \"margin_mode\": \"enabled\"\n          }\n        ],\n        \"asset_index_prices\": {\n          \"key_0\": \"string\"\n        }\n      },\n      \"executed_at\": 7975\n    },\n    {\n      \"id\": 4540,\n      \"market_id\": 1238,\n      \"type\": \"partial\",\n      \"trade\": {\n        \"price\": \"string\",\n        \"size\": \"string\",\n        \"taker_fee\": \"string\",\n        \"maker_fee\": \"string\",\n        \"transaction_time\": 6369\n      },\n      \"info\": {\n        \"positions\": [\n          {\n            \"market_id\": 220,\n            \"symbol\": \"ETH\",\n            \"initial_margin_fraction\": \"20.00\",\n            \"open_order_count\": 8940,\n            \"pending_order_count\": 668,\n            \"position_tied_order_count\": 4363,\n            \"sign\": 3312,\n            \"position\": \"3.6956\",\n            \"avg_entry_price\": \"3024.66\",\n            \"position_value\": \"3019.92\",\n            \"unrealized_pnl\": \"17.521309\",\n            \"realized_pnl\": \"2.000000\",\n            \"liquidation_price\": \"3024.66\",\n            \"margin_mode\": 231,\n            \"allocated_margin\": \"46342\",\n            \"total_discount\": \"string\",\n            \"total_funding_paid_out\": \"34.2\"\n          },\n          {\n            \"market_id\": 1233,\n            \"symbol\": \"ETH\",\n            \"initial_margin_fraction\": \"20.00\",\n            \"open_order_count\": 3761,\n            \"pending_order_count\": 9332,\n            \"position_tied_order_count\": 4153,\n            \"sign\": 4554,\n            \"position\": \"3.6956\",\n            \"avg_entry_price\": \"3024.66\",\n            \"position_value\": \"3019.92\",\n            \"unrealized_pnl\": \"17.521309\",\n            \"realized_pnl\": \"2.000000\",\n            \"liquidation_price\": \"3024.66\",\n            \"margin_mode\": 5998,\n            \"allocated_margin\": \"46342\",\n            \"total_discount\": \"string\",\n            \"total_funding_paid_out\": \"34.2\"\n          }\n        ],\n        \"risk_info_before\": {\n          \"cross_risk_parameters\": {\n            \"market_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"total_account_value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"initial_margin_req\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"maintenance_margin_req\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"close_out_margin_req\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"total_account_liquidation_threshold\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"collateral\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"usdc_collateral_with_funding\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"usdc_portfolio_value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"isolated_risk_parameters\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"risk_info_after\": {\n          \"cross_risk_parameters\": {\n            \"market_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"total_account_value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"initial_margin_req\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"maintenance_margin_req\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"close_out_margin_req\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"total_account_liquidation_threshold\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"collateral\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"usdc_collateral_with_funding\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"usdc_portfolio_value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"isolated_risk_parameters\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"mark_prices\": {\n          \"key_0\": 6234.653966944446,\n          \"key_1\": 5460.379556836608,\n          \"key_2\": 1166.9829870280646\n        },\n        \"assets\": [\n          {\n            \"symbol\": \"USDC\",\n            \"asset_id\": 1,\n            \"balance\": \"1000\",\n            \"locked_balance\": \"1000\",\n            \"margin_balance\": \"1000\",\n            \"margin_mode\": \"enabled\"\n          },\n          {\n            \"symbol\": \"USDC\",\n            \"asset_id\": 1,\n            \"balance\": \"1000\",\n            \"locked_balance\": \"1000\",\n            \"margin_balance\": \"1000\",\n            \"margin_mode\": \"enabled\"\n          }\n        ],\n        \"asset_index_prices\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        }\n      },\n      \"executed_at\": 708\n    }\n  ],\n  \"message\": \"string\",\n  \"next_cursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "abf92f53-8438-41d5-a8df-94c98a643884",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "liquidations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_index",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "market_id",
+                      "value": "255"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1825,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "03a2caf6-8176-475b-b183-1985eec8905b",
+          "name": "pnl",
+          "request": {
+            "name": "pnl",
+            "description": {
+              "content": "Get account PnL chart",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "pnl"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "by",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "value",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "resolution",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "start_timestamp",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "end_timestamp",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "count_back",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "ignore_transfers",
+                  "value": "false"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ae1c938f-4e4f-47fe-9c0a-9772a33edf28",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "pnl"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "value",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "resolution",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_timestamp",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "end_timestamp",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "count_back",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "ignore_transfers",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2330,\n  \"resolution\": \"15m\",\n  \"pnl\": [\n    {\n      \"timestamp\": 6802,\n      \"trade_pnl\": 5029.22203885912,\n      \"inflow\": 4724.604819625671,\n      \"outflow\": 5666.343891084072,\n      \"pool_pnl\": 2160.4267812241583,\n      \"pool_inflow\": 6317.471994841709,\n      \"pool_outflow\": 1952.6878241489321,\n      \"pool_total_shares\": 8178.619781174498,\n      \"spot_inflow\": 2647.1717939869877,\n      \"spot_outflow\": 8349.141682818248,\n      \"staked_lit\": 5637.645186993334,\n      \"staking_inflow\": 3756.441805699765,\n      \"staking_outflow\": 5890.887366588023,\n      \"staking_pnl\": 4324.948962067686,\n      \"trade_spot_pnl\": 9217.13870305351,\n      \"volume\": 7119.435335465104\n    },\n    {\n      \"timestamp\": 2072,\n      \"trade_pnl\": 7489.377133565762,\n      \"inflow\": 9307.606637626352,\n      \"outflow\": 5702.54583621858,\n      \"pool_pnl\": 7775.82432888118,\n      \"pool_inflow\": 6196.7453660073925,\n      \"pool_outflow\": 5506.175347181706,\n      \"pool_total_shares\": 5735.404609989006,\n      \"spot_inflow\": 7000.80303279318,\n      \"spot_outflow\": 7848.683341885397,\n      \"staked_lit\": 7987.013337304464,\n      \"staking_inflow\": 3178.7903969113495,\n      \"staking_outflow\": 591.1033990094384,\n      \"staking_pnl\": 428.8279358554026,\n      \"trade_spot_pnl\": 4368.9103030305,\n      \"volume\": 2571.7155069367914\n    }\n  ],\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "64baf30f-8f45-4713-bc0f-53e6d6fbb89c",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "pnl"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "value",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "resolution",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_timestamp",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "end_timestamp",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "count_back",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "ignore_transfers",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1825,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8a556c4e-fb86-49ea-9fda-306486a47d23",
+          "name": "positionFunding",
+          "request": {
+            "name": "positionFunding",
+            "description": {
+              "content": "Get accounts position fundings",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "positionFunding"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "account_index",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "market_id",
+                  "value": "255"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "side",
+                  "value": "all"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_timestamp",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_timestamp",
+                  "value": "<long>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5958ff47-51ea-48df-b01d-95ded919eb24",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "positionFunding"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_index",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "market_id",
+                      "value": "255"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "side",
+                      "value": "all"
+                    },
+                    {
+                      "key": "start_timestamp",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "end_timestamp",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3856,\n  \"position_fundings\": [\n    {\n      \"timestamp\": 2116,\n      \"market_id\": 471,\n      \"funding_id\": 7006,\n      \"change\": \"1\",\n      \"rate\": \"1\",\n      \"position_size\": \"1\",\n      \"position_side\": \"long\",\n      \"discount\": \"1\"\n    },\n    {\n      \"timestamp\": 5586,\n      \"market_id\": 3212,\n      \"funding_id\": 8050,\n      \"change\": \"1\",\n      \"rate\": \"1\",\n      \"position_size\": \"1\",\n      \"position_side\": \"long\",\n      \"discount\": \"1\"\n    }\n  ],\n  \"message\": \"string\",\n  \"next_cursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2ac1a91c-5888-4eba-8be9-5565859410be",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "positionFunding"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_index",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "market_id",
+                      "value": "255"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "side",
+                      "value": "all"
+                    },
+                    {
+                      "key": "start_timestamp",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "end_timestamp",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1825,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d1465e90-2dfe-4339-9cb2-17452f37b3c0",
+          "name": "publicPoolsMetadata",
+          "request": {
+            "name": "publicPoolsMetadata",
+            "description": {
+              "content": "Get public pools metadata. `auth` is required in case you specify an account_index. You will see public pools with an index that starts an n-1 of the one you specify. To see staking pools, use `filter=stake`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "publicPoolsMetadata"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "index",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "account_index",
+                  "value": "<long>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f53bbf53-d68c-45d3-94e2-f12319031c6d",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "publicPoolsMetadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "index",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "account_index",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5996,\n  \"public_pools\": [\n    {\n      \"code\": 9209,\n      \"account_index\": 4507,\n      \"account_type\": 5748,\n      \"name\": \"string\",\n      \"l1_address\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n      \"annual_percentage_yield\": 3154.766153790992,\n      \"status\": 8687,\n      \"operator_fee\": \"100\",\n      \"total_asset_value\": \"19995\",\n      \"total_shares\": 2080,\n      \"assets\": [\n        {\n          \"symbol\": \"USDC\",\n          \"asset_id\": 1,\n          \"balance\": \"1000\",\n          \"locked_balance\": \"1000\",\n          \"margin_balance\": \"1000\",\n          \"margin_mode\": \"enabled\"\n        },\n        {\n          \"symbol\": \"USDC\",\n          \"asset_id\": 1,\n          \"balance\": \"1000\",\n          \"locked_balance\": \"1000\",\n          \"margin_balance\": \"1000\",\n          \"margin_mode\": \"enabled\"\n        }\n      ],\n      \"created_at\": 1590,\n      \"master_account_index\": 4485,\n      \"sharpe_ratio\": 2371.1379735971095,\n      \"total_perps_value\": \"string\",\n      \"total_spot_value\": \"string\",\n      \"message\": \"string\",\n      \"account_share\": {\n        \"public_pool_index\": 391,\n        \"shares_amount\": 7496,\n        \"entry_usdc\": \"3000\",\n        \"entry_timestamp\": 7415,\n        \"principal_amount\": \"string\"\n      }\n    },\n    {\n      \"code\": 9750,\n      \"account_index\": 5129,\n      \"account_type\": 7601,\n      \"name\": \"string\",\n      \"l1_address\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n      \"annual_percentage_yield\": 9017.804106453978,\n      \"status\": 347,\n      \"operator_fee\": \"100\",\n      \"total_asset_value\": \"19995\",\n      \"total_shares\": 4391,\n      \"assets\": [\n        {\n          \"symbol\": \"USDC\",\n          \"asset_id\": 1,\n          \"balance\": \"1000\",\n          \"locked_balance\": \"1000\",\n          \"margin_balance\": \"1000\",\n          \"margin_mode\": \"enabled\"\n        },\n        {\n          \"symbol\": \"USDC\",\n          \"asset_id\": 1,\n          \"balance\": \"1000\",\n          \"locked_balance\": \"1000\",\n          \"margin_balance\": \"1000\",\n          \"margin_mode\": \"enabled\"\n        }\n      ],\n      \"created_at\": 884,\n      \"master_account_index\": 6616,\n      \"sharpe_ratio\": 7.059178180531811,\n      \"total_perps_value\": \"string\",\n      \"total_spot_value\": \"string\",\n      \"message\": \"string\",\n      \"account_share\": {\n        \"public_pool_index\": 4413,\n        \"shares_amount\": 2209,\n        \"entry_usdc\": \"3000\",\n        \"entry_timestamp\": 4018,\n        \"principal_amount\": \"string\"\n      }\n    }\n  ],\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8fd622b7-fb55-4b9e-a870-b76e8826f555",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "publicPoolsMetadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "index",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "account_index",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1825,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "595ac19d-3858-43d0-b877-71b08d90e300",
+          "name": "tokens",
+          "request": {
+            "name": "tokens",
+            "description": {
+              "content": "Get read only auth tokens for an account",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tokens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "account_index",
+                  "value": "<long>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "af5f2546-8b6b-4cb1-9a10-f4d671aa2976",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_index",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": " make required after integ is done",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1001,\n  \"api_tokens\": [\n    {\n      \"token_id\": 3135,\n      \"api_token\": \"string\",\n      \"name\": \"string\",\n      \"account_index\": 5061,\n      \"expiry\": 7306,\n      \"sub_account_access\": false,\n      \"revoked\": true,\n      \"scopes\": \"string\"\n    },\n    {\n      \"token_id\": 8745,\n      \"api_token\": \"string\",\n      \"name\": \"string\",\n      \"account_index\": 626,\n      \"expiry\": 4743,\n      \"sub_account_access\": true,\n      \"revoked\": false,\n      \"scopes\": \"string\"\n    }\n  ],\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "79ede5a2-899c-455a-816d-63672cb78dae",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_index",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": " make required after integ is done",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1825,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d0ec291-1bc2-488a-8fa7-603c53e98ea6",
+          "name": "tokens_create",
+          "request": {
+            "name": "tokens_create",
+            "description": {
+              "content": "Create an API token for read-only access",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tokens",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "account_index",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "expiry",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "sub_account_access",
+                  "value": "<boolean>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "scopes",
+                  "value": "read.*"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "91193b57-b2ab-4dc3-b18a-db17dfc70f78",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tokens",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "account_index",
+                      "value": "<long>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "expiry",
+                      "value": "<long>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "sub_account_access",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "scopes",
+                      "value": "read.*"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3891,\n  \"token_id\": 8170,\n  \"api_token\": \"string\",\n  \"name\": \"string\",\n  \"account_index\": 7042,\n  \"expiry\": 257,\n  \"sub_account_access\": true,\n  \"revoked\": false,\n  \"scopes\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b0a3cdaa-9238-4d54-91de-d64f17cd1b1f",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tokens",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "account_index",
+                      "value": "<long>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "expiry",
+                      "value": "<long>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "sub_account_access",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "scopes",
+                      "value": "read.*"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1825,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "71c05166-aad6-4f66-9829-8e18c640cf8e",
+          "name": "tokens_revoke",
+          "request": {
+            "name": "tokens_revoke",
+            "description": {
+              "content": "Revoke read only auth token for an account",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tokens",
+                "revoke"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "token_id",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "account_index",
+                  "value": "<long>",
+                  "description": "(Required) "
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e9f6077b-eba0-4b72-84a2-bc8de1c22fb9",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tokens",
+                    "revoke"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "token_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "account_index",
+                      "value": "<long>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6385,\n  \"token_id\": 3944,\n  \"revoked\": false,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8b034251-ce3c-4c8f-a9e6-98d786c937f7",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tokens",
+                    "revoke"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "token_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "account_index",
+                      "value": "<long>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1825,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b72f7df2-63fd-490c-9c05-05c1d775f5b5",
+          "name": "leaseOptions",
+          "request": {
+            "name": "leaseOptions",
+            "description": {
+              "content": "Returns available lease duration/rate tiers, sorted by duration descending.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "leaseOptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "243cf271-b9b4-4240-bfee-5d111e85e08c",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "leaseOptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2279,\n  \"options\": [\n    {\n      \"duration_days\": 9442,\n      \"annual_rate\": 509.15607039853205\n    },\n    {\n      \"duration_days\": 1766,\n      \"annual_rate\": 5787.119519634442\n    }\n  ],\n  \"lit_incentives_account_index\": 7528,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bc015757-956b-41d7-9d3a-64c6d6790cd2",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "leaseOptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1825,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4f53668a-454a-472d-b65f-d9e33dafa4d6",
+          "name": "leases",
+          "request": {
+            "name": "leases",
+            "description": {
+              "content": "Returns paginated lease entries for an account, most recent first. Supports read-only auth via signature/account_index/timestamp query params.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "leases"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "account_index",
+                  "value": "<long>",
+                  "description": "(Required) Account index to fetch leases for"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Pagination cursor from a previous response"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of results to return (1–100, default 20)"
+                },
+                {
+                  "disabled": false,
+                  "key": "auth",
+                  "value": "<string>",
+                  "description": "Read-only auth (alternative to header authorization)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9fc2f0a5-6dbd-4bc8-ac39-ff29a4d9d1f4",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "leases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_index",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "auth",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "API token authorization",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3468,\n  \"leases\": [\n    {\n      \"end\": 3771,\n      \"error\": \"string\",\n      \"fee_amount\": 380,\n      \"id\": 889,\n      \"lease_amount\": 2564,\n      \"master_account_index\": 1087,\n      \"start\": 921,\n      \"status\": \"leased\"\n    },\n    {\n      \"end\": 471,\n      \"error\": \"string\",\n      \"fee_amount\": 4565,\n      \"id\": 7332,\n      \"lease_amount\": 8091,\n      \"master_account_index\": 1742,\n      \"start\": 2799,\n      \"status\": \"leased\"\n    }\n  ],\n  \"message\": \"string\",\n  \"next_cursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "20df3099-a5f4-4817-94b5-32906d9cbcef",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "leases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_index",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "auth",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "API token authorization",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1825,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "795a2057-28fe-4e00-a9f9-62f4f3bd0352",
+          "name": "litLease",
+          "request": {
+            "name": "litLease",
+            "description": {
+              "content": "Submit a LIT lease transfer. The server calculates the required fee based on lease_amount and duration_days, then executes the transfer. Fee formula (integer arithmetic): fee = lease_amount × (annual_rate × 100) × duration_days / (360 × 10000).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "litLease"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "tx_info",
+                  "value": "<string>",
+                  "description": "(Required) Signed transaction info (JSON with L2 signature, L1 signature, etc.)"
+                },
+                {
+                  "disabled": false,
+                  "key": "lease_amount",
+                  "value": "<string>",
+                  "description": "(Required) Amount of LIT to lease in raw units (1 LIT = 100000000)"
+                },
+                {
+                  "disabled": false,
+                  "key": "duration_days",
+                  "value": "<integer>",
+                  "description": "(Required) Lease duration in days. Must match one of the available lease options."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3c9a5a8d-8bae-4762-92db-2049aca43c2e",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "litLease"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "API token authorization",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Signed transaction info (JSON with L2 signature, L1 signature, etc.)",
+                        "type": "text/plain"
+                      },
+                      "key": "tx_info",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Amount of LIT to lease in raw units (1 LIT = 100000000)",
+                        "type": "text/plain"
+                      },
+                      "key": "lease_amount",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Lease duration in days. Must match one of the available lease options.",
+                        "type": "text/plain"
+                      },
+                      "key": "duration_days",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5805,\n  \"tx_hash\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eceec367-7c1e-47c4-a0b7-d808aa4d00a7",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "litLease"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "API token authorization",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Signed transaction info (JSON with L2 signature, L1 signature, etc.)",
+                        "type": "text/plain"
+                      },
+                      "key": "tx_info",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Amount of LIT to lease in raw units (1 LIT = 100000000)",
+                        "type": "text/plain"
+                      },
+                      "key": "lease_amount",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Lease duration in days. Must match one of the available lease options.",
+                        "type": "text/plain"
+                      },
+                      "key": "duration_days",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1825,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dc9d442f-f235-45a4-9a07-83642cf5ebf9",
+          "name": "userReferrals",
+          "request": {
+            "name": "userReferrals",
+            "description": {
+              "content": "Get user referrals",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "referral",
+                "userReferrals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "l1_address",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "auth",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "stats_start_timestamp",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "stats_end_timestamp",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f54c9ec6-04ba-4f4c-af0a-e599ef83dc30",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "referral",
+                    "userReferrals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "l1_address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auth",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "stats_start_timestamp",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "stats_end_timestamp",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5158,\n  \"cursor\": \"string\",\n  \"referrals\": [\n    {\n      \"trade_stats\": {\n        \"count\": 5418,\n        \"volume\": \"string\",\n        \"web_count\": 3658,\n        \"web_volume\": \"string\",\n        \"mobile_app_count\": 5074,\n        \"mobile_app_volume\": \"string\",\n        \"mobile_browser_count\": 4193,\n        \"mobile_browser_volume\": \"string\"\n      },\n      \"l1_address\": \"string\",\n      \"referral_code\": \"string\",\n      \"tier\": \"string\",\n      \"used_at\": 5178\n    },\n    {\n      \"trade_stats\": {\n        \"count\": 7986,\n        \"volume\": \"string\",\n        \"web_count\": 5504,\n        \"web_volume\": \"string\",\n        \"mobile_app_count\": 2270,\n        \"mobile_app_volume\": \"string\",\n        \"mobile_browser_count\": 7433,\n        \"mobile_browser_volume\": \"string\"\n      },\n      \"l1_address\": \"string\",\n      \"referral_code\": \"string\",\n      \"tier\": \"string\",\n      \"used_at\": 9072\n    }\n  ],\n  \"used_code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "52dbf073-6ce4-4901-aefa-d52d8eb46b26",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "referral",
+                    "userReferrals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "l1_address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auth",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "stats_start_timestamp",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "stats_end_timestamp",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1825,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "42b34b82-b8e7-4d7e-abf5-0a9a0c8ccc13",
+          "name": "getMakerOnlyApiKeys",
+          "request": {
+            "name": "getMakerOnlyApiKeys",
+            "description": {
+              "content": "Get maker-only API key indexes",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "getMakerOnlyApiKeys"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "account_index",
+                  "value": "<long>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6e1f7aeb-858d-4b4c-83ea-f870c5a3cc12",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "getMakerOnlyApiKeys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_index",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 856,\n  \"api_key_indexes\": [\n    823,\n    9351\n  ],\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c3dfa6dd-1ebb-4d3e-ae53-038f1104d206",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "getMakerOnlyApiKeys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_index",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1825,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17c622cf-8d8a-4de5-922f-eeb416234a12",
+          "name": "setMakerOnlyApiKeys",
+          "request": {
+            "name": "setMakerOnlyApiKeys",
+            "description": {
+              "content": "Set maker-only API key indexes. This replaces the current list; pass all indexes you want marked as maker-only. Pass [] to clear all maker-only restrictions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "setMakerOnlyApiKeys"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "account_index",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "api_key_indexes",
+                  "value": "<string>",
+                  "description": "(Required) JSON array string of API key indexes, e.g. \"[4,5]\". Use [] to clear all maker-only restrictions."
+                },
+                {
+                  "disabled": false,
+                  "key": "auth",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "df7affc3-6c0d-4177-9a63-5bdf9506e729",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "setMakerOnlyApiKeys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "account_index",
+                      "value": "<long>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) JSON array string of API key indexes, e.g. \"[4,5]\". Use [] to clear all maker-only restrictions.",
+                        "type": "text/plain"
+                      },
+                      "key": "api_key_indexes",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "auth",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1433,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2067e4ab-638f-4b52-81b3-d7ea740bf033",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "setMakerOnlyApiKeys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "account_index",
+                      "value": "<long>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) JSON array string of API key indexes, e.g. \"[4,5]\". Use [] to clear all maker-only restrictions.",
+                        "type": "text/plain"
+                      },
+                      "key": "api_key_indexes",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "auth",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1825,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4dd0b56c-1c8f-4875-94bd-ae68ecfca572",
+          "name": "partnerStats",
+          "request": {
+            "name": "partnerStats",
+            "description": {
+              "content": "Get partner stats. If timestamps are not provided, all-time stats will be returned.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "partnerStats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "account_index",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "start_timestamp",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_timestamp",
+                  "value": "<long>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "303ed0a1-27df-4c47-b2a5-575f673e4e7d",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "partnerStats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_index",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "start_timestamp",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "end_timestamp",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7763,\n  \"total_fees_earned\": \"string\",\n  \"total_taker_fees_earned\": \"string\",\n  \"total_maker_fees_earned\": \"string\",\n  \"total_volume\": \"string\",\n  \"total_taker_volume\": \"string\",\n  \"total_maker_volume\": \"string\",\n  \"total_trades\": 9927,\n  \"total_taker_trades\": 9887,\n  \"total_maker_trades\": 3247,\n  \"unique_clients\": 9355,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "de82e7e6-00ff-48fd-ac06-40244b0469bd",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "partnerStats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_index",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "start_timestamp",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "end_timestamp",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1825,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "73897afb-1b35-407f-9218-3bfa3a39a306",
+          "name": "rfq_respond",
+          "request": {
+            "name": "rfq_respond",
+            "description": {
+              "content": "Respond to RFQ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "rfq",
+                "respond"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "rfq_id",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "54000eb3-d85c-46cb-bd90-437c9732bae5",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "rfq",
+                    "respond"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "rfq_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6255,\n  \"id\": 5915,\n  \"account_index\": 5832,\n  \"market_index\": 4783,\n  \"direction\": 9899,\n  \"base_amount\": \"string\",\n  \"quote_amount\": \"string\",\n  \"status\": \"string\",\n  \"metadata\": {\n    \"requested_est_price\": \"string\",\n    \"requested_max_slippage\": \"string\",\n    \"requested_slippage\": \"string\",\n    \"worst_price\": \"string\"\n  },\n  \"responses\": [\n    {\n      \"account_index\": 2227,\n      \"status\": \"acknowledged\",\n      \"responded_at\": 5970,\n      \"updated_at\": 5303\n    },\n    {\n      \"account_index\": 1767,\n      \"status\": \"acknowledged\",\n      \"responded_at\": 4000,\n      \"updated_at\": 2493\n    }\n  ],\n  \"created_at\": 4268,\n  \"updated_at\": 857,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "97f49a59-208f-42a8-b92b-8a379be62e95",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "rfq",
+                    "respond"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "rfq_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1825,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8630be9c-3df7-445e-904c-e9d40da2abfb",
+          "name": "rfq_list",
+          "request": {
+            "name": "rfq_list",
+            "description": {
+              "content": "List RFQs",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "rfq",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "account_index",
+                  "value": "281474976710655"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7c9fc7d2-d888-4381-bd09-9626fe09eab7",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "rfq",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_index",
+                      "value": "281474976710655"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1479,\n  \"rfqs\": [\n    {\n      \"id\": 1878,\n      \"account_index\": 6070,\n      \"market_index\": 2243,\n      \"direction\": 2252,\n      \"base_amount\": \"string\",\n      \"quote_amount\": \"string\",\n      \"status\": \"string\",\n      \"metadata\": {\n        \"requested_est_price\": \"string\",\n        \"requested_max_slippage\": \"string\",\n        \"requested_slippage\": \"string\",\n        \"worst_price\": \"string\"\n      },\n      \"responses\": [\n        {\n          \"account_index\": 3139,\n          \"status\": \"acknowledged\",\n          \"responded_at\": 6265,\n          \"updated_at\": 304\n        },\n        {\n          \"account_index\": 8088,\n          \"status\": \"not_interested\",\n          \"responded_at\": 737,\n          \"updated_at\": 8377\n        }\n      ],\n      \"created_at\": 523,\n      \"updated_at\": 7980\n    },\n    {\n      \"id\": 4531,\n      \"account_index\": 6960,\n      \"market_index\": 8249,\n      \"direction\": 5258,\n      \"base_amount\": \"string\",\n      \"quote_amount\": \"string\",\n      \"status\": \"string\",\n      \"metadata\": {\n        \"requested_est_price\": \"string\",\n        \"requested_max_slippage\": \"string\",\n        \"requested_slippage\": \"string\",\n        \"worst_price\": \"string\"\n      },\n      \"responses\": [\n        {\n          \"account_index\": 7223,\n          \"status\": \"liquidity_provided\",\n          \"responded_at\": 4766,\n          \"updated_at\": 3648\n        },\n        {\n          \"account_index\": 8341,\n          \"status\": \"liquidity_provided\",\n          \"responded_at\": 5161,\n          \"updated_at\": 73\n        }\n      ],\n      \"created_at\": 4172,\n      \"updated_at\": 4258\n    }\n  ],\n  \"message\": \"string\",\n  \"next_cursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "90d67567-ba2c-4ca1-b469-83629bbc18c9",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "rfq",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_index",
+                      "value": "281474976710655"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1825,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aacf52e5-4564-4948-b87f-ca3d0a76cfbb",
+          "name": "rfq_get",
+          "request": {
+            "name": "rfq_get",
+            "description": {
+              "content": "Get RFQ by ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "rfq",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "rfq_id",
+                  "value": "<long>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aa772715-1862-45ce-90c9-49ed83ea8ff2",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "rfq",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "rfq_id",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7297,\n  \"id\": 4414,\n  \"account_index\": 2024,\n  \"market_index\": 7103,\n  \"direction\": 7452,\n  \"base_amount\": \"string\",\n  \"quote_amount\": \"string\",\n  \"status\": \"string\",\n  \"metadata\": {\n    \"requested_est_price\": \"string\",\n    \"requested_max_slippage\": \"string\",\n    \"requested_slippage\": \"string\",\n    \"worst_price\": \"string\"\n  },\n  \"responses\": [\n    {\n      \"account_index\": 8977,\n      \"status\": \"acknowledged\",\n      \"responded_at\": 8240,\n      \"updated_at\": 5283\n    },\n    {\n      \"account_index\": 8275,\n      \"status\": \"not_interested\",\n      \"responded_at\": 1988,\n      \"updated_at\": 2659\n    }\n  ],\n  \"created_at\": 4453,\n  \"updated_at\": 963,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "62aa4c53-9834-4573-b69a-e14515430e45",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "rfq",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "rfq_id",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1825,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0add0712-d1a9-4657-bf1a-6c2a461c46c9",
+          "name": "rfq_create",
+          "request": {
+            "name": "rfq_create",
+            "description": {
+              "content": "Create RFQ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "rfq",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "market_index",
+                  "value": "<int16>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "direction",
+                  "value": "<int16>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "base_amount",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "quote_amount",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "metadata",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e90ad1c8-4f7b-4c98-8e70-7d2923738aeb",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "rfq",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "market_index",
+                      "value": "<int16>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "direction",
+                      "value": "<int16>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "base_amount",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "quote_amount",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "metadata",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7030,\n  \"id\": 1936,\n  \"account_index\": 4740,\n  \"market_index\": 212,\n  \"direction\": 5258,\n  \"base_amount\": \"string\",\n  \"quote_amount\": \"string\",\n  \"status\": \"string\",\n  \"metadata\": {\n    \"requested_est_price\": \"string\",\n    \"requested_max_slippage\": \"string\",\n    \"requested_slippage\": \"string\",\n    \"worst_price\": \"string\"\n  },\n  \"responses\": [\n    {\n      \"account_index\": 9715,\n      \"status\": \"not_interested\",\n      \"responded_at\": 253,\n      \"updated_at\": 3187\n    },\n    {\n      \"account_index\": 7250,\n      \"status\": \"liquidity_provided\",\n      \"responded_at\": 4199,\n      \"updated_at\": 5988\n    }\n  ],\n  \"created_at\": 3064,\n  \"updated_at\": 2717,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f3cfee29-bef9-448f-bf54-7c29a2c215e6",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "rfq",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "market_index",
+                      "value": "<int16>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "direction",
+                      "value": "<int16>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "base_amount",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "quote_amount",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "metadata",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1825,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ef0c3a76-ffa9-4b1e-9018-341b51e86215",
+          "name": "rfq_update",
+          "request": {
+            "name": "rfq_update",
+            "description": {
+              "content": "Update RFQ status",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "rfq",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "rfq_id",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "645a4d97-1fde-40d8-964a-4d41aab40156",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "rfq",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "rfq_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3865,\n  \"id\": 663,\n  \"account_index\": 1302,\n  \"market_index\": 1367,\n  \"direction\": 7763,\n  \"base_amount\": \"string\",\n  \"quote_amount\": \"string\",\n  \"status\": \"string\",\n  \"metadata\": {\n    \"requested_est_price\": \"string\",\n    \"requested_max_slippage\": \"string\",\n    \"requested_slippage\": \"string\",\n    \"worst_price\": \"string\"\n  },\n  \"responses\": [\n    {\n      \"account_index\": 4023,\n      \"status\": \"not_interested\",\n      \"responded_at\": 1629,\n      \"updated_at\": 9887\n    },\n    {\n      \"account_index\": 4374,\n      \"status\": \"liquidity_provided\",\n      \"responded_at\": 3052,\n      \"updated_at\": 1479\n    }\n  ],\n  \"created_at\": 1508,\n  \"updated_at\": 6494,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a7c609a5-5d48-4c2e-af31-f73808ce3231",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "rfq",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "rfq_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1825,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://mainnet.zklighter.elliot.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "bb27b92a-312c-4e57-8789-dcca9aba830d",
+    "name": "Lighter account API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}
