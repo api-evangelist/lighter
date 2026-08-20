@@ -54,6 +54,8 @@ apis:
   humanURL: https://apidocs.lighter.xyz/
   baseURL: https://mainnet.zklighter.elliot.ai
   tags:
+  - Account
+  tags_raw:
   - account
   properties:
   - type: OpenAPI
@@ -86,6 +88,8 @@ apis:
   humanURL: https://apidocs.lighter.xyz/
   baseURL: https://mainnet.zklighter.elliot.ai
   tags:
+  - Block
+  tags_raw:
   - block
   properties:
   - type: OpenAPI
@@ -102,6 +106,8 @@ apis:
   humanURL: https://apidocs.lighter.xyz/
   baseURL: https://mainnet.zklighter.elliot.ai
   tags:
+  - Bridge
+  tags_raw:
   - bridge
   properties:
   - type: OpenAPI
@@ -118,6 +124,8 @@ apis:
   humanURL: https://apidocs.lighter.xyz/
   baseURL: https://mainnet.zklighter.elliot.ai
   tags:
+  - Candlestick
+  tags_raw:
   - candlestick
   properties:
   - type: OpenAPI
@@ -134,6 +142,8 @@ apis:
   humanURL: https://apidocs.lighter.xyz/
   baseURL: https://mainnet.zklighter.elliot.ai
   tags:
+  - Funding
+  tags_raw:
   - funding
   properties:
   - type: OpenAPI
@@ -150,6 +160,8 @@ apis:
   humanURL: https://apidocs.lighter.xyz/
   baseURL: https://mainnet.zklighter.elliot.ai
   tags:
+  - Info
+  tags_raw:
   - info
   properties:
   - type: OpenAPI
@@ -166,6 +178,8 @@ apis:
   humanURL: https://apidocs.lighter.xyz/
   baseURL: https://mainnet.zklighter.elliot.ai
   tags:
+  - Notification
+  tags_raw:
   - notification
   properties:
   - type: OpenAPI
@@ -182,6 +196,8 @@ apis:
   humanURL: https://apidocs.lighter.xyz/
   baseURL: https://mainnet.zklighter.elliot.ai
   tags:
+  - Order
+  tags_raw:
   - order
   properties:
   - type: OpenAPI
@@ -198,6 +214,8 @@ apis:
   humanURL: https://apidocs.lighter.xyz/
   baseURL: https://mainnet.zklighter.elliot.ai
   tags:
+  - Referral
+  tags_raw:
   - referral
   properties:
   - type: OpenAPI
@@ -214,6 +232,8 @@ apis:
   humanURL: https://apidocs.lighter.xyz/
   baseURL: https://mainnet.zklighter.elliot.ai
   tags:
+  - Root
+  tags_raw:
   - root
   properties:
   - type: OpenAPI
@@ -230,6 +250,8 @@ apis:
   humanURL: https://apidocs.lighter.xyz/
   baseURL: https://mainnet.zklighter.elliot.ai
   tags:
+  - Token List
+  tags_raw:
   - tokenlist
   properties:
   - type: OpenAPI
@@ -246,6 +268,8 @@ apis:
   humanURL: https://apidocs.lighter.xyz/
   baseURL: https://mainnet.zklighter.elliot.ai
   tags:
+  - Transaction
+  tags_raw:
   - transaction
   properties:
   - type: OpenAPI
