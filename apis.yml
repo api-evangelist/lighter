@@ -12,6 +12,18 @@ description: >-
   or transfer body with an API private key and submit it via sendTx or sendTxBatch. Lighter ships
   first-party Python and Go SDKs, runs a full testnet deployment, publishes a 239-entry numeric
   error registry, weighted per-tier rate limits, and a vulnerability disclosure policy.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: self-serve
