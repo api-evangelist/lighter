@@ -136,7 +136,7 @@ apis:
   humanURL: https://apidocs.lighter.xyz/
   baseURL: https://mainnet.zklighter.elliot.ai
   tags:
-  - Candlestick
+  - candlestick
   tags_raw:
   - candlestick
   properties:
@@ -154,7 +154,7 @@ apis:
   humanURL: https://apidocs.lighter.xyz/
   baseURL: https://mainnet.zklighter.elliot.ai
   tags:
-  - Funding
+  - funding
   tags_raw:
   - funding
   properties:
@@ -208,7 +208,7 @@ apis:
   humanURL: https://apidocs.lighter.xyz/
   baseURL: https://mainnet.zklighter.elliot.ai
   tags:
-  - Order
+  - order
   tags_raw:
   - order
   properties:
@@ -262,7 +262,7 @@ apis:
   humanURL: https://apidocs.lighter.xyz/
   baseURL: https://mainnet.zklighter.elliot.ai
   tags:
-  - Token List
+  - tokenlist
   tags_raw:
   - tokenlist
   properties:
