@@ -58,6 +58,17 @@ tags:
 - Blockchain
 - Zero Knowledge
 - Market Data
+- WebSocket
+tags_raw:
+- Company
+- Trading
+- Cryptocurrency
+- Decentralized Finance
+- Perpetual Futures
+- Exchange
+- Blockchain
+- Zero Knowledge
+- Market Data
 - WebSockets
 apis:
 - aid: lighter:lighter-account-api
@@ -226,7 +237,7 @@ apis:
   humanURL: https://apidocs.lighter.xyz/
   baseURL: https://mainnet.zklighter.elliot.ai
   tags:
-  - Referral
+  - Referrals
   tags_raw:
   - referral
   properties:
