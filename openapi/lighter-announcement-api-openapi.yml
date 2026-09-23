@@ -1,18 +1,18 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Lighter account announcement API
-  version: "1.0"
+  title: Lighter Announcement API
+  version: ''
 servers:
 - url: https://mainnet.zklighter.elliot.ai
 tags:
-- name: announcement
+- name: Announcement
 paths:
   /api/v1/announcement:
     get:
       summary: announcement
       operationId: announcement
       tags:
-      - announcement
+      - Announcement
       description: Get announcements
       responses:
         '200':
@@ -29,6 +29,18 @@ paths:
                 $ref: '#/components/schemas/ResultCode'
 components:
   schemas:
+    ResultCode:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+      title: ResultCode
+      required:
+      - code
     Announcements:
       type: object
       properties:
@@ -46,18 +58,6 @@ components:
       required:
       - code
       - announcements
-    ResultCode:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-      title: ResultCode
-      required:
-      - code
     Announcement:
       type: object
       properties:

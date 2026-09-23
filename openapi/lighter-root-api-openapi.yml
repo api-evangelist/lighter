@@ -1,18 +1,18 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Lighter account root API
-  version: "1.0"
+  title: Lighter Root API
+  version: ''
 servers:
 - url: https://mainnet.zklighter.elliot.ai
 tags:
-- name: root
+- name: Root
 paths:
   /:
     get:
       summary: status
       operationId: status
       tags:
-      - root
+      - Root
       description: Get status of zklighter
       responses:
         '200':
@@ -32,7 +32,7 @@ paths:
       summary: info
       operationId: info
       tags:
-      - root
+      - Root
       description: Get info of zklighter
       responses:
         '200':
@@ -49,26 +49,6 @@ paths:
                 $ref: '#/components/schemas/ResultCode'
 components:
   schemas:
-    Status:
-      type: object
-      properties:
-        status:
-          type: integer
-          format: int32
-          example: '1'
-        network_id:
-          type: integer
-          format: int32
-          example: '1'
-        timestamp:
-          type: integer
-          format: int64
-          example: '1717777777'
-      title: Status
-      required:
-      - status
-      - network_id
-      - timestamp
     ResultCode:
       type: object
       properties:
@@ -90,6 +70,26 @@ components:
       title: ZkLighterInfo
       required:
       - contract_address
+    Status:
+      type: object
+      properties:
+        status:
+          type: integer
+          format: int32
+          example: '1'
+        network_id:
+          type: integer
+          format: int32
+          example: '1'
+        timestamp:
+          type: integer
+          format: int64
+          example: '1717777777'
+      title: Status
+      required:
+      - status
+      - network_id
+      - timestamp
   securitySchemes:
     apiKey:
       type: apiKey

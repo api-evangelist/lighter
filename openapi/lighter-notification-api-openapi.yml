@@ -1,18 +1,18 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Lighter account notification API
-  version: "1.0"
+  title: Lighter Notification API
+  version: ''
 servers:
 - url: https://mainnet.zklighter.elliot.ai
 tags:
-- name: notification
+- name: Notification
 paths:
   /api/v1/notification/ack:
     post:
       summary: notification_ack
       operationId: notification_ack
       tags:
-      - notification
+      - Notification
       description: Ack notification
       parameters:
       - name: authorization
@@ -42,6 +42,18 @@ paths:
                 $ref: '#/components/schemas/ResultCode'
 components:
   schemas:
+    ResultCode:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+      title: ResultCode
+      required:
+      - code
     ReqAckNotif:
       type: object
       properties:
@@ -58,18 +70,6 @@ components:
       required:
       - notif_id
       - account_index
-    ResultCode:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-      title: ResultCode
-      required:
-      - code
   securitySchemes:
     apiKey:
       type: apiKey

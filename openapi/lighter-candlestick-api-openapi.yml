@@ -1,7 +1,7 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Lighter account candlestick API
-  version: "1.0"
+  title: Lighter Candlestick API
+  version: ''
 servers:
 - url: https://mainnet.zklighter.elliot.ai
 tags:
@@ -137,6 +137,84 @@ paths:
                 $ref: '#/components/schemas/ResultCode'
 components:
   schemas:
+    ResultCode:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+      title: ResultCode
+      required:
+      - code
+    Fundings:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        resolution:
+          type: string
+          example: 1h
+        fundings:
+          type: array
+          items:
+            $ref: '#/components/schemas/Funding'
+      title: Fundings
+      required:
+      - code
+      - resolution
+      - fundings
+    Funding:
+      type: object
+      properties:
+        timestamp:
+          type: integer
+          format: int64
+          example: '1640995200'
+        value:
+          type: string
+          example: '0.0001'
+        rate:
+          type: string
+          example: '0.0001'
+        direction:
+          type: string
+          example: long
+      title: Funding
+      required:
+      - timestamp
+      - value
+      - rate
+      - direction
+    Candles:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: 200
+        r:
+          type: string
+          example: 1m
+          description: Resolution
+        c:
+          type: array
+          items:
+            $ref: '#/components/schemas/Candle'
+          description: Array of candles (max 500 per call)
+        message:
+          type: string
+      title: Candles
+      required:
+      - code
+      - r
+      - c
     Candle:
       type: object
       properties:
@@ -211,84 +289,6 @@ components:
       - v
       - V
       - i
-    ResultCode:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-      title: ResultCode
-      required:
-      - code
-    Funding:
-      type: object
-      properties:
-        timestamp:
-          type: integer
-          format: int64
-          example: '1640995200'
-        value:
-          type: string
-          example: '0.0001'
-        rate:
-          type: string
-          example: '0.0001'
-        direction:
-          type: string
-          example: long
-      title: Funding
-      required:
-      - timestamp
-      - value
-      - rate
-      - direction
-    Fundings:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-        resolution:
-          type: string
-          example: 1h
-        fundings:
-          type: array
-          items:
-            $ref: '#/components/schemas/Funding'
-      title: Fundings
-      required:
-      - code
-      - resolution
-      - fundings
-    Candles:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: 200
-        r:
-          type: string
-          example: 1m
-          description: Resolution
-        c:
-          type: array
-          items:
-            $ref: '#/components/schemas/Candle'
-          description: Array of candles (max 500 per call)
-        message:
-          type: string
-      title: Candles
-      required:
-      - code
-      - r
-      - c
   securitySchemes:
     apiKey:
       type: apiKey

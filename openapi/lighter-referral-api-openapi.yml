@@ -1,18 +1,18 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Lighter account referral API
-  version: "1.0"
+  title: Lighter Referral API
+  version: ''
 servers:
 - url: https://mainnet.zklighter.elliot.ai
 tags:
-- name: referral
+- name: Referral
 paths:
   /api/v1/referral/points:
     get:
       summary: referral_points
       operationId: referral_points
       tags:
-      - referral
+      - Referral
       description: Get referral points
       parameters:
       - name: authorization
@@ -44,7 +44,7 @@ paths:
       summary: referral_create
       operationId: referral_create
       tags:
-      - referral
+      - Referral
       description: Create referral code
       parameters:
       - name: authorization
@@ -77,7 +77,7 @@ paths:
       summary: referral_get
       operationId: referral_get
       tags:
-      - referral
+      - Referral
       description: Get referral code
       parameters:
       - name: authorization
@@ -116,7 +116,7 @@ paths:
       summary: referral_kickback_update
       operationId: referral_kickback_update
       tags:
-      - referral
+      - Referral
       description: Update kickback percentage for referral rewards (allowed once per day)
       parameters:
       - name: authorization
@@ -149,7 +149,7 @@ paths:
       summary: referral_update
       operationId: referral_update
       tags:
-      - referral
+      - Referral
       description: Update referral code (allowed once per account)
       parameters:
       - name: authorization
@@ -182,7 +182,7 @@ paths:
       summary: referral_use
       operationId: referral_use
       tags:
-      - referral
+      - Referral
       description: Use a referral code. You can change this at a later time.
       parameters:
       - name: authorization
@@ -212,7 +212,7 @@ paths:
                 $ref: '#/components/schemas/ResultCode'
 components:
   schemas:
-    RespUpdateReferralCode:
+    ResultCode:
       type: object
       properties:
         code:
@@ -221,14 +221,26 @@ components:
           example: '200'
         message:
           type: string
-        success:
-          type: boolean
-          format: boolean
-          example: 'true'
-      title: RespUpdateReferralCode
+      title: ResultCode
       required:
       - code
-      - success
+    ReqUpdateKickback:
+      type: object
+      properties:
+        auth:
+          type: string
+          description: ' made optional to support header auth clients'
+        account_index:
+          type: integer
+          format: int64
+        kickback_percentage:
+          type: number
+          format: double
+          maximum: 100
+      title: ReqUpdateKickback
+      required:
+      - account_index
+      - kickback_percentage
     ReqUseReferralCode:
       type: object
       properties:
@@ -269,21 +281,6 @@ components:
       required:
       - code
       - success
-    ReqUpdateReferralCode:
-      type: object
-      properties:
-        auth:
-          type: string
-          description: ' made optional to support header auth clients'
-        account_index:
-          type: integer
-          format: int64
-        new_referral_code:
-          type: string
-      title: ReqUpdateReferralCode
-      required:
-      - account_index
-      - new_referral_code
     ReqCreateReferralCode:
       type: object
       properties:
@@ -296,27 +293,6 @@ components:
       title: ReqCreateReferralCode
       required:
       - account_index
-    ReferralCode:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-        referral_code:
-          type: string
-          example: 5V24K3MJ
-        remaining_usage:
-          type: integer
-          format: int32
-          example: '3'
-      title: ReferralCode
-      required:
-      - code
-      - referral_code
-      - remaining_usage
     ReferralPoints:
       type: object
       properties:
@@ -351,7 +327,7 @@ components:
       - user_total_referral_reward_points
       - user_last_week_referral_reward_points
       - reward_point_multiplier
-    ResultCode:
+    RespUpdateReferralCode:
       type: object
       properties:
         code:
@@ -360,26 +336,14 @@ components:
           example: '200'
         message:
           type: string
-      title: ResultCode
+        success:
+          type: boolean
+          format: boolean
+          example: 'true'
+      title: RespUpdateReferralCode
       required:
       - code
-    ReqUpdateKickback:
-      type: object
-      properties:
-        auth:
-          type: string
-          description: ' made optional to support header auth clients'
-        account_index:
-          type: integer
-          format: int64
-        kickback_percentage:
-          type: number
-          format: double
-          maximum: 100
-      title: ReqUpdateKickback
-      required:
-      - account_index
-      - kickback_percentage
+      - success
     ReferralPointEntry:
       type: object
       properties:
@@ -412,6 +376,42 @@ components:
       - total_reward_points
       - week_reward_points
       - reward_point_multiplier
+    ReferralCode:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        referral_code:
+          type: string
+          example: 5V24K3MJ
+        remaining_usage:
+          type: integer
+          format: int32
+          example: '3'
+      title: ReferralCode
+      required:
+      - code
+      - referral_code
+      - remaining_usage
+    ReqUpdateReferralCode:
+      type: object
+      properties:
+        auth:
+          type: string
+          description: ' made optional to support header auth clients'
+        account_index:
+          type: integer
+          format: int64
+        new_referral_code:
+          type: string
+      title: ReqUpdateReferralCode
+      required:
+      - account_index
+      - new_referral_code
   securitySchemes:
     apiKey:
       type: apiKey

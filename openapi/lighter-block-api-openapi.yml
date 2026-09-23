@@ -1,18 +1,18 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Lighter account block API
-  version: "1.0"
+  title: Lighter Block API
+  version: ''
 servers:
 - url: https://mainnet.zklighter.elliot.ai
 tags:
-- name: block
+- name: Block
 paths:
   /api/v1/block:
     get:
       summary: block
       operationId: block
       tags:
-      - block
+      - Block
       description: Get block by its height or commitment
       parameters:
       - name: by
@@ -46,7 +46,7 @@ paths:
       summary: blocks
       operationId: blocks
       tags:
-      - block
+      - Block
       description: Get blocks
       parameters:
       - name: index
@@ -90,7 +90,7 @@ paths:
       summary: currentHeight
       operationId: currentHeight
       tags:
-      - block
+      - Block
       description: Get current height
       responses:
         '200':
@@ -107,96 +107,6 @@ paths:
                 $ref: '#/components/schemas/ResultCode'
 components:
   schemas:
-    Block:
-      type: object
-      properties:
-        commitment:
-          type: string
-        height:
-          type: integer
-          format: int64
-        state_root:
-          type: string
-        priority_operations:
-          type: integer
-          format: int32
-        on_chain_l2_operations:
-          type: integer
-          format: int32
-        pending_on_chain_operations_pub_data:
-          type: string
-        committed_tx_hash:
-          type: string
-        committed_at:
-          type: integer
-          format: int64
-        verified_tx_hash:
-          type: string
-        verified_at:
-          type: integer
-          format: int64
-        txs:
-          type: array
-          items:
-            $ref: '#/components/schemas/Tx'
-        status:
-          type: integer
-          format: int64
-        size:
-          type: integer
-          format: uin16
-      title: Block
-      required:
-      - commitment
-      - height
-      - state_root
-      - priority_operations
-      - on_chain_l2_operations
-      - pending_on_chain_operations_pub_data
-      - committed_tx_hash
-      - committed_at
-      - verified_tx_hash
-      - verified_at
-      - txs
-      - status
-      - size
-    CurrentHeight:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-        height:
-          type: integer
-          format: int64
-      title: CurrentHeight
-      required:
-      - code
-      - height
-    Blocks:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-        total:
-          type: integer
-          format: int64
-        blocks:
-          type: array
-          items:
-            $ref: '#/components/schemas/Block'
-      title: Blocks
-      required:
-      - code
-      - total
-      - blocks
     ResultCode:
       type: object
       properties:
@@ -294,6 +204,96 @@ components:
       - parent_hash
       - api_key_index
       - transaction_time
+    Block:
+      type: object
+      properties:
+        commitment:
+          type: string
+        height:
+          type: integer
+          format: int64
+        state_root:
+          type: string
+        priority_operations:
+          type: integer
+          format: int32
+        on_chain_l2_operations:
+          type: integer
+          format: int32
+        pending_on_chain_operations_pub_data:
+          type: string
+        committed_tx_hash:
+          type: string
+        committed_at:
+          type: integer
+          format: int64
+        verified_tx_hash:
+          type: string
+        verified_at:
+          type: integer
+          format: int64
+        txs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tx'
+        status:
+          type: integer
+          format: int64
+        size:
+          type: integer
+          format: uin16
+      title: Block
+      required:
+      - commitment
+      - height
+      - state_root
+      - priority_operations
+      - on_chain_l2_operations
+      - pending_on_chain_operations_pub_data
+      - committed_tx_hash
+      - committed_at
+      - verified_tx_hash
+      - verified_at
+      - txs
+      - status
+      - size
+    CurrentHeight:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        height:
+          type: integer
+          format: int64
+      title: CurrentHeight
+      required:
+      - code
+      - height
+    Blocks:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        total:
+          type: integer
+          format: int64
+        blocks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Block'
+      title: Blocks
+      required:
+      - code
+      - total
+      - blocks
   securitySchemes:
     apiKey:
       type: apiKey

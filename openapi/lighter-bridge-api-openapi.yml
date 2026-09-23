@@ -1,18 +1,18 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Lighter account bridge API
-  version: "1.0"
+  title: Lighter Bridge API
+  version: ''
 servers:
 - url: https://mainnet.zklighter.elliot.ai
 tags:
-- name: bridge
+- name: Bridge
 paths:
   /api/v1/fastbridge/info:
     get:
       summary: fastbridge_info
       operationId: fastbridge_info
       tags:
-      - bridge
+      - Bridge
       description: Get fast bridge info
       responses:
         '200':
@@ -32,7 +32,7 @@ paths:
       summary: fastwithdraw
       operationId: fastwithdraw
       tags:
-      - bridge
+      - Bridge
       description: Fast withdraw
       parameters:
       - name: authorization
@@ -65,7 +65,7 @@ paths:
       summary: fastwithdraw_info
       operationId: fastwithdraw_info
       tags:
-      - bridge
+      - Bridge
       description: Get fast withdraw info
       parameters:
       - name: authorization
@@ -97,7 +97,7 @@ paths:
       summary: createIntentAddress
       operationId: createIntentAddress
       tags:
-      - bridge
+      - Bridge
       description: Create a bridge intent address for CCTP bridge
       requestBody:
         required: true
@@ -123,7 +123,7 @@ paths:
       summary: deposit_networks
       operationId: deposit_networks
       tags:
-      - bridge
+      - Bridge
       description: Get networks that support deposits via intent address
       responses:
         '200':
@@ -143,7 +143,7 @@ paths:
       summary: deposit_latest
       operationId: deposit_latest
       tags:
-      - bridge
+      - Bridge
       description: Get most recent deposit for given l1 address
       parameters:
       - name: l1_address
@@ -166,6 +166,121 @@ paths:
                 $ref: '#/components/schemas/ResultCode'
 components:
   schemas:
+    BridgeSupportedNetworks:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        networks:
+          type: array
+          items:
+            $ref: '#/components/schemas/BridgeSupportedNetwork'
+      title: BridgeSupportedNetworks
+      required:
+      - code
+      - networks
+    BridgeSupportedNetwork:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Arbitrum
+        chain_id:
+          type: string
+          example: '4164'
+        explorer:
+          type: string
+          example: https://arbiscan.io/
+      title: BridgeSupportedNetwork
+      required:
+      - name
+      - chain_id
+      - explorer
+    ResultCode:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+      title: ResultCode
+      required:
+      - code
+    RespGetFastwithdrawalInfo:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        to_account_index:
+          type: integer
+          format: int64
+        withdraw_limit:
+          type: string
+        max_withdrawal_amount:
+          type: string
+      title: RespGetFastwithdrawalInfo
+      required:
+      - code
+      - to_account_index
+      - withdraw_limit
+      - max_withdrawal_amount
+    RespGetFastBridgeInfo:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        fast_bridge_limit:
+          type: string
+      title: RespGetFastBridgeInfo
+      required:
+      - code
+      - fast_bridge_limit
+    CreateIntentAddressResp:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        intent_address:
+          type: string
+      title: CreateIntentAddressResp
+      required:
+      - code
+      - intent_address
+    ReqCreateIntentAddress:
+      type: object
+      properties:
+        chain_id:
+          type: string
+        from_addr:
+          type: string
+        amount:
+          type: string
+        is_external_deposit:
+          type: boolean
+          format: boolean
+      title: ReqCreateIntentAddress
+      required:
+      - chain_id
+      - from_addr
+      - amount
     Deposit:
       type: object
       properties:
@@ -229,60 +344,6 @@ components:
       - updated_at
       - is_external_deposit
       - is_next_bridge_fast
-    BridgeSupportedNetworks:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-        networks:
-          type: array
-          items:
-            $ref: '#/components/schemas/BridgeSupportedNetwork'
-      title: BridgeSupportedNetworks
-      required:
-      - code
-      - networks
-    CreateIntentAddressResp:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-        intent_address:
-          type: string
-      title: CreateIntentAddressResp
-      required:
-      - code
-      - intent_address
-    RespGetFastwithdrawalInfo:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-        to_account_index:
-          type: integer
-          format: int64
-        withdraw_limit:
-          type: string
-        max_withdrawal_amount:
-          type: string
-      title: RespGetFastwithdrawalInfo
-      required:
-      - code
-      - to_account_index
-      - withdraw_limit
-      - max_withdrawal_amount
     ReqFastwithdraw:
       type: object
       properties:
@@ -297,67 +358,6 @@ components:
       required:
       - tx_info
       - to_address
-    ResultCode:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-      title: ResultCode
-      required:
-      - code
-    BridgeSupportedNetwork:
-      type: object
-      properties:
-        name:
-          type: string
-          example: Arbitrum
-        chain_id:
-          type: string
-          example: '4164'
-        explorer:
-          type: string
-          example: https://arbiscan.io/
-      title: BridgeSupportedNetwork
-      required:
-      - name
-      - chain_id
-      - explorer
-    ReqCreateIntentAddress:
-      type: object
-      properties:
-        chain_id:
-          type: string
-        from_addr:
-          type: string
-        amount:
-          type: string
-        is_external_deposit:
-          type: boolean
-          format: boolean
-      title: ReqCreateIntentAddress
-      required:
-      - chain_id
-      - from_addr
-      - amount
-    RespGetFastBridgeInfo:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-        fast_bridge_limit:
-          type: string
-      title: RespGetFastBridgeInfo
-      required:
-      - code
-      - fast_bridge_limit
   securitySchemes:
     apiKey:
       type: apiKey
