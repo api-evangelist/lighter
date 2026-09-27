@@ -472,130 +472,6 @@ paths:
                 $ref: '#/components/schemas/ResultCode'
 components:
   schemas:
-    ResultCode:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-      title: ResultCode
-      required:
-      - code
-    ReqSetAccountMetadata:
-      type: object
-      properties:
-        master_account_index:
-          type: integer
-          format: int64
-        target_account_index:
-          type: integer
-          format: int64
-        api_key_index:
-          type: integer
-          format: uint8
-        metadata:
-          type: string
-        auth:
-          type: string
-      required:
-      - master_account_index
-      - target_account_index
-      - api_key_index
-      - metadata
-    ReqSendTxBatch:
-      type: object
-      properties:
-        tx_types:
-          type: string
-        tx_infos:
-          type: string
-      title: ReqSendTxBatch
-      required:
-      - tx_types
-      - tx_infos
-    RespSendTxBatch:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-        tx_hash:
-          type: array
-          items:
-            type: string
-        predicted_execution_time_ms:
-          type: integer
-          format: int64
-          example: '1751465474'
-        volume_quota_remaining:
-          type: integer
-          format: int64
-      title: RespSendTxBatch
-      required:
-      - code
-      - tx_hash
-      - predicted_execution_time_ms
-      - volume_quota_remaining
-    TransferHistory:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-        transfers:
-          type: array
-          items:
-            $ref: '#/components/schemas/TransferHistoryItem'
-        cursor:
-          type: string
-      title: TransferHistory
-      required:
-      - code
-      - transfers
-      - cursor
-    Txs:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-        txs:
-          type: array
-          items:
-            $ref: '#/components/schemas/Tx'
-      title: Txs
-      required:
-      - code
-      - txs
-    NextNonce:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-        nonce:
-          type: integer
-          format: int64
-          example: '722'
-      title: NextNonce
-      required:
-      - code
-      - nonce
     Tx:
       type: object
       properties:
@@ -681,26 +557,6 @@ components:
       - parent_hash
       - api_key_index
       - transaction_time
-    WithdrawHistory:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-        withdraws:
-          type: array
-          items:
-            $ref: '#/components/schemas/WithdrawHistoryItem'
-        cursor:
-          type: string
-      title: WithdrawHistory
-      required:
-      - code
-      - withdraws
-      - cursor
     TransferHistoryItem:
       type: object
       properties:
@@ -776,95 +632,6 @@ components:
       - fee
       - from_route
       - to_route
-    DepositHistoryItem:
-      type: object
-      properties:
-        id:
-          type: string
-        amount:
-          type: string
-          example: '0.1'
-        timestamp:
-          type: integer
-          format: int64
-          example: '1640995200'
-        status:
-          type: string
-          enum:
-          - failed
-          - pending
-          - completed
-          - claimable
-        l1_tx_hash:
-          type: string
-          example: '0x70997970C51812dc3A010C7d01b50e0d17dc79C8'
-        asset_id:
-          type: integer
-          format: int16
-      title: DepositHistoryItem
-      required:
-      - id
-      - amount
-      - timestamp
-      - status
-      - l1_tx_hash
-      - asset_id
-    WithdrawHistoryItem:
-      type: object
-      properties:
-        id:
-          type: string
-        amount:
-          type: string
-          example: '0.1'
-        timestamp:
-          type: integer
-          format: int64
-          example: '1640995200'
-        status:
-          type: string
-          enum:
-          - failed
-          - pending
-          - claimable
-          - refunded
-          - completed
-        type:
-          type: string
-          enum:
-          - secure
-          - fast
-        l1_tx_hash:
-          type: string
-          example: '0x70997970C51812dc3A010C7d01b50e0d17dc79C8'
-        asset_id:
-          type: integer
-          format: int16
-      title: WithdrawHistoryItem
-      required:
-      - id
-      - amount
-      - timestamp
-      - status
-      - type
-      - l1_tx_hash
-      - asset_id
-    ReqSendTx:
-      type: object
-      properties:
-        tx_type:
-          type: integer
-          format: uint8
-        tx_info:
-          type: string
-        price_protection:
-          type: boolean
-          format: boolean
-          default: 'true'
-      title: ReqSendTx
-      required:
-      - tx_type
-      - tx_info
     DepositHistory:
       type: object
       properties:
@@ -1014,6 +781,239 @@ components:
       - tx_hash
       - predicted_execution_time_ms
       - volume_quota_remaining
+    ReqSendTxBatch:
+      type: object
+      properties:
+        tx_types:
+          type: string
+        tx_infos:
+          type: string
+      title: ReqSendTxBatch
+      required:
+      - tx_types
+      - tx_infos
+    ReqSendTx:
+      type: object
+      properties:
+        tx_type:
+          type: integer
+          format: uint8
+        tx_info:
+          type: string
+        price_protection:
+          type: boolean
+          format: boolean
+          default: 'true'
+      title: ReqSendTx
+      required:
+      - tx_type
+      - tx_info
+    TransferHistory:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        transfers:
+          type: array
+          items:
+            $ref: '#/components/schemas/TransferHistoryItem'
+        cursor:
+          type: string
+      title: TransferHistory
+      required:
+      - code
+      - transfers
+      - cursor
+    ReqSetAccountMetadata:
+      type: object
+      properties:
+        master_account_index:
+          type: integer
+          format: int64
+        target_account_index:
+          type: integer
+          format: int64
+        api_key_index:
+          type: integer
+          format: uint8
+        metadata:
+          type: string
+        auth:
+          type: string
+      required:
+      - master_account_index
+      - target_account_index
+      - api_key_index
+      - metadata
+    RespSendTxBatch:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        tx_hash:
+          type: array
+          items:
+            type: string
+        predicted_execution_time_ms:
+          type: integer
+          format: int64
+          example: '1751465474'
+        volume_quota_remaining:
+          type: integer
+          format: int64
+      title: RespSendTxBatch
+      required:
+      - code
+      - tx_hash
+      - predicted_execution_time_ms
+      - volume_quota_remaining
+    ResultCode:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+      title: ResultCode
+      required:
+      - code
+    DepositHistoryItem:
+      type: object
+      properties:
+        id:
+          type: string
+        amount:
+          type: string
+          example: '0.1'
+        timestamp:
+          type: integer
+          format: int64
+          example: '1640995200'
+        status:
+          type: string
+          enum:
+          - failed
+          - pending
+          - completed
+          - claimable
+        l1_tx_hash:
+          type: string
+          example: '0x70997970C51812dc3A010C7d01b50e0d17dc79C8'
+        asset_id:
+          type: integer
+          format: int16
+      title: DepositHistoryItem
+      required:
+      - id
+      - amount
+      - timestamp
+      - status
+      - l1_tx_hash
+      - asset_id
+    WithdrawHistoryItem:
+      type: object
+      properties:
+        id:
+          type: string
+        amount:
+          type: string
+          example: '0.1'
+        timestamp:
+          type: integer
+          format: int64
+          example: '1640995200'
+        status:
+          type: string
+          enum:
+          - failed
+          - pending
+          - claimable
+          - refunded
+          - completed
+        type:
+          type: string
+          enum:
+          - secure
+          - fast
+        l1_tx_hash:
+          type: string
+          example: '0x70997970C51812dc3A010C7d01b50e0d17dc79C8'
+        asset_id:
+          type: integer
+          format: int16
+      title: WithdrawHistoryItem
+      required:
+      - id
+      - amount
+      - timestamp
+      - status
+      - type
+      - l1_tx_hash
+      - asset_id
+    WithdrawHistory:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        withdraws:
+          type: array
+          items:
+            $ref: '#/components/schemas/WithdrawHistoryItem'
+        cursor:
+          type: string
+      title: WithdrawHistory
+      required:
+      - code
+      - withdraws
+      - cursor
+    NextNonce:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        nonce:
+          type: integer
+          format: int64
+          example: '722'
+      title: NextNonce
+      required:
+      - code
+      - nonce
+    Txs:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        txs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tx'
+      title: Txs
+      required:
+      - code
+      - txs
   securitySchemes:
     apiKey:
       type: apiKey

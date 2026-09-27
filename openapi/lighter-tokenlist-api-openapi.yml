@@ -29,18 +29,6 @@ paths:
                 $ref: '#/components/schemas/ResultCode'
 components:
   schemas:
-    ResultCode:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-      title: ResultCode
-      required:
-      - code
     TokenList:
       type: object
       title: TokenList
@@ -119,6 +107,18 @@ components:
         is_asset_allowed_mainnet:
           type: boolean
           format: boolean
+    ResultCode:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+      title: ResultCode
+      required:
+      - code
   securitySchemes:
     apiKey:
       type: apiKey

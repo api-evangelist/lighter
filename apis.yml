@@ -59,6 +59,7 @@ tags:
 - Zero Knowledge
 - Market Data
 - WebSocket
+- Real-Time
 tags_raw:
 - Company
 - Trading
@@ -70,9 +71,10 @@ tags_raw:
 - Zero Knowledge
 - Market Data
 - WebSockets
+- Real-Time
 apis:
 - aid: lighter:lighter-account-api
-  name: Lighter account API
+  name: Lighter Account API
   description: The account API from Lighter — 26 operation(s) for account.
   humanURL: https://apidocs.lighter.xyz/
   baseURL: https://mainnet.zklighter.elliot.ai
@@ -90,7 +92,7 @@ apis:
   - type: APIReference
     url: https://apidocs.lighter.xyz/reference/systemconfig
 - aid: lighter:lighter-announcement-api
-  name: Lighter announcement API
+  name: Lighter Announcement API
   description: The announcement API from Lighter — 1 operation(s) for announcement.
   humanURL: https://apidocs.lighter.xyz/
   baseURL: https://mainnet.zklighter.elliot.ai
@@ -106,7 +108,7 @@ apis:
   - type: APIReference
     url: https://apidocs.lighter.xyz/reference/systemconfig
 - aid: lighter:lighter-block-api
-  name: Lighter block API
+  name: Lighter Block API
   description: The block API from Lighter — 3 operation(s) for block.
   humanURL: https://apidocs.lighter.xyz/
   baseURL: https://mainnet.zklighter.elliot.ai
@@ -124,7 +126,7 @@ apis:
   - type: APIReference
     url: https://apidocs.lighter.xyz/reference/systemconfig
 - aid: lighter:lighter-bridge-api
-  name: Lighter bridge API
+  name: Lighter Bridge API
   description: The bridge API from Lighter — 6 operation(s) for bridge.
   humanURL: https://apidocs.lighter.xyz/
   baseURL: https://mainnet.zklighter.elliot.ai
@@ -142,7 +144,7 @@ apis:
   - type: APIReference
     url: https://apidocs.lighter.xyz/reference/systemconfig
 - aid: lighter:lighter-candlestick-api
-  name: Lighter candlestick API
+  name: Lighter Candlestick API
   description: The candlestick API from Lighter — 2 operation(s) for candlestick.
   humanURL: https://apidocs.lighter.xyz/
   baseURL: https://mainnet.zklighter.elliot.ai
@@ -160,7 +162,7 @@ apis:
   - type: APIReference
     url: https://apidocs.lighter.xyz/reference/systemconfig
 - aid: lighter:lighter-funding-api
-  name: Lighter funding API
+  name: Lighter Funding API
   description: The funding API from Lighter — 1 operation(s) for funding.
   humanURL: https://apidocs.lighter.xyz/
   baseURL: https://mainnet.zklighter.elliot.ai
@@ -178,7 +180,7 @@ apis:
   - type: APIReference
     url: https://apidocs.lighter.xyz/reference/systemconfig
 - aid: lighter:lighter-info-api
-  name: Lighter info API
+  name: Lighter Info API
   description: The info API from Lighter — 5 operation(s) for info.
   humanURL: https://apidocs.lighter.xyz/
   baseURL: https://mainnet.zklighter.elliot.ai
@@ -196,7 +198,7 @@ apis:
   - type: APIReference
     url: https://apidocs.lighter.xyz/reference/systemconfig
 - aid: lighter:lighter-notification-api
-  name: Lighter notification API
+  name: Lighter Notification API
   description: The notification API from Lighter — 1 operation(s) for notification.
   humanURL: https://apidocs.lighter.xyz/
   baseURL: https://mainnet.zklighter.elliot.ai
@@ -214,7 +216,7 @@ apis:
   - type: APIReference
     url: https://apidocs.lighter.xyz/reference/systemconfig
 - aid: lighter:lighter-order-api
-  name: Lighter order API
+  name: Lighter Order API
   description: The order API from Lighter — 12 operation(s) for order.
   humanURL: https://apidocs.lighter.xyz/
   baseURL: https://mainnet.zklighter.elliot.ai
@@ -232,7 +234,7 @@ apis:
   - type: APIReference
     url: https://apidocs.lighter.xyz/reference/systemconfig
 - aid: lighter:lighter-referral-api
-  name: Lighter referral API
+  name: Lighter Referral API
   description: The referral API from Lighter — 6 operation(s) for referral.
   humanURL: https://apidocs.lighter.xyz/
   baseURL: https://mainnet.zklighter.elliot.ai
@@ -250,7 +252,7 @@ apis:
   - type: APIReference
     url: https://apidocs.lighter.xyz/reference/systemconfig
 - aid: lighter:lighter-root-api
-  name: Lighter root API
+  name: Lighter Root API
   description: The root API from Lighter — 2 operation(s) for root.
   humanURL: https://apidocs.lighter.xyz/
   baseURL: https://mainnet.zklighter.elliot.ai
@@ -268,7 +270,7 @@ apis:
   - type: APIReference
     url: https://apidocs.lighter.xyz/reference/systemconfig
 - aid: lighter:lighter-tokenlist-api
-  name: Lighter tokenlist API
+  name: Lighter Tokenlist API
   description: The tokenlist API from Lighter — 1 operation(s) for tokenlist.
   humanURL: https://apidocs.lighter.xyz/
   baseURL: https://mainnet.zklighter.elliot.ai
@@ -286,7 +288,7 @@ apis:
   - type: APIReference
     url: https://apidocs.lighter.xyz/reference/systemconfig
 - aid: lighter:lighter-transaction-api
-  name: Lighter transaction API
+  name: Lighter Transaction API
   description: The transaction API from Lighter — 12 operation(s) for transaction.
   humanURL: https://apidocs.lighter.xyz/
   baseURL: https://mainnet.zklighter.elliot.ai

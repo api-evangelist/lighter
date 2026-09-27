@@ -29,6 +29,25 @@ paths:
                 $ref: '#/components/schemas/ResultCode'
 components:
   schemas:
+    Announcement:
+      type: object
+      properties:
+        title:
+          type: string
+        content:
+          type: string
+        created_at:
+          type: integer
+          format: int64
+        expired_at:
+          type: integer
+          format: int64
+      title: Announcement
+      required:
+      - title
+      - content
+      - created_at
+      - expired_at
     ResultCode:
       type: object
       properties:
@@ -58,25 +77,6 @@ components:
       required:
       - code
       - announcements
-    Announcement:
-      type: object
-      properties:
-        title:
-          type: string
-        content:
-          type: string
-        created_at:
-          type: integer
-          format: int64
-        expired_at:
-          type: integer
-          format: int64
-      title: Announcement
-      required:
-      - title
-      - content
-      - created_at
-      - expired_at
   securitySchemes:
     apiKey:
       type: apiKey

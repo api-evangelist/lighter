@@ -166,7 +166,7 @@ paths:
                 $ref: '#/components/schemas/ResultCode'
 components:
   schemas:
-    BridgeSupportedNetworks:
+    RespGetFastBridgeInfo:
       type: object
       properties:
         code:
@@ -175,14 +175,26 @@ components:
           example: '200'
         message:
           type: string
-        networks:
-          type: array
-          items:
-            $ref: '#/components/schemas/BridgeSupportedNetwork'
-      title: BridgeSupportedNetworks
+        fast_bridge_limit:
+          type: string
+      title: RespGetFastBridgeInfo
       required:
       - code
-      - networks
+      - fast_bridge_limit
+    ReqFastwithdraw:
+      type: object
+      properties:
+        tx_info:
+          type: string
+        to_address:
+          type: string
+        auth:
+          type: string
+          description: ' made optional to support header auth clients'
+      title: ReqFastwithdraw
+      required:
+      - tx_info
+      - to_address
     BridgeSupportedNetwork:
       type: object
       properties:
@@ -200,7 +212,7 @@ components:
       - name
       - chain_id
       - explorer
-    ResultCode:
+    BridgeSupportedNetworks:
       type: object
       properties:
         code:
@@ -209,9 +221,29 @@ components:
           example: '200'
         message:
           type: string
-      title: ResultCode
+        networks:
+          type: array
+          items:
+            $ref: '#/components/schemas/BridgeSupportedNetwork'
+      title: BridgeSupportedNetworks
       required:
       - code
+      - networks
+    CreateIntentAddressResp:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        intent_address:
+          type: string
+      title: CreateIntentAddressResp
+      required:
+      - code
+      - intent_address
     RespGetFastwithdrawalInfo:
       type: object
       properties:
@@ -234,7 +266,7 @@ components:
       - to_account_index
       - withdraw_limit
       - max_withdrawal_amount
-    RespGetFastBridgeInfo:
+    ResultCode:
       type: object
       properties:
         code:
@@ -243,27 +275,9 @@ components:
           example: '200'
         message:
           type: string
-        fast_bridge_limit:
-          type: string
-      title: RespGetFastBridgeInfo
+      title: ResultCode
       required:
       - code
-      - fast_bridge_limit
-    CreateIntentAddressResp:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-        intent_address:
-          type: string
-      title: CreateIntentAddressResp
-      required:
-      - code
-      - intent_address
     ReqCreateIntentAddress:
       type: object
       properties:
@@ -344,20 +358,6 @@ components:
       - updated_at
       - is_external_deposit
       - is_next_bridge_fast
-    ReqFastwithdraw:
-      type: object
-      properties:
-        tx_info:
-          type: string
-        to_address:
-          type: string
-        auth:
-          type: string
-          description: ' made optional to support header auth clients'
-      title: ReqFastwithdraw
-      required:
-      - tx_info
-      - to_address
   securitySchemes:
     apiKey:
       type: apiKey

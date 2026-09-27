@@ -49,27 +49,6 @@ paths:
                 $ref: '#/components/schemas/ResultCode'
 components:
   schemas:
-    ResultCode:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-      title: ResultCode
-      required:
-      - code
-    ZkLighterInfo:
-      type: object
-      properties:
-        contract_address:
-          type: string
-          example: '0x70997970C51812dc3A010C7d01b50e0d17dc79C8'
-      title: ZkLighterInfo
-      required:
-      - contract_address
     Status:
       type: object
       properties:
@@ -90,6 +69,27 @@ components:
       - status
       - network_id
       - timestamp
+    ZkLighterInfo:
+      type: object
+      properties:
+        contract_address:
+          type: string
+          example: '0x70997970C51812dc3A010C7d01b50e0d17dc79C8'
+      title: ZkLighterInfo
+      required:
+      - contract_address
+    ResultCode:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+      title: ResultCode
+      required:
+      - code
   securitySchemes:
     apiKey:
       type: apiKey
