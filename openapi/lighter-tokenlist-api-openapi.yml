@@ -29,23 +29,6 @@ paths:
                 $ref: '#/components/schemas/ResultCode'
 components:
   schemas:
-    TokenList:
-      type: object
-      title: TokenList
-      required:
-      - code
-      - tokens
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: 200
-        message:
-          type: string
-        tokens:
-          type: array
-          items:
-            $ref: '#/components/schemas/Token'
     Token:
       type: object
       title: Token
@@ -107,6 +90,23 @@ components:
         is_asset_allowed_mainnet:
           type: boolean
           format: boolean
+    TokenList:
+      type: object
+      title: TokenList
+      required:
+      - code
+      - tokens
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: 200
+        message:
+          type: string
+        tokens:
+          type: array
+          items:
+            $ref: '#/components/schemas/Token'
     ResultCode:
       type: object
       properties:

@@ -69,15 +69,6 @@ components:
       - status
       - network_id
       - timestamp
-    ZkLighterInfo:
-      type: object
-      properties:
-        contract_address:
-          type: string
-          example: '0x70997970C51812dc3A010C7d01b50e0d17dc79C8'
-      title: ZkLighterInfo
-      required:
-      - contract_address
     ResultCode:
       type: object
       properties:
@@ -90,6 +81,15 @@ components:
       title: ResultCode
       required:
       - code
+    ZkLighterInfo:
+      type: object
+      properties:
+        contract_address:
+          type: string
+          example: '0x70997970C51812dc3A010C7d01b50e0d17dc79C8'
+      title: ZkLighterInfo
+      required:
+      - contract_address
   securitySchemes:
     apiKey:
       type: apiKey

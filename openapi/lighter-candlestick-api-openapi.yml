@@ -234,18 +234,6 @@ components:
       - code
       - r
       - c
-    ResultCode:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-      title: ResultCode
-      required:
-      - code
     Fundings:
       type: object
       properties:
@@ -267,6 +255,18 @@ components:
       - code
       - resolution
       - fundings
+    ResultCode:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+      title: ResultCode
+      required:
+      - code
     Funding:
       type: object
       properties:

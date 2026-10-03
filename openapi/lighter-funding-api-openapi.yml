@@ -29,23 +29,6 @@ paths:
                 $ref: '#/components/schemas/ResultCode'
 components:
   schemas:
-    FundingRates:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-        funding_rates:
-          type: array
-          items:
-            $ref: '#/components/schemas/FundingRate'
-      title: FundingRates
-      required:
-      - code
-      - funding_rates
     FundingRate:
       type: object
       properties:
@@ -82,6 +65,23 @@ components:
       title: ResultCode
       required:
       - code
+    FundingRates:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        funding_rates:
+          type: array
+          items:
+            $ref: '#/components/schemas/FundingRate'
+      title: FundingRates
+      required:
+      - code
+      - funding_rates
   securitySchemes:
     apiKey:
       type: apiKey

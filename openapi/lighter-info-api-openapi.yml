@@ -134,7 +134,7 @@ paths:
                 $ref: '#/components/schemas/ResultCode'
 components:
   schemas:
-    TransferFeeInfo:
+    Layer1BasicInfo:
       type: object
       properties:
         code:
@@ -143,13 +143,44 @@ components:
           example: '200'
         message:
           type: string
-        transfer_fee_usdc:
+        l1_providers:
+          type: array
+          items:
+            $ref: '#/components/schemas/L1ProviderInfo'
+        l1_providers_health:
+          type: boolean
+          format: boolean
+          example: 'true'
+        validator_info:
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidatorInfo'
+        contract_addresses:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContractAddress'
+        latest_l1_generic_block:
           type: integer
           format: int64
-      title: TransferFeeInfo
+          example: '45434'
+        latest_l1_governance_block:
+          type: integer
+          format: int64
+          example: '45434'
+        latest_l1_desert_block:
+          type: integer
+          format: int64
+          example: '45434'
+      title: Layer1BasicInfo
       required:
       - code
-      - transfer_fee_usdc
+      - l1_providers
+      - l1_providers_health
+      - validator_info
+      - contract_addresses
+      - latest_l1_generic_block
+      - latest_l1_governance_block
+      - latest_l1_desert_block
     RespWithdrawalDelay:
       type: object
       properties:
@@ -160,95 +191,6 @@ components:
       title: RespWithdrawalDelay
       required:
       - seconds
-    ContractAddress:
-      type: object
-      properties:
-        name:
-          type: string
-          example: '1'
-        address:
-          type: string
-          example: '0x70997970C51812dc3A010C7d01b50e0d17dc79C8'
-      title: ContractAddress
-      required:
-      - name
-      - address
-    RespSyntheticSpotInfo:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-        bps_per_day:
-          type: number
-          format: double
-        expiry_time_ms:
-          type: integer
-          format: int64
-        spot_close_ms:
-          type: integer
-          format: int64
-        source:
-          type: string
-        symbol:
-          type: string
-      title: RespSyntheticSpotInfo
-      required:
-      - code
-      - bps_per_day
-      - expiry_time_ms
-      - spot_close_ms
-      - source
-      - symbol
-    ResultCode:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-      title: ResultCode
-      required:
-      - code
-    L1ProviderInfo:
-      type: object
-      properties:
-        chainId:
-          type: integer
-          format: int64
-          example: '1'
-        networkId:
-          type: integer
-          format: int64
-          example: '1'
-        latestBlockNumber:
-          type: integer
-          format: int64
-          example: '45434'
-      title: L1ProviderInfo
-      required:
-      - chainId
-      - networkId
-      - latestBlockNumber
-    ValidatorInfo:
-      type: object
-      properties:
-        address:
-          type: string
-          example: '0x70997970C51812dc3A010C7d01b50e0d17dc79C8'
-        is_active:
-          type: boolean
-          format: boolean
-          example: 'true'
-      title: ValidatorInfo
-      required:
-      - address
-      - is_active
     SystemConfig:
       type: object
       properties:
@@ -300,7 +242,20 @@ components:
       - staking_pool_index
       - staking_pool_lockup_period
       - market_maker_incentive_account_index
-    Layer1BasicInfo:
+    ContractAddress:
+      type: object
+      properties:
+        name:
+          type: string
+          example: '1'
+        address:
+          type: string
+          example: '0x70997970C51812dc3A010C7d01b50e0d17dc79C8'
+      title: ContractAddress
+      required:
+      - name
+      - address
+    TransferFeeInfo:
       type: object
       properties:
         code:
@@ -309,44 +264,89 @@ components:
           example: '200'
         message:
           type: string
-        l1_providers:
-          type: array
-          items:
-            $ref: '#/components/schemas/L1ProviderInfo'
-        l1_providers_health:
+        transfer_fee_usdc:
+          type: integer
+          format: int64
+      title: TransferFeeInfo
+      required:
+      - code
+      - transfer_fee_usdc
+    ResultCode:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+      title: ResultCode
+      required:
+      - code
+    L1ProviderInfo:
+      type: object
+      properties:
+        chainId:
+          type: integer
+          format: int64
+          example: '1'
+        networkId:
+          type: integer
+          format: int64
+          example: '1'
+        latestBlockNumber:
+          type: integer
+          format: int64
+          example: '45434'
+      title: L1ProviderInfo
+      required:
+      - chainId
+      - networkId
+      - latestBlockNumber
+    RespSyntheticSpotInfo:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        bps_per_day:
+          type: number
+          format: double
+        expiry_time_ms:
+          type: integer
+          format: int64
+        spot_close_ms:
+          type: integer
+          format: int64
+        source:
+          type: string
+        symbol:
+          type: string
+      title: RespSyntheticSpotInfo
+      required:
+      - code
+      - bps_per_day
+      - expiry_time_ms
+      - spot_close_ms
+      - source
+      - symbol
+    ValidatorInfo:
+      type: object
+      properties:
+        address:
+          type: string
+          example: '0x70997970C51812dc3A010C7d01b50e0d17dc79C8'
+        is_active:
           type: boolean
           format: boolean
           example: 'true'
-        validator_info:
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidatorInfo'
-        contract_addresses:
-          type: array
-          items:
-            $ref: '#/components/schemas/ContractAddress'
-        latest_l1_generic_block:
-          type: integer
-          format: int64
-          example: '45434'
-        latest_l1_governance_block:
-          type: integer
-          format: int64
-          example: '45434'
-        latest_l1_desert_block:
-          type: integer
-          format: int64
-          example: '45434'
-      title: Layer1BasicInfo
+      title: ValidatorInfo
       required:
-      - code
-      - l1_providers
-      - l1_providers_health
-      - validator_info
-      - contract_addresses
-      - latest_l1_generic_block
-      - latest_l1_governance_block
-      - latest_l1_desert_block
+      - address
+      - is_active
   securitySchemes:
     apiKey:
       type: apiKey
