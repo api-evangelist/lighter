@@ -29,6 +29,23 @@ paths:
                 $ref: '#/components/schemas/ResultCode'
 components:
   schemas:
+    Announcements:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        announcements:
+          type: array
+          items:
+            $ref: '#/components/schemas/Announcement'
+      title: Announcements
+      required:
+      - code
+      - announcements
     Announcement:
       type: object
       properties:
@@ -60,23 +77,6 @@ components:
       title: ResultCode
       required:
       - code
-    Announcements:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-        announcements:
-          type: array
-          items:
-            $ref: '#/components/schemas/Announcement'
-      title: Announcements
-      required:
-      - code
-      - announcements
   securitySchemes:
     apiKey:
       type: apiKey

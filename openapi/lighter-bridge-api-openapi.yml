@@ -166,20 +166,6 @@ paths:
                 $ref: '#/components/schemas/ResultCode'
 components:
   schemas:
-    ReqFastwithdraw:
-      type: object
-      properties:
-        tx_info:
-          type: string
-        to_address:
-          type: string
-        auth:
-          type: string
-          description: ' made optional to support header auth clients'
-      title: ReqFastwithdraw
-      required:
-      - tx_info
-      - to_address
     BridgeSupportedNetwork:
       type: object
       properties:
@@ -197,60 +183,6 @@ components:
       - name
       - chain_id
       - explorer
-    BridgeSupportedNetworks:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-        networks:
-          type: array
-          items:
-            $ref: '#/components/schemas/BridgeSupportedNetwork'
-      title: BridgeSupportedNetworks
-      required:
-      - code
-      - networks
-    RespGetFastwithdrawalInfo:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-        to_account_index:
-          type: integer
-          format: int64
-        withdraw_limit:
-          type: string
-        max_withdrawal_amount:
-          type: string
-      title: RespGetFastwithdrawalInfo
-      required:
-      - code
-      - to_account_index
-      - withdraw_limit
-      - max_withdrawal_amount
-    RespGetFastBridgeInfo:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-        fast_bridge_limit:
-          type: string
-      title: RespGetFastBridgeInfo
-      required:
-      - code
-      - fast_bridge_limit
     Deposit:
       type: object
       properties:
@@ -314,6 +246,101 @@ components:
       - updated_at
       - is_external_deposit
       - is_next_bridge_fast
+    BridgeSupportedNetworks:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        networks:
+          type: array
+          items:
+            $ref: '#/components/schemas/BridgeSupportedNetwork'
+      title: BridgeSupportedNetworks
+      required:
+      - code
+      - networks
+    CreateIntentAddressResp:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        intent_address:
+          type: string
+      title: CreateIntentAddressResp
+      required:
+      - code
+      - intent_address
+    ReqFastwithdraw:
+      type: object
+      properties:
+        tx_info:
+          type: string
+        to_address:
+          type: string
+        auth:
+          type: string
+          description: ' made optional to support header auth clients'
+      title: ReqFastwithdraw
+      required:
+      - tx_info
+      - to_address
+    RespGetFastwithdrawalInfo:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        to_account_index:
+          type: integer
+          format: int64
+        withdraw_limit:
+          type: string
+        max_withdrawal_amount:
+          type: string
+      title: RespGetFastwithdrawalInfo
+      required:
+      - code
+      - to_account_index
+      - withdraw_limit
+      - max_withdrawal_amount
+    RespGetFastBridgeInfo:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        fast_bridge_limit:
+          type: string
+      title: RespGetFastBridgeInfo
+      required:
+      - code
+      - fast_bridge_limit
+    ResultCode:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+      title: ResultCode
+      required:
+      - code
     ReqCreateIntentAddress:
       type: object
       properties:
@@ -331,33 +358,6 @@ components:
       - chain_id
       - from_addr
       - amount
-    ResultCode:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-      title: ResultCode
-      required:
-      - code
-    CreateIntentAddressResp:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-        intent_address:
-          type: string
-      title: CreateIntentAddressResp
-      required:
-      - code
-      - intent_address
   securitySchemes:
     apiKey:
       type: apiKey

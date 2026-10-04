@@ -137,6 +137,29 @@ paths:
                 $ref: '#/components/schemas/ResultCode'
 components:
   schemas:
+    Candles:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: 200
+        r:
+          type: string
+          example: 1m
+          description: Resolution
+        c:
+          type: array
+          items:
+            $ref: '#/components/schemas/Candle'
+          description: Array of candles (max 500 per call)
+        message:
+          type: string
+      title: Candles
+      required:
+      - code
+      - r
+      - c
     Candle:
       type: object
       properties:
@@ -211,29 +234,6 @@ components:
       - v
       - V
       - i
-    Candles:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: 200
-        r:
-          type: string
-          example: 1m
-          description: Resolution
-        c:
-          type: array
-          items:
-            $ref: '#/components/schemas/Candle'
-          description: Array of candles (max 500 per call)
-        message:
-          type: string
-      title: Candles
-      required:
-      - code
-      - r
-      - c
     Fundings:
       type: object
       properties:

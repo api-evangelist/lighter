@@ -107,22 +107,6 @@ paths:
                 $ref: '#/components/schemas/ResultCode'
 components:
   schemas:
-    CurrentHeight:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-        height:
-          type: integer
-          format: int64
-      title: CurrentHeight
-      required:
-      - code
-      - height
     ResultCode:
       type: object
       properties:
@@ -135,6 +119,27 @@ components:
       title: ResultCode
       required:
       - code
+    Blocks:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        total:
+          type: integer
+          format: int64
+        blocks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Block'
+      title: Blocks
+      required:
+      - code
+      - total
+      - blocks
     Block:
       type: object
       properties:
@@ -273,7 +278,7 @@ components:
       - parent_hash
       - api_key_index
       - transaction_time
-    Blocks:
+    CurrentHeight:
       type: object
       properties:
         code:
@@ -282,18 +287,13 @@ components:
           example: '200'
         message:
           type: string
-        total:
+        height:
           type: integer
           format: int64
-        blocks:
-          type: array
-          items:
-            $ref: '#/components/schemas/Block'
-      title: Blocks
+      title: CurrentHeight
       required:
       - code
-      - total
-      - blocks
+      - height
   securitySchemes:
     apiKey:
       type: apiKey
