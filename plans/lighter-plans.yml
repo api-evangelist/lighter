@@ -56,3 +56,33 @@ switching:
     - no open orders
     - at least 24 hours since the last change
   errors: [62001, 62002, 62003, 62004, 62005, 62006]
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models: []
+  units: []
+  plans:
+  - name: Standard
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Plus
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Premium
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Builder
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
