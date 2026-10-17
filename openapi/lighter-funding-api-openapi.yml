@@ -29,6 +29,30 @@ paths:
                 $ref: '#/components/schemas/ResultCode'
 components:
   schemas:
+    FundingRate:
+      type: object
+      properties:
+        market_id:
+          type: integer
+          format: int16
+        exchange:
+          type: string
+          enum:
+          - binance
+          - bybit
+          - hyperliquid
+          - lighter
+        symbol:
+          type: string
+        rate:
+          type: number
+          format: double
+      title: FundingRate
+      required:
+      - market_id
+      - exchange
+      - symbol
+      - rate
     FundingRates:
       type: object
       properties:
@@ -58,30 +82,6 @@ components:
       title: ResultCode
       required:
       - code
-    FundingRate:
-      type: object
-      properties:
-        market_id:
-          type: integer
-          format: int16
-        exchange:
-          type: string
-          enum:
-          - binance
-          - bybit
-          - hyperliquid
-          - lighter
-        symbol:
-          type: string
-        rate:
-          type: number
-          format: double
-      title: FundingRate
-      required:
-      - market_id
-      - exchange
-      - symbol
-      - rate
   securitySchemes:
     apiKey:
       type: apiKey

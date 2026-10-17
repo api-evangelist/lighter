@@ -166,23 +166,20 @@ paths:
                 $ref: '#/components/schemas/ResultCode'
 components:
   schemas:
-    BridgeSupportedNetwork:
+    ReqFastwithdraw:
       type: object
       properties:
-        name:
+        tx_info:
           type: string
-          example: Arbitrum
-        chain_id:
+        to_address:
           type: string
-          example: '4164'
-        explorer:
+        auth:
           type: string
-          example: https://arbiscan.io/
-      title: BridgeSupportedNetwork
+          description: ' made optional to support header auth clients'
+      title: ReqFastwithdraw
       required:
-      - name
-      - chain_id
-      - explorer
+      - tx_info
+      - to_address
     Deposit:
       type: object
       properties:
@@ -263,35 +260,6 @@ components:
       required:
       - code
       - networks
-    CreateIntentAddressResp:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-        intent_address:
-          type: string
-      title: CreateIntentAddressResp
-      required:
-      - code
-      - intent_address
-    ReqFastwithdraw:
-      type: object
-      properties:
-        tx_info:
-          type: string
-        to_address:
-          type: string
-        auth:
-          type: string
-          description: ' made optional to support header auth clients'
-      title: ReqFastwithdraw
-      required:
-      - tx_info
-      - to_address
     RespGetFastwithdrawalInfo:
       type: object
       properties:
@@ -329,7 +297,7 @@ components:
       required:
       - code
       - fast_bridge_limit
-    ResultCode:
+    CreateIntentAddressResp:
       type: object
       properties:
         code:
@@ -338,9 +306,29 @@ components:
           example: '200'
         message:
           type: string
-      title: ResultCode
+        intent_address:
+          type: string
+      title: CreateIntentAddressResp
       required:
       - code
+      - intent_address
+    BridgeSupportedNetwork:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Arbitrum
+        chain_id:
+          type: string
+          example: '4164'
+        explorer:
+          type: string
+          example: https://arbiscan.io/
+      title: BridgeSupportedNetwork
+      required:
+      - name
+      - chain_id
+      - explorer
     ReqCreateIntentAddress:
       type: object
       properties:
@@ -358,6 +346,18 @@ components:
       - chain_id
       - from_addr
       - amount
+    ResultCode:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+      title: ResultCode
+      required:
+      - code
   securitySchemes:
     apiKey:
       type: apiKey

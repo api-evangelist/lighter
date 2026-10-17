@@ -107,39 +107,6 @@ paths:
                 $ref: '#/components/schemas/ResultCode'
 components:
   schemas:
-    ResultCode:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-      title: ResultCode
-      required:
-      - code
-    Blocks:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-        total:
-          type: integer
-          format: int64
-        blocks:
-          type: array
-          items:
-            $ref: '#/components/schemas/Block'
-      title: Blocks
-      required:
-      - code
-      - total
-      - blocks
     Block:
       type: object
       properties:
@@ -193,6 +160,27 @@ components:
       - txs
       - status
       - size
+    Blocks:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        total:
+          type: integer
+          format: int64
+        blocks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Block'
+      title: Blocks
+      required:
+      - code
+      - total
+      - blocks
     Tx:
       type: object
       properties:
@@ -294,6 +282,18 @@ components:
       required:
       - code
       - height
+    ResultCode:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+      title: ResultCode
+      required:
+      - code
   securitySchemes:
     apiKey:
       type: apiKey

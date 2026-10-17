@@ -234,6 +234,28 @@ components:
       - v
       - V
       - i
+    Funding:
+      type: object
+      properties:
+        timestamp:
+          type: integer
+          format: int64
+          example: '1640995200'
+        value:
+          type: string
+          example: '0.0001'
+        rate:
+          type: string
+          example: '0.0001'
+        direction:
+          type: string
+          example: long
+      title: Funding
+      required:
+      - timestamp
+      - value
+      - rate
+      - direction
     Fundings:
       type: object
       properties:
@@ -267,28 +289,6 @@ components:
       title: ResultCode
       required:
       - code
-    Funding:
-      type: object
-      properties:
-        timestamp:
-          type: integer
-          format: int64
-          example: '1640995200'
-        value:
-          type: string
-          example: '0.0001'
-        rate:
-          type: string
-          example: '0.0001'
-        direction:
-          type: string
-          example: long
-      title: Funding
-      required:
-      - timestamp
-      - value
-      - rate
-      - direction
   securitySchemes:
     apiKey:
       type: apiKey

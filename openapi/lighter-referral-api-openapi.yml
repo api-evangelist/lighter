@@ -212,6 +212,93 @@ paths:
                 $ref: '#/components/schemas/ResultCode'
 components:
   schemas:
+    RespUpdateKickback:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        success:
+          type: boolean
+          format: boolean
+          example: 'true'
+      title: RespUpdateKickback
+      required:
+      - code
+      - success
+    ReqUpdateReferralCode:
+      type: object
+      properties:
+        auth:
+          type: string
+          description: ' made optional to support header auth clients'
+        account_index:
+          type: integer
+          format: int64
+        new_referral_code:
+          type: string
+      title: ReqUpdateReferralCode
+      required:
+      - account_index
+      - new_referral_code
+    ReferralCode:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        referral_code:
+          type: string
+          example: 5V24K3MJ
+        remaining_usage:
+          type: integer
+          format: int32
+          example: '3'
+      title: ReferralCode
+      required:
+      - code
+      - referral_code
+      - remaining_usage
+    ReferralPoints:
+      type: object
+      properties:
+        referrals:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReferralPointEntry'
+        user_total_points:
+          type: number
+          format: float
+          example: '1000'
+        user_last_week_points:
+          type: number
+          format: float
+          example: '1000'
+        user_total_referral_reward_points:
+          type: number
+          format: float
+          example: '1000'
+        user_last_week_referral_reward_points:
+          type: number
+          format: float
+          example: '1000'
+        reward_point_multiplier:
+          type: string
+          example: '0.1'
+      title: ReferralPoints
+      required:
+      - referrals
+      - user_total_points
+      - user_last_week_points
+      - user_total_referral_reward_points
+      - user_last_week_referral_reward_points
+      - reward_point_multiplier
     ReqUseReferralCode:
       type: object
       properties:
@@ -252,28 +339,7 @@ components:
       required:
       - account_index
       - kickback_percentage
-    ReferralCode:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-        referral_code:
-          type: string
-          example: 5V24K3MJ
-        remaining_usage:
-          type: integer
-          format: int32
-          example: '3'
-      title: ReferralCode
-      required:
-      - code
-      - referral_code
-      - remaining_usage
-    RespUpdateKickback:
+    RespUpdateReferralCode:
       type: object
       properties:
         code:
@@ -286,11 +352,11 @@ components:
           type: boolean
           format: boolean
           example: 'true'
-      title: RespUpdateKickback
+      title: RespUpdateReferralCode
       required:
       - code
       - success
-    ReqUpdateReferralCode:
+    ReqCreateReferralCode:
       type: object
       properties:
         auth:
@@ -299,12 +365,9 @@ components:
         account_index:
           type: integer
           format: int64
-        new_referral_code:
-          type: string
-      title: ReqUpdateReferralCode
+      title: ReqCreateReferralCode
       required:
       - account_index
-      - new_referral_code
     ReferralPointEntry:
       type: object
       properties:
@@ -349,69 +412,6 @@ components:
       title: ResultCode
       required:
       - code
-    ReferralPoints:
-      type: object
-      properties:
-        referrals:
-          type: array
-          items:
-            $ref: '#/components/schemas/ReferralPointEntry'
-        user_total_points:
-          type: number
-          format: float
-          example: '1000'
-        user_last_week_points:
-          type: number
-          format: float
-          example: '1000'
-        user_total_referral_reward_points:
-          type: number
-          format: float
-          example: '1000'
-        user_last_week_referral_reward_points:
-          type: number
-          format: float
-          example: '1000'
-        reward_point_multiplier:
-          type: string
-          example: '0.1'
-      title: ReferralPoints
-      required:
-      - referrals
-      - user_total_points
-      - user_last_week_points
-      - user_total_referral_reward_points
-      - user_last_week_referral_reward_points
-      - reward_point_multiplier
-    RespUpdateReferralCode:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-        success:
-          type: boolean
-          format: boolean
-          example: 'true'
-      title: RespUpdateReferralCode
-      required:
-      - code
-      - success
-    ReqCreateReferralCode:
-      type: object
-      properties:
-        auth:
-          type: string
-          description: ' made optional to support header auth clients'
-        account_index:
-          type: integer
-          format: int64
-      title: ReqCreateReferralCode
-      required:
-      - account_index
   securitySchemes:
     apiKey:
       type: apiKey

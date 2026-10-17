@@ -49,6 +49,26 @@ paths:
                 $ref: '#/components/schemas/ResultCode'
 components:
   schemas:
+    Status:
+      type: object
+      properties:
+        status:
+          type: integer
+          format: int32
+          example: '1'
+        network_id:
+          type: integer
+          format: int32
+          example: '1'
+        timestamp:
+          type: integer
+          format: int64
+          example: '1717777777'
+      title: Status
+      required:
+      - status
+      - network_id
+      - timestamp
     ZkLighterInfo:
       type: object
       properties:
@@ -70,26 +90,6 @@ components:
       title: ResultCode
       required:
       - code
-    Status:
-      type: object
-      properties:
-        status:
-          type: integer
-          format: int32
-          example: '1'
-        network_id:
-          type: integer
-          format: int32
-          example: '1'
-        timestamp:
-          type: integer
-          format: int64
-          example: '1717777777'
-      title: Status
-      required:
-      - status
-      - network_id
-      - timestamp
   securitySchemes:
     apiKey:
       type: apiKey
