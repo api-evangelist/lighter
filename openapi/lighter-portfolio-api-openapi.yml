@@ -1,0 +1,167 @@
+openapi: 3.2.0
+info:
+  title: Lighter Portfolio API
+  version: ''
+servers:
+- url: https://mainnet.zklighter.elliot.ai/
+tags:
+- name: Portfolio
+paths:
+  /api/v1/portfolio/boPnl:
+    get:
+      summary: portfolio_boPnl
+      operationId: portfolio_boPnl
+      tags:
+      - Portfolio
+      description: Get binary-options realized PnL for an authenticated account, grouped by event and ordered newest event first. cursor is an exclusive event id; event_id returns a single event. Every outcome the account has traded is reported, including markets still open or unsettled, so an entry never disappears as the account trades. Per outcome, total_pnl is all realized PnL so far including settlement, and settlement_pnl is null until the market settles with a position to settle, then the string 0.000000 for an actual zero-PnL settlement. An event's total_pnl is the sum of its listed outcomes. Missing display metadata uses zero/empty values.
+      parameters:
+      - name: authorization
+        in: header
+        description: ' make required after integ is done'
+        required: false
+        schema:
+          type: string
+      - name: auth
+        in: query
+        description: Account auth token, supplied as an alternative to the `authorization` header.
+        required: false
+        schema:
+          type: string
+      - name: account_index
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: event_id
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+      - name: cursor
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+          default: '100'
+          minimum: 1
+          maximum: 100
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RespGetBoPnL'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+components:
+  schemas:
+    BoOutcomePnL:
+      type: object
+      properties:
+        market_id:
+          type: integer
+          format: int64
+        symbol:
+          type: string
+        outcome:
+          type: integer
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          x-enum-varnames:
+          - None
+          - 'No'
+          - 'Yes'
+        end_timestamp:
+          type: integer
+          format: int64
+        settlement_pnl:
+          type:
+          - string
+          - 'null'
+        last_trade_id:
+          type: integer
+          format: int64
+        total_pnl:
+          type: string
+      title: BoOutcomePnL
+      required:
+      - market_id
+      - symbol
+      - outcome
+      - end_timestamp
+      - settlement_pnl
+      - last_trade_id
+      - total_pnl
+    BoEventPnL:
+      type: object
+      properties:
+        event_id:
+          type: integer
+          format: int64
+        event_title:
+          type: string
+        event_description:
+          type: string
+        total_pnl:
+          type: string
+        outcomes:
+          type: array
+          items:
+            $ref: '#/components/schemas/BoOutcomePnL'
+      title: BoEventPnL
+      required:
+      - event_id
+      - event_title
+      - event_description
+      - total_pnl
+      - outcomes
+    RespGetBoPnL:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/BoEventPnL'
+        next_cursor:
+          type: integer
+          format: int64
+          example: '1'
+      title: RespGetBoPnL
+      required:
+      - code
+      - events
+    ResultCode:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+      title: ResultCode
+      required:
+      - code

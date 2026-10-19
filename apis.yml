@@ -110,24 +110,6 @@ apis:
     url: https://apidocs.lighter.xyz/docs/get-started
   - type: APIReference
     url: https://apidocs.lighter.xyz/reference/systemconfig
-- aid: lighter:lighter-block-api
-  name: Lighter Block API
-  description: The block API from Lighter — 3 operation(s) for block.
-  humanURL: https://apidocs.lighter.xyz/
-  baseURL: https://mainnet.zklighter.elliot.ai
-  tags:
-  - Block
-  tags_raw:
-  - block
-  properties:
-  - type: OpenAPI
-    url: openapi/lighter-block-api-openapi.yml
-  - type: AsyncAPI
-    url: asyncapi/lighter-zklighter-asyncapi.yml
-  - type: Documentation
-    url: https://apidocs.lighter.xyz/docs/get-started
-  - type: APIReference
-    url: https://apidocs.lighter.xyz/reference/systemconfig
 - aid: lighter:lighter-bridge-api
   name: Lighter Bridge API
   description: The bridge API from Lighter — 6 operation(s) for bridge.
@@ -302,6 +284,54 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/lighter-transaction-api-openapi.yml
+  - type: AsyncAPI
+    url: asyncapi/lighter-zklighter-asyncapi.yml
+  - type: Documentation
+    url: https://apidocs.lighter.xyz/docs/get-started
+  - type: APIReference
+    url: https://apidocs.lighter.xyz/reference/systemconfig
+- aid: lighter:lighter-event-api
+  name: Lighter Event API
+  description: The event API from Lighter — 1 operation(s) for event.
+  humanURL: https://apidocs.lighter.xyz/
+  baseURL: https://mainnet.zklighter.elliot.ai
+  tags:
+  - event
+  properties:
+  - type: OpenAPI
+    url: openapi/lighter-event-api-openapi.yml
+  - type: AsyncAPI
+    url: asyncapi/lighter-zklighter-asyncapi.yml
+  - type: Documentation
+    url: https://apidocs.lighter.xyz/docs/get-started
+  - type: APIReference
+    url: https://apidocs.lighter.xyz/reference/systemconfig
+- aid: lighter:lighter-portfolio-api
+  name: Lighter Portfolio API
+  description: The portfolio API from Lighter — 1 operation(s) for portfolio.
+  humanURL: https://apidocs.lighter.xyz/
+  baseURL: https://mainnet.zklighter.elliot.ai
+  tags:
+  - portfolio
+  properties:
+  - type: OpenAPI
+    url: openapi/lighter-portfolio-api-openapi.yml
+  - type: AsyncAPI
+    url: asyncapi/lighter-zklighter-asyncapi.yml
+  - type: Documentation
+    url: https://apidocs.lighter.xyz/docs/get-started
+  - type: APIReference
+    url: https://apidocs.lighter.xyz/reference/systemconfig
+- aid: lighter:lighter-updown-api
+  name: Lighter Updown API
+  description: The updown API from Lighter — 1 operation(s) for updown.
+  humanURL: https://apidocs.lighter.xyz/
+  baseURL: https://mainnet.zklighter.elliot.ai
+  tags:
+  - updown
+  properties:
+  - type: OpenAPI
+    url: openapi/lighter-updown-api-openapi.yml
   - type: AsyncAPI
     url: asyncapi/lighter-zklighter-asyncapi.yml
   - type: Documentation

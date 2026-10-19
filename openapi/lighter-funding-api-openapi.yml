@@ -3,7 +3,7 @@ info:
   title: Lighter Funding API
   version: ''
 servers:
-- url: https://mainnet.zklighter.elliot.ai
+- url: https://mainnet.zklighter.elliot.ai/
 tags:
 - name: Funding
 paths:
@@ -13,7 +13,7 @@ paths:
       operationId: funding-rates
       tags:
       - Funding
-      description: Get funding rates
+      description: Get funding rates across venues. For real-time funding rates, use the market_stats WebSocket channel.
       responses:
         '200':
           description: A successful response.
@@ -29,6 +29,18 @@ paths:
                 $ref: '#/components/schemas/ResultCode'
 components:
   schemas:
+    ResultCode:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+      title: ResultCode
+      required:
+      - code
     FundingRate:
       type: object
       properties:
@@ -70,21 +82,3 @@ components:
       required:
       - code
       - funding_rates
-    ResultCode:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-      title: ResultCode
-      required:
-      - code
-  securitySchemes:
-    apiKey:
-      type: apiKey
-      description: Enter JWT Bearer token **_only_**
-      name: Authorization
-      in: header

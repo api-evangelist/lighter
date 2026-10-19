@@ -3,7 +3,7 @@ info:
   title: Lighter Root API
   version: ''
 servers:
-- url: https://mainnet.zklighter.elliot.ai
+- url: https://mainnet.zklighter.elliot.ai/
 tags:
 - name: Root
 paths:
@@ -49,6 +49,15 @@ paths:
                 $ref: '#/components/schemas/ResultCode'
 components:
   schemas:
+    ZkLighterInfo:
+      type: object
+      properties:
+        contract_address:
+          type: string
+          example: '0x70997970C51812dc3A010C7d01b50e0d17dc79C8'
+      title: ZkLighterInfo
+      required:
+      - contract_address
     Status:
       type: object
       properties:
@@ -69,15 +78,6 @@ components:
       - status
       - network_id
       - timestamp
-    ZkLighterInfo:
-      type: object
-      properties:
-        contract_address:
-          type: string
-          example: '0x70997970C51812dc3A010C7d01b50e0d17dc79C8'
-      title: ZkLighterInfo
-      required:
-      - contract_address
     ResultCode:
       type: object
       properties:
@@ -90,9 +90,3 @@ components:
       title: ResultCode
       required:
       - code
-  securitySchemes:
-    apiKey:
-      type: apiKey
-      description: Enter JWT Bearer token **_only_**
-      name: Authorization
-      in: header

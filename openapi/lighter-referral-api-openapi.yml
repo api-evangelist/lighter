@@ -3,42 +3,10 @@ info:
   title: Lighter Referral API
   version: ''
 servers:
-- url: https://mainnet.zklighter.elliot.ai
+- url: https://mainnet.zklighter.elliot.ai/
 tags:
 - name: Referral
 paths:
-  /api/v1/referral/points:
-    get:
-      summary: referral_points
-      operationId: referral_points
-      tags:
-      - Referral
-      description: Get referral points
-      parameters:
-      - name: authorization
-        in: header
-        required: true
-        schema:
-          type: string
-      - name: account_index
-        in: query
-        required: true
-        schema:
-          type: integer
-          format: int64
-      responses:
-        '200':
-          description: A successful response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ReferralPoints'
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ResultCode'
   /api/v1/referral/create:
     post:
       summary: referral_create
@@ -50,7 +18,6 @@ paths:
       - name: authorization
         in: header
         required: false
-        description: ' make required after integ is done'
         schema:
           type: string
       requestBody:
@@ -81,15 +48,8 @@ paths:
       description: Get referral code
       parameters:
       - name: authorization
-        in: query
+        in: header
         required: false
-        description: ' make required after integ is done'
-        schema:
-          type: string
-      - name: auth
-        in: query
-        required: false
-        description: ' made optional to support header auth clients'
         schema:
           type: string
       - name: account_index
@@ -122,7 +82,6 @@ paths:
       - name: authorization
         in: header
         required: false
-        description: ' make required after integ is done'
         schema:
           type: string
       requestBody:
@@ -155,7 +114,6 @@ paths:
       - name: authorization
         in: header
         required: false
-        description: ' make required after integ is done'
         schema:
           type: string
       requestBody:
@@ -188,7 +146,6 @@ paths:
       - name: authorization
         in: header
         required: false
-        description: ' make required after integ is done'
         schema:
           type: string
       requestBody:
@@ -210,41 +167,52 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResultCode'
-components:
-  schemas:
-    RespUpdateKickback:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
+  /api/v1/referral/stats:
+    get:
+      summary: referral_stats
+      operationId: referral_stats
+      tags:
+      - Referral
+      description: Get trade stats summed across a referrer's referred users
+      parameters:
+      - name: authorization
+        in: header
+        required: false
+        schema:
           type: string
-        success:
+      - name: auth
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: l1_address
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: is_eligible
+        in: query
+        required: false
+        schema:
           type: boolean
           format: boolean
-          example: 'true'
-      title: RespUpdateKickback
-      required:
-      - code
-      - success
-    ReqUpdateReferralCode:
-      type: object
-      properties:
-        auth:
-          type: string
-          description: ' made optional to support header auth clients'
-        account_index:
-          type: integer
-          format: int64
-        new_referral_code:
-          type: string
-      title: ReqUpdateReferralCode
-      required:
-      - account_index
-      - new_referral_code
-    ReferralCode:
+          default: 'false'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReferralStats'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+components:
+  schemas:
+    ResultCode:
       type: object
       properties:
         code:
@@ -253,92 +221,35 @@ components:
           example: '200'
         message:
           type: string
-        referral_code:
-          type: string
-          example: 5V24K3MJ
-        remaining_usage:
-          type: integer
-          format: int32
-          example: '3'
-      title: ReferralCode
+      title: ResultCode
       required:
       - code
-      - referral_code
-      - remaining_usage
-    ReferralPoints:
+    ReqCreateReferralCode:
       type: object
       properties:
-        referrals:
-          type: array
-          items:
-            $ref: '#/components/schemas/ReferralPointEntry'
-        user_total_points:
-          type: number
-          format: float
-          example: '1000'
-        user_last_week_points:
-          type: number
-          format: float
-          example: '1000'
-        user_total_referral_reward_points:
-          type: number
-          format: float
-          example: '1000'
-        user_last_week_referral_reward_points:
-          type: number
-          format: float
-          example: '1000'
-        reward_point_multiplier:
-          type: string
-          example: '0.1'
-      title: ReferralPoints
-      required:
-      - referrals
-      - user_total_points
-      - user_last_week_points
-      - user_total_referral_reward_points
-      - user_last_week_referral_reward_points
-      - reward_point_multiplier
-    ReqUseReferralCode:
-      type: object
-      properties:
-        auth:
-          type: string
-          description: ' made optional to support header auth clients'
-        l1_address:
-          type: string
-        referral_code:
-          type: string
-        discord:
-          type: string
-        telegram:
-          type: string
-        x:
-          type: string
-        signature:
-          type: string
-      title: ReqUseReferralCode
-      required:
-      - l1_address
-      - referral_code
-      - x
-    ReqUpdateKickback:
-      type: object
-      properties:
-        auth:
-          type: string
-          description: ' made optional to support header auth clients'
         account_index:
           type: integer
           format: int64
-        kickback_percentage:
-          type: number
-          format: double
-          maximum: 100
-      title: ReqUpdateKickback
+      title: ReqCreateReferralCode
       required:
       - account_index
-      - kickback_percentage
+    ReferralStats:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        stats:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReferralStat'
+      title: ReferralStats
+      required:
+      - code
+      - stats
     RespUpdateReferralCode:
       type: object
       properties:
@@ -356,51 +267,33 @@ components:
       required:
       - code
       - success
-    ReqCreateReferralCode:
+    ReqUpdateReferralCode:
       type: object
       properties:
-        auth:
-          type: string
-          description: ' made optional to support header auth clients'
         account_index:
           type: integer
           format: int64
-      title: ReqCreateReferralCode
+        new_referral_code:
+          type: string
+      title: ReqUpdateReferralCode
       required:
       - account_index
-    ReferralPointEntry:
+      - new_referral_code
+    ReqUpdateKickback:
       type: object
       properties:
-        l1_address:
-          type: string
-        total_points:
+        account_index:
+          type: integer
+          format: int64
+        kickback_percentage:
           type: number
-          format: float
-          example: '1000.01'
-        week_points:
-          type: number
-          format: float
-          example: '1000.01'
-        total_reward_points:
-          type: number
-          format: float
-          example: '200'
-        week_reward_points:
-          type: number
-          format: float
-          example: '200'
-        reward_point_multiplier:
-          type: string
-          example: '0.1'
-      title: ReferralPointEntry
+          format: double
+          maximum: 100
+      title: ReqUpdateKickback
       required:
-      - l1_address
-      - total_points
-      - week_points
-      - total_reward_points
-      - week_reward_points
-      - reward_point_multiplier
-    ResultCode:
+      - account_index
+      - kickback_percentage
+    ReferralCode:
       type: object
       properties:
         code:
@@ -409,12 +302,115 @@ components:
           example: '200'
         message:
           type: string
-      title: ResultCode
+        referral_code:
+          type: string
+          example: 5V24K3MJ
+      title: ReferralCode
       required:
       - code
-  securitySchemes:
-    apiKey:
-      type: apiKey
-      description: Enter JWT Bearer token **_only_**
-      name: Authorization
-      in: header
+      - referral_code
+    ReqUseReferralCode:
+      type: object
+      properties:
+        l1_address:
+          type: string
+        referral_code:
+          type: string
+        discord:
+          type: string
+        telegram:
+          type: string
+        x:
+          type: string
+        signature:
+          type: string
+        source:
+          type: string
+      title: ReqUseReferralCode
+      required:
+      - l1_address
+      - referral_code
+    ReferralStat:
+      type: object
+      properties:
+        start_timestamp:
+          type: integer
+          format: int64
+        end_timestamp:
+          type: integer
+          format: int64
+        trade_stats:
+          $ref: '#/components/schemas/TradeStats'
+      title: ReferralStat
+      required:
+      - start_timestamp
+      - end_timestamp
+      - trade_stats
+    RespUpdateKickback:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        success:
+          type: boolean
+          format: boolean
+          example: 'true'
+      title: RespUpdateKickback
+      required:
+      - code
+      - success
+    TradeStats:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int64
+        volume:
+          type: string
+        web_count:
+          type: integer
+          format: int64
+        web_volume:
+          type: string
+        mobile_app_count:
+          type: integer
+          format: int64
+        mobile_app_volume:
+          type: string
+        mobile_browser_count:
+          type: integer
+          format: int64
+        mobile_browser_volume:
+          type: string
+        maker_fees_paid:
+          type: string
+        non_free_taker_volume:
+          type: string
+        non_free_maker_volume:
+          type: string
+        free_taker_volume:
+          type: string
+        taker_fees_paid:
+          type: string
+        free_maker_volume:
+          type: string
+      title: TradeStats
+      required:
+      - count
+      - volume
+      - web_count
+      - web_volume
+      - mobile_app_count
+      - mobile_app_volume
+      - mobile_browser_count
+      - mobile_browser_volume
+      - free_maker_volume
+      - free_taker_volume
+      - non_free_maker_volume
+      - non_free_taker_volume
+      - maker_fees_paid
+      - taker_fees_paid

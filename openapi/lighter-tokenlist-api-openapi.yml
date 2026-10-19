@@ -3,7 +3,7 @@ info:
   title: Lighter Tokenlist API
   version: ''
 servers:
-- url: https://mainnet.zklighter.elliot.ai
+- url: https://mainnet.zklighter.elliot.ai/
 tags:
 - name: tokenlist
 paths:
@@ -29,28 +29,24 @@ paths:
                 $ref: '#/components/schemas/ResultCode'
 components:
   schemas:
-    TokenList:
+    ResultCode:
       type: object
-      title: TokenList
-      required:
-      - code
-      - tokens
       properties:
         code:
           type: integer
           format: int32
-          example: 200
+          example: '200'
         message:
           type: string
-        tokens:
-          type: array
-          items:
-            $ref: '#/components/schemas/Token'
+      title: ResultCode
+      required:
+      - code
     Token:
       type: object
       title: Token
       required:
       - symbol
+      - backend_symbol
       - name
       - logo
       - logo_extension
@@ -62,6 +58,7 @@ components:
       - categories
       - is_allowed_mainnet
       - is_asset_allowed_mainnet
+      - default_order_book_group_by
       properties:
         symbol:
           type: string
@@ -107,21 +104,27 @@ components:
         is_asset_allowed_mainnet:
           type: boolean
           format: boolean
-    ResultCode:
+        default_order_book_group_by:
+          type: integer
+          format: int64
+          example: '10'
+        backend_symbol:
+          type: string
+          example: ETH
+    TokenList:
       type: object
+      title: TokenList
+      required:
+      - code
+      - tokens
       properties:
         code:
           type: integer
           format: int32
-          example: '200'
+          example: 200
         message:
           type: string
-      title: ResultCode
-      required:
-      - code
-  securitySchemes:
-    apiKey:
-      type: apiKey
-      description: Enter JWT Bearer token **_only_**
-      name: Authorization
-      in: header
+        tokens:
+          type: array
+          items:
+            $ref: '#/components/schemas/Token'

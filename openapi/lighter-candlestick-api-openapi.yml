@@ -3,7 +3,7 @@ info:
   title: Lighter Candlestick API
   version: ''
 servers:
-- url: https://mainnet.zklighter.elliot.ai
+- url: https://mainnet.zklighter.elliot.ai/
 tags:
 - name: candlestick
 paths:
@@ -35,7 +35,6 @@ paths:
           - 4h
           - 12h
           - 1d
-          - 1w
       - name: start_timestamp
         in: query
         required: true
@@ -65,6 +64,13 @@ paths:
           type: boolean
           format: boolean
           default: 'false'
+      - name: merge_mark_price
+        in: query
+        required: false
+        schema:
+          type: boolean
+          format: boolean
+          default: 'false'
       responses:
         '200':
           description: A successful response.
@@ -84,7 +90,7 @@ paths:
       operationId: fundings
       tags:
       - candlestick
-      description: Get fundings
+      description: Get fundings. Maximum 750 fundings will be returned per call. `count_back` indicates the number of fundings you would like to be returned, starting from `start_timestamp`, if set to 0, all fundings will be returned.
       parameters:
       - name: market_id
         in: query
@@ -135,27 +141,119 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResultCode'
+  /api/v1/markPriceCandles:
+    get:
+      summary: markPriceCandles
+      operationId: markPriceCandles
+      tags:
+      - candlestick
+      description: Get mark price candles
+      parameters:
+      - name: market_id
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int16
+      - name: resolution
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - 1m
+          - 5m
+          - 15m
+          - 30m
+          - 1h
+          - 4h
+          - 12h
+          - 1d
+      - name: start_timestamp
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 0
+          maximum: 5000000000000
+      - name: end_timestamp
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 0
+          maximum: 5000000000000
+      - name: count_back
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarkPriceCandles'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+  /api/v1/marketPriceCharts:
+    get:
+      summary: marketPriceCharts
+      operationId: marketPriceCharts
+      tags:
+      - candlestick
+      description: Get last 24h hourly prices for all markets (mark price for perps, index price for spot)
+      parameters:
+      - name: market_ids
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int16
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarketPriceCharts'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
 components:
   schemas:
-    Candles:
+    MarkPriceCandles:
       type: object
       properties:
         code:
           type: integer
           format: int32
-          example: 200
+          example: '200'
+        message:
+          type: string
         r:
           type: string
-          example: 1m
-          description: Resolution
+          example: 15m
+          description: ' resolution'
         c:
           type: array
           items:
-            $ref: '#/components/schemas/Candle'
-          description: Array of candles (max 500 per call)
-        message:
-          type: string
-      title: Candles
+            $ref: '#/components/schemas/MarkPriceCandle'
+          description: ' candles'
+      title: MarkPriceCandles
       required:
       - code
       - r
@@ -234,6 +332,138 @@ components:
       - v
       - V
       - i
+    MarketPriceChart:
+      type: object
+      properties:
+        market_id:
+          type: integer
+          format: int16
+        prices:
+          type: array
+          items:
+            type: string
+      title: MarketPriceChart
+      required:
+      - market_id
+      - prices
+    MarketPriceCharts:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        resolution:
+          type: string
+          example: 1h
+        price_charts:
+          type: array
+          items:
+            $ref: '#/components/schemas/MarketPriceChart'
+      title: MarketPriceCharts
+      required:
+      - code
+      - resolution
+      - price_charts
+    Fundings:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        resolution:
+          type: string
+          example: 1h
+        fundings:
+          type: array
+          items:
+            $ref: '#/components/schemas/Funding'
+      title: Fundings
+      required:
+      - code
+      - resolution
+      - fundings
+    Candles:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: 200
+        r:
+          type: string
+          example: 1m
+          description: Resolution
+        c:
+          type: array
+          items:
+            $ref: '#/components/schemas/Candle'
+          description: Array of candles (max 500 per call)
+        message:
+          type: string
+      title: Candles
+      required:
+      - code
+      - r
+      - c
+    ResultCode:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+      title: ResultCode
+      required:
+      - code
+    MarkPriceCandle:
+      type: object
+      properties:
+        t:
+          type: integer
+          format: int64
+          example: '1640995200'
+          description: ' timestamp'
+        o:
+          type: number
+          format: double
+          example: '3024.66'
+          description: ' open'
+        h:
+          type: number
+          format: double
+          example: '3034.66'
+          description: ' high'
+        l:
+          type: number
+          format: double
+          example: '3014.66'
+          description: ' low'
+        c:
+          type: number
+          format: double
+          example: '3024.66'
+          description: ' close'
+        sc:
+          type: integer
+          format: int64
+          example: '42'
+          description: ' sample_count'
+      title: MarkPriceCandle
+      required:
+      - t
+      - o
+      - h
+      - l
+      - c
+      - sc
     Funding:
       type: object
       properties:
@@ -256,42 +486,3 @@ components:
       - value
       - rate
       - direction
-    Fundings:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-        resolution:
-          type: string
-          example: 1h
-        fundings:
-          type: array
-          items:
-            $ref: '#/components/schemas/Funding'
-      title: Fundings
-      required:
-      - code
-      - resolution
-      - fundings
-    ResultCode:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-      title: ResultCode
-      required:
-      - code
-  securitySchemes:
-    apiKey:
-      type: apiKey
-      description: Enter JWT Bearer token **_only_**
-      name: Authorization
-      in: header

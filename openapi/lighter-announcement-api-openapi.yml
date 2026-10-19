@@ -3,7 +3,7 @@ info:
   title: Lighter Announcement API
   version: ''
 servers:
-- url: https://mainnet.zklighter.elliot.ai
+- url: https://mainnet.zklighter.elliot.ai/
 tags:
 - name: Announcement
 paths:
@@ -29,6 +29,18 @@ paths:
                 $ref: '#/components/schemas/ResultCode'
 components:
   schemas:
+    ResultCode:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+      title: ResultCode
+      required:
+      - code
     Announcements:
       type: object
       properties:
@@ -65,21 +77,3 @@ components:
       - content
       - created_at
       - expired_at
-    ResultCode:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: '200'
-        message:
-          type: string
-      title: ResultCode
-      required:
-      - code
-  securitySchemes:
-    apiKey:
-      type: apiKey
-      description: Enter JWT Bearer token **_only_**
-      name: Authorization
-      in: header

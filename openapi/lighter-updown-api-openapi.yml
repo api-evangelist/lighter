@@ -1,0 +1,165 @@
+openapi: 3.2.0
+info:
+  title: Lighter Updown API
+  version: ''
+servers:
+- url: https://mainnet.zklighter.elliot.ai/
+tags:
+- name: updown
+paths:
+  /api/v1/upDownCandles:
+    get:
+      summary: upDownCandles
+      operationId: upDownCandles
+      tags:
+      - updown
+      description: Get the OHLC candles (1s = the exact price observations, or 30s) of an up/down market series (symbol + duration, e.g. btc/5m) in a bounded time range (at most 24h), oldest first. Pass next_cursor as start_timestamp to page forward; live candles are on the up_down_candle/// websocket channel.
+      parameters:
+      - name: symbol
+        in: query
+        description: ' market series: underlying (case-insensitive) ...'
+        required: true
+        schema:
+          type: string
+      - name: duration
+        in: query
+        description: ' ... and market duration, e.g. 30s or 5m'
+        required: true
+        schema:
+          type: string
+      - name: resolution
+        in: query
+        description: ' 1s candles are the observations themselves'
+        required: false
+        schema:
+          type: string
+          enum:
+          - 1s
+          - 30s
+          default: 1s
+      - name: start_timestamp
+        in: query
+        description: ' inclusive bucket start, seconds'
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 0
+          maximum: 5000000000
+      - name: end_timestamp
+        in: query
+        description: ' inclusive, seconds; at most 24h after start_timestamp'
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 0
+          maximum: 5000000000
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+          default: '1000'
+          minimum: 1
+          maximum: 3600
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RespGetUpDownCandles'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultCode'
+components:
+  schemas:
+    RespGetUpDownCandles:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+        candles:
+          type: array
+          items:
+            $ref: '#/components/schemas/UpDownCandle'
+          description: ' ascending by timestamp'
+        next_cursor:
+          type: integer
+          format: int64
+          example: '0'
+          description: ' start_timestamp of the next page; 0 when the range is exhausted'
+      title: RespGetUpDownCandles
+      required:
+      - code
+      - candles
+    ResultCode:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: '200'
+        message:
+          type: string
+      title: ResultCode
+      required:
+      - code
+    UpDownCandle:
+      type: object
+      properties:
+        symbol:
+          type: string
+          example: btc
+        duration:
+          type: string
+          example: 5m
+        resolution:
+          type: string
+          example: 30s
+        timestamp:
+          type: integer
+          format: int64
+          example: '1789551600'
+          description: ' bucket start, unix seconds'
+        open:
+          type: string
+          example: '115342.123456789012345678'
+          description: ' exact provider prices, decimal strings'
+        high:
+          type: string
+          example: '115350.5'
+        low:
+          type: string
+          example: '115300.25'
+        close:
+          type: string
+          example: '115340.123456789012345678'
+        provider:
+          type: string
+          example: chainlink
+          description: ' provider feed of the last observation of the candle'
+        feed_id:
+          type: string
+          example: '0x0002ee6757e8822c00d273bc340fc24c9cafe123a4ff2ea1dbdb31944bc7d95f'
+      title: UpDownCandle
+      required:
+      - symbol
+      - duration
+      - resolution
+      - timestamp
+      - open
+      - high
+      - low
+      - close
+      - provider
+      - feed_id

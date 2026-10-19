@@ -1,60 +1,50 @@
 {
   "provider": "lighter",
   "sources": [
-    "_original/lighter-zklighter-openapi-original.json"
+    "_original/lighter-openapi.json"
   ],
   "outputs": [
     "lighter-account-api-openapi.yml",
     "lighter-announcement-api-openapi.yml",
-    "lighter-block-api-openapi.yml",
     "lighter-bridge-api-openapi.yml",
     "lighter-candlestick-api-openapi.yml",
+    "lighter-event-api-openapi.yml",
     "lighter-funding-api-openapi.yml",
     "lighter-info-api-openapi.yml",
     "lighter-notification-api-openapi.yml",
     "lighter-order-api-openapi.yml",
+    "lighter-portfolio-api-openapi.yml",
     "lighter-referral-api-openapi.yml",
     "lighter-root-api-openapi.yml",
     "lighter-tokenlist-api-openapi.yml",
-    "lighter-transaction-api-openapi.yml"
+    "lighter-transaction-api-openapi.yml",
+    "lighter-updown-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [
-    "lighter-zklighter-openapi-original.json: info.title missing",
-    "lighter-zklighter-openapi-original.json: info.version missing"
+    "lighter-openapi.json: info.title missing",
+    "lighter-openapi.json: info.version missing"
   ],
   "notes": [
     "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
-    "lighter-zklighter-openapi-original.json: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "lighter-zklighter-openapi-original.json: declared missing tag: account",
-    "lighter-zklighter-openapi-original.json: declared missing tag: announcement",
-    "lighter-zklighter-openapi-original.json: declared missing tag: block",
-    "lighter-zklighter-openapi-original.json: declared missing tag: bridge",
-    "lighter-zklighter-openapi-original.json: declared missing tag: candlestick",
-    "lighter-zklighter-openapi-original.json: declared missing tag: funding",
-    "lighter-zklighter-openapi-original.json: declared missing tag: info",
-    "lighter-zklighter-openapi-original.json: declared missing tag: notification",
-    "lighter-zklighter-openapi-original.json: declared missing tag: order",
-    "lighter-zklighter-openapi-original.json: declared missing tag: referral",
-    "lighter-zklighter-openapi-original.json: declared missing tag: root",
-    "lighter-zklighter-openapi-original.json: declared missing tag: tokenlist",
-    "lighter-zklighter-openapi-original.json: declared missing tag: transaction",
-    "apis.yml register: already-registered"
+    "lighter-openapi.json: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "lighter-openapi.json: declared missing tag: account",
+    "lighter-openapi.json: declared missing tag: announcement",
+    "lighter-openapi.json: declared missing tag: bridge",
+    "lighter-openapi.json: declared missing tag: candlestick",
+    "lighter-openapi.json: declared missing tag: event",
+    "lighter-openapi.json: declared missing tag: funding",
+    "lighter-openapi.json: declared missing tag: info",
+    "lighter-openapi.json: declared missing tag: notification",
+    "lighter-openapi.json: declared missing tag: order",
+    "lighter-openapi.json: declared missing tag: portfolio",
+    "lighter-openapi.json: declared missing tag: referral",
+    "lighter-openapi.json: declared missing tag: root",
+    "lighter-openapi.json: declared missing tag: tokenlist",
+    "lighter-openapi.json: declared missing tag: transaction",
+    "lighter-openapi.json: declared missing tag: updown",
+    "apis.yml register: written (+3 apis, 15 total)"
   ],
-  "skipped": [
-    "lighter-account-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "lighter-announcement-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "lighter-block-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "lighter-bridge-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "lighter-candlestick-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "lighter-funding-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "lighter-info-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "lighter-notification-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "lighter-order-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "lighter-referral-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "lighter-root-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "lighter-tokenlist-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "lighter-transaction-api-openapi.yml: previously refined output, superseded by openapi/_original/"
-  ]
+  "skipped": []
 }
