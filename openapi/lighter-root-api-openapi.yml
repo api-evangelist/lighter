@@ -1,7 +1,7 @@
 openapi: 3.2.0
 info:
   title: Lighter Root API
-  version: ''
+  version: "1.0"
 servers:
 - url: https://mainnet.zklighter.elliot.ai/
 tags:
@@ -90,3 +90,9 @@ components:
       title: ResultCode
       required:
       - code
+x-provenance:
+  method: harvested
+  publisher: Lighter
+  source: https://apidocs.lighter.xyz/openapi/page.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
