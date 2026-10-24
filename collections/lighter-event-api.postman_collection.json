@@ -1,0 +1,325 @@
+{
+  "info": {
+    "_postman_id": "c48d9bb0-f207-43d6-a165-03d90caf4d7f",
+    "name": "Lighter Event API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:27:45.000Z",
+    "updatedAt": "2026-10-21T20:27:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c48d9bb0-f207-43d6-a165-03d90caf4d7f"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "events",
+              "item": [
+                {
+                  "name": "events",
+                  "id": "ba5d8e97-7302-42c8-a79f-66d534df7158",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/events?event_ids=<string>&market_ids=<string>&creator_account_index=<long>&cursor=<long>&active=<boolean>&limit=<long>&tag=<string>&event_kind=one_off&start_from=<long>&start_before=<long>&sort=id&order=desc",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "events"
+                      ],
+                      "query": [
+                        {
+                          "description": " comma-separated positive IDs, max 50",
+                          "key": "event_ids",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": " comma-separated positive IDs, max 50",
+                          "key": "market_ids",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "creator_account_index",
+                          "value": "<long>"
+                        },
+                        {
+                          "key": "cursor",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": " true: at least one outcome still tradeable; false: none",
+                          "key": "active",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": " series tag; creator filter is optional",
+                          "key": "tag",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "event_kind",
+                          "value": "one_off"
+                        },
+                        {
+                          "description": " inclusive start_at, Unix milliseconds",
+                          "key": "start_from",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": " exclusive start_at, Unix milliseconds",
+                          "key": "start_before",
+                          "value": "<long>"
+                        },
+                        {
+                          "key": "sort",
+                          "value": "id"
+                        },
+                        {
+                          "key": "order",
+                          "value": "desc"
+                        }
+                      ]
+                    },
+                    "description": "Get events and registered order books, including scheduled events with no books. event_ids and market_ids accept up to 50 comma-separated positive IDs, are mutually exclusive, and use the same filters, sorting and pagination. market_ids returns each related event once with all its order books. Defaults to descending id. start_at sorting uses (start_at, event_id); cursor identifies an existing event and excludes it in the requested direction. tag filters across creators; creator_account_index is an optional additional filter. active=true requires a tradeable outcome; active=false includes scheduled and closed events."
+                  },
+                  "response": [
+                    {
+                      "id": "23c3fbc1-a326-4cd7-83fe-9447ed4631f4",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/events?event_ids=<string>&market_ids=<string>&creator_account_index=<long>&cursor=<long>&active=<boolean>&limit=<long>&tag=<string>&event_kind=one_off&start_from=<long>&start_before=<long>&sort=id&order=desc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "events"
+                          ],
+                          "query": [
+                            {
+                              "description": " comma-separated positive IDs, max 50",
+                              "key": "event_ids",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": " comma-separated positive IDs, max 50",
+                              "key": "market_ids",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "creator_account_index",
+                              "value": "<long>"
+                            },
+                            {
+                              "key": "cursor",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": " true: at least one outcome still tradeable; false: none",
+                              "key": "active",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "key": "limit",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": " series tag; creator filter is optional",
+                              "key": "tag",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "event_kind",
+                              "value": "one_off"
+                            },
+                            {
+                              "description": " inclusive start_at, Unix milliseconds",
+                              "key": "start_from",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": " exclusive start_at, Unix milliseconds",
+                              "key": "start_before",
+                              "value": "<long>"
+                            },
+                            {
+                              "key": "sort",
+                              "value": "id"
+                            },
+                            {
+                              "key": "order",
+                              "value": "desc"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"events\": [\n    {\n      \"event_id\": \"<long>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"creator_account_index\": \"<long>\",\n      \"created_at\": \"<long>\",\n      \"tag\": \"<string>\",\n      \"event_kind\": \"recurrent\",\n      \"recurrence_period_seconds\": \"<integer>\",\n      \"start_at\": \"<long>\",\n      \"end_at\": \"<long>\",\n      \"metadata\": {\n        \"Lorem3\": false,\n        \"pariatur__6\": \"nostrud ea nulla Ut consequat\"\n      },\n      \"order_books\": [\n        {\n          \"symbol\": \"<string>\",\n          \"market_id\": \"<long>\",\n          \"market_type\": \"binary_options\",\n          \"base_asset_id\": \"<integer>\",\n          \"quote_asset_id\": \"<integer>\",\n          \"status\": \"settled\",\n          \"taker_fee\": \"<string>\",\n          \"is_taker_fee_enabled\": \"<boolean>\",\n          \"maker_fee\": \"<string>\",\n          \"is_maker_fee_enabled\": \"<boolean>\",\n          \"liquidation_fee\": \"<string>\",\n          \"min_base_amount\": \"<string>\",\n          \"min_quote_amount\": \"<string>\",\n          \"order_quote_limit\": \"<string>\",\n          \"supported_size_decimals\": \"<integer>\",\n          \"supported_price_decimals\": \"<integer>\",\n          \"supported_quote_decimals\": \"<integer>\",\n          \"created_at\": \"<string>\",\n          \"multiplier\": \"<string>\",\n          \"start_timestamp\": \"<long>\",\n          \"end_timestamp\": \"<long>\",\n          \"open_interest\": \"<string>\",\n          \"outcome\": 0,\n          \"operator_account_index\": \"<long>\",\n          \"settlement_cap\": \"<integer>\",\n          \"settlement_type\": 0,\n          \"settlement_price\": \"<integer>\",\n          \"default_price\": \"<integer>\",\n          \"is_frozen\": \"<boolean>\",\n          \"size_decimals\": \"<integer>\",\n          \"price_decimals\": \"<integer>\",\n          \"stats\": {\n            \"symbol\": \"<string>\",\n            \"market_id\": \"<long>\",\n            \"mid_price\": \"<string>\",\n            \"best_ask_price\": \"<string>\",\n            \"best_bid_price\": \"<string>\",\n            \"last_trade_price\": \"<string>\",\n            \"daily_base_token_volume\": \"<double>\",\n            \"daily_quote_token_volume\": \"<double>\",\n            \"daily_price_low\": \"<double>\",\n            \"daily_price_high\": \"<double>\",\n            \"daily_price_change\": \"<double>\",\n            \"lifetime_quote_token_volume\": \"<double>\",\n            \"lifetime_base_token_volume\": \"<double>\",\n            \"open_interest\": \"<string>\",\n            \"status\": \"active\",\n            \"outcome\": 1\n          }\n        },\n        {\n          \"symbol\": \"<string>\",\n          \"market_id\": \"<long>\",\n          \"market_type\": \"binary_options\",\n          \"base_asset_id\": \"<integer>\",\n          \"quote_asset_id\": \"<integer>\",\n          \"status\": \"settled\",\n          \"taker_fee\": \"<string>\",\n          \"is_taker_fee_enabled\": \"<boolean>\",\n          \"maker_fee\": \"<string>\",\n          \"is_maker_fee_enabled\": \"<boolean>\",\n          \"liquidation_fee\": \"<string>\",\n          \"min_base_amount\": \"<string>\",\n          \"min_quote_amount\": \"<string>\",\n          \"order_quote_limit\": \"<string>\",\n          \"supported_size_decimals\": \"<integer>\",\n          \"supported_price_decimals\": \"<integer>\",\n          \"supported_quote_decimals\": \"<integer>\",\n          \"created_at\": \"<string>\",\n          \"multiplier\": \"<string>\",\n          \"start_timestamp\": \"<long>\",\n          \"end_timestamp\": \"<long>\",\n          \"open_interest\": \"<string>\",\n          \"outcome\": 2,\n          \"operator_account_index\": \"<long>\",\n          \"settlement_cap\": \"<integer>\",\n          \"settlement_type\": 1,\n          \"settlement_price\": \"<integer>\",\n          \"default_price\": \"<integer>\",\n          \"is_frozen\": \"<boolean>\",\n          \"size_decimals\": \"<integer>\",\n          \"price_decimals\": \"<integer>\",\n          \"stats\": {\n            \"symbol\": \"<string>\",\n            \"market_id\": \"<long>\",\n            \"mid_price\": \"<string>\",\n            \"best_ask_price\": \"<string>\",\n            \"best_bid_price\": \"<string>\",\n            \"last_trade_price\": \"<string>\",\n            \"daily_base_token_volume\": \"<double>\",\n            \"daily_quote_token_volume\": \"<double>\",\n            \"daily_price_low\": \"<double>\",\n            \"daily_price_high\": \"<double>\",\n            \"daily_price_change\": \"<double>\",\n            \"lifetime_quote_token_volume\": \"<double>\",\n            \"lifetime_base_token_volume\": \"<double>\",\n            \"open_interest\": \"<string>\",\n            \"status\": \"waiting-for-settlement\",\n            \"outcome\": 2\n          }\n        }\n      ],\n      \"lifetime_quote_token_volume\": \"<double>\"\n    },\n    {\n      \"event_id\": \"<long>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"creator_account_index\": \"<long>\",\n      \"created_at\": \"<long>\",\n      \"tag\": \"<string>\",\n      \"event_kind\": \"recurrent\",\n      \"recurrence_period_seconds\": \"<integer>\",\n      \"start_at\": \"<long>\",\n      \"end_at\": \"<long>\",\n      \"metadata\": {\n        \"proident_85_\": -79707332.5093268,\n        \"Duisb0\": \"officia Duis\"\n      },\n      \"order_books\": [\n        {\n          \"symbol\": \"<string>\",\n          \"market_id\": \"<long>\",\n          \"market_type\": \"perp\",\n          \"base_asset_id\": \"<integer>\",\n          \"quote_asset_id\": \"<integer>\",\n          \"status\": \"active\",\n          \"taker_fee\": \"<string>\",\n          \"is_taker_fee_enabled\": \"<boolean>\",\n          \"maker_fee\": \"<string>\",\n          \"is_maker_fee_enabled\": \"<boolean>\",\n          \"liquidation_fee\": \"<string>\",\n          \"min_base_amount\": \"<string>\",\n          \"min_quote_amount\": \"<string>\",\n          \"order_quote_limit\": \"<string>\",\n          \"supported_size_decimals\": \"<integer>\",\n          \"supported_price_decimals\": \"<integer>\",\n          \"supported_quote_decimals\": \"<integer>\",\n          \"created_at\": \"<string>\",\n          \"multiplier\": \"<string>\",\n          \"start_timestamp\": \"<long>\",\n          \"end_timestamp\": \"<long>\",\n          \"open_interest\": \"<string>\",\n          \"outcome\": 0,\n          \"operator_account_index\": \"<long>\",\n          \"settlement_cap\": \"<integer>\",\n          \"settlement_type\": 0,\n          \"settlement_price\": \"<integer>\",\n          \"default_price\": \"<integer>\",\n          \"is_frozen\": \"<boolean>\",\n          \"size_decimals\": \"<integer>\",\n          \"price_decimals\": \"<integer>\",\n          \"stats\": {\n            \"symbol\": \"<string>\",\n            \"market_id\": \"<long>\",\n            \"mid_price\": \"<string>\",\n            \"best_ask_price\": \"<string>\",\n            \"best_bid_price\": \"<string>\",\n            \"last_trade_price\": \"<string>\",\n            \"daily_base_token_volume\": \"<double>\",\n            \"daily_quote_token_volume\": \"<double>\",\n            \"daily_price_low\": \"<double>\",\n            \"daily_price_high\": \"<double>\",\n            \"daily_price_change\": \"<double>\",\n            \"lifetime_quote_token_volume\": \"<double>\",\n            \"lifetime_base_token_volume\": \"<double>\",\n            \"open_interest\": \"<string>\",\n            \"status\": \"waiting-for-settlement\",\n            \"outcome\": 2\n          }\n        },\n        {\n          \"symbol\": \"<string>\",\n          \"market_id\": \"<long>\",\n          \"market_type\": \"spot\",\n          \"base_asset_id\": \"<integer>\",\n          \"quote_asset_id\": \"<integer>\",\n          \"status\": \"in-settlement\",\n          \"taker_fee\": \"<string>\",\n          \"is_taker_fee_enabled\": \"<boolean>\",\n          \"maker_fee\": \"<string>\",\n          \"is_maker_fee_enabled\": \"<boolean>\",\n          \"liquidation_fee\": \"<string>\",\n          \"min_base_amount\": \"<string>\",\n          \"min_quote_amount\": \"<string>\",\n          \"order_quote_limit\": \"<string>\",\n          \"supported_size_decimals\": \"<integer>\",\n          \"supported_price_decimals\": \"<integer>\",\n          \"supported_quote_decimals\": \"<integer>\",\n          \"created_at\": \"<string>\",\n          \"multiplier\": \"<string>\",\n          \"start_timestamp\": \"<long>\",\n          \"end_timestamp\": \"<long>\",\n          \"open_interest\": \"<string>\",\n          \"outcome\": 1,\n          \"operator_account_index\": \"<long>\",\n          \"settlement_cap\": \"<integer>\",\n          \"settlement_type\": 1,\n          \"settlement_price\": \"<integer>\",\n          \"default_price\": \"<integer>\",\n          \"is_frozen\": \"<boolean>\",\n          \"size_decimals\": \"<integer>\",\n          \"price_decimals\": \"<integer>\",\n          \"stats\": {\n            \"symbol\": \"<string>\",\n            \"market_id\": \"<long>\",\n            \"mid_price\": \"<string>\",\n            \"best_ask_price\": \"<string>\",\n            \"best_bid_price\": \"<string>\",\n            \"last_trade_price\": \"<string>\",\n            \"daily_base_token_volume\": \"<double>\",\n            \"daily_quote_token_volume\": \"<double>\",\n            \"daily_price_low\": \"<double>\",\n            \"daily_price_high\": \"<double>\",\n            \"daily_price_change\": \"<double>\",\n            \"lifetime_quote_token_volume\": \"<double>\",\n            \"lifetime_base_token_volume\": \"<double>\",\n            \"open_interest\": \"<string>\",\n            \"status\": \"active\",\n            \"outcome\": 1\n          }\n        }\n      ],\n      \"lifetime_quote_token_volume\": \"<double>\"\n    }\n  ],\n  \"message\": \"<string>\",\n  \"next_cursor\": \"<long>\"\n}",
+                      "createdAt": "2026-10-21T20:27:46.000Z",
+                      "updatedAt": "2026-10-21T20:27:46.000Z",
+                      "uid": "35240-23c3fbc1-a326-4cd7-83fe-9447ed4631f4"
+                    },
+                    {
+                      "id": "18ade89f-607c-4393-9d12-a66d90d8b7f7",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/events?event_ids=<string>&market_ids=<string>&creator_account_index=<long>&cursor=<long>&active=<boolean>&limit=<long>&tag=<string>&event_kind=one_off&start_from=<long>&start_before=<long>&sort=id&order=desc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "events"
+                          ],
+                          "query": [
+                            {
+                              "description": " comma-separated positive IDs, max 50",
+                              "key": "event_ids",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": " comma-separated positive IDs, max 50",
+                              "key": "market_ids",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "creator_account_index",
+                              "value": "<long>"
+                            },
+                            {
+                              "key": "cursor",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": " true: at least one outcome still tradeable; false: none",
+                              "key": "active",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "key": "limit",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": " series tag; creator filter is optional",
+                              "key": "tag",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "event_kind",
+                              "value": "one_off"
+                            },
+                            {
+                              "description": " inclusive start_at, Unix milliseconds",
+                              "key": "start_from",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": " exclusive start_at, Unix milliseconds",
+                              "key": "start_before",
+                              "value": "<long>"
+                            },
+                            {
+                              "key": "sort",
+                              "value": "id"
+                            },
+                            {
+                              "key": "order",
+                              "value": "desc"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:27:46.000Z",
+                      "updatedAt": "2026-10-21T20:27:46.000Z",
+                      "uid": "35240-18ade89f-607c-4393-9d12-a66d90d8b7f7"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:27:46.000Z",
+                  "updatedAt": "2026-10-21T20:27:46.000Z",
+                  "uid": "35240-ba5d8e97-7302-42c8-a79f-66d534df7158"
+                }
+              ],
+              "id": "25094f86-b227-4af6-84d9-33f4872cb6b5",
+              "createdAt": "2026-10-21T20:27:46.000Z",
+              "updatedAt": "2026-10-21T20:27:46.000Z",
+              "uid": "35240-25094f86-b227-4af6-84d9-33f4872cb6b5"
+            }
+          ],
+          "id": "7b462061-5a5d-4452-99a8-a1c7e856abb3",
+          "createdAt": "2026-10-21T20:27:46.000Z",
+          "updatedAt": "2026-10-21T20:27:46.000Z",
+          "uid": "35240-7b462061-5a5d-4452-99a8-a1c7e856abb3"
+        }
+      ],
+      "id": "8869f786-7cc0-46eb-95d0-49bcfdd29d05",
+      "createdAt": "2026-10-21T20:27:46.000Z",
+      "updatedAt": "2026-10-21T20:27:46.000Z",
+      "uid": "35240-8869f786-7cc0-46eb-95d0-49bcfdd29d05"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://mainnet.zklighter.elliot.ai/"
+    }
+  ]
+}

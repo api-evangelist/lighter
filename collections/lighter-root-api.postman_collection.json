@@ -1,242 +1,247 @@
 {
+  "info": {
+    "_postman_id": "6eadc703-cce1-46ff-aed4-dd6678df2603",
+    "name": "Lighter Root API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:27:28.000Z",
+    "updatedAt": "2026-10-21T20:27:28.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6eadc703-cce1-46ff-aed4-dd6678df2603"
+  },
   "item": [
     {
-      "id": "cf059ea2-83c1-45ea-84c1-c60d77826ef7",
-      "name": "root",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "/",
       "item": [
         {
-          "id": "9dbe4788-3c82-4764-b109-b30316aaef18",
           "name": "status",
+          "id": "d631651e-560f-4a7e-9544-3f3bf8778412",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "status",
-            "description": {
-              "content": "Get status of zklighter",
-              "type": "text/plain"
-            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
             "url": {
+              "raw": "{{baseUrl}}/",
+              "host": [
+                "{{baseUrl}}"
+              ],
               "path": [
                 ""
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
+              ]
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
+            "description": "Get status of zklighter"
           },
           "response": [
             {
-              "id": "b2d71b76-d29f-438e-88b8-474515c9e208",
+              "id": "5118eb9c-7794-4b0a-ab41-777e669056ce",
               "name": "A successful response.",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    ""
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"status\": 8068,\n  \"network_id\": 7933,\n  \"timestamp\": 35\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<integer>\",\n  \"network_id\": \"<integer>\",\n  \"timestamp\": \"<long>\"\n}",
+              "createdAt": "2026-10-21T20:27:28.000Z",
+              "updatedAt": "2026-10-21T20:27:28.000Z",
+              "uid": "35240-5118eb9c-7794-4b0a-ab41-777e669056ce"
             },
             {
-              "id": "408b93f5-89a3-416a-9fc6-7ec2119b240a",
+              "id": "830bd170-d580-4615-885b-39fc4b144667",
               "name": "Bad request",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
                 "url": {
+                  "raw": "{{baseUrl}}/",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     ""
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "Bad Request",
               "code": 400,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"code\": 6179,\n  \"message\": \"string\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-10-21T20:27:28.000Z",
+              "updatedAt": "2026-10-21T20:27:28.000Z",
+              "uid": "35240-830bd170-d580-4615-885b-39fc4b144667"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "5d56a2aa-624c-47cc-87cb-eab65fdb8216",
-          "name": "info",
-          "request": {
-            "name": "info",
-            "description": {
-              "content": "Get info of zklighter",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "info"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "20b02820-8ede-48e7-adc1-56aa0b54ae64",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "info"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"contract_address\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "e479c1ea-876a-48bc-9ec8-9195c7fea2d1",
-              "name": "Bad request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "info"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 6179,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-21T20:27:28.000Z",
+          "updatedAt": "2026-10-21T20:27:28.000Z",
+          "uid": "35240-d631651e-560f-4a7e-9544-3f3bf8778412"
         }
       ],
-      "event": []
+      "id": "24a48225-52a4-44c4-9424-fefa9360c18a",
+      "createdAt": "2026-10-21T20:27:28.000Z",
+      "updatedAt": "2026-10-21T20:27:28.000Z",
+      "uid": "35240-24a48225-52a4-44c4-9424-fefa9360c18a"
+    },
+    {
+      "name": "info",
+      "item": [
+        {
+          "name": "info",
+          "id": "bfcc53fc-6bee-4c0d-80a6-5c0558d19fb1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/info",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "info"
+              ]
+            },
+            "description": "Get info of zklighter"
+          },
+          "response": [
+            {
+              "id": "ced6c4eb-bb6d-4487-a577-11ca131184d6",
+              "name": "A successful response.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/info",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "info"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"contract_address\": \"<string>\"\n}",
+              "createdAt": "2026-10-21T20:27:28.000Z",
+              "updatedAt": "2026-10-21T20:27:28.000Z",
+              "uid": "35240-ced6c4eb-bb6d-4487-a577-11ca131184d6"
+            },
+            {
+              "id": "d729ec51-54dd-4c07-9fea-40cbfcc1fb4d",
+              "name": "Bad request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/info",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "info"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-10-21T20:27:28.000Z",
+              "updatedAt": "2026-10-21T20:27:28.000Z",
+              "uid": "35240-d729ec51-54dd-4c07-9fea-40cbfcc1fb4d"
+            }
+          ],
+          "createdAt": "2026-10-21T20:27:28.000Z",
+          "updatedAt": "2026-10-21T20:27:28.000Z",
+          "uid": "35240-bfcc53fc-6bee-4c0d-80a6-5c0558d19fb1"
+        }
+      ],
+      "id": "995aa33a-b910-4dd0-bc02-f62fe263c727",
+      "createdAt": "2026-10-21T20:27:28.000Z",
+      "updatedAt": "2026-10-21T20:27:28.000Z",
+      "uid": "35240-995aa33a-b910-4dd0-bc02-f62fe263c727"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://mainnet.zklighter.elliot.ai",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://mainnet.zklighter.elliot.ai/"
     }
-  ],
-  "info": {
-    "_postman_id": "1ab03d6f-4f3c-4f12-a004-bec2d078eff4",
-    "name": "Lighter account root API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

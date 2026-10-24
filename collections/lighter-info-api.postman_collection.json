@@ -1,646 +1,829 @@
 {
+  "info": {
+    "_postman_id": "c34292b9-3bb8-455c-89ba-7f7d7c999667",
+    "name": "Lighter Info API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:27:01.000Z",
+    "updatedAt": "2026-10-21T20:27:01.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c34292b9-3bb8-455c-89ba-7f7d7c999667"
+  },
   "item": [
     {
-      "id": "4302ed25-7330-4dc6-a99f-6616a438fd7f",
-      "name": "info",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "616dd862-1484-4e54-a467-06859e3ec80b",
-          "name": "transferFeeInfo",
-          "request": {
-            "name": "transferFeeInfo",
-            "description": {
-              "content": "Transfer fee info",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "transferFeeInfo"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "account_index",
-                  "value": "<long>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "to_account_index",
-                  "value": "-1"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v1",
+          "item": [
             {
-              "id": "a90d6153-a51f-482d-b904-0bf4f731fe97",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "transferFeeInfo"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "transferFeeInfo",
+              "item": [
+                {
+                  "name": "transferFeeInfo",
+                  "id": "d685f877-77b2-472d-a5ad-fce346ece8b8",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/transferFeeInfo?account_index=<long>&to_account_index=-1",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "transferFeeInfo"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "account_index",
+                          "value": "<long>"
+                        },
+                        {
+                          "key": "to_account_index",
+                          "value": "-1"
+                        }
+                      ]
+                    },
+                    "description": "Transfer fee info"
+                  },
+                  "response": [
                     {
-                      "key": "account_index",
-                      "value": "<long>"
+                      "id": "411ef939-fed8-41ce-bf4b-4770755e774b",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/transferFeeInfo?account_index=<long>&to_account_index=-1",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "transferFeeInfo"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "account_index",
+                              "value": "<long>"
+                            },
+                            {
+                              "key": "to_account_index",
+                              "value": "-1"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"transfer_fee_usdc\": \"<long>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:27:01.000Z",
+                      "updatedAt": "2026-10-21T20:27:01.000Z",
+                      "uid": "35240-411ef939-fed8-41ce-bf4b-4770755e774b"
                     },
                     {
-                      "key": "to_account_index",
-                      "value": "-1"
+                      "id": "6f2ce597-64b5-46cb-b020-e1fd24fea58b",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/transferFeeInfo?account_index=<long>&to_account_index=-1",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "transferFeeInfo"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "account_index",
+                              "value": "<long>"
+                            },
+                            {
+                              "key": "to_account_index",
+                              "value": "-1"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:27:01.000Z",
+                      "updatedAt": "2026-10-21T20:27:01.000Z",
+                      "uid": "35240-6f2ce597-64b5-46cb-b020-e1fd24fea58b"
                     }
                   ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "disabled": false,
-                    "description": "(Required) ",
-                    "key": "authorization",
-                    "value": "string"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "createdAt": "2026-10-21T20:27:01.000Z",
+                  "updatedAt": "2026-10-21T20:27:01.000Z",
+                  "uid": "35240-d685f877-77b2-472d-a5ad-fce346ece8b8"
                 }
               ],
-              "body": "{\n  \"code\": 8184,\n  \"transfer_fee_usdc\": 5534,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "c34f41be-a3bf-4381-9d11-b9e9fde1195a",
+              "createdAt": "2026-10-21T20:27:01.000Z",
+              "updatedAt": "2026-10-21T20:27:01.000Z",
+              "uid": "35240-c34f41be-a3bf-4381-9d11-b9e9fde1195a"
             },
             {
-              "id": "7808487f-cf17-44d5-9924-bea8208e15ac",
-              "name": "Bad request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "transferFeeInfo"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "withdrawalDelay",
+              "item": [
+                {
+                  "name": "withdrawalDelay",
+                  "id": "d29809c4-5829-4524-bc4d-2c9dcd4de96e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/withdrawalDelay",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "withdrawalDelay"
+                      ]
+                    },
+                    "description": "Withdrawal delay in seconds"
+                  },
+                  "response": [
                     {
-                      "key": "account_index",
-                      "value": "<long>"
+                      "id": "7f43f9cd-8a68-42f0-94ec-a0ed907f5bad",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/withdrawalDelay",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "withdrawalDelay"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"seconds\": \"<long>\"\n}",
+                      "createdAt": "2026-10-21T20:27:01.000Z",
+                      "updatedAt": "2026-10-21T20:27:01.000Z",
+                      "uid": "35240-7f43f9cd-8a68-42f0-94ec-a0ed907f5bad"
                     },
                     {
-                      "key": "to_account_index",
-                      "value": "-1"
+                      "id": "96a4eafa-c86a-4df6-932d-97fe67cc6471",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/withdrawalDelay",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "withdrawalDelay"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:27:01.000Z",
+                      "updatedAt": "2026-10-21T20:27:01.000Z",
+                      "uid": "35240-96a4eafa-c86a-4df6-932d-97fe67cc6471"
                     }
                   ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "disabled": false,
-                    "description": "(Required) ",
-                    "key": "authorization",
-                    "value": "string"
+                  "createdAt": "2026-10-21T20:27:01.000Z",
+                  "updatedAt": "2026-10-21T20:27:01.000Z",
+                  "uid": "35240-d29809c4-5829-4524-bc4d-2c9dcd4de96e"
+                }
+              ],
+              "id": "2523d560-f8b7-402e-bbe9-d536e3008fbb",
+              "createdAt": "2026-10-21T20:27:01.000Z",
+              "updatedAt": "2026-10-21T20:27:01.000Z",
+              "uid": "35240-2523d560-f8b7-402e-bbe9-d536e3008fbb"
+            },
+            {
+              "name": "layer1BasicInfo",
+              "item": [
+                {
+                  "name": "layer1BasicInfo",
+                  "id": "3414d096-88c0-4d51-88f8-276b975e4051",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 4720,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "9c28ab8c-5a06-4cbf-b48e-9d6689c3cc7d",
-          "name": "withdrawalDelay",
-          "request": {
-            "name": "withdrawalDelay",
-            "description": {
-              "content": "Withdrawal delay in seconds",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "withdrawalDelay"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "497c79d7-efe3-4289-b641-aebc2fda93ec",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "withdrawalDelay"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"seconds\": 3914\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "f12abdbe-c5b9-4500-b6ce-c1d5e09292bb",
-              "name": "Bad request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "withdrawalDelay"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 4720,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "9ef6a9d1-13af-46ec-b1eb-5347f316d33d",
-          "name": "layer1BasicInfo",
-          "request": {
-            "name": "layer1BasicInfo",
-            "description": {
-              "content": "Get zklighter l1 general info, including contract address and rpc info",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "layer1BasicInfo"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "8d49b693-433f-498e-bf89-7740c2771f1c",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "layer1BasicInfo"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 9265,\n  \"l1_providers\": [\n    {\n      \"chainId\": 8515,\n      \"networkId\": 8872,\n      \"latestBlockNumber\": 5931\n    },\n    {\n      \"chainId\": 239,\n      \"networkId\": 3458,\n      \"latestBlockNumber\": 7206\n    }\n  ],\n  \"l1_providers_health\": false,\n  \"validator_info\": [\n    {\n      \"address\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n      \"is_active\": true\n    },\n    {\n      \"address\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n      \"is_active\": true\n    }\n  ],\n  \"contract_addresses\": [\n    {\n      \"name\": \"1\",\n      \"address\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\"\n    },\n    {\n      \"name\": \"1\",\n      \"address\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\"\n    }\n  ],\n  \"latest_l1_generic_block\": 1437,\n  \"latest_l1_governance_block\": 55,\n  \"latest_l1_desert_block\": 7448,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "6a5416e7-3273-4060-88a0-53482ff735a0",
-              "name": "Bad request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "layer1BasicInfo"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 4720,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "c9303c6d-7e2a-4421-a816-aee2b2ea5d56",
-          "name": "systemConfig",
-          "request": {
-            "name": "systemConfig",
-            "description": {
-              "content": "Get system config",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "systemConfig"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "fc18cdeb-3319-4728-8b36-33206c88c550",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "systemConfig"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"max_integrator_perps_maker_fee\": 937,\n  \"max_integrator_perps_taker_fee\": 8491,\n  \"max_integrator_spot_maker_fee\": 1019,\n  \"max_integrator_spot_taker_fee\": 8507,\n  \"code\": 6018,\n  \"funding_fee_rebate_account_index\": 7897,\n  \"liquidity_pool_cooldown_period\": 456,\n  \"liquidity_pool_index\": 2280,\n  \"staking_pool_index\": 7279,\n  \"staking_pool_lockup_period\": 480,\n  \"market_maker_incentive_account_index\": 8012,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "cc9a653a-0c58-4ebc-a032-50f4ee5fe748",
-              "name": "Bad request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "systemConfig"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 4720,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "b732b94d-5896-4563-ac37-040efd6eb6bc",
-          "name": "syntheticSpotInfo",
-          "request": {
-            "name": "syntheticSpotInfo",
-            "description": {
-              "content": "Get synthetic spot info for a symbol. For complete details see: https://docs.lighter.xyz/trading/real-world-assets-rwas/us-equity-indices",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "syntheticSpotInfo"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "symbol",
-                  "value": "<string>",
-                  "description": "(Required) "
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "6b99424b-31ef-4ab8-a403-a3bbbca61d5e",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "syntheticSpotInfo"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/layer1BasicInfo",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "layer1BasicInfo"
+                      ]
+                    },
+                    "description": "Get zklighter l1 general info, including contract address and rpc info"
+                  },
+                  "response": [
                     {
-                      "key": "symbol",
-                      "value": "<string>"
+                      "id": "9db21794-5b9b-46e0-acbf-2c27aa38d1f3",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/layer1BasicInfo",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "layer1BasicInfo"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"l1_providers\": [\n    {\n      \"chainId\": \"<long>\",\n      \"networkId\": \"<long>\",\n      \"latestBlockNumber\": \"<long>\"\n    },\n    {\n      \"chainId\": \"<long>\",\n      \"networkId\": \"<long>\",\n      \"latestBlockNumber\": \"<long>\"\n    }\n  ],\n  \"l1_providers_health\": \"<boolean>\",\n  \"validator_info\": [\n    {\n      \"address\": \"<string>\",\n      \"is_active\": \"<boolean>\"\n    },\n    {\n      \"address\": \"<string>\",\n      \"is_active\": \"<boolean>\"\n    }\n  ],\n  \"contract_addresses\": [\n    {\n      \"name\": \"<string>\",\n      \"address\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"address\": \"<string>\"\n    }\n  ],\n  \"latest_l1_generic_block\": \"<long>\",\n  \"latest_l1_governance_block\": \"<long>\",\n  \"latest_l1_desert_block\": \"<long>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:27:01.000Z",
+                      "updatedAt": "2026-10-21T20:27:01.000Z",
+                      "uid": "35240-9db21794-5b9b-46e0-acbf-2c27aa38d1f3"
+                    },
+                    {
+                      "id": "5acb2051-7b16-4a1d-bce1-84633f83e43c",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/layer1BasicInfo",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "layer1BasicInfo"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:27:01.000Z",
+                      "updatedAt": "2026-10-21T20:27:01.000Z",
+                      "uid": "35240-5acb2051-7b16-4a1d-bce1-84633f83e43c"
                     }
                   ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "createdAt": "2026-10-21T20:27:01.000Z",
+                  "updatedAt": "2026-10-21T20:27:01.000Z",
+                  "uid": "35240-3414d096-88c0-4d51-88f8-276b975e4051"
                 }
               ],
-              "body": "{\n  \"code\": 595,\n  \"bps_per_day\": 2240.8993505105045,\n  \"expiry_time_ms\": 5497,\n  \"spot_close_ms\": 1831,\n  \"source\": \"string\",\n  \"symbol\": \"string\",\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "df3c4a87-3213-4b85-8ac1-7c9c72135170",
+              "createdAt": "2026-10-21T20:27:01.000Z",
+              "updatedAt": "2026-10-21T20:27:01.000Z",
+              "uid": "35240-df3c4a87-3213-4b85-8ac1-7c9c72135170"
             },
             {
-              "id": "acf340d1-a6fc-4920-9f53-fe9884158cff",
-              "name": "Bad request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "syntheticSpotInfo"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "systemConfig",
+              "item": [
+                {
+                  "name": "systemConfig",
+                  "id": "97976205-121a-424f-a526-aeaf10169903",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/systemConfig",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "systemConfig"
+                      ]
+                    },
+                    "description": "Get system config"
+                  },
+                  "response": [
                     {
-                      "key": "symbol",
-                      "value": "<string>"
+                      "id": "5fa9342a-891e-491b-bd99-78193e8a60ff",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/systemConfig",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "systemConfig"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"liquidity_pool_index\": \"<long>\",\n  \"staking_pool_index\": \"<long>\",\n  \"funding_fee_rebate_account_index\": \"<long>\",\n  \"fee_collector_account_index\": \"<long>\",\n  \"liquidity_pool_cooldown_period\": \"<long>\",\n  \"staking_pool_lockup_period\": \"<long>\",\n  \"max_integrator_spot_taker_fee\": \"<integer>\",\n  \"max_integrator_spot_maker_fee\": \"<integer>\",\n  \"max_integrator_perps_taker_fee\": \"<integer>\",\n  \"max_integrator_perps_maker_fee\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"market_maker_incentive_account_index\": \"<long>\"\n}",
+                      "createdAt": "2026-10-21T20:27:01.000Z",
+                      "updatedAt": "2026-10-21T20:27:01.000Z",
+                      "uid": "35240-5fa9342a-891e-491b-bd99-78193e8a60ff"
+                    },
+                    {
+                      "id": "cc0042f9-a035-445d-8baa-ebb4d7a8027c",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/systemConfig",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "systemConfig"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:27:01.000Z",
+                      "updatedAt": "2026-10-21T20:27:01.000Z",
+                      "uid": "35240-cc0042f9-a035-445d-8baa-ebb4d7a8027c"
                     }
                   ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "createdAt": "2026-10-21T20:27:01.000Z",
+                  "updatedAt": "2026-10-21T20:27:01.000Z",
+                  "uid": "35240-97976205-121a-424f-a526-aeaf10169903"
                 }
               ],
-              "body": "{\n  \"code\": 4720,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "10995136-7409-43dd-9e68-d7533476ebee",
+              "createdAt": "2026-10-21T20:27:01.000Z",
+              "updatedAt": "2026-10-21T20:27:01.000Z",
+              "uid": "35240-10995136-7409-43dd-9e68-d7533476ebee"
+            },
+            {
+              "name": "syntheticSpotInfo",
+              "item": [
+                {
+                  "name": "syntheticSpotInfo",
+                  "id": "2ac6b643-1921-4c86-acf0-d1ab6c513579",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/syntheticSpotInfo?symbol=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "syntheticSpotInfo"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "symbol",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Get synthetic spot info for a symbol. For complete details see: https://docs.lighter.xyz/trading/real-world-assets-rwas/us-equity-indices"
+                  },
+                  "response": [
+                    {
+                      "id": "432ad7e4-07be-40c0-bad1-8791fa33c000",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/syntheticSpotInfo?symbol=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "syntheticSpotInfo"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "symbol",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"bps_per_day\": \"<double>\",\n  \"expiry_time_ms\": \"<long>\",\n  \"spot_close_ms\": \"<long>\",\n  \"source\": \"<string>\",\n  \"symbol\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:27:01.000Z",
+                      "updatedAt": "2026-10-21T20:27:01.000Z",
+                      "uid": "35240-432ad7e4-07be-40c0-bad1-8791fa33c000"
+                    },
+                    {
+                      "id": "0c4a84a4-6563-48b5-a99c-c5c451c12d92",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/syntheticSpotInfo?symbol=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "syntheticSpotInfo"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "symbol",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:27:01.000Z",
+                      "updatedAt": "2026-10-21T20:27:01.000Z",
+                      "uid": "35240-0c4a84a4-6563-48b5-a99c-c5c451c12d92"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:27:01.000Z",
+                  "updatedAt": "2026-10-21T20:27:01.000Z",
+                  "uid": "35240-2ac6b643-1921-4c86-acf0-d1ab6c513579"
+                }
+              ],
+              "id": "b0f8c5c2-e9bd-4b49-8d94-d0321dd8595f",
+              "createdAt": "2026-10-21T20:27:01.000Z",
+              "updatedAt": "2026-10-21T20:27:01.000Z",
+              "uid": "35240-b0f8c5c2-e9bd-4b49-8d94-d0321dd8595f"
+            },
+            {
+              "name": "priceOracleInfo",
+              "item": [
+                {
+                  "name": "priceOracleInfo",
+                  "id": "781fb172-dec0-4220-a28b-d5513e52e40e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/priceOracleInfo?symbol=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "priceOracleInfo"
+                      ],
+                      "query": [
+                        {
+                          "key": "symbol",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Get price oracle info (source in use, median exchanges, price cap) for all markets or a single symbol"
+                  },
+                  "response": [
+                    {
+                      "id": "9df595a9-d875-4df7-b549-f7bde383c369",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/priceOracleInfo?symbol=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "priceOracleInfo"
+                          ],
+                          "query": [
+                            {
+                              "key": "symbol",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"computed_at_ms\": \"<long>\",\n  \"markets\": [\n    {\n      \"symbol\": \"<string>\",\n      \"index\": {\n        \"source\": \"<string>\",\n        \"using_median\": \"<boolean>\",\n        \"using_internal_price\": \"<boolean>\",\n        \"median_sources\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"price_cap_bps\": \"<double>\",\n        \"price_cap_reference_price\": \"<double>\"\n      },\n      \"mark\": {\n        \"source\": \"<string>\",\n        \"using_median\": \"<boolean>\",\n        \"using_internal_price\": \"<boolean>\",\n        \"median_sources\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"price_cap_bps\": \"<double>\",\n        \"price_cap_reference_price\": \"<double>\"\n      }\n    },\n    {\n      \"symbol\": \"<string>\",\n      \"index\": {\n        \"source\": \"<string>\",\n        \"using_median\": \"<boolean>\",\n        \"using_internal_price\": \"<boolean>\",\n        \"median_sources\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"price_cap_bps\": \"<double>\",\n        \"price_cap_reference_price\": \"<double>\"\n      },\n      \"mark\": {\n        \"source\": \"<string>\",\n        \"using_median\": \"<boolean>\",\n        \"using_internal_price\": \"<boolean>\",\n        \"median_sources\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"price_cap_bps\": \"<double>\",\n        \"price_cap_reference_price\": \"<double>\"\n      }\n    }\n  ],\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:27:01.000Z",
+                      "updatedAt": "2026-10-21T20:27:01.000Z",
+                      "uid": "35240-9df595a9-d875-4df7-b549-f7bde383c369"
+                    },
+                    {
+                      "id": "b54f906f-b65c-4d9e-9515-900c3f8df2b8",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/priceOracleInfo?symbol=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "priceOracleInfo"
+                          ],
+                          "query": [
+                            {
+                              "key": "symbol",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:27:01.000Z",
+                      "updatedAt": "2026-10-21T20:27:01.000Z",
+                      "uid": "35240-b54f906f-b65c-4d9e-9515-900c3f8df2b8"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:27:01.000Z",
+                  "updatedAt": "2026-10-21T20:27:01.000Z",
+                  "uid": "35240-781fb172-dec0-4220-a28b-d5513e52e40e"
+                }
+              ],
+              "id": "63b78887-54b5-44dc-af7e-83aea8ff1bb3",
+              "createdAt": "2026-10-21T20:27:01.000Z",
+              "updatedAt": "2026-10-21T20:27:01.000Z",
+              "uid": "35240-63b78887-54b5-44dc-af7e-83aea8ff1bb3"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "fbfb8940-6ab7-4674-9307-41451f17d7f2",
+          "createdAt": "2026-10-21T20:27:01.000Z",
+          "updatedAt": "2026-10-21T20:27:01.000Z",
+          "uid": "35240-fbfb8940-6ab7-4674-9307-41451f17d7f2"
         }
       ],
-      "event": []
+      "id": "de6b34d7-fbd1-4cf0-abea-67cc6bcd0dfd",
+      "createdAt": "2026-10-21T20:27:01.000Z",
+      "updatedAt": "2026-10-21T20:27:01.000Z",
+      "uid": "35240-de6b34d7-fbd1-4cf0-abea-67cc6bcd0dfd"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://mainnet.zklighter.elliot.ai",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://mainnet.zklighter.elliot.ai/"
     }
-  ],
-  "info": {
-    "_postman_id": "5b269139-7d31-4aa2-b83e-889f11c332d0",
-    "name": "Lighter account info API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

@@ -1,143 +1,157 @@
 {
+  "info": {
+    "_postman_id": "39054242-25ae-49bf-a46e-840ce2275824",
+    "name": "Lighter Announcement API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:26:38.000Z",
+    "updatedAt": "2026-10-21T20:26:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-39054242-25ae-49bf-a46e-840ce2275824"
+  },
   "item": [
     {
-      "id": "165de8e5-2954-4a29-9ccf-5965a0811747",
-      "name": "announcement",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "4f688145-7d1c-4fa8-8062-fb9795170880",
-          "name": "announcement",
-          "request": {
-            "name": "announcement",
-            "description": {
-              "content": "Get announcements",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "announcement"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v1",
+          "item": [
             {
-              "id": "c93f3250-c693-4d97-a224-49b81c5e1f4a",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "announcement"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "announcement",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "announcement",
+                  "id": "cc2c5bc0-9bdc-42af-b776-e321072dddda",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/announcement",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "announcement"
+                      ]
+                    },
+                    "description": "Get announcements"
+                  },
+                  "response": [
+                    {
+                      "id": "c94f7927-fef5-4a9c-8c54-da576f99b451",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/announcement",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "announcement"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"announcements\": [\n    {\n      \"title\": \"<string>\",\n      \"content\": \"<string>\",\n      \"created_at\": \"<long>\",\n      \"expired_at\": \"<long>\"\n    },\n    {\n      \"title\": \"<string>\",\n      \"content\": \"<string>\",\n      \"created_at\": \"<long>\",\n      \"expired_at\": \"<long>\"\n    }\n  ],\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:26:38.000Z",
+                      "updatedAt": "2026-10-21T20:26:38.000Z",
+                      "uid": "35240-c94f7927-fef5-4a9c-8c54-da576f99b451"
+                    },
+                    {
+                      "id": "77d527ca-f335-4db1-be5e-fce008c4e93a",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/announcement",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "announcement"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:26:38.000Z",
+                      "updatedAt": "2026-10-21T20:26:38.000Z",
+                      "uid": "35240-77d527ca-f335-4db1-be5e-fce008c4e93a"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:26:38.000Z",
+                  "updatedAt": "2026-10-21T20:26:38.000Z",
+                  "uid": "35240-cc2c5bc0-9bdc-42af-b776-e321072dddda"
                 }
               ],
-              "body": "{\n  \"code\": 4740,\n  \"announcements\": [\n    {\n      \"title\": \"string\",\n      \"content\": \"string\",\n      \"created_at\": 8800,\n      \"expired_at\": 4745\n    },\n    {\n      \"title\": \"string\",\n      \"content\": \"string\",\n      \"created_at\": 5388,\n      \"expired_at\": 8512\n    }\n  ],\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "ca2d169c-01a8-4a23-96d5-686e229e385e",
-              "name": "Bad request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "announcement"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 3784,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "5bae5285-6a98-4bd1-90f6-69feab3d218b",
+              "createdAt": "2026-10-21T20:26:38.000Z",
+              "updatedAt": "2026-10-21T20:26:38.000Z",
+              "uid": "35240-5bae5285-6a98-4bd1-90f6-69feab3d218b"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "2471a089-8daf-422d-9cc1-c851a376c922",
+          "createdAt": "2026-10-21T20:26:38.000Z",
+          "updatedAt": "2026-10-21T20:26:38.000Z",
+          "uid": "35240-2471a089-8daf-422d-9cc1-c851a376c922"
         }
       ],
-      "event": []
+      "id": "402d618a-839e-4d98-ab4f-45c9d15d1b57",
+      "createdAt": "2026-10-21T20:26:38.000Z",
+      "updatedAt": "2026-10-21T20:26:38.000Z",
+      "uid": "35240-402d618a-839e-4d98-ab4f-45c9d15d1b57"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://mainnet.zklighter.elliot.ai",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://mainnet.zklighter.elliot.ai/"
     }
-  ],
-  "info": {
-    "_postman_id": "e856c3a1-0f52-4fb1-9c1c-9e983fa23155",
-    "name": "Lighter account announcement API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

@@ -1,143 +1,157 @@
 {
+  "info": {
+    "_postman_id": "5e23cb9d-0b09-4e62-9cec-1e78a9b30398",
+    "name": "Lighter Tokenlist API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:27:34.000Z",
+    "updatedAt": "2026-10-21T20:27:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-5e23cb9d-0b09-4e62-9cec-1e78a9b30398"
+  },
   "item": [
     {
-      "id": "df293398-90d4-4f39-a7cd-b53a27b25fe2",
-      "name": "tokenlist",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "d52c805a-5cf2-4609-8fbf-4f138d1619f6",
-          "name": "tokenlist",
-          "request": {
-            "name": "tokenlist",
-            "description": {
-              "content": "Get token list and their metadata",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "tokenlist"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v1",
+          "item": [
             {
-              "id": "a1446750-6bde-4948-a677-9da286f65d7d",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "tokenlist"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "tokenlist",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "tokenlist",
+                  "id": "2e88b979-bc2c-4be5-8308-58508360916f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/tokenlist",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "tokenlist"
+                      ]
+                    },
+                    "description": "Get token list and their metadata"
+                  },
+                  "response": [
+                    {
+                      "id": "7c4c140b-b89f-43b2-b548-dfc3855f6d72",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/tokenlist",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "tokenlist"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"tokens\": [\n    {\n      \"symbol\": \"<string>\",\n      \"backend_symbol\": \"<string>\",\n      \"name\": \"<string>\",\n      \"logo\": \"<string>\",\n      \"logo_extension\": \"svg\",\n      \"description_key\": \"<string>\",\n      \"gecko_id\": \"<string>\",\n      \"paprika_id\": \"<string>\",\n      \"market\": \"SPOT\",\n      \"asset_type\": \"RWA\",\n      \"categories\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"is_allowed_mainnet\": \"<boolean>\",\n      \"is_asset_allowed_mainnet\": \"<boolean>\",\n      \"default_order_book_group_by\": \"<long>\"\n    },\n    {\n      \"symbol\": \"<string>\",\n      \"backend_symbol\": \"<string>\",\n      \"name\": \"<string>\",\n      \"logo\": \"<string>\",\n      \"logo_extension\": \"svg\",\n      \"description_key\": \"<string>\",\n      \"gecko_id\": \"<string>\",\n      \"paprika_id\": \"<string>\",\n      \"market\": \"PERPS\",\n      \"asset_type\": \"RWA\",\n      \"categories\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"is_allowed_mainnet\": \"<boolean>\",\n      \"is_asset_allowed_mainnet\": \"<boolean>\",\n      \"default_order_book_group_by\": \"<long>\"\n    }\n  ],\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:27:34.000Z",
+                      "updatedAt": "2026-10-21T20:27:34.000Z",
+                      "uid": "35240-7c4c140b-b89f-43b2-b548-dfc3855f6d72"
+                    },
+                    {
+                      "id": "adf7735b-ecce-4ccc-a514-a608581e3061",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/tokenlist",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "tokenlist"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:27:34.000Z",
+                      "updatedAt": "2026-10-21T20:27:34.000Z",
+                      "uid": "35240-adf7735b-ecce-4ccc-a514-a608581e3061"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:27:34.000Z",
+                  "updatedAt": "2026-10-21T20:27:34.000Z",
+                  "uid": "35240-2e88b979-bc2c-4be5-8308-58508360916f"
                 }
               ],
-              "body": "{\n  \"code\": 200,\n  \"tokens\": [\n    {\n      \"symbol\": \"ETH\",\n      \"name\": \"Ethereum\",\n      \"logo\": \"eth\",\n      \"logo_extension\": \"svg\",\n      \"description_key\": \"token_description_eth\",\n      \"gecko_id\": \"ethereum\",\n      \"paprika_id\": \"eth-ethereum\",\n      \"market\": \"PERPS\",\n      \"asset_type\": \"CRYPTO\",\n      \"categories\": [\n        \"string\",\n        \"string\"\n      ],\n      \"is_allowed_mainnet\": true,\n      \"is_asset_allowed_mainnet\": true\n    },\n    {\n      \"symbol\": \"ETH\",\n      \"name\": \"Ethereum\",\n      \"logo\": \"eth\",\n      \"logo_extension\": \"svg\",\n      \"description_key\": \"token_description_eth\",\n      \"gecko_id\": \"ethereum\",\n      \"paprika_id\": \"eth-ethereum\",\n      \"market\": \"PERPS\",\n      \"asset_type\": \"RWA\",\n      \"categories\": [\n        \"string\",\n        \"string\"\n      ],\n      \"is_allowed_mainnet\": true,\n      \"is_asset_allowed_mainnet\": false\n    }\n  ],\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "f681e28d-965d-4ba7-bc3b-1b1fb4a2dc94",
-              "name": "Bad request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "tokenlist"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 1380,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "cae14ea2-56cf-4c51-ab16-b60e38e583be",
+              "createdAt": "2026-10-21T20:27:34.000Z",
+              "updatedAt": "2026-10-21T20:27:34.000Z",
+              "uid": "35240-cae14ea2-56cf-4c51-ab16-b60e38e583be"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "984c8e1f-ac49-4165-97d0-05dd1be2d90b",
+          "createdAt": "2026-10-21T20:27:34.000Z",
+          "updatedAt": "2026-10-21T20:27:34.000Z",
+          "uid": "35240-984c8e1f-ac49-4165-97d0-05dd1be2d90b"
         }
       ],
-      "event": []
+      "id": "4eb8d5aa-4a70-43d0-ad48-2a717eae8c15",
+      "createdAt": "2026-10-21T20:27:34.000Z",
+      "updatedAt": "2026-10-21T20:27:34.000Z",
+      "uid": "35240-4eb8d5aa-4a70-43d0-ad48-2a717eae8c15"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://mainnet.zklighter.elliot.ai",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://mainnet.zklighter.elliot.ai/"
     }
-  ],
-  "info": {
-    "_postman_id": "9d6cb0d1-d159-4353-84c8-53f01b3a1a05",
-    "name": "Lighter account tokenlist API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

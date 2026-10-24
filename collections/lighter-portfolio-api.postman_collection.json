@@ -1,0 +1,241 @@
+{
+  "info": {
+    "_postman_id": "1fde2e05-7594-4c6b-8941-39e9c9fa7ebc",
+    "name": "Lighter Portfolio API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:27:52.000Z",
+    "updatedAt": "2026-10-21T20:27:52.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1fde2e05-7594-4c6b-8941-39e9c9fa7ebc"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "portfolio",
+              "item": [
+                {
+                  "name": "boPnl",
+                  "item": [
+                    {
+                      "name": "portfolio_boPnl",
+                      "id": "1cffb14e-7a77-4a8a-a472-604dd6e76f5c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/portfolio/boPnl?auth=<string>&account_index=<long>&event_id=<long>&cursor=<long>&limit=100",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "portfolio",
+                            "boPnl"
+                          ],
+                          "query": [
+                            {
+                              "description": "Account auth token, supplied as an alternative to the `authorization` header.",
+                              "key": "auth",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "account_index",
+                              "value": "<long>"
+                            },
+                            {
+                              "key": "event_id",
+                              "value": "<long>"
+                            },
+                            {
+                              "key": "cursor",
+                              "value": "<long>"
+                            },
+                            {
+                              "key": "limit",
+                              "value": "100"
+                            }
+                          ]
+                        },
+                        "description": "Get binary-options realized PnL for an authenticated account, grouped by event and ordered newest event first. cursor is an exclusive event id; event_id returns a single event. Every outcome the account has traded is reported, including markets still open or unsettled, so an entry never disappears as the account trades. Per outcome, total_pnl is all realized PnL so far including settlement, and settlement_pnl is null until the market settles with a position to settle, then the string 0.000000 for an actual zero-PnL settlement. An event's total_pnl is the sum of its listed outcomes. Missing display metadata uses zero/empty values."
+                      },
+                      "response": [
+                        {
+                          "id": "56bb652e-6660-4e11-bb69-4be8cca00a7b",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/portfolio/boPnl?auth=<string>&account_index=<long>&event_id=<long>&cursor=<long>&limit=100",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "portfolio",
+                                "boPnl"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Account auth token, supplied as an alternative to the `authorization` header.",
+                                  "key": "auth",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "account_index",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "key": "event_id",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "key": "cursor",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "key": "limit",
+                                  "value": "100"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"events\": [\n    {\n      \"event_id\": \"<long>\",\n      \"event_title\": \"<string>\",\n      \"event_description\": \"<string>\",\n      \"total_pnl\": \"<string>\",\n      \"outcomes\": [\n        {\n          \"market_id\": \"<long>\",\n          \"symbol\": \"<string>\",\n          \"outcome\": 2,\n          \"end_timestamp\": \"<long>\",\n          \"settlement_pnl\": \"<string,null>\",\n          \"last_trade_id\": \"<long>\",\n          \"total_pnl\": \"<string>\"\n        },\n        {\n          \"market_id\": \"<long>\",\n          \"symbol\": \"<string>\",\n          \"outcome\": 1,\n          \"end_timestamp\": \"<long>\",\n          \"settlement_pnl\": \"<string,null>\",\n          \"last_trade_id\": \"<long>\",\n          \"total_pnl\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"event_id\": \"<long>\",\n      \"event_title\": \"<string>\",\n      \"event_description\": \"<string>\",\n      \"total_pnl\": \"<string>\",\n      \"outcomes\": [\n        {\n          \"market_id\": \"<long>\",\n          \"symbol\": \"<string>\",\n          \"outcome\": 2,\n          \"end_timestamp\": \"<long>\",\n          \"settlement_pnl\": \"<string,null>\",\n          \"last_trade_id\": \"<long>\",\n          \"total_pnl\": \"<string>\"\n        },\n        {\n          \"market_id\": \"<long>\",\n          \"symbol\": \"<string>\",\n          \"outcome\": 1,\n          \"end_timestamp\": \"<long>\",\n          \"settlement_pnl\": \"<string,null>\",\n          \"last_trade_id\": \"<long>\",\n          \"total_pnl\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"message\": \"<string>\",\n  \"next_cursor\": \"<long>\"\n}",
+                          "createdAt": "2026-10-21T20:27:52.000Z",
+                          "updatedAt": "2026-10-21T20:27:52.000Z",
+                          "uid": "35240-56bb652e-6660-4e11-bb69-4be8cca00a7b"
+                        },
+                        {
+                          "id": "d5b5c9fd-3f04-42b4-8777-7f21262d23f7",
+                          "name": "Bad request",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/portfolio/boPnl?auth=<string>&account_index=<long>&event_id=<long>&cursor=<long>&limit=100",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "portfolio",
+                                "boPnl"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Account auth token, supplied as an alternative to the `authorization` header.",
+                                  "key": "auth",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "account_index",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "key": "event_id",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "key": "cursor",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "key": "limit",
+                                  "value": "100"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:27:52.000Z",
+                          "updatedAt": "2026-10-21T20:27:52.000Z",
+                          "uid": "35240-d5b5c9fd-3f04-42b4-8777-7f21262d23f7"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:27:52.000Z",
+                      "updatedAt": "2026-10-21T20:27:52.000Z",
+                      "uid": "35240-1cffb14e-7a77-4a8a-a472-604dd6e76f5c"
+                    }
+                  ],
+                  "id": "46dfd862-4bb2-4d74-ad7b-fb1e2f364943",
+                  "createdAt": "2026-10-21T20:27:52.000Z",
+                  "updatedAt": "2026-10-21T20:27:52.000Z",
+                  "uid": "35240-46dfd862-4bb2-4d74-ad7b-fb1e2f364943"
+                }
+              ],
+              "id": "6551635e-c9c4-46eb-aed9-0f22ea1cb546",
+              "createdAt": "2026-10-21T20:27:52.000Z",
+              "updatedAt": "2026-10-21T20:27:52.000Z",
+              "uid": "35240-6551635e-c9c4-46eb-aed9-0f22ea1cb546"
+            }
+          ],
+          "id": "dcf71700-e339-4fc3-a214-5c954680d62f",
+          "createdAt": "2026-10-21T20:27:52.000Z",
+          "updatedAt": "2026-10-21T20:27:52.000Z",
+          "uid": "35240-dcf71700-e339-4fc3-a214-5c954680d62f"
+        }
+      ],
+      "id": "260b076c-e81b-4535-a353-ff2d6beccc47",
+      "createdAt": "2026-10-21T20:27:52.000Z",
+      "updatedAt": "2026-10-21T20:27:52.000Z",
+      "uid": "35240-260b076c-e81b-4535-a353-ff2d6beccc47"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://mainnet.zklighter.elliot.ai/"
+    }
+  ]
+}

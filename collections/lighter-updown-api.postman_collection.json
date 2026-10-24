@@ -1,0 +1,250 @@
+{
+  "info": {
+    "_postman_id": "5eec06ad-2a79-4878-a4c3-6a6994937793",
+    "name": "Lighter Updown API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:27:58.000Z",
+    "updatedAt": "2026-10-21T20:27:58.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-5eec06ad-2a79-4878-a4c3-6a6994937793"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "upDownCandles",
+              "item": [
+                {
+                  "name": "upDownCandles",
+                  "id": "bed6f222-5ed7-4d2c-81d7-f46e91f46444",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/upDownCandles?symbol=<string>&duration=<string>&resolution=1s&start_timestamp=<long>&end_timestamp=<long>&limit=1000",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "upDownCandles"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required)  market series: underlying (case-insensitive) ...",
+                          "key": "symbol",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required)  ... and market duration, e.g. 30s or 5m",
+                          "key": "duration",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": " 1s candles are the observations themselves",
+                          "key": "resolution",
+                          "value": "1s"
+                        },
+                        {
+                          "description": "(Required)  inclusive bucket start, seconds",
+                          "key": "start_timestamp",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "(Required)  inclusive, seconds; at most 24h after start_timestamp",
+                          "key": "end_timestamp",
+                          "value": "<long>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "1000"
+                        }
+                      ]
+                    },
+                    "description": "Get the OHLC candles (1s = the exact price observations, or 30s) of an up/down market series (symbol + duration, e.g. btc/5m) in a bounded time range (at most 24h), oldest first. Pass next_cursor as start_timestamp to page forward; live candles are on the up_down_candle/// websocket channel."
+                  },
+                  "response": [
+                    {
+                      "id": "7069b54c-98cd-440b-84a7-f9be299a17e8",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/upDownCandles?symbol=<string>&duration=<string>&resolution=1s&start_timestamp=<long>&end_timestamp=<long>&limit=1000",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "upDownCandles"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required)  market series: underlying (case-insensitive) ...",
+                              "key": "symbol",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required)  ... and market duration, e.g. 30s or 5m",
+                              "key": "duration",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": " 1s candles are the observations themselves",
+                              "key": "resolution",
+                              "value": "1s"
+                            },
+                            {
+                              "description": "(Required)  inclusive bucket start, seconds",
+                              "key": "start_timestamp",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": "(Required)  inclusive, seconds; at most 24h after start_timestamp",
+                              "key": "end_timestamp",
+                              "value": "<long>"
+                            },
+                            {
+                              "key": "limit",
+                              "value": "1000"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"candles\": [\n    {\n      \"symbol\": \"<string>\",\n      \"duration\": \"<string>\",\n      \"resolution\": \"<string>\",\n      \"timestamp\": \"<long>\",\n      \"open\": \"<string>\",\n      \"high\": \"<string>\",\n      \"low\": \"<string>\",\n      \"close\": \"<string>\",\n      \"provider\": \"<string>\",\n      \"feed_id\": \"<string>\"\n    },\n    {\n      \"symbol\": \"<string>\",\n      \"duration\": \"<string>\",\n      \"resolution\": \"<string>\",\n      \"timestamp\": \"<long>\",\n      \"open\": \"<string>\",\n      \"high\": \"<string>\",\n      \"low\": \"<string>\",\n      \"close\": \"<string>\",\n      \"provider\": \"<string>\",\n      \"feed_id\": \"<string>\"\n    }\n  ],\n  \"message\": \"<string>\",\n  \"next_cursor\": \"<long>\"\n}",
+                      "createdAt": "2026-10-21T20:27:59.000Z",
+                      "updatedAt": "2026-10-21T20:27:59.000Z",
+                      "uid": "35240-7069b54c-98cd-440b-84a7-f9be299a17e8"
+                    },
+                    {
+                      "id": "30e9a9db-c347-426f-b9b2-1c5fe6a1ad49",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/upDownCandles?symbol=<string>&duration=<string>&resolution=1s&start_timestamp=<long>&end_timestamp=<long>&limit=1000",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "upDownCandles"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required)  market series: underlying (case-insensitive) ...",
+                              "key": "symbol",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required)  ... and market duration, e.g. 30s or 5m",
+                              "key": "duration",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": " 1s candles are the observations themselves",
+                              "key": "resolution",
+                              "value": "1s"
+                            },
+                            {
+                              "description": "(Required)  inclusive bucket start, seconds",
+                              "key": "start_timestamp",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": "(Required)  inclusive, seconds; at most 24h after start_timestamp",
+                              "key": "end_timestamp",
+                              "value": "<long>"
+                            },
+                            {
+                              "key": "limit",
+                              "value": "1000"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:27:59.000Z",
+                      "updatedAt": "2026-10-21T20:27:59.000Z",
+                      "uid": "35240-30e9a9db-c347-426f-b9b2-1c5fe6a1ad49"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:27:59.000Z",
+                  "updatedAt": "2026-10-21T20:27:59.000Z",
+                  "uid": "35240-bed6f222-5ed7-4d2c-81d7-f46e91f46444"
+                }
+              ],
+              "id": "49982fa1-f289-47c4-b7ad-b21537160507",
+              "createdAt": "2026-10-21T20:27:59.000Z",
+              "updatedAt": "2026-10-21T20:27:59.000Z",
+              "uid": "35240-49982fa1-f289-47c4-b7ad-b21537160507"
+            }
+          ],
+          "id": "0ae71d0b-4f33-4143-9a8a-1f12910b4c06",
+          "createdAt": "2026-10-21T20:27:59.000Z",
+          "updatedAt": "2026-10-21T20:27:59.000Z",
+          "uid": "35240-0ae71d0b-4f33-4143-9a8a-1f12910b4c06"
+        }
+      ],
+      "id": "2255f304-7791-4a5a-b4ce-0a4cb6360726",
+      "createdAt": "2026-10-21T20:27:59.000Z",
+      "updatedAt": "2026-10-21T20:27:59.000Z",
+      "uid": "35240-2255f304-7791-4a5a-b4ce-0a4cb6360726"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://mainnet.zklighter.elliot.ai/"
+    }
+  ]
+}

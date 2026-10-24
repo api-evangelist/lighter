@@ -1,247 +1,226 @@
 {
+  "info": {
+    "_postman_id": "7141586f-c40d-4700-87b5-abdcf146b5ca",
+    "name": "Lighter Notification API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:27:07.000Z",
+    "updatedAt": "2026-10-21T20:27:07.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7141586f-c40d-4700-87b5-abdcf146b5ca"
+  },
   "item": [
     {
-      "id": "0cf02236-ea19-400d-8b7e-deb37276b23e",
-      "name": "notification",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "1d5682d7-9d75-4821-926c-fe31d2bf69a4",
-          "name": "notification_ack",
-          "request": {
-            "name": "notification_ack",
-            "description": {
-              "content": "Ack notification",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "notification",
-                "ack"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/x-www-form-urlencoded"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "disabled": false,
-                  "key": "notif_id",
-                  "value": "<string>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "account_index",
-                  "value": "<long>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "auth",
-                  "value": "<string>",
-                  "description": " made optional to support header auth clients"
-                }
-              ]
-            }
-          },
-          "response": [
+          "name": "v1",
+          "item": [
             {
-              "id": "b7cd418e-7bf8-458f-a3ef-f962ce8f7e8a",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "notification",
-                    "ack"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "disabled": false,
-                    "description": " make required after integ is done",
-                    "key": "authorization",
-                    "value": "string"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "urlencoded",
-                  "urlencoded": [
-                    {
-                      "disabled": false,
-                      "description": {
-                        "content": "(Required) ",
-                        "type": "text/plain"
-                      },
-                      "key": "notif_id",
-                      "value": "'liq:17:5898'"
-                    },
-                    {
-                      "disabled": false,
-                      "description": {
-                        "content": "(Required) ",
-                        "type": "text/plain"
-                      },
-                      "key": "account_index",
-                      "value": "<long>"
-                    },
-                    {
-                      "disabled": false,
-                      "description": {
-                        "content": " made optional to support header auth clients",
-                        "type": "text/plain"
-                      },
-                      "key": "auth",
-                      "value": "<string>"
-                    }
-                  ]
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "notification",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "ack",
+                  "item": [
+                    {
+                      "name": "notification_ack",
+                      "id": "b05617e5-abcc-451f-91f3-2bf145d7d476",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) ",
+                              "key": "notif_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "account_index",
+                              "value": "<long>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/notification/ack",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "notification",
+                            "ack"
+                          ]
+                        },
+                        "description": "Ack notification"
+                      },
+                      "response": [
+                        {
+                          "id": "18a43a0a-9cab-4af1-b154-aafa50073f4b",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "notif_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "account_index",
+                                  "value": "<long>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/notification/ack",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "notification",
+                                "ack"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:27:07.000Z",
+                          "updatedAt": "2026-10-21T20:27:07.000Z",
+                          "uid": "35240-18a43a0a-9cab-4af1-b154-aafa50073f4b"
+                        },
+                        {
+                          "id": "6db649be-bda1-4cfc-a51c-2729fbd21db7",
+                          "name": "Bad request",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "notif_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "account_index",
+                                  "value": "<long>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/notification/ack",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "notification",
+                                "ack"
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:27:07.000Z",
+                          "updatedAt": "2026-10-21T20:27:07.000Z",
+                          "uid": "35240-6db649be-bda1-4cfc-a51c-2729fbd21db7"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:27:07.000Z",
+                      "updatedAt": "2026-10-21T20:27:07.000Z",
+                      "uid": "35240-b05617e5-abcc-451f-91f3-2bf145d7d476"
+                    }
+                  ],
+                  "id": "e77c5b09-8499-4b51-bab6-9fbea93d8222",
+                  "createdAt": "2026-10-21T20:27:07.000Z",
+                  "updatedAt": "2026-10-21T20:27:07.000Z",
+                  "uid": "35240-e77c5b09-8499-4b51-bab6-9fbea93d8222"
                 }
               ],
-              "body": "{\n  \"code\": 6560,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "ad6c78af-029e-4d5b-8739-3011cf31d1c1",
-              "name": "Bad request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "notification",
-                    "ack"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "disabled": false,
-                    "description": " make required after integ is done",
-                    "key": "authorization",
-                    "value": "string"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "urlencoded",
-                  "urlencoded": [
-                    {
-                      "disabled": false,
-                      "description": {
-                        "content": "(Required) ",
-                        "type": "text/plain"
-                      },
-                      "key": "notif_id",
-                      "value": "'liq:17:5898'"
-                    },
-                    {
-                      "disabled": false,
-                      "description": {
-                        "content": "(Required) ",
-                        "type": "text/plain"
-                      },
-                      "key": "account_index",
-                      "value": "<long>"
-                    },
-                    {
-                      "disabled": false,
-                      "description": {
-                        "content": " made optional to support header auth clients",
-                        "type": "text/plain"
-                      },
-                      "key": "auth",
-                      "value": "<string>"
-                    }
-                  ]
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 6560,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "82c117a6-38f5-46e8-ada1-205ff50ede41",
+              "createdAt": "2026-10-21T20:27:07.000Z",
+              "updatedAt": "2026-10-21T20:27:07.000Z",
+              "uid": "35240-82c117a6-38f5-46e8-ada1-205ff50ede41"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "19b7c9f2-f35b-4aae-942c-cb5c765fa262",
+          "createdAt": "2026-10-21T20:27:07.000Z",
+          "updatedAt": "2026-10-21T20:27:07.000Z",
+          "uid": "35240-19b7c9f2-f35b-4aae-942c-cb5c765fa262"
         }
       ],
-      "event": []
+      "id": "0750360b-fe90-4960-b864-1df28c69b975",
+      "createdAt": "2026-10-21T20:27:07.000Z",
+      "updatedAt": "2026-10-21T20:27:07.000Z",
+      "uid": "35240-0750360b-fe90-4960-b864-1df28c69b975"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://mainnet.zklighter.elliot.ai",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://mainnet.zklighter.elliot.ai/"
     }
-  ],
-  "info": {
-    "_postman_id": "ce40995c-6e89-4f57-a3a8-009118856a2e",
-    "name": "Lighter account notification API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

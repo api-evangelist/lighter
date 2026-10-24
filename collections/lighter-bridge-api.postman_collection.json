@@ -1,961 +1,970 @@
 {
+  "info": {
+    "_postman_id": "fdfc9b23-647e-48df-8fac-c6a577699bdd",
+    "name": "Lighter Bridge API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:26:44.000Z",
+    "updatedAt": "2026-10-21T20:26:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-fdfc9b23-647e-48df-8fac-c6a577699bdd"
+  },
   "item": [
     {
-      "id": "f54046ef-09c3-4de4-8a36-54ca21f89f2f",
-      "name": "bridge",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "9f375014-57c0-415c-b551-d5583bc85094",
-          "name": "fastbridge_info",
-          "request": {
-            "name": "fastbridge_info",
-            "description": {
-              "content": "Get fast bridge info",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "fastbridge",
-                "info"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v1",
+          "item": [
             {
-              "id": "e454d366-a2a9-4a65-b8a5-a9b6e4733a19",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "fastbridge",
-                    "info"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "fastbridge",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "info",
+                  "item": [
+                    {
+                      "name": "fastbridge_info",
+                      "id": "bff6b04a-986e-40fd-bc72-09a03eb91d08",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/fastbridge/info",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "fastbridge",
+                            "info"
+                          ]
+                        },
+                        "description": "Get fast bridge info"
+                      },
+                      "response": [
+                        {
+                          "id": "a1ae0211-4d1b-447c-8ec6-46dd5991d44b",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/fastbridge/info",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "fastbridge",
+                                "info"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"fast_bridge_limit\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:26:44.000Z",
+                          "updatedAt": "2026-10-21T20:26:44.000Z",
+                          "uid": "35240-a1ae0211-4d1b-447c-8ec6-46dd5991d44b"
+                        },
+                        {
+                          "id": "65ee4bc1-2a3a-4e54-8878-ee95be7cc1f6",
+                          "name": "Bad request",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/fastbridge/info",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "fastbridge",
+                                "info"
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:26:44.000Z",
+                          "updatedAt": "2026-10-21T20:26:44.000Z",
+                          "uid": "35240-65ee4bc1-2a3a-4e54-8878-ee95be7cc1f6"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:26:44.000Z",
+                      "updatedAt": "2026-10-21T20:26:44.000Z",
+                      "uid": "35240-bff6b04a-986e-40fd-bc72-09a03eb91d08"
+                    }
+                  ],
+                  "id": "a238d38f-0378-4450-a623-cdae3fcaeb0f",
+                  "createdAt": "2026-10-21T20:26:44.000Z",
+                  "updatedAt": "2026-10-21T20:26:44.000Z",
+                  "uid": "35240-a238d38f-0378-4450-a623-cdae3fcaeb0f"
                 }
               ],
-              "body": "{\n  \"code\": 8210,\n  \"fast_bridge_limit\": \"string\",\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "6419f753-e83b-44dc-9864-b997ff5de99c",
+              "createdAt": "2026-10-21T20:26:44.000Z",
+              "updatedAt": "2026-10-21T20:26:44.000Z",
+              "uid": "35240-6419f753-e83b-44dc-9864-b997ff5de99c"
             },
             {
-              "id": "c5b70482-af6d-41c0-9dd9-268226b1e513",
-              "name": "Bad request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "fastbridge",
-                    "info"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
+              "name": "fastwithdraw",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 2979,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "03fcc65e-3d32-40e6-90f4-6a5d4b08ca00",
-          "name": "fastwithdraw",
-          "request": {
-            "name": "fastwithdraw",
-            "description": {
-              "content": "Fast withdraw",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "fastwithdraw"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/x-www-form-urlencoded"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "disabled": false,
-                  "key": "tx_info",
-                  "value": "<string>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "to_address",
-                  "value": "<string>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "auth",
-                  "value": "<string>",
-                  "description": " made optional to support header auth clients"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "fc836fe0-eac1-456c-8f9b-8ebe4ed29e03",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "fastwithdraw"
+                  "name": "info",
+                  "item": [
+                    {
+                      "name": "fastwithdraw_info",
+                      "id": "f7050f83-098c-473d-b19c-6a522f0ba9aa",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/fastwithdraw/info?account_index=<long>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "fastwithdraw",
+                            "info"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "account_index",
+                              "value": "<long>"
+                            }
+                          ]
+                        },
+                        "description": "Get fast withdraw info"
+                      },
+                      "response": [
+                        {
+                          "id": "8ae2532b-5ce7-47fe-b242-3757f513c873",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/fastwithdraw/info?account_index=<long>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "fastwithdraw",
+                                "info"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "account_index",
+                                  "value": "<long>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"to_account_index\": \"<long>\",\n  \"withdraw_limit\": \"<string>\",\n  \"max_withdrawal_amount\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:26:44.000Z",
+                          "updatedAt": "2026-10-21T20:26:44.000Z",
+                          "uid": "35240-8ae2532b-5ce7-47fe-b242-3757f513c873"
+                        },
+                        {
+                          "id": "2e8ac202-c5ef-4f6d-8855-9bb775f49907",
+                          "name": "Bad request",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/fastwithdraw/info?account_index=<long>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "fastwithdraw",
+                                "info"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "account_index",
+                                  "value": "<long>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:26:44.000Z",
+                          "updatedAt": "2026-10-21T20:26:44.000Z",
+                          "uid": "35240-2e8ac202-c5ef-4f6d-8855-9bb775f49907"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:26:44.000Z",
+                      "updatedAt": "2026-10-21T20:26:44.000Z",
+                      "uid": "35240-f7050f83-098c-473d-b19c-6a522f0ba9aa"
+                    }
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
+                  "id": "83a7d557-5f2e-46ba-85a0-9521c7da0d36",
+                  "createdAt": "2026-10-21T20:26:44.000Z",
+                  "updatedAt": "2026-10-21T20:26:44.000Z",
+                  "uid": "35240-83a7d557-5f2e-46ba-85a0-9521c7da0d36"
                 },
-                "header": [
-                  {
-                    "disabled": false,
-                    "description": " make required after integ is done",
-                    "key": "authorization",
-                    "value": "string"
+                {
+                  "name": "fastwithdraw",
+                  "id": "8bada574-0649-4604-8a10-2f256621a5b4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "urlencoded",
-                  "urlencoded": [
-                    {
-                      "disabled": false,
-                      "description": {
-                        "content": "(Required) ",
-                        "type": "text/plain"
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
                       },
-                      "key": "tx_info",
-                      "value": "<string>"
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) ",
+                          "key": "tx_info",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "to_address",
+                          "value": "<string>"
+                        }
+                      ]
                     },
-                    {
-                      "disabled": false,
-                      "description": {
-                        "content": "(Required) ",
-                        "type": "text/plain"
-                      },
-                      "key": "to_address",
-                      "value": "<string>"
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/fastwithdraw",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "fastwithdraw"
+                      ]
                     },
-                    {
-                      "disabled": false,
-                      "description": {
-                        "content": " made optional to support header auth clients",
-                        "type": "text/plain"
-                      },
-                      "key": "auth",
-                      "value": "<string>"
-                    }
-                  ]
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 2979,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "4ee51150-ed06-41ce-8f5d-bbf559fc43d3",
-              "name": "Bad request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "fastwithdraw"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "disabled": false,
-                    "description": " make required after integ is done",
-                    "key": "authorization",
-                    "value": "string"
+                    "description": "Fast withdraw"
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "urlencoded",
-                  "urlencoded": [
+                  "response": [
                     {
-                      "disabled": false,
-                      "description": {
-                        "content": "(Required) ",
-                        "type": "text/plain"
+                      "id": "f82cf606-c8ed-4860-a205-87c9d015986d",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) ",
+                              "key": "tx_info",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "to_address",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/fastwithdraw",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "fastwithdraw"
+                          ]
+                        }
                       },
-                      "key": "tx_info",
-                      "value": "<string>"
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:26:44.000Z",
+                      "updatedAt": "2026-10-21T20:26:44.000Z",
+                      "uid": "35240-f82cf606-c8ed-4860-a205-87c9d015986d"
                     },
                     {
-                      "disabled": false,
-                      "description": {
-                        "content": "(Required) ",
-                        "type": "text/plain"
+                      "id": "38bd3d88-1f2a-4678-af11-a756bf0fe7a5",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) ",
+                              "key": "tx_info",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "to_address",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/fastwithdraw",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "fastwithdraw"
+                          ]
+                        }
                       },
-                      "key": "to_address",
-                      "value": "<string>"
-                    },
-                    {
-                      "disabled": false,
-                      "description": {
-                        "content": " made optional to support header auth clients",
-                        "type": "text/plain"
-                      },
-                      "key": "auth",
-                      "value": "<string>"
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:26:44.000Z",
+                      "updatedAt": "2026-10-21T20:26:44.000Z",
+                      "uid": "35240-38bd3d88-1f2a-4678-af11-a756bf0fe7a5"
                     }
-                  ]
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  ],
+                  "createdAt": "2026-10-21T20:26:44.000Z",
+                  "updatedAt": "2026-10-21T20:26:44.000Z",
+                  "uid": "35240-8bada574-0649-4604-8a10-2f256621a5b4"
                 }
               ],
-              "body": "{\n  \"code\": 2979,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "e80bc250-c754-4173-bf29-00c9d091347b",
-          "name": "fastwithdraw_info",
-          "request": {
-            "name": "fastwithdraw_info",
-            "description": {
-              "content": "Get fast withdraw info",
-              "type": "text/plain"
+              "id": "f99a4986-fc52-4e23-88fa-7c163622eb6d",
+              "createdAt": "2026-10-21T20:26:44.000Z",
+              "updatedAt": "2026-10-21T20:26:44.000Z",
+              "uid": "35240-f99a4986-fc52-4e23-88fa-7c163622eb6d"
             },
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "fastwithdraw",
-                "info"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "account_index",
-                  "value": "<long>",
-                  "description": "(Required) "
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
             {
-              "id": "f745b662-41c0-40df-9205-3d62a377beab",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "fastwithdraw",
-                    "info"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "account_index",
-                      "value": "<long>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "disabled": false,
-                    "description": "(Required) ",
-                    "key": "authorization",
-                    "value": "string"
+              "name": "createIntentAddress",
+              "item": [
+                {
+                  "name": "createIntentAddress",
+                  "id": "ba8b98d1-6141-4c24-a2d8-94f470b4ac0d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 1587,\n  \"to_account_index\": 2604,\n  \"withdraw_limit\": \"string\",\n  \"max_withdrawal_amount\": \"string\",\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "4bcad2ce-1b29-4082-92f2-467b1ec41fb7",
-              "name": "Bad request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "fastwithdraw",
-                    "info"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "account_index",
-                      "value": "<long>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "disabled": false,
-                    "description": "(Required) ",
-                    "key": "authorization",
-                    "value": "string"
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) ",
+                          "key": "chain_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "from_addr",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "amount",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "is_external_deposit",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/createIntentAddress",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "createIntentAddress"
+                      ]
+                    },
+                    "description": "Create a bridge intent address for CCTP bridge"
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 2979,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "a6e07c91-e2b8-4318-af85-4133f4687ea7",
-          "name": "createIntentAddress",
-          "request": {
-            "name": "createIntentAddress",
-            "description": {
-              "content": "Create a bridge intent address for CCTP bridge",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "createIntentAddress"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/x-www-form-urlencoded"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "disabled": false,
-                  "key": "chain_id",
-                  "value": "<string>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "from_addr",
-                  "value": "<string>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "amount",
-                  "value": "<string>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "is_external_deposit",
-                  "value": "<boolean>"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "390122e8-55ff-4f3a-80f1-3e052175d964",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "createIntentAddress"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "urlencoded",
-                  "urlencoded": [
+                  "response": [
                     {
-                      "disabled": false,
-                      "description": {
-                        "content": "(Required) ",
-                        "type": "text/plain"
+                      "id": "06f3570d-9005-4b73-bc0f-8f31cbc18c75",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) ",
+                              "key": "chain_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "from_addr",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "amount",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "is_external_deposit",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/createIntentAddress",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "createIntentAddress"
+                          ]
+                        }
                       },
-                      "key": "chain_id",
-                      "value": "<string>"
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"intent_address\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:26:44.000Z",
+                      "updatedAt": "2026-10-21T20:26:44.000Z",
+                      "uid": "35240-06f3570d-9005-4b73-bc0f-8f31cbc18c75"
                     },
                     {
-                      "disabled": false,
-                      "description": {
-                        "content": "(Required) ",
-                        "type": "text/plain"
+                      "id": "707ec60a-263d-4c50-b709-cd42e4196ea7",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) ",
+                              "key": "chain_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "from_addr",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "amount",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "is_external_deposit",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/createIntentAddress",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "createIntentAddress"
+                          ]
+                        }
                       },
-                      "key": "from_addr",
-                      "value": "<string>"
-                    },
-                    {
-                      "disabled": false,
-                      "description": {
-                        "content": "(Required) ",
-                        "type": "text/plain"
-                      },
-                      "key": "amount",
-                      "value": "<string>"
-                    },
-                    {
-                      "disabled": false,
-                      "key": "is_external_deposit",
-                      "value": "<boolean>"
-                    }
-                  ]
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 1200,\n  \"intent_address\": \"string\",\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "8f2c2099-7ae1-4a33-842a-33643ca6bc59",
-              "name": "Bad request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "createIntentAddress"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "urlencoded",
-                  "urlencoded": [
-                    {
-                      "disabled": false,
-                      "description": {
-                        "content": "(Required) ",
-                        "type": "text/plain"
-                      },
-                      "key": "chain_id",
-                      "value": "<string>"
-                    },
-                    {
-                      "disabled": false,
-                      "description": {
-                        "content": "(Required) ",
-                        "type": "text/plain"
-                      },
-                      "key": "from_addr",
-                      "value": "<string>"
-                    },
-                    {
-                      "disabled": false,
-                      "description": {
-                        "content": "(Required) ",
-                        "type": "text/plain"
-                      },
-                      "key": "amount",
-                      "value": "<string>"
-                    },
-                    {
-                      "disabled": false,
-                      "key": "is_external_deposit",
-                      "value": "<boolean>"
-                    }
-                  ]
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 2979,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "4f5a46e0-47be-4469-945d-e25e5180e071",
-          "name": "deposit_networks",
-          "request": {
-            "name": "deposit_networks",
-            "description": {
-              "content": "Get networks that support deposits via intent address",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "deposit",
-                "networks"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "2787e407-2756-4789-929a-1e04ef7bd0e6",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "deposit",
-                    "networks"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 9464,\n  \"networks\": [\n    {\n      \"name\": \"Arbitrum\",\n      \"chain_id\": \"4164\",\n      \"explorer\": \"https://arbiscan.io/\"\n    },\n    {\n      \"name\": \"Arbitrum\",\n      \"chain_id\": \"4164\",\n      \"explorer\": \"https://arbiscan.io/\"\n    }\n  ],\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "b5f72639-b7c3-4ec9-8b90-80efdedc5455",
-              "name": "Bad request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "deposit",
-                    "networks"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 2979,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "e498aaff-d675-47d7-a00c-2cc0cdd01fe4",
-          "name": "deposit_latest",
-          "request": {
-            "name": "deposit_latest",
-            "description": {
-              "content": "Get most recent deposit for given l1 address",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "deposit",
-                "latest"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "l1_address",
-                  "value": "<string>",
-                  "description": "(Required) "
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "fb168484-81fb-4766-a364-39df416ed1bb",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "deposit",
-                    "latest"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "l1_address",
-                      "value": "<string>"
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:26:44.000Z",
+                      "updatedAt": "2026-10-21T20:26:44.000Z",
+                      "uid": "35240-707ec60a-263d-4c50-b709-cd42e4196ea7"
                     }
                   ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "createdAt": "2026-10-21T20:26:44.000Z",
+                  "updatedAt": "2026-10-21T20:26:44.000Z",
+                  "uid": "35240-ba8b98d1-6141-4c24-a2d8-94f470b4ac0d"
                 }
               ],
-              "body": "{\n  \"code\": 7530,\n  \"source\": \"Arbitrum\",\n  \"source_chain_id\": \"42161\",\n  \"fast_bridge_tx_hash\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n  \"batch_claim_tx_hash\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n  \"cctp_burn_tx_hash\": \"0x70997970C51812dc3A010C7d01b50e0d17dc79C8\",\n  \"amount\": \"string\",\n  \"intent_address\": \"string\",\n  \"status\": \"string\",\n  \"step\": \"string\",\n  \"description\": \"string\",\n  \"created_at\": 9030,\n  \"updated_at\": 452,\n  \"is_external_deposit\": true,\n  \"is_next_bridge_fast\": false,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "d7e96a84-8951-4e3f-b407-e0ea47c69e67",
+              "createdAt": "2026-10-21T20:26:44.000Z",
+              "updatedAt": "2026-10-21T20:26:44.000Z",
+              "uid": "35240-d7e96a84-8951-4e3f-b407-e0ea47c69e67"
             },
             {
-              "id": "14b212c8-1178-4214-8972-77ffa8c3d9a7",
-              "name": "Bad request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "deposit",
-                    "latest"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "deposit",
+              "item": [
+                {
+                  "name": "networks",
+                  "item": [
                     {
-                      "key": "l1_address",
-                      "value": "<string>"
+                      "name": "deposit_networks",
+                      "id": "c3111676-97a8-48a7-8de2-8a668c9c65ce",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/deposit/networks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "deposit",
+                            "networks"
+                          ]
+                        },
+                        "description": "Get networks that support deposits via intent address"
+                      },
+                      "response": [
+                        {
+                          "id": "a53b9394-8914-471c-8a65-1fc3e2ab9c40",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/deposit/networks",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "deposit",
+                                "networks"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"networks\": [\n    {\n      \"name\": \"<string>\",\n      \"chain_id\": \"<string>\",\n      \"explorer\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"chain_id\": \"<string>\",\n      \"explorer\": \"<string>\"\n    }\n  ],\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:26:44.000Z",
+                          "updatedAt": "2026-10-21T20:26:44.000Z",
+                          "uid": "35240-a53b9394-8914-471c-8a65-1fc3e2ab9c40"
+                        },
+                        {
+                          "id": "188e17cc-f2f9-49f3-b6f9-096f52961a27",
+                          "name": "Bad request",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/deposit/networks",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "deposit",
+                                "networks"
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:26:44.000Z",
+                          "updatedAt": "2026-10-21T20:26:44.000Z",
+                          "uid": "35240-188e17cc-f2f9-49f3-b6f9-096f52961a27"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:26:44.000Z",
+                      "updatedAt": "2026-10-21T20:26:44.000Z",
+                      "uid": "35240-c3111676-97a8-48a7-8de2-8a668c9c65ce"
                     }
                   ],
-                  "variable": []
+                  "id": "aa1f9c00-af9a-426e-9b94-e10072f04fd6",
+                  "createdAt": "2026-10-21T20:26:44.000Z",
+                  "updatedAt": "2026-10-21T20:26:44.000Z",
+                  "uid": "35240-aa1f9c00-af9a-426e-9b94-e10072f04fd6"
                 },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "latest",
+                  "item": [
+                    {
+                      "name": "deposit_latest",
+                      "id": "1850815a-b321-466e-8453-c1cfa7a231b2",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/deposit/latest?l1_address=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "deposit",
+                            "latest"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "l1_address",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "description": "Get most recent deposit for given l1 address"
+                      },
+                      "response": [
+                        {
+                          "id": "1a16a990-3b82-42e1-a68a-b1cc7fdb70fb",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/deposit/latest?l1_address=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "deposit",
+                                "latest"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "l1_address",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"source\": \"<string>\",\n  \"source_chain_id\": \"<string>\",\n  \"fast_bridge_tx_hash\": \"<string>\",\n  \"batch_claim_tx_hash\": \"<string>\",\n  \"cctp_burn_tx_hash\": \"<string>\",\n  \"amount\": \"<string>\",\n  \"intent_address\": \"<string>\",\n  \"status\": \"<string>\",\n  \"step\": \"<string>\",\n  \"description\": \"<string>\",\n  \"created_at\": \"<long>\",\n  \"updated_at\": \"<long>\",\n  \"is_external_deposit\": \"<boolean>\",\n  \"is_next_bridge_fast\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:26:44.000Z",
+                          "updatedAt": "2026-10-21T20:26:44.000Z",
+                          "uid": "35240-1a16a990-3b82-42e1-a68a-b1cc7fdb70fb"
+                        },
+                        {
+                          "id": "b63821cc-48dd-4a89-8e15-cf03d941dd53",
+                          "name": "Bad request",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/deposit/latest?l1_address=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "deposit",
+                                "latest"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "l1_address",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:26:44.000Z",
+                          "updatedAt": "2026-10-21T20:26:44.000Z",
+                          "uid": "35240-b63821cc-48dd-4a89-8e15-cf03d941dd53"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:26:44.000Z",
+                      "updatedAt": "2026-10-21T20:26:44.000Z",
+                      "uid": "35240-1850815a-b321-466e-8453-c1cfa7a231b2"
+                    }
+                  ],
+                  "id": "dfa0ead3-bdfd-456d-a246-bb47f3955bfd",
+                  "createdAt": "2026-10-21T20:26:44.000Z",
+                  "updatedAt": "2026-10-21T20:26:44.000Z",
+                  "uid": "35240-dfa0ead3-bdfd-456d-a246-bb47f3955bfd"
                 }
               ],
-              "body": "{\n  \"code\": 2979,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "273a9b27-25c9-4f0b-8c2e-988a80a5c753",
+              "createdAt": "2026-10-21T20:26:44.000Z",
+              "updatedAt": "2026-10-21T20:26:44.000Z",
+              "uid": "35240-273a9b27-25c9-4f0b-8c2e-988a80a5c753"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "9a30585c-fa7a-4c23-bc53-6aaaab2991bd",
+          "createdAt": "2026-10-21T20:26:44.000Z",
+          "updatedAt": "2026-10-21T20:26:44.000Z",
+          "uid": "35240-9a30585c-fa7a-4c23-bc53-6aaaab2991bd"
         }
       ],
-      "event": []
+      "id": "e7d1875a-1c26-4365-bec2-7889b65d8d32",
+      "createdAt": "2026-10-21T20:26:44.000Z",
+      "updatedAt": "2026-10-21T20:26:44.000Z",
+      "uid": "35240-e7d1875a-1c26-4365-bec2-7889b65d8d32"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://mainnet.zklighter.elliot.ai",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://mainnet.zklighter.elliot.ai/"
     }
-  ],
-  "info": {
-    "_postman_id": "439c95c3-d1dc-441a-8e55-4538afca303f",
-    "name": "Lighter account bridge API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "",
-      "type": "text/plain"
-    }
-  }
+  ]
 }
